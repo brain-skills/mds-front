@@ -1,0 +1,1 @@
+[Universal Template](https://brain-skills.github.io/mds-front/desktop/universals/universal)
