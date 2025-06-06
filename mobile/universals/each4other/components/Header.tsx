@@ -7,23 +7,28 @@ import {
   Text,
   TextInput,
   Dimensions,
-  Modal,
 } from 'react-native';
 import { Feather, FontAwesome5, Entypo } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+
 import Logo from '../assets/logo/each4other-logo-light-mobile.svg';
 import NotificationsDropdown from './NotificationsDropdown';
 import LanguageSelector from './LanguageSelector';
-import AuthWrapper from './AuthWrapper';
-import Login from '../screens/Login';
+
+import { RootStackParamList } from '../App';
 
 const { width } = Dimensions.get('window');
 
+type HeaderNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Home'>;
+
 export default function Header() {
+  const navigation = useNavigation<HeaderNavigationProp>();
+
   const [showSettingsOptions, setShowSettingsOptions] = useState(false);
   const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
   const [showSearchInput, setShowSearchInput] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
-  const [showAuthWrapper, setShowAuthWrapper] = useState(false);
 
   const toggleSettings = () => {
     setShowSettingsOptions(prev => {
@@ -32,7 +37,6 @@ export default function Header() {
         setShowSearchInput(false);
         setShowNotifications(false);
         setShowLanguageDropdown(false);
-        setShowAuthWrapper(false);
       }
       return newState;
     });
@@ -45,7 +49,6 @@ export default function Header() {
     setShowLanguageDropdown(true);
     setShowSearchInput(false);
     setShowNotifications(false);
-    setShowAuthWrapper(false);
   };
 
   const closeLanguageDropdown = () => setShowLanguageDropdown(false);
@@ -57,7 +60,6 @@ export default function Header() {
         setShowSettingsOptions(false);
         setShowNotifications(false);
         setShowLanguageDropdown(false);
-        setShowAuthWrapper(false);
       }
       return newState;
     });
@@ -70,7 +72,6 @@ export default function Header() {
         setShowSettingsOptions(false);
         setShowSearchInput(false);
         setShowLanguageDropdown(false);
-        setShowAuthWrapper(false);
       }
       return newState;
     });
@@ -80,16 +81,9 @@ export default function Header() {
     setShowNotifications(false);
   };
 
-  const openAuthWrapper = () => {
-    setShowAuthWrapper(true);
-    setShowSettingsOptions(false);
-    setShowSearchInput(false);
-    setShowNotifications(false);
-    setShowLanguageDropdown(false);
-  };
-
-  const closeAuthWrapper = () => {
-    setShowAuthWrapper(false);
+  // Navigate to Login screen when user icon pressed
+  const handleUserPress = () => {
+    navigation.navigate('Login');
   };
 
   return (
@@ -117,7 +111,7 @@ export default function Header() {
                 onPress={handleThemePress}
               >
                 <Feather name="moon" size={20} color="black" />
-                <Text style={styles.dropdownText}>Theme</Text>
+                <Feather name="sun" size={20} color="black" />
               </TouchableOpacity>
 
               <TouchableOpacity
@@ -130,7 +124,7 @@ export default function Header() {
             </View>
           )}
 
-          <TouchableOpacity onPress={openAuthWrapper}>
+          <TouchableOpacity onPress={handleUserPress}>
             <FontAwesome5 name="user-circle" size={36} color="black" />
           </TouchableOpacity>
         </View>
@@ -138,7 +132,11 @@ export default function Header() {
 
       {showSearchInput && (
         <View style={styles.searchContainer}>
-          <TextInput placeholder="Search..." style={styles.searchInput} autoFocus />
+          <TextInput
+            placeholder="Search..."
+            style={styles.searchInput}
+            autoFocus
+          />
         </View>
       )}
 
@@ -149,15 +147,6 @@ export default function Header() {
           onSelectLanguage={() => {}}
         />
       )}
-
-      <Modal
-        visible={showAuthWrapper}
-        animationType="slide"
-        transparent={true}
-        onRequestClose={closeAuthWrapper}
-      >
-        <Login />
-      </Modal>
     </SafeAreaView>
   );
 }
@@ -194,6 +183,7 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
     zIndex: 1000,
+    alignItems: 'center',
   },
   dropdownItem: {
     flexDirection: 'row',
@@ -218,25 +208,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#f1f1f1',
     paddingHorizontal: 12,
     fontSize: 16,
-  },
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  modalContent: {
-    width: width * 0.9,
-    backgroundColor: 'white',
-    borderRadius: 10,
-    padding: 20,
-    maxHeight: '90%',
-  },
-  closeModalButton: {
-    marginTop: 15,
-    backgroundColor: '#007bff',
-    paddingVertical: 12,
-    borderRadius: 6,
-    alignItems: 'center',
   },
 });

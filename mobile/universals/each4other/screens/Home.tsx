@@ -23,7 +23,6 @@ export default function Home() {
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
-      {/* Wrap Header in absolutely positioned view */}
       <View style={styles.headerWrapper}>
         <Header />
       </View>

@@ -12,11 +12,18 @@ import {
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+
 import Input from '../components/Base/Input';
 import Button from '../components/Base/Button';
 
+type RootStackParamList = {
+  Login: undefined;
+  SignUp: undefined;
+  Home: undefined;
+};
+
 export default function Login() {
-  const navigation = useNavigation<NativeStackNavigationProp<any>>();
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList, 'Login'>>();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -37,6 +44,7 @@ export default function Login() {
       return;
     }
     Alert.alert('Log in', `Email: ${email}\nPassword: ${password}`);
+    // Navigate to Home or handle successful login here
   };
 
   const OrSeparator = () => (
@@ -52,10 +60,16 @@ export default function Login() {
       style={styles.flex}
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
     >
-      <ScrollView
-        contentContainerStyle={styles.container}
-        keyboardShouldPersistTaps="handled"
-      >
+      <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
+        
+        {/* Back button */}
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => navigation.goBack()}
+        >
+          <Ionicons name="arrow-back" size={28} color="#0D6EFD" />
+        </TouchableOpacity>
+
         <Text style={styles.title}>Sign In</Text>
 
         <View style={styles.socialButtonsRow}>
@@ -109,11 +123,7 @@ export default function Login() {
             onPress={() => setPasswordVisible(!passwordVisible)}
             style={styles.eyeIcon}
           >
-            <Ionicons
-              name={passwordVisible ? 'eye' : 'eye-off'}
-              size={24}
-              color="#999"
-            />
+            <Ionicons name={passwordVisible ? 'eye' : 'eye-off'} size={24} color="#999" />
           </TouchableOpacity>
         </View>
 
@@ -130,7 +140,6 @@ export default function Login() {
           textStyle={styles.loginButtonText}
         />
 
-        {/* Sign up text below the button, aligned to start */}
         <View style={styles.signUpTextWrapper}>
           <Text style={styles.signUpText}>Don't have an account? </Text>
           <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
@@ -147,8 +156,7 @@ export default function Login() {
             {termsAccepted && <Ionicons name="checkmark" size={16} color="white" />}
           </View>
           <Text style={styles.termsText}>
-            I agree to the{' '}
-            <Text style={styles.linkText}>Terms and Conditions</Text>
+            I agree to the <Text style={styles.linkText}>Terms and Conditions</Text>
           </Text>
         </TouchableOpacity>
       </ScrollView>
@@ -157,9 +165,7 @@ export default function Login() {
 }
 
 const styles = StyleSheet.create({
-  flex: {
-    flex: 1,
-  },
+  flex: { flex: 1 },
   container: {
     flexGrow: 1,
     justifyContent: 'center',
