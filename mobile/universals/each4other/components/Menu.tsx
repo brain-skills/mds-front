@@ -14,11 +14,11 @@ type MenuItem = {
 };
 
 const menuItems: MenuItem[] = [
-  { id: 'profile', label: 'Profile', iconName: 'person', IconComp: Ionicons },
-  { id: 'settings', label: 'Settings', iconName: 'settings', IconComp: Ionicons },
-  { id: 'home', label: 'Home', iconName: 'home', IconComp: Ionicons },
-  { id: 'notifications', label: 'Alerts', iconName: 'notifications', IconComp: Ionicons },
-  { id: 'menu', label: 'Menu', iconName: 'menu', IconComp: MaterialIcons }, // Burger icon at right
+  { id: 'profile', label: 'Profile', iconName: 'person-outline', IconComp: Ionicons },
+  { id: 'settings', label: 'Settings', iconName: 'settings-outline', IconComp: Ionicons },
+  { id: 'home', label: 'Home', iconName: 'home-outline', IconComp: Ionicons },
+  { id: 'notifications', label: 'Alerts', iconName: 'notifications-outline', IconComp: Ionicons },
+  { id: 'menu', label: 'Menu', iconName: 'menu', IconComp: MaterialIcons }, // keep as is
 ];
 
 export default function Menu({ style }: MenuProps) {
@@ -39,8 +39,9 @@ export default function Menu({ style }: MenuProps) {
         >
           <IconComp
             name={iconName as any}
-            size={24}
+            size={28}
             color={activeId === id ? '#007AFF' : '#333'}
+            style={styles.icon}
           />
           <Text style={[styles.menuText, activeId === id && styles.activeText]}>
             {label}
@@ -68,8 +69,10 @@ const styles = StyleSheet.create({
   homeItem: {
     flex: 1.2,
   },
+  icon: {
+    marginBottom: 4,
+  },
   menuText: {
-    marginTop: 4,
     fontSize: 14,
     color: '#333',
     fontWeight: '500',

@@ -9,11 +9,11 @@ import {
   Dimensions,
   Modal,
 } from 'react-native';
-import { Ionicons, MaterialIcons } from '@expo/vector-icons';
+import { Feather, FontAwesome5, Entypo } from '@expo/vector-icons';
 import Logo from '../assets/logo/each4other-logo-light-mobile.svg';
 import NotificationsDropdown from './NotificationsDropdown';
 import LanguageSelector from './LanguageSelector';
-import AuthWrapper from './AuthWrapper'; // import your AuthWrapper
+import AuthWrapper from './AuthWrapper';
 import Login from '../screens/Login';
 
 const { width } = Dimensions.get('window');
@@ -23,7 +23,7 @@ export default function Header() {
   const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
   const [showSearchInput, setShowSearchInput] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
-  const [showAuthWrapper, setShowAuthWrapper] = useState(false);  // new state
+  const [showAuthWrapper, setShowAuthWrapper] = useState(false);
 
   const toggleSettings = () => {
     setShowSettingsOptions(prev => {
@@ -80,7 +80,6 @@ export default function Header() {
     setShowNotifications(false);
   };
 
-  // New function to open AuthWrapper modal
   const openAuthWrapper = () => {
     setShowAuthWrapper(true);
     setShowSettingsOptions(false);
@@ -100,15 +99,15 @@ export default function Header() {
 
         <View style={styles.iconsContainer}>
           <TouchableOpacity onPress={toggleSearch}>
-            <Ionicons name="search" size={20} color="black" />
+            <Feather name="search" size={20} color="black" />
           </TouchableOpacity>
 
           <TouchableOpacity onPress={toggleNotifications}>
-            <Ionicons name="notifications" size={20} color="black" />
+            <FontAwesome5 name="bell" size={18} color="black" />
           </TouchableOpacity>
 
           <TouchableOpacity onPress={toggleSettings}>
-            <Ionicons name="settings" size={20} color="black" />
+            <Feather name="settings" size={20} color="black" />
           </TouchableOpacity>
 
           {showSettingsOptions && (
@@ -117,7 +116,7 @@ export default function Header() {
                 style={styles.dropdownItem}
                 onPress={handleThemePress}
               >
-                <Ionicons name="moon" size={20} color="black" />
+                <Feather name="moon" size={20} color="black" />
                 <Text style={styles.dropdownText}>Theme</Text>
               </TouchableOpacity>
 
@@ -125,15 +124,14 @@ export default function Header() {
                 style={styles.dropdownItem}
                 onPress={handleLanguagePress}
               >
-                <MaterialIcons name="language" size={20} color="black" />
+                <Entypo name="language" size={20} color="black" />
                 <Text style={styles.dropdownText}>Language</Text>
               </TouchableOpacity>
             </View>
           )}
 
-          {/* Avatar button to open AuthWrapper */}
           <TouchableOpacity onPress={openAuthWrapper}>
-            <Ionicons name="person-circle" size={40} color="black" />
+            <FontAwesome5 name="user-circle" size={36} color="black" />
           </TouchableOpacity>
         </View>
       </View>
@@ -148,8 +146,7 @@ export default function Header() {
       {showLanguageDropdown && (
         <LanguageSelector
           onClose={closeLanguageDropdown}
-          onSelectLanguage={() => {
-          }}
+          onSelectLanguage={() => {}}
         />
       )}
 
