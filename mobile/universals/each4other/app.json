@@ -1,0 +1,40 @@
+{
+  "expo": {
+    "name": "each4other",
+    "slug": "each4other",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/logo/logo-light.svg",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/logo/logo-light.svg",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/logo/logo-light.svg",
+        "backgroundColor": "#ffffff"
+      },
+      "edgeToEdgeEnabled": true
+    },
+    "web": {
+      "favicon": "./assets/logo/logo-light.svg"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "2d2045a7-e37f-4aa9-9e18-c4d69cfad13b"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/2d2045a7-e37f-4aa9-9e18-c4d69cfad13b"
+    }
+  }
+}

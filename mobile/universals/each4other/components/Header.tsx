@@ -1,0 +1,245 @@
+import React, { useState } from 'react';
+import {
+  SafeAreaView,
+  View,
+  TouchableOpacity,
+  StyleSheet,
+  Text,
+  TextInput,
+  Dimensions,
+  Modal,
+} from 'react-native';
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
+import Logo from '../assets/logo/each4other-logo-light-mobile.svg';
+import NotificationsDropdown from './NotificationsDropdown';
+import LanguageSelector from './LanguageSelector';
+import AuthWrapper from './AuthWrapper'; // import your AuthWrapper
+import Login from '../screens/Login';
+
+const { width } = Dimensions.get('window');
+
+export default function Header() {
+  const [showSettingsOptions, setShowSettingsOptions] = useState(false);
+  const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
+  const [showSearchInput, setShowSearchInput] = useState(false);
+  const [showNotifications, setShowNotifications] = useState(false);
+  const [showAuthWrapper, setShowAuthWrapper] = useState(false);  // new state
+
+  const toggleSettings = () => {
+    setShowSettingsOptions(prev => {
+      const newState = !prev;
+      if (newState) {
+        setShowSearchInput(false);
+        setShowNotifications(false);
+        setShowLanguageDropdown(false);
+        setShowAuthWrapper(false);
+      }
+      return newState;
+    });
+  };
+
+  const handleThemePress = () => setShowSettingsOptions(false);
+
+  const handleLanguagePress = () => {
+    setShowSettingsOptions(false);
+    setShowLanguageDropdown(true);
+    setShowSearchInput(false);
+    setShowNotifications(false);
+    setShowAuthWrapper(false);
+  };
+
+  const closeLanguageDropdown = () => setShowLanguageDropdown(false);
+
+  const toggleSearch = () => {
+    setShowSearchInput(prev => {
+      const newState = !prev;
+      if (newState) {
+        setShowSettingsOptions(false);
+        setShowNotifications(false);
+        setShowLanguageDropdown(false);
+        setShowAuthWrapper(false);
+      }
+      return newState;
+    });
+  };
+
+  const toggleNotifications = () => {
+    setShowNotifications(prev => {
+      const newState = !prev;
+      if (newState) {
+        setShowSettingsOptions(false);
+        setShowSearchInput(false);
+        setShowLanguageDropdown(false);
+        setShowAuthWrapper(false);
+      }
+      return newState;
+    });
+  };
+
+  const onCloseNotifications = () => {
+    setShowNotifications(false);
+  };
+
+  // New function to open AuthWrapper modal
+  const openAuthWrapper = () => {
+    setShowAuthWrapper(true);
+    setShowSettingsOptions(false);
+    setShowSearchInput(false);
+    setShowNotifications(false);
+    setShowLanguageDropdown(false);
+  };
+
+  const closeAuthWrapper = () => {
+    setShowAuthWrapper(false);
+  };
+
+  return (
+    <SafeAreaView>
+      <View style={styles.header}>
+        <Logo />
+
+        <View style={styles.iconsContainer}>
+          <TouchableOpacity onPress={toggleSearch}>
+            <Ionicons name="search" size={20} color="black" />
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={toggleNotifications}>
+            <Ionicons name="notifications" size={20} color="black" />
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={toggleSettings}>
+            <Ionicons name="settings" size={20} color="black" />
+          </TouchableOpacity>
+
+          {showSettingsOptions && (
+            <View style={styles.settingsDropdown}>
+              <TouchableOpacity
+                style={styles.dropdownItem}
+                onPress={handleThemePress}
+              >
+                <Ionicons name="moon" size={20} color="black" />
+                <Text style={styles.dropdownText}>Theme</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={styles.dropdownItem}
+                onPress={handleLanguagePress}
+              >
+                <MaterialIcons name="language" size={20} color="black" />
+                <Text style={styles.dropdownText}>Language</Text>
+              </TouchableOpacity>
+            </View>
+          )}
+
+          {/* Avatar button to open AuthWrapper */}
+          <TouchableOpacity onPress={openAuthWrapper}>
+            <Ionicons name="person-circle" size={40} color="black" />
+          </TouchableOpacity>
+        </View>
+      </View>
+
+      {showSearchInput && (
+        <View style={styles.searchContainer}>
+          <TextInput placeholder="Search..." style={styles.searchInput} autoFocus />
+        </View>
+      )}
+
+      {showNotifications && <NotificationsDropdown onClose={onCloseNotifications} />}
+      {showLanguageDropdown && (
+        <LanguageSelector
+          onClose={closeLanguageDropdown}
+          onSelectLanguage={() => {
+          }}
+        />
+      )}
+
+      <Modal
+        visible={showAuthWrapper}
+        animationType="slide"
+        transparent={true}
+        onRequestClose={closeAuthWrapper}
+      >
+        <Login />
+      </Modal>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  header: {
+    backgroundColor: 'white',
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+    justifyContent: 'space-between',
+    position: 'relative',
+    zIndex: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ddd',
+  },
+  iconsContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 16,
+  },
+  settingsDropdown: {
+    position: 'absolute',
+    top: 50,
+    right: 60,
+    backgroundColor: 'white',
+    borderRadius: 6,
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    shadowColor: '#000',
+    shadowOpacity: 0.2,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 4,
+    elevation: 5,
+    zIndex: 1000,
+  },
+  dropdownItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 6,
+    gap: 10,
+  },
+  dropdownText: {
+    fontSize: 16,
+    color: '#000',
+  },
+  searchContainer: {
+    backgroundColor: 'white',
+    paddingHorizontal: 14,
+    paddingVertical: 6,
+    borderBottomWidth: 1,
+    borderBottomColor: '#eee',
+  },
+  searchInput: {
+    height: 40,
+    borderRadius: 6,
+    backgroundColor: '#f1f1f1',
+    paddingHorizontal: 12,
+    fontSize: 16,
+  },
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalContent: {
+    width: width * 0.9,
+    backgroundColor: 'white',
+    borderRadius: 10,
+    padding: 20,
+    maxHeight: '90%',
+  },
+  closeModalButton: {
+    marginTop: 15,
+    backgroundColor: '#007bff',
+    paddingVertical: 12,
+    borderRadius: 6,
+    alignItems: 'center',
+  },
+});
