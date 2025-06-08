@@ -15,10 +15,10 @@ type MenuItem = {
 
 const menuItems: MenuItem[] = [
   { id: 'profile', label: 'Profile', iconName: 'person-outline', IconComp: Ionicons },
-  { id: 'settings', label: 'Settings', iconName: 'settings-outline', IconComp: Ionicons },
+  { id: 'settings', label: 'Services', iconName: 'construct-outline', IconComp: Ionicons }, 
   { id: 'home', label: 'Home', iconName: 'home-outline', IconComp: Ionicons },
   { id: 'notifications', label: 'Alerts', iconName: 'notifications-outline', IconComp: Ionicons },
-  { id: 'menu', label: 'Menu', iconName: 'menu', IconComp: MaterialIcons }, // keep as is
+  { id: 'menu', label: 'Menu', iconName: 'menu', IconComp: MaterialIcons },
 ];
 
 export default function Menu({ style }: MenuProps) {

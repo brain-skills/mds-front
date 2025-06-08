@@ -19,11 +19,14 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 
 import Input from '../components/Base/Input';
 import Button from '../components/Base/Button';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 type RootStackParamList = {
   Login: undefined;
-  SignUp: undefined; // If you want to pass role, change to: SignUp: { role: string };
+  SignUp: undefined;
   Home: undefined;
+  ForgotPassword: undefined;
+  Profile: undefined
 };
 
 export default function Login() {
@@ -32,7 +35,6 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const [termsAccepted, setTermsAccepted] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
 
   const slideAnim = useRef(new Animated.Value(300)).current;
@@ -76,19 +78,16 @@ export default function Login() {
     Alert.alert('Google Login', 'Google login pressed');
   };
 
-  const handleLogin = () => {
-    if (!termsAccepted) {
-      Alert.alert('Terms & Conditions', 'You must accept the terms and conditions.');
-      return;
+  const handleLogin = async () => {
+    try {
+      await AsyncStorage.setItem('isLoggedIn', 'true');
+      navigation.navigate('Home');
+    } catch (error) {
+      Alert.alert('Login Failed', 'An error occurred while logging in.');
+      console.error('Login error:', error);
     }
-    Alert.alert('Log in', `Email: ${email}\nPassword: ${password}`);
-    navigation.navigate('Home');
   };
-
-  const handleTermsPress = () => {
-    Alert.alert('Terms and Conditions', 'Show terms and conditions here.');
-  };
-
+  
   const handleSignUpPress = () => {
     openModal();
   };
@@ -96,6 +95,19 @@ export default function Login() {
   const handleOptionSelect = (option: string) => {
     animateModal(false);
     navigation.navigate('SignUp');
+  };
+  const handleBackPress = async () => {
+    try {
+      const isLoggedIn = await AsyncStorage.getItem('isLoggedIn');
+      if (isLoggedIn === 'true') {
+        navigation.goBack();
+      } else {
+        navigation.navigate('Home');
+      }
+    } catch (error) {
+      console.error('Error checking login status:', error);
+      navigation.navigate('Home'); // fallback
+    }
   };
 
   const OrSeparator = () => (
@@ -117,7 +129,7 @@ export default function Login() {
     >
       <TouchableOpacity
         style={styles.backButton}
-        onPress={() => navigation.goBack()}
+        onPress={handleBackPress}
         activeOpacity={0.7}
       >
         <View style={styles.backButtonCircle}>
@@ -183,7 +195,7 @@ export default function Login() {
       </View>
 
       <View style={styles.forgotPasswordWrapper}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
           <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
         </TouchableOpacity>
       </View>
@@ -234,24 +246,6 @@ export default function Login() {
           </TouchableOpacity>
         </Animated.View>
       </Modal>
-
-      {/* Terms */}
-      <View style={styles.termsWrapper}>
-        <TouchableOpacity
-          onPress={() => setTermsAccepted(!termsAccepted)}
-          style={[styles.checkbox, termsAccepted && styles.checkboxChecked]}
-          activeOpacity={0.7}
-        >
-          {termsAccepted && <Ionicons name="checkmark" size={16} color="white" />}
-        </TouchableOpacity>
-
-        <Text style={styles.termsText}>
-          I agree to the{' '}
-          <Text style={styles.linkText} onPress={handleTermsPress}>
-            Terms and Conditions
-          </Text>
-        </Text>
-      </View>
     </KeyboardAwareScrollView>
   );
 }
@@ -382,12 +376,6 @@ const styles = StyleSheet.create({
     color: '#0D6EFD',
     fontWeight: '700',
   },
-  termsWrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    width: '100%',
-  },
   checkbox: {
     height: 20,
     width: 20,
@@ -400,10 +388,6 @@ const styles = StyleSheet.create({
   },
   checkboxChecked: {
     backgroundColor: '#0D6EFD',
-  },
-  termsText: {
-    fontSize: 14,
-    color: '#555',
   },
   linkText: {
     color: '#0D6EFD',

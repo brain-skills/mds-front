@@ -18,6 +18,7 @@ type Language = {
 type LanguageSelectorProps = {
   onClose: () => void;
   onSelectLanguage: (language: Language) => void;
+  darkMode?: boolean; // add prop to control dark mode
 };
 
 const LANGUAGES: Language[] = [
@@ -61,6 +62,7 @@ const LANGUAGES: Language[] = [
 export default function LanguageSelector({
   onClose,
   onSelectLanguage,
+  darkMode = false, // default to false
 }: LanguageSelectorProps) {
   const [searchText, setSearchText] = useState('');
 
@@ -78,18 +80,34 @@ export default function LanguageSelector({
     [onSelectLanguage]
   );
 
+  // Colors based on darkMode prop
+  const backgroundColor = darkMode ? '#222' : 'white';
+  const textColor = darkMode ? 'white' : 'black';
+  const borderColor = darkMode ? '#555' : '#ccc';
+  const inputBackgroundColor = darkMode ? '#444' : 'white';
+  const borderBottomColor = darkMode ? '#444' : '#eee';
+  const iconColor = darkMode ? 'white' : 'black';
+
   return (
-    <View style={styles.fullScreenDropdown}>
+    <View style={[styles.fullScreenDropdown, { backgroundColor }]}>
       <View style={styles.dropdownHeader}>
         <TouchableOpacity onPress={onClose} style={styles.backIcon}>
-          <Ionicons name="arrow-back" size={24} color="black" />
+          <Ionicons name="arrow-back" size={24} color={iconColor} />
         </TouchableOpacity>
-        <Text style={styles.languageTitle}>Language</Text>
+        <Text style={[styles.languageTitle, { color: textColor }]}>Language</Text>
       </View>
 
       <TextInput
         placeholder="Search language..."
-        style={styles.searchInput}
+        placeholderTextColor={darkMode ? '#aaa' : '#666'}
+        style={[
+          styles.searchInput,
+          {
+            backgroundColor: inputBackgroundColor,
+            borderColor,
+            color: textColor,
+          },
+        ]}
         value={searchText}
         onChangeText={setSearchText}
       />
@@ -99,13 +117,14 @@ export default function LanguageSelector({
           data={filteredLanguages}
           keyExtractor={item => item.code}
           keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={true}
           renderItem={({ item }) => (
             <TouchableOpacity
-              style={styles.languageItem}
+              style={[styles.languageItem, { borderBottomColor }]}
               onPress={() => handleSelectLanguage(item)}
             >
-              <Text style={styles.flag}>{item.flag}</Text>
-              <Text style={styles.languageName}>{item.name}</Text>
+              <Text style={[styles.flag, { color: textColor }]}>{item.flag}</Text>
+              <Text style={[styles.languageName, { color: textColor }]}>{item.name}</Text>
             </TouchableOpacity>
           )}
         />
@@ -117,7 +136,6 @@ export default function LanguageSelector({
 const styles = StyleSheet.create({
   fullScreenDropdown: {
     flex: 1,
-    backgroundColor: 'white',
     paddingTop: 20,
     paddingHorizontal: 20,
   },
@@ -129,7 +147,6 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   languageTitle: {
-    color: 'black',
     fontSize: 24,
     fontWeight: 'bold',
     textAlign: 'center',
@@ -141,7 +158,6 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     height: 40,
-    borderColor: '#ccc',
     borderWidth: 1,
     borderRadius: 6,
     paddingHorizontal: 12,
@@ -151,7 +167,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: 12,
-    borderBottomColor: '#eee',
     borderBottomWidth: 1,
   },
   flag: {
@@ -160,6 +175,5 @@ const styles = StyleSheet.create({
   },
   languageName: {
     fontSize: 18,
-    color: '#000',
   },
 });

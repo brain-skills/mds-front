@@ -4,12 +4,22 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Home from './screens/Home';
 import Login from './screens/Login';
-import SignUp from './screens/SignUp';  // <-- Import SignUp screen
+import SignUp from './screens/SignUp';
+import ForgotPassword from './screens/ForgotPassword';
+import ResetPassword from './screens/ResetPassword';
+import Profile from './screens/Profile';
+import UserDetail from './screens/UserDetail';
+import AllNotifications from './screens/AllNotifications';
 
 export type RootStackParamList = {
   Home: undefined;
   Login: undefined;
-  SignUp: undefined;  // <-- Add SignUp to the params list
+  SignUp: undefined;
+  ForgotPassword: undefined;
+  ResetPassword: undefined;
+  Profile: undefined;
+  UserDetail: { fieldName: string };
+  AllNotifications: undefined
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -29,8 +39,33 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="SignUp"          // <-- Add SignUp screen here
+          name="SignUp"
           component={SignUp}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="ForgotPassword"
+          component={ForgotPassword}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="ResetPassword"
+          component={ResetPassword}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="UserDetail"
+          component={UserDetail}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="AllNotifications"
+          component={AllNotifications}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

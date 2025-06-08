@@ -8,6 +8,9 @@ import {
   Dimensions,
   TouchableOpacity,
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../App'; // adjust path as needed
 
 const { width } = Dimensions.get('window');
 
@@ -40,51 +43,43 @@ const notifications = [
 
 type Props = {
   onClose: () => void;
+  darkMode?: boolean;
 };
 
-export default function NotificationsDropdown({ onClose }: Props) {
-  if (notifications.length === 0) {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.title}>Notifications</Text>
-        <View style={styles.emptyContainer}>
-          <Text style={styles.emptyText}>No new notifications.</Text>
-        </View>
-      </View>
-    );
-  }
-
-  const handleDeleteAll = () => {
-    console.log('Delete All clicked');
-  };
+export default function NotificationsDropdown({ onClose, darkMode = false }: Props) {
+  const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   const handleViewAll = () => {
-    console.log('View All clicked');
+    onClose();
+    navigation.navigate('AllNotifications');
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Notifications</Text>
+    <View style={[styles.container, darkMode && styles.containerDark]}>
+      <View style={styles.headerRow}>
+        <Text style={[styles.title, darkMode && styles.titleDark]}>Notifications</Text>
+        <TouchableOpacity onPress={handleViewAll}>
+          <Text style={[styles.viewAllText, darkMode && styles.viewAllTextDark]}>View All</Text>
+        </TouchableOpacity>
+      </View>
+
       <ScrollView style={styles.list} showsVerticalScrollIndicator={false}>
-        {notifications.map(item => (
-          <View key={item.id} style={styles.notificationItem}>
+        {notifications.map((item, index) => (
+          <View
+            key={item.id}
+            style={[
+              styles.notificationItem,
+              index !== notifications.length - 1 && styles.notificationBorder,
+            ]}
+          >
             <Image source={{ uri: item.avatar }} style={styles.avatar} />
             <View style={styles.notificationText}>
-              <Text style={styles.message}>{item.message}</Text>
-              <Text style={styles.date}>{item.date}</Text>
+              <Text style={[styles.message, darkMode && styles.messageDark]}>{item.message}</Text>
+              <Text style={[styles.date, darkMode && styles.dateDark]}>{item.date}</Text>
             </View>
           </View>
         ))}
       </ScrollView>
-
-      <View style={styles.actionsContainer}>
-        <TouchableOpacity onPress={handleDeleteAll} style={styles.button}>
-          <Text style={styles.buttonText}>Delete All</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={handleViewAll} style={styles.button}>
-          <Text style={styles.buttonText}>View All</Text>
-        </TouchableOpacity>
-      </View>
     </View>
   );
 }
@@ -107,10 +102,32 @@ const styles = StyleSheet.create({
     elevation: 10,
     zIndex: 1000,
   },
+  containerDark: {
+    backgroundColor: '#121212',
+    shadowColor: '#000',
+    shadowOpacity: 0.7,
+  },
+  headerRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
   title: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginBottom: 12,
+    color: '#000',
+  },
+  titleDark: {
+    color: '#fff',
+  },
+  viewAllText: {
+    fontSize: 14,
+    color: '#007BFF',
+    fontWeight: '600',
+  },
+  viewAllTextDark: {
+    color: '#3399FF',
   },
   list: {
     maxHeight: 180,
@@ -118,12 +135,16 @@ const styles = StyleSheet.create({
   notificationItem: {
     flexDirection: 'row',
     alignItems: 'flex-start',
-    marginBottom: 14,
+    paddingVertical: 10,
+  },
+  notificationBorder: {
+    borderBottomWidth: 1,
+    borderBottomColor: '#E0E0E0',
   },
   avatar: {
     width: 36,
     height: 36,
-    borderRadius: 18,
+    borderRadius: 6,
     marginRight: 10,
   },
   notificationText: {
@@ -133,34 +154,15 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#333',
   },
+  messageDark: {
+    color: '#ddd',
+  },
   date: {
     fontSize: 12,
     color: '#888',
     marginTop: 2,
   },
-  emptyContainer: {
-    alignItems: 'center',
-    paddingVertical: 20,
-  },
-  emptyText: {
-    fontSize: 16,
-    color: '#666',
-  },
-  actionsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 12,
-    borderTopWidth: 1,
-    borderTopColor: '#eee',
-    paddingTop: 10,
-  },
-  button: {
-    paddingVertical: 6,
-    paddingHorizontal: 12,
-  },
-  buttonText: {
-    color: '#007BFF',
-    fontSize: 14,
-    fontWeight: '600',
+  dateDark: {
+    color: '#aaa',
   },
 });
