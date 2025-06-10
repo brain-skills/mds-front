@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ViewStyle } from 'react-native';
+import { View, Text, StyleSheet, ViewStyle, Pressable } from 'react-native';
 import { FontAwesome, Entypo, AntDesign } from '@expo/vector-icons';
 
 interface BlockProps {
@@ -9,7 +9,7 @@ interface BlockProps {
   buttonLabel?: string;
   onButtonPress?: () => void;
   buttonStyle?: ViewStyle;
-  darkMode?: boolean; // added darkMode prop
+  darkMode?: boolean;
 }
 
 export default function Block({
@@ -19,25 +19,33 @@ export default function Block({
   buttonLabel = 'Click Me',
   onButtonPress,
   buttonStyle,
-  darkMode = false, // default false
+  darkMode = false,
 }: BlockProps) {
   return (
     <View style={[styles.container, darkMode && styles.containerDark]}>
       {icons && (
         <View style={styles.iconWrapper}>
-          <FontAwesome name="youtube-play" size={24} color={darkMode ? '#ff4444' : 'red'} style={styles.icon} />
-          <AntDesign name="instagram" size={24} color={darkMode ? '#e1306c' : '#C13584'} style={styles.icon} />
-          <Entypo name="facebook" size={24} color={darkMode ? '#2d4a8a' : '#3b5998'} style={styles.icon} />
-          <Entypo name="facebook" size={24} color={darkMode ? '#2d4a8a' : '#3b5998'} style={styles.icon} />
+          <FontAwesome name="youtube-play" size={28} color={darkMode ? '#FF5A5F' : '#E62117'} style={styles.icon} />
+          <AntDesign name="instagram" size={28} color={darkMode ? '#FF7F99' : '#C13584'} style={styles.icon} />
+          <Entypo name="facebook" size={28} color={darkMode ? '#3B5998' : '#4267B2'} style={styles.icon} />
+          <Entypo name="twitter" size={28} color={darkMode ? '#1DA1F2' : '#1DA1F2'} style={styles.icon} />
         </View>
       )}
 
       <Text style={[styles.title, darkMode && styles.titleDark]}>{title}</Text>
       <Text style={[styles.description, darkMode && styles.descriptionDark]}>{description}</Text>
 
-      <TouchableOpacity style={[styles.button, darkMode && styles.buttonDark, buttonStyle]} onPress={onButtonPress}>
+      <Pressable
+        style={({ pressed }) => [
+          styles.button,
+          darkMode && styles.buttonDark,
+          buttonStyle,
+          pressed && styles.buttonPressed,
+        ]}
+        onPress={onButtonPress}
+      >
         <Text style={[styles.buttonText, darkMode && styles.buttonTextDark]}>{buttonLabel}</Text>
-      </TouchableOpacity>
+      </Pressable>
     </View>
   );
 }
@@ -45,64 +53,76 @@ export default function Block({
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
-    paddingVertical: 20,
-    paddingHorizontal: 20,
-    borderRadius: 16,
+    paddingVertical: 30,
+    paddingHorizontal: 25,
+    borderRadius: 20,
     width: '100%',
     alignItems: 'center',
     shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowOffset: { width: 0, height: 4 },
-    shadowRadius: 8,
-    elevation: 4,
+    shadowOpacity: 0.12,
+    shadowOffset: { width: 0, height: 6 },
+    shadowRadius: 12,
+    elevation: 6,
   },
   containerDark: {
-    backgroundColor: '#222',
-    shadowOpacity: 0.3,
-    shadowColor: '#000',
+    backgroundColor: '#1a1a1a',
+    shadowOpacity: 0.25,
   },
   iconWrapper: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 10,
+    justifyContent: 'center',
+    marginBottom: 15,
+    gap: 20
   },
   icon: {
-    marginHorizontal: 5,
+    marginHorizontal: 10,
   },
   title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 8,
+    fontSize: 24,
+    fontWeight: '700',
+    marginBottom: 12,
     textAlign: 'center',
-    color: '#000',
+    color: '#222',
   },
   titleDark: {
     color: '#eee',
   },
   description: {
     fontSize: 16,
-    marginBottom: 16,
+    marginBottom: 24,
     textAlign: 'center',
-    color: '#333',
+    color: '#555',
+    lineHeight: 22,
   },
   descriptionDark: {
-    color: '#ccc',
+    color: '#bbb',
   },
   button: {
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    backgroundColor: '#000',
-    borderRadius: 8,
+    paddingVertical: 14,
+    paddingHorizontal: 28,
+    backgroundColor: '#007AFF',
+    borderRadius: 12,
+    shadowColor: '#007AFF',
+    shadowOpacity: 0.3,
+    shadowOffset: { width: 0, height: 6 },
+    shadowRadius: 10,
+    elevation: 4,
   },
   buttonDark: {
-    backgroundColor: '#444',
+    backgroundColor: '#0a84ff',
+    shadowColor: '#0a84ff',
+  },
+  buttonPressed: {
+    opacity: 0.75,
+    transform: [{ scale: 0.97 }],
   },
   buttonText: {
     color: '#fff',
-    fontWeight: 'bold',
+    fontWeight: '700',
+    fontSize: 16,
     textAlign: 'center',
   },
   buttonTextDark: {
-    color: '#ddd',
+    color: '#e6e6e6',
   },
 });

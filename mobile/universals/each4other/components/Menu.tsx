@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ViewStyle } from 'react-native';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
+import SideDrawer from './SideDrawer'; 
 
 type MenuProps = {
   style?: ViewStyle | ViewStyle[];
@@ -23,32 +24,46 @@ const menuItems: MenuItem[] = [
 
 export default function Menu({ style }: MenuProps) {
   const [activeId, setActiveId] = useState<string>('home'); 
+  const [drawerVisible, setDrawerVisible] = useState(false); 
+
   const handleMenuPress = (id: string) => {
-    setActiveId(id);
-    console.log(`Pressed menu: ${id}`);
+    if (id === 'menu') {
+      setDrawerVisible(true);
+    } else {
+      setActiveId(id);
+      console.log(`Pressed menu: ${id}`);
+    }
+  };
+
+  const handleDrawerClose = () => {
+    setDrawerVisible(false);
   };
 
   return (
-    <View style={[styles.menuContainer, style]}>
-      {menuItems.map(({ id, label, iconName, IconComp }) => (
-        <TouchableOpacity
-          key={id}
-          style={[styles.menuItem, id === 'home' && styles.homeItem]}
-          onPress={() => handleMenuPress(id)}
-          activeOpacity={0.7}
-        >
-          <IconComp
-            name={iconName as any}
-            size={28}
-            color={activeId === id ? '#007AFF' : '#333'}
-            style={styles.icon}
-          />
-          <Text style={[styles.menuText, activeId === id && styles.activeText]}>
-            {label}
-          </Text>
-        </TouchableOpacity>
-      ))}
-    </View>
+    <>
+      <View style={[styles.menuContainer, style]}>
+        {menuItems.map(({ id, label, iconName, IconComp }) => (
+          <TouchableOpacity
+            key={id}
+            style={[styles.menuItem, id === 'home' && styles.homeItem]}
+            onPress={() => handleMenuPress(id)}
+            activeOpacity={0.7}
+          >
+            <IconComp
+              name={iconName as any}
+              size={28}
+              color={activeId === id ? '#007AFF' : '#333'}
+              style={styles.icon}
+            />
+            <Text style={[styles.menuText, activeId === id && styles.activeText]}>
+              {label}
+            </Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+
+      <SideDrawer visible={drawerVisible} onClose={handleDrawerClose} />
+    </>
   );
 }
 

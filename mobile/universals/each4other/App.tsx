@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { ThemeProvider, useThemeContext } from './context/ThemeContext';
 
 import Home from './screens/Home';
 import Login from './screens/Login';
@@ -22,53 +23,32 @@ export type RootStackParamList = {
   AllNotifications: undefined
 };
 
+
 const Stack = createNativeStackNavigator<RootStackParamList>();
+
+function Navigation() {
+  const { theme } = useThemeContext();
+
+  return (
+    <NavigationContainer theme={theme}>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="SignUp" component={SignUp} />
+        <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+        <Stack.Screen name="ResetPassword" component={ResetPassword} />
+        <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="UserDetail" component={UserDetail} />
+        <Stack.Screen name="AllNotifications" component={AllNotifications} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Home"
-          component={Home}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Login"
-          component={Login}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="SignUp"
-          component={SignUp}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="ForgotPassword"
-          component={ForgotPassword}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="ResetPassword"
-          component={ResetPassword}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Profile"
-          component={Profile}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="UserDetail"
-          component={UserDetail}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="AllNotifications"
-          component={AllNotifications}
-          options={{ headerShown: false }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <ThemeProvider>
+      <Navigation />
+    </ThemeProvider>
   );
 }

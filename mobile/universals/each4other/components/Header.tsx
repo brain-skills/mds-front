@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   SafeAreaView,
   View,
@@ -6,7 +6,8 @@ import {
   StyleSheet,
   Text,
   TextInput,
-  Dimensions,
+  Animated,
+  Easing,
 } from 'react-native';
 import { Feather, FontAwesome5, Entypo, MaterialCommunityIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
@@ -20,8 +21,6 @@ import LanguageSelector from './LanguageSelector';
 
 import { RootStackParamList } from '../App';
 
-const { width } = Dimensions.get('window');
-
 type HeaderNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Home'>;
 
 export default function Header() {
@@ -32,6 +31,11 @@ export default function Header() {
   const [showSearchInput, setShowSearchInput] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const settingsAnim = useRef(new Animated.Value(0)).current;
+  const languageAnim = useRef(new Animated.Value(0)).current;
+  const searchAnim = useRef(new Animated.Value(0)).current;
+  const notificationsAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
     const checkLoginStatus = async () => {
@@ -46,6 +50,15 @@ export default function Header() {
     checkLoginStatus();
   }, []);
 
+  const animateDropdown = (anim: Animated.Value, toValue: number) => {
+    Animated.timing(anim, {
+      toValue,
+      duration: 250,
+      easing: Easing.out(Easing.ease),
+      useNativeDriver: true,
+    }).start();
+  };
+
   const toggleSettings = () => {
     setShowSettingsOptions(prev => {
       const newState = !prev;
@@ -54,6 +67,10 @@ export default function Header() {
         setShowNotifications(false);
         setShowLanguageDropdown(false);
       }
+      animateDropdown(settingsAnim, newState ? 1 : 0);
+      animateDropdown(searchAnim, 0);
+      animateDropdown(notificationsAnim, 0);
+      animateDropdown(languageAnim, 0);
       return newState;
     });
   };
@@ -63,9 +80,17 @@ export default function Header() {
     setShowLanguageDropdown(true);
     setShowSearchInput(false);
     setShowNotifications(false);
+
+    animateDropdown(settingsAnim, 0);
+    animateDropdown(searchAnim, 0);
+    animateDropdown(notificationsAnim, 0);
+    animateDropdown(languageAnim, 1);
   };
 
-  const closeLanguageDropdown = () => setShowLanguageDropdown(false);
+  const closeLanguageDropdown = () => {
+    setShowLanguageDropdown(false);
+    animateDropdown(languageAnim, 0);
+  };
 
   const toggleSearch = () => {
     setShowSearchInput(prev => {
@@ -75,6 +100,10 @@ export default function Header() {
         setShowNotifications(false);
         setShowLanguageDropdown(false);
       }
+      animateDropdown(searchAnim, newState ? 1 : 0);
+      animateDropdown(settingsAnim, 0);
+      animateDropdown(notificationsAnim, 0);
+      animateDropdown(languageAnim, 0);
       return newState;
     });
   };
@@ -87,12 +116,17 @@ export default function Header() {
         setShowSearchInput(false);
         setShowLanguageDropdown(false);
       }
+      animateDropdown(notificationsAnim, newState ? 1 : 0);
+      animateDropdown(settingsAnim, 0);
+      animateDropdown(searchAnim, 0);
+      animateDropdown(languageAnim, 0);
       return newState;
     });
   };
 
   const onCloseNotifications = () => {
     setShowNotifications(false);
+    animateDropdown(notificationsAnim, 0);
   };
 
   const handleUserPress = async () => {
@@ -109,57 +143,87 @@ export default function Header() {
     }
   };
 
+  const dropdownSlideStyle = (anim: Animated.Value) => ({
+    opacity: anim,
+    transform: [
+      {
+        translateY: anim.interpolate({
+          inputRange: [0, 1],
+          outputRange: [-10, 0],
+        }),
+      },
+      {
+        scale: anim.interpolate({
+          inputRange: [0, 1],
+          outputRange: [0.97, 1],
+        }),
+      },
+    ],
+  });
+
   return (
     <SafeAreaView>
       <View style={styles.header}>
         <Logo />
-
         <View style={styles.iconsContainer}>
           <TouchableOpacity onPress={toggleSearch}>
-            <Feather name="search" size={22} color="black" />
+            <Feather name="search" size={20} color="black" />
           </TouchableOpacity>
-
           {isLoggedIn && (
             <TouchableOpacity onPress={toggleNotifications}>
-              <FontAwesome5 name="bell" size={22} color="black" />
+              <FontAwesome5 name="bell" size={20} color="black" />
             </TouchableOpacity>
           )}
-
           <TouchableOpacity onPress={toggleSettings}>
-            <Feather name="settings" size={22} color="black" />
+            <Feather name="settings" size={20} color="black" />
           </TouchableOpacity>
 
           {showSettingsOptions && (
-            <View style={styles.settingsDropdown}>
-              <TouchableOpacity style={styles.dropdownItem} onPress={handleLanguagePress}>
-                <Entypo name="language" size={20} color="black" />
-                <Text style={styles.dropdownText}>Language</Text>
+            <Animated.View style={[styles.settingsDropdown, dropdownSlideStyle(settingsAnim)]}>
+              <TouchableOpacity style={styles.dropdownItemBeautiful} onPress={handleLanguagePress}>
+                <Text style={styles.dropdownTextBeautiful}>Language</Text>
+                <Feather name="chevron-right" size={16} color="#4A90E2" />
+                <View style={styles.iconWrapper}>
+                  <Entypo name="language" size={18} color="#4A90E2" />
+                </View>
               </TouchableOpacity>
 
-              <TouchableOpacity style={styles.dropdownItem}>
-                <Text style={[styles.dropdownText, { marginRight: 8 }]}>Theme</Text>
-                <Feather name="moon" size={20} color="black" />
-                <Feather name="sun" size={20} color="black" />
-                <MaterialCommunityIcons name="theme-light-dark" size={20} color="black"/>
-              </TouchableOpacity>
-            </View>
+              <View style={styles.separator} />
+
+              <View style={[styles.dropdownItemBeautiful, { justifyContent: 'space-between' }]}>
+                <Text style={styles.dropdownTextBeautiful}>Theme</Text>
+                <View style={styles.themeIcons}>
+                  <Feather name="moon" size={18} color="#4A90E2" />
+                  <Feather name="sun" size={18} color="#4A90E2" />
+                  <MaterialCommunityIcons name="theme-light-dark" size={18} color="#4A90E2" />
+                </View>
+              </View>
+            </Animated.View>
           )}
 
           <TouchableOpacity onPress={handleUserPress} style={styles.avatarContainer}>
-            <FontAwesome5 name="user" size={28} color="black" />
+            <FontAwesome5 name="user" size={26} color="black" />
           </TouchableOpacity>
         </View>
       </View>
 
       {showSearchInput && (
-        <View style={styles.searchContainer}>
+        <Animated.View style={[styles.searchContainer, dropdownSlideStyle(searchAnim)]}>
           <TextInput placeholder="Search..." style={styles.searchInput} autoFocus />
-        </View>
+        </Animated.View>
       )}
 
-      {showNotifications && isLoggedIn && <NotificationsDropdown onClose={onCloseNotifications} />}
+      {showNotifications && isLoggedIn && (
+        <Animated.View style={dropdownSlideStyle(notificationsAnim)}>
+          <NotificationsDropdown onClose={onCloseNotifications} />
+        </Animated.View>
+      )}
 
-      {showLanguageDropdown && <LanguageSelector onClose={closeLanguageDropdown} onSelectLanguage={() => {}} />}
+      {showLanguageDropdown && (
+        <Animated.View style={dropdownSlideStyle(languageAnim)}>
+          <LanguageSelector onClose={closeLanguageDropdown} onSelectLanguage={() => { }} />
+        </Animated.View>
+      )}
     </SafeAreaView>
   );
 }
@@ -172,41 +236,63 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
     paddingVertical: 10,
     justifyContent: 'space-between',
-    position: 'relative',
-    zIndex: 10,
     borderBottomWidth: 1,
     borderBottomColor: '#ddd',
   },
   iconsContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 16,
+    gap: 14,
   },
   settingsDropdown: {
     position: 'absolute',
-    top: 50,
-    right: 60,
+    top: 40,
+    right: 50,
     backgroundColor: 'white',
-    borderRadius: 6,
-    paddingVertical: 8,
-    paddingHorizontal: 12,
+    borderRadius: 14,
+    paddingVertical: 10,
+    paddingHorizontal: 14,
     shadowColor: '#000',
-    shadowOpacity: 0.2,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 4,
+    shadowOpacity: 0.12,
+    shadowOffset: { width: 0, height: 4 },
+    shadowRadius: 6,
     elevation: 5,
     zIndex: 1000,
-    alignItems: 'center',
+    minWidth: 160,
   },
-  dropdownItem: {
+  dropdownItemBeautiful: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 6,
+    paddingVertical: 8,
+    paddingHorizontal: 6,
+    backgroundColor: '#f2f8ff',
+    borderRadius: 12,
+    marginVertical: 4,
     gap: 10,
   },
-  dropdownText: {
-    fontSize: 16,
-    color: '#000',
+  iconWrapper: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    backgroundColor: '#D6E9FF',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  dropdownTextBeautiful: {
+    flex: 1,
+    fontSize: 14,
+    color: '#333',
+  },
+  separator: {
+    height: 1,
+    backgroundColor: '#D1D8E0',
+    marginVertical: 8,
+    borderRadius: 1,
+  },
+  themeIcons: {
+    flexDirection: 'row',
+    gap: 12,
+    justifyContent: 'flex-end',
   },
   searchContainer: {
     backgroundColor: 'white',
@@ -223,8 +309,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   avatarContainer: {
-    width: 36,
-    height: 36,
+    width: 34,
+    height: 34,
     borderRadius: 6,
     backgroundColor: '#ddd',
     justifyContent: 'center',

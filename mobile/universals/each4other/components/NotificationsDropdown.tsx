@@ -87,7 +87,6 @@ export default function NotificationsDropdown({ onClose, darkMode = false }: Pro
 const styles = StyleSheet.create({
   container: {
     position: 'absolute',
-    top: 110,
     left: '50%',
     transform: [{ translateX: -(width * 0.9) / 2 }],
     width: width * 0.9,
