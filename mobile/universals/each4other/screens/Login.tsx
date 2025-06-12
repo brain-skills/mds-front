@@ -24,7 +24,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 type RootStackParamList = {
   Login: undefined;
   SignUp: undefined;
-  Home: undefined;
+  MainMenu: undefined;
   ForgotPassword: undefined;
   Profile: undefined
 };
@@ -81,7 +81,7 @@ export default function Login() {
   const handleLogin = async () => {
     try {
       await AsyncStorage.setItem('isLoggedIn', 'true');
-      navigation.navigate('Home');
+      navigation.navigate('MainMenu');
     } catch (error) {
       Alert.alert('Login Failed', 'An error occurred while logging in.');
       console.error('Login error:', error);
@@ -102,11 +102,11 @@ export default function Login() {
       if (isLoggedIn === 'true') {
         navigation.goBack();
       } else {
-        navigation.navigate('Home');
+        navigation.navigate('MainMenu');
       }
     } catch (error) {
       console.error('Error checking login status:', error);
-      navigation.navigate('Home'); // fallback
+      navigation.navigate('MainMenu'); // fallback
     }
   };
 

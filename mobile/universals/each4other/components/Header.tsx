@@ -21,7 +21,7 @@ import LanguageSelector from './LanguageSelector';
 
 import { RootStackParamList } from '../App';
 
-type HeaderNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Home'>;
+type HeaderNavigationProp = NativeStackNavigationProp<RootStackParamList, 'MainMenu'>;
 
 export default function Header() {
   const navigation = useNavigation<HeaderNavigationProp>();
@@ -209,7 +209,16 @@ export default function Header() {
 
       {showSearchInput && (
         <Animated.View style={[styles.searchContainer, dropdownSlideStyle(searchAnim)]}>
-          <TextInput placeholder="Search..." style={styles.searchInput} autoFocus />
+          <View style={styles.searchInputWrapper}>
+            <Feather name="search" size={16} color="#4a90e2" style={styles.searchIcon} />
+            <TextInput
+              placeholder="Search..."
+              placeholderTextColor="#a0b0d9"
+              style={styles.searchInput}
+              autoFocus
+              clearButtonMode="while-editing"
+            />
+          </View>
         </Animated.View>
       )}
 
@@ -221,7 +230,7 @@ export default function Header() {
 
       {showLanguageDropdown && (
         <Animated.View style={dropdownSlideStyle(languageAnim)}>
-          <LanguageSelector onClose={closeLanguageDropdown} onSelectLanguage={() => { }} />
+          <LanguageSelector onClose={closeLanguageDropdown} onSelectLanguage={() => {}} />
         </Animated.View>
       )}
     </SafeAreaView>
@@ -230,7 +239,7 @@ export default function Header() {
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: 'white',
+    backgroundColor: 'transparent',
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 14,
@@ -246,7 +255,7 @@ const styles = StyleSheet.create({
   },
   settingsDropdown: {
     position: 'absolute',
-    top: 40,
+    top: 45,
     right: 50,
     backgroundColor: 'white',
     borderRadius: 14,
@@ -256,8 +265,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.12,
     shadowOffset: { width: 0, height: 4 },
     shadowRadius: 6,
-    elevation: 5,
-    zIndex: 1000,
+    elevation: 20,
+    zIndex: 9999,
     minWidth: 160,
   },
   dropdownItemBeautiful: {
@@ -295,24 +304,44 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   searchContainer: {
-    backgroundColor: 'white',
-    paddingHorizontal: 14,
+    paddingHorizontal: 16,
     paddingVertical: 6,
-    borderBottomWidth: 1,
-    borderBottomColor: '#eee',
+    backgroundColor: '#ffffff',
+    shadowColor: '#4a90e2',
+    shadowOpacity: 0.15,
+    shadowOffset: { width: 0, height: 3 },
+    shadowRadius: 8,
+    elevation: 6,
+    borderBottomLeftRadius: 14,
+    borderBottomRightRadius: 14,
+  },
+  searchInputWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#f0f4ff',
+    borderRadius: 20,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    shadowColor: '#4a90e2',
+    shadowOpacity: 0.12,
+    shadowOffset: { width: 0, height: 3 },
+    shadowRadius: 6,
+    elevation: 4,
+  },
+  searchIcon: {
+    marginRight: 8,
   },
   searchInput: {
-    height: 40,
-    borderRadius: 6,
-    backgroundColor: '#f1f1f1',
-    paddingHorizontal: 12,
-    fontSize: 16,
+    flex: 1,
+    fontSize: 14,
+    color: '#2c3e50',
+    fontWeight: '600',
+    height: 28,
   },
   avatarContainer: {
     width: 34,
     height: 34,
     borderRadius: 6,
-    backgroundColor: '#ddd',
     justifyContent: 'center',
     alignItems: 'center',
   },
