@@ -1,17 +1,17 @@
-// screens/ContentPage.tsx
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import {
   View,
   Text,
   StyleSheet,
   TouchableOpacity,
   SafeAreaView,
+  Animated,
 } from 'react-native';
 import { RouteProp, useRoute, useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import { RootStackParamList } from '../App';
 import BottomMenu from '../components/BottomMenu';
-import Header from '../components/Header'; // Your Header component
+import Header from '../components/Header';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 type ContentPageRouteProp = RouteProp<RootStackParamList, 'ContentPage'>;
@@ -25,20 +25,44 @@ export default function ContentPage() {
   const navigation = useNavigation<ContentPageNavigationProp>();
   const { section } = route.params;
 
+  // Animation refs
+  const slideAnim = useRef(new Animated.Value(50)).current;
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+  const bottomBounce = useRef(new Animated.Value(30)).current;
+
+  useEffect(() => {
+    Animated.parallel([
+      Animated.spring(slideAnim, {
+        toValue: 0,
+        useNativeDriver: true,
+        damping: 12,
+      }),
+      Animated.timing(fadeAnim, {
+        toValue: 1,
+        duration: 600,
+        useNativeDriver: true,
+      }),
+      Animated.spring(bottomBounce, {
+        toValue: 0,
+        friction: 5,
+        useNativeDriver: true,
+        delay: 300,
+      }),
+    ]).start();
+  }, []);
+
   const renderContent = () => {
     switch (section) {
       case 'gallery':
-        return <Text style={styles.text}>📷 Welcome to the Gallery!</Text>;
+        return '📷 Welcome to the Gallery!';
       case 'about':
-        return <Text style={styles.text}>ℹ️ This is the About page.</Text>;
+        return 'ℹ️ This is the About page.';
       case 'contact':
-        return (
-          <Text style={styles.text}>📞 Contact us at: support@example.com</Text>
-        );
+        return '📞 Contact us at: support@example.com';
       case 'help':
-        return <Text style={styles.text}>❓ Need help? You’re in the right place.</Text>;
+        return '❓ Need help? You’re in the right place.';
       default:
-        return <Text style={styles.text}>Unknown Section</Text>;
+        return 'Unknown Section';
     }
   };
 
@@ -54,27 +78,43 @@ export default function ContentPage() {
     <SafeAreaView style={styles.safeArea}>
       <Header />
 
-      <View style={styles.backContainer}>
+      <Animated.View
+        style={[
+          styles.backContainer,
+          { transform: [{ translateX: slideAnim }], opacity: fadeAnim },
+        ]}
+      >
         <TouchableOpacity
           style={styles.backButton}
           onPress={() => navigation.navigate('MainMenu')}
-          accessibilityLabel="Go back to Main Menu"
           activeOpacity={0.7}
         >
           <Ionicons name="arrow-back" size={28} color="#007AFF" />
         </TouchableOpacity>
-      </View>
+      </Animated.View>
 
-      <View style={styles.content}>{renderContent()}</View>
+      <Animated.View
+        style={[
+          styles.content,
+          {
+            opacity: fadeAnim,
+            transform: [{ translateY: slideAnim }],
+          },
+        ]}
+      >
+        <Text style={styles.text}>{renderContent()}</Text>
+      </Animated.View>
 
-      <BottomMenu
-        style={styles.bottomMenu}
-        menuItems={bottomMenuItems}
-        initialActiveId="home"
-        onMenuPress={(id) => {
-          console.log('BottomMenu pressed:', id);
-        }}
-      />
+      <Animated.View style={{ transform: [{ translateY: bottomBounce }] }}>
+        <BottomMenu
+          style={styles.bottomMenu}
+          menuItems={bottomMenuItems}
+          initialActiveId="home"
+          onMenuPress={(id) => {
+            console.log('BottomMenu pressed:', id);
+          }}
+        />
+      </Animated.View>
     </SafeAreaView>
   );
 }
@@ -82,7 +122,7 @@ export default function ContentPage() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#fefefe',
+    backgroundColor: '#fff', // Solid white background
   },
   backContainer: {
     paddingHorizontal: 16,
@@ -109,11 +149,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
   },
   text: {
-    fontSize: 22,
+    fontSize: 24,
     fontWeight: '700',
     color: '#333',
     textAlign: 'center',
-    lineHeight: 30,
+    lineHeight: 34,
   },
   bottomMenu: {
     borderTopWidth: 1,

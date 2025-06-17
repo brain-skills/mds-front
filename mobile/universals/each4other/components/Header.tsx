@@ -239,7 +239,7 @@ export default function Header() {
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: 'transparent',
+    backgroundColor: 'white',
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 14,
