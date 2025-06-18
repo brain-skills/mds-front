@@ -1,62 +1,40 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   View,
   Text,
   StyleSheet,
   ScrollView,
-  TouchableOpacity,
-  LayoutChangeEvent,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
 import Header from "../components/Header";
 import BottomMenu from "../components/BottomMenu";
+import { useNavigation } from "@react-navigation/native";
 
 const themeColor = "#8E44AD";
 
 export default function Support() {
+
   const navigation = useNavigation();
 
-  const [headerHeight, setHeaderHeight] = useState(0);
-
   const bottomMenuItems = [
-    { id: "home", label: "Home", iconName: "home", IconComp: Ionicons },
+    {
+      id: "back",
+      label: "Back",
+      iconName: "arrow-back-circle",
+      IconComp: Ionicons,
+      onPress: () => navigation.goBack(),
+    },
     { id: "support", label: "Support", iconName: "help-circle", IconComp: Ionicons },
     { id: "profile", label: "Profile", iconName: "person-circle", IconComp: Ionicons },
   ];
 
-  const onHeaderLayout = (event: LayoutChangeEvent) => {
-    const { height } = event.nativeEvent.layout;
-    if (height !== headerHeight) {
-      setHeaderHeight(height);
-    }
-  };
-
-  if (headerHeight === 0) {
-    return (
-      <View style={styles.container}>
-        <View style={styles.headerWrapper} onLayout={onHeaderLayout}>
-          <Header />
-        </View>
-      </View>
-    );
-  }
-
   return (
     <View style={styles.container}>
-      {/* Fixed Header */}
-      <View style={[styles.headerWrapper, { height: headerHeight }]} onLayout={onHeaderLayout}>
+      <View style={[styles.headerWrapper]}>
         <Header />
       </View>
 
-      {/* Scrollable content */}
-      <ScrollView contentContainerStyle={[styles.scrollContent, { paddingTop: headerHeight }]} showsVerticalScrollIndicator={false}>
-        <View style={styles.backContainer}>
-          <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-            <Ionicons name="arrow-back-circle" size={32} color={themeColor} />
-            <Text style={styles.backText}>Back to Menu</Text>
-          </TouchableOpacity>
-        </View>
+      <ScrollView contentContainerStyle={[styles.scrollContent]} showsVerticalScrollIndicator={false}>
 
         <Text style={styles.title}>🛟 Support Center</Text>
 
@@ -76,7 +54,6 @@ export default function Support() {
         </View>
       </ScrollView>
 
-      {/* Bottom navigation menu */}
       <BottomMenu menuItems={bottomMenuItems} initialActiveId="support" />
     </View>
   );
@@ -100,6 +77,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: themeColor,
     marginBottom: 20,
+    textAlign: 'center',
+    paddingVertical: 20
   },
   card: {
     flexDirection: "row",

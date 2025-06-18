@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ViewStyle } from 'react-native';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 
+// Updated type with onPress
 type BottomMenuItem = {
   id: string;
   label: string;
   iconName: string;
   IconComp: typeof Ionicons | typeof MaterialIcons;
+  onPress?: () => void; // ✅ Support individual press action
 };
 
 type BottomMenuProps = {
@@ -24,30 +26,34 @@ export default function BottomMenu({
 }: BottomMenuProps) {
   const [activeId, setActiveId] = useState<string>(initialActiveId);
 
-  const handlePress = (id: string) => {
-    setActiveId(id);
-    if (onMenuPress) {
-      onMenuPress(id);
+  const handlePress = (item: BottomMenuItem) => {
+    setActiveId(item.id);
+
+    // ✅ Priority: use individual item onPress if available
+    if (item.onPress) {
+      item.onPress();
+    } else if (onMenuPress) {
+      onMenuPress(item.id);
     }
   };
 
   return (
     <View style={[styles.menuContainer, style]}>
-      {menuItems.map(({ id, label, iconName, IconComp }) => (
+      {menuItems.map((item) => (
         <TouchableOpacity
-          key={id}
-          style={[styles.menuItem, id === activeId && styles.activeItem]}
-          onPress={() => handlePress(id)}
+          key={item.id}
+          style={[styles.menuItem, item.id === activeId && styles.activeItem]}
+          onPress={() => handlePress(item)}
           activeOpacity={0.7}
         >
-          <IconComp
-            name={iconName as any}
+          <item.IconComp
+            name={item.iconName as any}
             size={28}
-            color={activeId === id ? '#007AFF' : '#333'}
+            color={item.id === activeId ? '#007AFF' : '#333'}
             style={styles.icon}
           />
-          <Text style={[styles.menuText, activeId === id && styles.activeText]}>
-            {label}
+          <Text style={[styles.menuText, item.id === activeId && styles.activeText]}>
+            {item.label}
           </Text>
         </TouchableOpacity>
       ))}
@@ -70,7 +76,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   activeItem: {
-    // Optional styles for active item container
+    // You can style the active item container if needed
   },
   icon: {
     marginBottom: 4,

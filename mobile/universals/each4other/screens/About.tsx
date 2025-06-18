@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   View,
   Text,
   StyleSheet,
   ScrollView,
-  TouchableOpacity,
-  LayoutChangeEvent,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -17,49 +15,25 @@ const themeColor = "#2980B9";
 export default function About() {
   const navigation = useNavigation();
 
-  // State for dynamic header height
-  const [headerHeight, setHeaderHeight] = useState(0);
-
   const bottomMenuItems = [
-    { id: "home", label: "Home", iconName: "home", IconComp: Ionicons },
+    {
+      id: "back",
+      label: "Back",
+      iconName: "arrow-back-circle",
+      IconComp: Ionicons,
+      onPress: () => navigation.goBack(),
+    },
     { id: "about", label: "About", iconName: "information-circle", IconComp: Ionicons },
     { id: "profile", label: "Profile", iconName: "person-circle", IconComp: Ionicons },
   ];
 
-  // Capture header height on layout
-  const onHeaderLayout = (event: LayoutChangeEvent) => {
-    const { height } = event.nativeEvent.layout;
-    if (height !== headerHeight) {
-      setHeaderHeight(height);
-    }
-  };
-
-  // Don't render scroll content until header height is known
-  if (headerHeight === 0) {
-    return (
-      <View style={styles.container}>
-        <View style={styles.headerWrapper} onLayout={onHeaderLayout}>
-          <Header />
-        </View>
-      </View>
-    );
-  }
-
   return (
     <View style={styles.container}>
-      {/* Fixed Header */}
-      <View style={[styles.headerWrapper, { height: headerHeight }]} onLayout={onHeaderLayout}>
+      <View style={[styles.headerWrapper]}>
         <Header />
       </View>
 
-      {/* Scrollable content below header */}
-      <ScrollView contentContainerStyle={[styles.scrollContent, { paddingTop: headerHeight }]}>
-        <View style={styles.backContainer}>
-          <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-            <Ionicons name="arrow-back-circle" size={32} color={themeColor} />
-            <Text style={styles.backText}>Back to Menu</Text>
-          </TouchableOpacity>
-        </View>
+      <ScrollView contentContainerStyle={[styles.scrollContent]}>
 
         <Text style={styles.title}>👥 About Our Company</Text>
 
@@ -84,7 +58,6 @@ export default function About() {
         </View>
       </ScrollView>
 
-      {/* Bottom Menu */}
       <BottomMenu menuItems={bottomMenuItems} initialActiveId="about" />
     </View>
   );
@@ -99,12 +72,16 @@ const styles = StyleSheet.create({
     zIndex: 10,
     backgroundColor: "#fff",
   },
-  backContainer: { paddingHorizontal: 16, paddingTop: 10 },
-  backButton: { flexDirection: "row", alignItems: "center" },
-  backText: { fontSize: 16, color: themeColor, fontWeight: "500", marginLeft: 10 },
   scrollContent: { paddingHorizontal: 16, paddingBottom: 100 },
-  title: { fontSize: 24, fontWeight: "bold", color: themeColor, marginBottom: 16 },
-  paragraph: { fontSize: 15, lineHeight: 22, color: "#333", marginBottom: 20 },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: themeColor,
+    marginBottom: 16,
+    textAlign: "center",
+    paddingTop: 20,
+  },
+  paragraph: { fontSize: 15, lineHeight: 22, color: "#333", marginBottom: 20, textAlign:'center' },
   card: {
     flexDirection: "row",
     alignItems: "center",

@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   View,
   Text,
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  LayoutChangeEvent,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -17,58 +16,52 @@ const themeColor = "#2C3E50";
 export default function Auctions() {
   const navigation = useNavigation();
 
-  // State to store header height
-  const [headerHeight, setHeaderHeight] = useState(0);
-
   const bottomMenuItems = [
-    { id: "home", label: "Home", iconName: "home", IconComp: Ionicons },
-    { id: "auctions", label: "Auctions", iconName: "pricetag", IconComp: Ionicons },
-    { id: "profile", label: "Profile", iconName: "person-circle", IconComp: Ionicons },
+    {
+      id: "back",
+      label: "Back",
+      iconName: "arrow-back-circle",
+      IconComp: Ionicons,
+      onPress: () => navigation.goBack(),
+    },
+    {
+      id: "auctions",
+      label: "Auctions",
+      iconName: "pricetag",
+      IconComp: Ionicons,
+    },
+    {
+      id: "profile",
+      label: "Profile",
+      iconName: "person-circle",
+      IconComp: Ionicons,
+    },
   ];
 
   const auctionData = [
     { id: 1, title: "Vintage Rolex Watch", description: "Collector’s item from 1965 in great condition.", icon: "watch" },
     { id: 2, title: "Picasso Sketch", description: "Certified original sketch signed by Picasso.", icon: "color-palette" },
     { id: 3, title: "Ferrari F40", description: "Limited edition classic car. 1,311 made.", icon: "car-sport" },
-    { id: 4, title: "Diamond Ring", description: "Brilliant-cut, 2.5 carats, GIA certified.", icon: "diamond" },
-    { id: 5, title: "Antique Camera", description: "Vintage Leica M3 with original case.", icon: "camera" },
-    { id: 6, title: "Luxury Yacht", description: "Mini yacht with modern amenities, 2020 model.", icon: "boat" },
+    { id: 4, title: "Luxury Yacht", description: "Mini yacht with modern amenities, 2020 model.", icon: "boat" },
+    { id: 5, title: "Diamond Ring", description: "Brilliant-cut, 2.5 carats, GIA certified.", icon: "diamond" },
+    { id: 6, title: "Antique Camera", description: "Vintage Leica M3 with original case.", icon: "camera" },
+    { id: 7, title: "Luxury Yacht", description: "Mini yacht with modern amenities, 2020 model.", icon: "boat" },
+    { id: 8, title: "Vintage Rolex Watch", description: "Collector’s item from 1965 in great condition.", icon: "watch" },
+    { id: 9, title: "Vintage Rolex Watch", description: "Collector’s item from 1965 in great condition.", icon: "watch" },
+
   ];
-
-  // Capture header height on layout
-  const onHeaderLayout = (event: LayoutChangeEvent) => {
-    const { height } = event.nativeEvent.layout;
-    if (height !== headerHeight) {
-      setHeaderHeight(height);
-    }
-  };
-
-  // Render nothing until header height is known
-  if (headerHeight === 0) {
-    return (
-      <View style={styles.container}>
-        <View style={styles.headerWrapper} onLayout={onHeaderLayout}>
-          <Header />
-        </View>
-      </View>
-    );
-  }
 
   return (
     <View style={styles.container}>
-      <View style={[styles.headerWrapper, { height: headerHeight }]} onLayout={onHeaderLayout}>
+      <View style={styles.headerWrapper}>
         <Header />
       </View>
 
-      <ScrollView contentContainerStyle={[styles.scrollContent, { paddingTop: headerHeight }]}>
-        <View style={styles.backContainer}>
-          <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-            <Ionicons name="arrow-back-circle" size={32} color={themeColor} />
-            <Text style={styles.backText}>Back to Menu</Text>
-          </TouchableOpacity>
-        </View>
-
+      <View style={styles.titleWrapper}>
         <Text style={styles.title}>🔥 Live Auctions</Text>
+      </View>
+
+      <ScrollView contentContainerStyle={styles.scrollContent}>
 
         {auctionData.map((item) => (
           <View key={item.id} style={styles.auctionItem}>
@@ -82,7 +75,6 @@ export default function Auctions() {
         ))}
       </ScrollView>
 
-      {/* Bottom Navigation */}
       <BottomMenu menuItems={bottomMenuItems} initialActiveId="auctions" />
     </View>
   );
@@ -100,29 +92,33 @@ const styles = StyleSheet.create({
     zIndex: 10,
     backgroundColor: "#fff",
   },
-  scrollContent: {
+  titleWrapper: {
+    paddingTop: 20,
+    paddingBottom: 10,
     paddingHorizontal: 16,
-    paddingBottom: 100,
-  },
-  backContainer: {
-    paddingTop: 10,
-  },
-  backButton: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  // Remove gap and add marginRight to icon in backButton
-  backText: {
-    fontSize: 16,
-    color: themeColor,
-    fontWeight: "500",
-    marginLeft: 10,
+    backgroundColor: "#fff",
   },
   title: {
     fontSize: 24,
     fontWeight: "bold",
     color: themeColor,
-    marginBottom: 16,
+    textAlign: "center",
+  },
+  scrollContent: {
+    paddingHorizontal: 16,
+  },
+  backContainer: {
+    paddingBottom: 10,
+  },
+  backButton: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  backText: {
+    fontSize: 16,
+    color: themeColor,
+    fontWeight: "500",
+    marginLeft: 10,
   },
   auctionItem: {
     flexDirection: "row",

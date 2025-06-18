@@ -1,179 +1,150 @@
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState } from 'react';
 import {
   View,
-  TouchableOpacity,
-  StyleSheet,
   Text,
+  StyleSheet,
+  TouchableOpacity,
   TextInput,
   FlatList,
+  KeyboardAvoidingView,
+  Platform,
+  useWindowDimensions,
 } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 
-type Language = {
-  code: string;
-  name: string;
-  flag: string;
-};
-
-type LanguageSelectorProps = {
+interface LanguageSelectorProps {
   onClose: () => void;
-  onSelectLanguage: (language: Language) => void;
-  darkMode?: boolean; // add prop to control dark mode
-};
-
-const LANGUAGES: Language[] = [
-  { code: 'en', name: 'English', flag: '🇺🇸' },
-  { code: 'es', name: 'Spanish', flag: '🇪🇸' },
-  { code: 'fr', name: 'French', flag: '🇫🇷' },
-  { code: 'de', name: 'German', flag: '🇩🇪' },
-  { code: 'zh', name: 'Chinese', flag: '🇨🇳' },
-  { code: 'ja', name: 'Japanese', flag: '🇯🇵' },
-  { code: 'ru', name: 'Russian', flag: '🇷🇺' },
-  { code: 'ar', name: 'Arabic', flag: '🇸🇦' },
-  { code: 'pt', name: 'Portuguese', flag: '🇵🇹' },
-  { code: 'hi', name: 'Hindi', flag: '🇮🇳' },
-  { code: 'it', name: 'Italian', flag: '🇮🇹' },
-  { code: 'ko', name: 'Korean', flag: '🇰🇷' },
-  { code: 'nl', name: 'Dutch', flag: '🇳🇱' },
-  { code: 'sv', name: 'Swedish', flag: '🇸🇪' },
-  { code: 'no', name: 'Norwegian', flag: '🇳🇴' },
-  { code: 'tr', name: 'Turkish', flag: '🇹🇷' },
-  { code: 'pl', name: 'Polish', flag: '🇵🇱' },
-  { code: 'vi', name: 'Vietnamese', flag: '🇻🇳' },
-  { code: 'th', name: 'Thai', flag: '🇹🇭' },
-  { code: 'he', name: 'Hebrew', flag: '🇮🇱' },
-  { code: 'el', name: 'Greek', flag: '🇬🇷' },
-  { code: 'id', name: 'Indonesian', flag: '🇮🇩' },
-  { code: 'ro', name: 'Romanian', flag: '🇷🇴' },
-  { code: 'hu', name: 'Hungarian', flag: '🇭🇺' },
-  { code: 'cs', name: 'Czech', flag: '🇨🇿' },
-  { code: 'fi', name: 'Finnish', flag: '🇫🇮' },
-  { code: 'da', name: 'Danish', flag: '🇩🇰' },
-  { code: 'uk', name: 'Ukrainian', flag: '🇺🇦' },
-  { code: 'bg', name: 'Bulgarian', flag: '🇧🇬' },
-  { code: 'ms', name: 'Malay', flag: '🇲🇾' },
-  { code: 'sr', name: 'Serbian', flag: '🇷🇸' },
-  { code: 'hr', name: 'Croatian', flag: '🇭🇷' },
-  { code: 'lt', name: 'Lithuanian', flag: '🇱🇹' },
-  { code: 'sk', name: 'Slovak', flag: '🇸🇰' },
-  { code: 'sl', name: 'Slovenian', flag: '🇸🇮' },
-];
-
-export default function LanguageSelector({
-  onClose,
-  onSelectLanguage,
-  darkMode = false, // default to false
-}: LanguageSelectorProps) {
-  const [searchText, setSearchText] = useState('');
-
-  const filteredLanguages = useMemo(() => {
-    const lowerSearch = searchText.toLowerCase();
-    return LANGUAGES.filter(lang =>
-      lang.name.toLowerCase().includes(lowerSearch)
-    );
-  }, [searchText]);
-
-  const handleSelectLanguage = useCallback(
-    (language: Language) => {
-      onSelectLanguage(language);
-    },
-    [onSelectLanguage]
-  );
-
-  // Colors based on darkMode prop
-  const backgroundColor = darkMode ? '#222' : 'white';
-  const textColor = darkMode ? 'white' : 'black';
-  const borderColor = darkMode ? '#555' : '#ccc';
-  const inputBackgroundColor = darkMode ? '#444' : 'white';
-  const borderBottomColor = darkMode ? '#444' : '#eee';
-  const iconColor = darkMode ? 'white' : 'black';
-
-  return (
-    <View style={[styles.fullScreenDropdown, { backgroundColor }]}>
-      <View style={styles.dropdownHeader}>
-        <TouchableOpacity onPress={onClose} style={styles.backIcon}>
-          <Ionicons name="arrow-back" size={24} color={iconColor} />
-        </TouchableOpacity>
-        <Text style={[styles.languageTitle, { color: textColor }]}>Language</Text>
-      </View>
-
-      <TextInput
-        placeholder="Search language..."
-        placeholderTextColor={darkMode ? '#aaa' : '#666'}
-        style={[
-          styles.searchInput,
-          {
-            backgroundColor: inputBackgroundColor,
-            borderColor,
-            color: textColor,
-          },
-        ]}
-        value={searchText}
-        onChangeText={setSearchText}
-      />
-
-      <View style={{ flex: 1, marginTop: 10 }}>
-        <FlatList
-          data={filteredLanguages}
-          keyExtractor={item => item.code}
-          keyboardShouldPersistTaps="handled"
-          showsVerticalScrollIndicator={true}
-          renderItem={({ item }) => (
-            <TouchableOpacity
-              style={[styles.languageItem, { borderBottomColor }]}
-              onPress={() => handleSelectLanguage(item)}
-            >
-              <Text style={[styles.flag, { color: textColor }]}>{item.flag}</Text>
-              <Text style={[styles.languageName, { color: textColor }]}>{item.name}</Text>
-            </TouchableOpacity>
-          )}
-        />
-      </View>
-    </View>
-  );
 }
 
+const languages = [
+  { name: 'English', flag: '🇺🇸' },
+  { name: 'Spanish', flag: '🇪🇸' },
+  { name: 'French', flag: '🇫🇷' },
+  { name: 'German', flag: '🇩🇪' },
+  { name: 'Chinese', flag: '🇨🇳' },
+  { name: 'Japanese', flag: '🇯🇵' },
+  { name: 'Korean', flag: '🇰🇷' },
+  { name: 'Italian', flag: '🇮🇹' },
+  { name: 'Portuguese', flag: '🇵🇹' },
+  { name: 'Russian', flag: '🇷🇺' },
+  { name: 'Arabic', flag: '🇸🇦' },
+  { name: 'Hindi', flag: '🇮🇳' },
+  { name: 'Turkish', flag: '🇹🇷' },
+  { name: 'Dutch', flag: '🇳🇱' },
+  { name: 'Swedish', flag: '🇸🇪' },
+  { name: 'Polish', flag: '🇵🇱' },
+  { name: 'Vietnamese', flag: '🇻🇳' },
+  { name: 'Indonesian', flag: '🇮🇩' },
+  { name: 'Hebrew', flag: '🇮🇱' },
+  { name: 'Ukrainian', flag: '🇺🇦' },
+];
+
+const LanguageSelector: React.FC<LanguageSelectorProps> = ({ onClose }) => {
+  const [search, setSearch] = useState('');
+  const { width, height } = useWindowDimensions();
+
+  const filteredLanguages = languages.filter(lang =>
+    lang.name.toLowerCase().includes(search.toLowerCase())
+  );
+
+  return (
+    <KeyboardAvoidingView
+      style={[styles.container, { width, height }]}
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+    >
+      <View style={styles.header}>
+        <TouchableOpacity onPress={onClose} style={styles.backButton}>
+          <Feather name="arrow-left" size={24} color="#4A90E2" />
+        </TouchableOpacity>
+        <Text style={styles.title}>Select Language</Text>
+      </View>
+
+      <View style={styles.searchContainer}>
+        <Feather name="search" size={18} color="#4A90E2" style={{ marginRight: 8 }} />
+        <TextInput
+          placeholder="Search languages..."
+          placeholderTextColor="#a0b0d9"
+          value={search}
+          onChangeText={setSearch}
+          style={styles.searchInput}
+          clearButtonMode="while-editing"
+        />
+      </View>
+
+      <FlatList
+        data={filteredLanguages}
+        keyExtractor={item => item.name}
+        keyboardShouldPersistTaps="handled"
+        contentContainerStyle={styles.listContainer}
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            style={styles.languageItem}
+            onPress={() => {
+              console.log('Selected language:', item.name);
+              onClose();
+            }}
+          >
+            <Text style={styles.languageText}>
+              {item.flag}  {item.name}
+            </Text>
+          </TouchableOpacity>
+        )}
+      />
+    </KeyboardAvoidingView>
+  );
+};
+
 const styles = StyleSheet.create({
-  fullScreenDropdown: {
-    flex: 1,
-    paddingTop: 20,
-    paddingHorizontal: 20,
-  },
-  dropdownHeader: {
-    position: 'relative',
-    height: 40,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-  languageTitle: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-  backIcon: {
+  container: {
+    backgroundColor: 'white',
+    paddingTop: 50,
+    paddingHorizontal: 16,
     position: 'absolute',
+    top: 0,
     left: 0,
-    padding: 8,
+    right: 0,
+    zIndex: 10000,
   },
-  searchInput: {
-    height: 40,
-    borderWidth: 1,
-    borderRadius: 6,
-    paddingHorizontal: 12,
-    fontSize: 16,
-  },
-  languageItem: {
+  header: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 12,
-    borderBottomWidth: 1,
+    marginBottom: 12,
   },
-  flag: {
-    fontSize: 24,
+  backButton: {
+    padding: 8,
     marginRight: 12,
   },
-  languageName: {
-    fontSize: 18,
+  title: {
+    fontSize: 20,
+    fontWeight: '700',
+    color: '#4A90E2',
+  },
+  searchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#f0f4ff',
+    borderRadius: 20,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    marginBottom: 16,
+  },
+  searchInput: {
+    flex: 1,
+    fontSize: 16,
+    color: '#2c3e50',
+  },
+  listContainer: {
+    paddingBottom: 20,
+  },
+  languageItem: {
+    paddingVertical: 14,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ddd',
+  },
+  languageText: {
+    fontSize: 16,
+    color: '#333',
   },
 });
+
+export default LanguageSelector;

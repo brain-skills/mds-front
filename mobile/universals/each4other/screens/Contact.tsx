@@ -21,45 +21,24 @@ export default function Contact() {
   const [headerHeight, setHeaderHeight] = useState(0);
 
   const bottomMenuItems = [
-    { id: "home", label: "Home", iconName: "home", IconComp: Ionicons },
+    {
+      id: "back",
+      label: "Back",
+      iconName: "arrow-back-circle",
+      IconComp: Ionicons,
+      onPress: () => navigation.goBack(),
+    },
     { id: "contact", label: "Contact", iconName: "call", IconComp: Ionicons },
     { id: "profile", label: "Profile", iconName: "person-circle", IconComp: Ionicons },
   ];
 
-  const openEmail = () => Linking.openURL("mailto:support@yourapp.com");
-
-  const onHeaderLayout = (event: LayoutChangeEvent) => {
-    const { height } = event.nativeEvent.layout;
-    if (height !== headerHeight) {
-      setHeaderHeight(height);
-    }
-  };
-
-  if (headerHeight === 0) {
-    return (
-      <View style={styles.container}>
-        <View style={styles.headerWrapper} onLayout={onHeaderLayout}>
-          <Header />
-        </View>
-      </View>
-    );
-  }
-
   return (
     <View style={styles.container}>
-      {/* Fixed Header */}
-      <View style={[styles.headerWrapper, { height: headerHeight }]} onLayout={onHeaderLayout}>
+      <View style={[styles.headerWrapper, { height: headerHeight }]}>
         <Header />
       </View>
 
-      {/* Scrollable content */}
       <ScrollView contentContainerStyle={[styles.scrollContent, { paddingTop: headerHeight }]}>
-        <View style={styles.backContainer}>
-          <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-            <Ionicons name="arrow-back-circle" size={32} color={themeColor} />
-            <Text style={styles.backText}>Back to Menu</Text>
-          </TouchableOpacity>
-        </View>
 
         <Text style={styles.title}>📞 Contact Us</Text>
 
@@ -68,7 +47,7 @@ export default function Contact() {
           <Text style={styles.cardText}>Phone: +1 (800) 555-1234</Text>
         </View>
 
-        <TouchableOpacity onPress={openEmail} style={styles.card}>
+        <TouchableOpacity style={styles.card}>
           <Ionicons name="mail-outline" size={26} color={themeColor} style={styles.cardIcon} />
           <Text style={styles.cardText}>Email: support@yourapp.com</Text>
         </TouchableOpacity>
@@ -99,7 +78,7 @@ const styles = StyleSheet.create({
   backButton: { flexDirection: "row", alignItems: "center" },
   backText: { fontSize: 16, color: themeColor, fontWeight: "500", marginLeft: 10 },
   scrollContent: { paddingHorizontal: 16, paddingBottom: 100 },
-  title: { fontSize: 24, fontWeight: "bold", color: themeColor, marginBottom: 16 },
+  title: { fontSize: 24, fontWeight: "bold", color: themeColor, marginBottom: 16, textAlign:'center', paddingVertical:20 },
   card: {
     flexDirection: "row",
     alignItems: "center",

@@ -229,8 +229,8 @@ export default function Header() {
       )}
 
       {showLanguageDropdown && (
-        <Animated.View style={dropdownSlideStyle(languageAnim)}>
-          <LanguageSelector onClose={closeLanguageDropdown} onSelectLanguage={() => {}} />
+        <Animated.View style={[styles.languageDropdown, dropdownSlideStyle(languageAnim)]}>
+          <LanguageSelector onClose={closeLanguageDropdown} />
         </Animated.View>
       )}
     </SafeAreaView>
@@ -268,6 +268,20 @@ const styles = StyleSheet.create({
     elevation: 20,
     zIndex: 9999,
     minWidth: 160,
+  },
+  languageDropdown: {
+    ...StyleSheet.absoluteFillObject, 
+    backgroundColor: 'white',
+    paddingTop: 50, 
+    paddingHorizontal: 16,
+    zIndex: 9999,
+
+    shadowColor: '#000',
+    shadowOpacity: 0.12,
+    shadowOffset: { width: 0, height: 4 },
+    shadowRadius: 6,
+
+    elevation: 20,
   },
   dropdownItemBeautiful: {
     flexDirection: 'row',
