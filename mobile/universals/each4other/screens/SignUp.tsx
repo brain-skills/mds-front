@@ -1,3 +1,4 @@
+// screens/SignUp.tsx
 import React, { useState } from 'react';
 import {
   View,
@@ -6,23 +7,30 @@ import {
   StyleSheet,
   Alert,
   Platform,
-  ScrollView,
 } from 'react-native';
-import { FontAwesome, Ionicons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { Ionicons } from '@expo/vector-icons';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import type { RouteProp } from '@react-navigation/native'; // Correct import for RouteProp
 
 import Input from '../components/Base/Input';
 import Button from '../components/Base/Button';
+import AuthScreenWrapper from '../components/AuthScreenWrapper';
 
 type RootStackParamList = {
   Login: undefined;
-  SignUp: undefined;
+  SignUp: { userType?: string };
+  MainMenu: undefined;
   Home: undefined;
 };
 
+type SignUpRouteProp = RouteProp<RootStackParamList, 'SignUp'>;
+
 export default function SignUp() {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList, 'SignUp'>>();
+  const route = useRoute<SignUpRouteProp>();
+
+  const userTypeFromParams = route.params?.userType;
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -67,9 +75,9 @@ export default function SignUp() {
     }
     Alert.alert(
       'Sign up',
-      `Name: ${name}\nEmail: ${email}\nAge: ${age}\nPhone: ${phone}\nCity: ${city}\nGender: ${gender}\nReferral: ${referralCode}\nAnswer: ${randomQuestionAnswer}`
+      `User Type: ${userTypeFromParams || 'Not specified'}\nName: ${name}\nEmail: ${email}\nAge: ${age}\nPhone: ${phone}\nCity: ${city}\nGender: ${gender}\nReferral: ${referralCode}\nAnswer: ${randomQuestionAnswer}`
     );
-    navigation.navigate('Home');
+    navigation.navigate('MainMenu');
   };
 
   const handleTermsPress = () => {
@@ -77,57 +85,18 @@ export default function SignUp() {
   };
 
   return (
-    <ScrollView
-      contentContainerStyle={styles.container}
-      keyboardShouldPersistTaps="handled"
-      showsVerticalScrollIndicator={false}
+    <AuthScreenWrapper
+      title="Sign Up"
+      onFacebookPress={handleFacebookLogin}
+      onGooglePress={handleGoogleLogin}
+      style={signUpStyles.container}
     >
-      <TouchableOpacity
-        style={styles.backButton}
-        onPress={() => navigation.goBack()}
-        activeOpacity={0.7}
-      >
-        <View style={styles.backButtonCircle}>
-          <Ionicons name="arrow-back" size={24} color="#0D6EFD" />
-        </View>
-      </TouchableOpacity>
-
-      <Text style={styles.title}>Sign Up</Text>
-
-      <View style={styles.socialButtonsRow}>
-        <TouchableOpacity
-          style={[styles.socialButton, { marginRight: 8 }]}
-          onPress={handleFacebookLogin}
-        >
-          <View style={styles.socialButtonContent}>
-            <FontAwesome name="facebook-f" size={20} color="#1877F2" />
-            <Text style={styles.socialButtonText}>Facebook</Text>
-          </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={[styles.socialButton, { marginLeft: 8 }]}
-          onPress={handleGoogleLogin}
-        >
-          <View style={styles.socialButtonContent}>
-            <FontAwesome name="google" size={20} color="#DB4437" />
-            <Text style={styles.socialButtonText}>Google</Text>
-          </View>
-        </TouchableOpacity>
-      </View>
-
-      <View style={styles.orSeparator}>
-        <View style={styles.line} />
-        <Text style={styles.orText}>or</Text>
-        <View style={styles.line} />
-      </View>
-
       <Input
         placeholder="Name"
         autoCapitalize="words"
         value={name}
         onChangeText={setName}
-        style={styles.input}
+        style={signUpStyles.input}
       />
 
       <Input
@@ -136,48 +105,38 @@ export default function SignUp() {
         autoCapitalize="none"
         value={email}
         onChangeText={setEmail}
-        style={styles.input}
+        style={signUpStyles.input}
       />
 
-      <View style={styles.passwordInputWrapper}>
+      <View style={signUpStyles.passwordInputWrapper}>
         <Input
           placeholder="Password"
           secureTextEntry={!passwordVisible}
           value={password}
           onChangeText={setPassword}
           autoCapitalize="none"
-          style={{
-            flex: 1,
-            backgroundColor: 'transparent',
-            marginBottom: 0,
-            paddingHorizontal: 4,
-          }}
+          style={signUpStyles.passwordInput}
         />
         <TouchableOpacity
           onPress={() => setPasswordVisible(!passwordVisible)}
-          style={styles.eyeIcon}
+          style={signUpStyles.eyeIcon}
         >
           <Ionicons name={passwordVisible ? 'eye' : 'eye-off'} size={24} color="#999" />
         </TouchableOpacity>
       </View>
 
-      <View style={styles.passwordInputWrapper}>
+      <View style={signUpStyles.passwordInputWrapper}>
         <Input
           placeholder="Repeat Password"
           secureTextEntry={!repeatPasswordVisible}
           value={repeatPassword}
           onChangeText={setRepeatPassword}
           autoCapitalize="none"
-          style={{
-            flex: 1,
-            backgroundColor: 'transparent',
-            marginBottom: 0,
-            paddingHorizontal: 4,
-          }}
+          style={signUpStyles.passwordInput}
         />
         <TouchableOpacity
           onPress={() => setRepeatPasswordVisible(!repeatPasswordVisible)}
-          style={styles.eyeIcon}
+          style={signUpStyles.eyeIcon}
         >
           <Ionicons name={repeatPasswordVisible ? 'eye' : 'eye-off'} size={24} color="#999" />
         </TouchableOpacity>
@@ -188,7 +147,7 @@ export default function SignUp() {
         keyboardType="numeric"
         value={age}
         onChangeText={setAge}
-        style={styles.input}
+        style={signUpStyles.input}
       />
 
       <Input
@@ -196,7 +155,7 @@ export default function SignUp() {
         keyboardType="phone-pad"
         value={phone}
         onChangeText={setPhone}
-        style={styles.input}
+        style={signUpStyles.input}
       />
 
       <Input
@@ -204,27 +163,26 @@ export default function SignUp() {
         autoCapitalize="words"
         value={city}
         onChangeText={setCity}
-        style={styles.input}
+        style={signUpStyles.input}
       />
 
-      {/* Gender Selector */}
-      <View style={styles.genderWrapper}>
-        <Text style={styles.genderLabel}>Gender</Text>
-        <View style={styles.genderButtonsRow}>
+      <View style={signUpStyles.genderWrapper}>
+        <Text style={signUpStyles.genderLabel}>Gender</Text>
+        <View style={signUpStyles.genderButtonsRow}>
           {['Male', 'Female', 'Other'].map((g) => (
             <TouchableOpacity
               key={g}
               style={[
-                styles.genderButton,
-                gender === g && styles.genderButtonSelected,
+                signUpStyles.genderButton,
+                gender === g && signUpStyles.genderButtonSelected,
               ]}
               onPress={() => setGender(g as 'Male' | 'Female' | 'Other')}
               activeOpacity={0.7}
             >
               <Text
                 style={[
-                  styles.genderButtonText,
-                  gender === g && styles.genderButtonTextSelected,
+                  signUpStyles.genderButtonText,
+                  gender === g && signUpStyles.genderButtonTextSelected,
                 ]}
               >
                 {g}
@@ -239,15 +197,15 @@ export default function SignUp() {
         autoCapitalize="characters"
         value={referralCode}
         onChangeText={setReferralCode}
-        style={styles.input}
+        style={signUpStyles.input}
       />
 
       <TouchableOpacity
-        style={[styles.avatarButton, avatarChosen && styles.avatarChosen]}
+        style={[signUpStyles.avatarButton, avatarChosen && signUpStyles.avatarChosen]}
         onPress={handleChooseAvatar}
         activeOpacity={0.7}
       >
-        <Text style={styles.avatarButtonText}>
+        <Text style={signUpStyles.avatarButtonText}>
           {avatarChosen ? 'Avatar Chosen ✓' : 'Choose Avatar'}
         </Text>
       </TouchableOpacity>
@@ -257,21 +215,21 @@ export default function SignUp() {
         autoCapitalize="none"
         value={randomQuestionAnswer}
         onChangeText={setRandomQuestionAnswer}
-        style={styles.input}
+        style={signUpStyles.input}
       />
 
-      <View style={styles.termsWrapper}>
+      <View style={signUpStyles.termsWrapper}>
         <TouchableOpacity
           onPress={() => setTermsAccepted(!termsAccepted)}
-          style={[styles.checkbox, termsAccepted && styles.checkboxChecked]}
+          style={[signUpStyles.checkbox, termsAccepted && signUpStyles.checkboxChecked]}
           activeOpacity={0.7}
         >
           {termsAccepted && <Ionicons name="checkmark" size={16} color="white" />}
         </TouchableOpacity>
 
-        <Text style={styles.termsText}>
+        <Text style={signUpStyles.termsText}>
           I agree to the{' '}
-          <Text style={styles.linkText} onPress={handleTermsPress}>
+          <Text style={signUpStyles.linkText} onPress={handleTermsPress}>
             Terms and Conditions
           </Text>
         </Text>
@@ -280,102 +238,27 @@ export default function SignUp() {
       <Button
         title="Sign Up"
         onPress={handleSignUp}
-        style={styles.loginButton}
-        textStyle={styles.loginButtonText}
+        style={signUpStyles.signUpButton}
+        textStyle={signUpStyles.signUpButtonText}
       />
 
       <TouchableOpacity
         onPress={() => navigation.navigate('Login')}
-        style={styles.loginRedirectWrapper}
+        style={signUpStyles.loginRedirectWrapper}
         activeOpacity={0.7}
       >
-        <Text style={styles.loginRedirectText}>
+        <Text style={signUpStyles.loginRedirectText}>
           Already have an account?{' '}
-          <Text style={styles.loginRedirectLink}>Log In</Text>
+          <Text style={signUpStyles.loginRedirectLink}>Log In</Text>
         </Text>
       </TouchableOpacity>
-    </ScrollView>
+    </AuthScreenWrapper>
   );
 }
 
-const styles = StyleSheet.create({
+const signUpStyles = StyleSheet.create({
   container: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: 24,
-    backgroundColor: 'white',
-    paddingBottom: 40,
-  },
-  backButton: {
-    position: 'absolute',
-    top: Platform.OS === 'ios' ? 40 : 20,
-    left: 16,
-    zIndex: 10,
-    padding: 8,
-    borderRadius: 20,
-  },
-  backButtonCircle: {
-    backgroundColor: '#e6f0ff',
-    borderRadius: 24,
-    padding: 8,
-    justifyContent: 'center',
-    alignItems: 'center',
-    shadowColor: '#0D6EFD',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 3,
-    elevation: 4,
-  },
-  title: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    color: '#0D6EFD',
-    marginTop: 120,
-    marginBottom: 24,
-    textAlign: 'center',
-    width: '100%',
-  },
-  socialButtonsRow: {
-    flexDirection: 'row',
-    marginBottom: 12,
-    width: '100%',
-  },
-  socialButton: {
-    flex: 1,
-    backgroundColor: '#f5f5f5',
-    borderRadius: 8,
-    paddingVertical: 12,
-    paddingHorizontal: 16,
-    justifyContent: 'center',
-  },
-  socialButtonContent: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 8,
-  },
-  socialButtonText: {
-    fontSize: 16,
-    color: '#000',
-    fontWeight: '600',
-  },
-  orSeparator: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginVertical: 20,
-    width: '100%',
-  },
-  line: {
-    flex: 1,
-    height: 1,
-    backgroundColor: '#ccc',
-  },
-  orText: {
-    marginHorizontal: 12,
-    fontSize: 14,
-    color: '#555',
-    fontWeight: '600',
+    paddingTop: Platform.OS === 'ios' ? 120 : 80,
   },
   input: {
     width: '100%',
@@ -389,6 +272,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     marginBottom: 8,
     width: '100%',
+  },
+  passwordInput: {
+    flex: 1,
+    backgroundColor: 'transparent',
+    marginBottom: 0,
+    paddingHorizontal: 4,
   },
   eyeIcon: {
     padding: 8,
@@ -437,13 +326,17 @@ const styles = StyleSheet.create({
     color: '#0D6EFD',
     textDecorationLine: 'underline',
   },
-  loginButton: {
+  signUpButton: {
     width: '100%',
     marginBottom: 12,
+    paddingVertical: 16,
+    backgroundColor: '#0D6EFD',
+    borderRadius: 10,
   },
-  loginButtonText: {
+  signUpButtonText: {
     fontSize: 18,
     fontWeight: '700',
+    color: 'white',
   },
   loginRedirectWrapper: {
     marginTop: 12,
@@ -459,7 +352,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     textDecorationLine: 'underline',
   },
-
   genderWrapper: {
     width: '100%',
     marginBottom: 12,

@@ -5,8 +5,6 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  Linking,
-  LayoutChangeEvent,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -17,8 +15,6 @@ const themeColor = "#16A085";
 
 export default function Contact() {
   const navigation = useNavigation();
-
-  const [headerHeight, setHeaderHeight] = useState(0);
 
   const bottomMenuItems = [
     {
@@ -34,11 +30,11 @@ export default function Contact() {
 
   return (
     <View style={styles.container}>
-      <View style={[styles.headerWrapper, { height: headerHeight }]}>
+      <View style={[styles.headerWrapper]}>
         <Header />
       </View>
 
-      <ScrollView contentContainerStyle={[styles.scrollContent, { paddingTop: headerHeight }]}>
+      <ScrollView contentContainerStyle={[styles.scrollContent]}>
 
         <Text style={styles.title}>📞 Contact Us</Text>
 

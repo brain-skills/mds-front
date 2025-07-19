@@ -12,7 +12,8 @@ import Header from "../components/Header";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../App"; // Adjust path if needed
+import { RootStackParamList } from "../App";
+import { useThemeContext } from "../context/ThemeContext";
 
 const { width } = Dimensions.get("window");
 
@@ -66,6 +67,7 @@ const sections: Section[] = [
 
 export default function MainMenu() {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  const { theme } = useThemeContext();
   const animations = useRef(sections.map(() => new Animated.Value(-width))).current;
 
   useEffect(() => {
@@ -86,16 +88,15 @@ export default function MainMenu() {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: theme.colors.background }]}>
+      <Header />
       <View style={styles.menuContainer}>
         {sections.map((section, index) => (
           <Animated.View
             key={section.id}
             style={[
               styles.animatedButton,
-              {
-                transform: [{ translateX: animations[index] }],
-              },
+              { transform: [{ translateX: animations[index] }] },
             ]}
           >
             <TouchableOpacity
@@ -122,7 +123,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 30,
     paddingBottom: 20,
-    backgroundColor: "#fff",
   },
   menuContainer: {
     flex: 1,

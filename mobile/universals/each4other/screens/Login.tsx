@@ -1,32 +1,28 @@
-import React, { useState, useRef, useEffect } from 'react';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  Alert,
-  Platform,
-  Modal,
-  Animated,
-  TouchableWithoutFeedback,
-  Easing,
-} from 'react-native';
-import { FontAwesome, Ionicons } from '@expo/vector-icons';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, Alert, Modal, Animated, TouchableWithoutFeedback, Easing, Keyboard } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
-
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-
 import Input from '../components/Base/Input';
 import Button from '../components/Base/Button';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import AuthScreenWrapper from '../components/AuthScreenWrapper';
+
+const ANIMATION_DURATION = 300;
+const OVERLAY_OPACITY = 0.5;
+const MODAL_INITIAL_TRANSLATE_Y = 300;
+
+const USER_TYPE_OPTIONS = ['User', 'Creator', 'Company / Self'];
+const COMPANY_SELF_OPTION = 'Company / Self';
+const COMPANY_OPTION = 'Company';
+const SELF_EMPLOYER_OPTION = 'Self Employer';
 
 type RootStackParamList = {
   Login: undefined;
-  SignUp: undefined;
+  SignUp: { userType?: string };
   MainMenu: undefined;
   ForgotPassword: undefined;
-  Profile: undefined
+  Profile: undefined;
 };
 
 export default function Login() {
@@ -36,46 +32,75 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
+  const [secondModalVisible, setSecondModalVisible] = useState(false);
+  const [userType, setUserType] = useState('');
 
-  const slideAnim = useRef(new Animated.Value(300)).current;
+  const slideAnim = useRef(new Animated.Value(MODAL_INITIAL_TRANSLATE_Y)).current;
   const overlayOpacity = useRef(new Animated.Value(0)).current;
+  const secondSlideAnim = useRef(new Animated.Value(MODAL_INITIAL_TRANSLATE_Y)).current;
 
-  const registrationOptions = ['User', 'Creator', 'Advertiser', 'Business', 'Blogger'];
-
-  useEffect(() => {
-    animateModal(modalVisible);
-  }, [modalVisible]);
-
-  const animateModal = (visible: boolean) => {
+  const animateFirstModal = useCallback((visible: boolean) => {
+    Keyboard.dismiss();
     Animated.parallel([
       Animated.timing(slideAnim, {
-        toValue: visible ? 0 : 300,
-        duration: 300,
+        toValue: visible ? 0 : MODAL_INITIAL_TRANSLATE_Y,
+        duration: ANIMATION_DURATION,
         easing: Easing.out(Easing.ease),
         useNativeDriver: true,
       }),
       Animated.timing(overlayOpacity, {
-        toValue: visible ? 1 : 0,
-        duration: 300,
+        toValue: visible ? OVERLAY_OPACITY : 0,
+        duration: ANIMATION_DURATION,
         useNativeDriver: true,
       }),
     ]).start(() => {
       if (!visible) setModalVisible(false);
     });
+  }, [slideAnim, overlayOpacity]);
+
+  useEffect(() => {
+    if (modalVisible) {
+      slideAnim.setValue(MODAL_INITIAL_TRANSLATE_Y);
+      overlayOpacity.setValue(0);
+      animateFirstModal(true);
+    } else {
+      animateFirstModal(false);
+    }
+  }, [modalVisible, animateFirstModal, slideAnim, overlayOpacity]);
+
+  useEffect(() => {
+    if (secondModalVisible) {
+      Keyboard.dismiss();
+      Animated.timing(secondSlideAnim, {
+        toValue: 0,
+        duration: ANIMATION_DURATION,
+        easing: Easing.out(Easing.ease),
+        useNativeDriver: true,
+      }).start();
+    } else {
+      Animated.timing(secondSlideAnim, {
+        toValue: MODAL_INITIAL_TRANSLATE_Y,
+        duration: ANIMATION_DURATION,
+        easing: Easing.out(Easing.ease),
+        useNativeDriver: true,
+      }).start();
+    }
+  }, [secondModalVisible, secondSlideAnim]);
+
+  const handleOptionSelect = (option: string) => {
+    if (option === COMPANY_SELF_OPTION) {
+      animateFirstModal(false);
+      setTimeout(() => setSecondModalVisible(true), ANIMATION_DURATION / 2);
+    } else {
+      animateFirstModal(false);
+      navigation.navigate('SignUp', { userType: option });
+    }
   };
 
-  const openModal = () => {
-    setModalVisible(true);
-    slideAnim.setValue(300);
-    overlayOpacity.setValue(0);
-  };
-
-  const handleFacebookLogin = () => {
-    Alert.alert('Facebook Login', 'Facebook login pressed');
-  };
-
-  const handleGoogleLogin = () => {
-    Alert.alert('Google Login', 'Google login pressed');
+  const handleSecondOptionSelect = (option: string) => {
+    setUserType(option);
+    setSecondModalVisible(false);
+    navigation.navigate('SignUp', { userType: option });
   };
 
   const handleLogin = async () => {
@@ -83,19 +108,17 @@ export default function Login() {
       await AsyncStorage.setItem('isLoggedIn', 'true');
       navigation.navigate('MainMenu');
     } catch (error) {
-      Alert.alert('Login Failed', 'An error occurred while logging in.');
+      Alert.alert('Login Failed', 'An error occurred while logging in. Please try again.');
       console.error('Login error:', error);
     }
   };
-  
-  const handleSignUpPress = () => {
-    openModal();
-  };
 
-  const handleOptionSelect = (option: string) => {
-    animateModal(false);
-    navigation.navigate('SignUp');
-  };
+  const handleSignUpPress = () => setModalVisible(true);
+
+  const handleFacebookLogin = () => Alert.alert('Facebook Login', 'Facebook login pressed');
+
+  const handleGoogleLogin = () => Alert.alert('Google Login', 'Google login pressed');
+
   const handleBackPress = async () => {
     try {
       const isLoggedIn = await AsyncStorage.getItem('isLoggedIn');
@@ -106,63 +129,16 @@ export default function Login() {
       }
     } catch (error) {
       console.error('Error checking login status:', error);
-      navigation.navigate('MainMenu'); // fallback
+      navigation.navigate('MainMenu');
     }
   };
 
-  const OrSeparator = () => (
-    <View style={styles.orContainer}>
-      <View style={styles.line} />
-      <Text style={styles.orText}>or</Text>
-      <View style={styles.line} />
-    </View>
-  );
-
   return (
-    <KeyboardAwareScrollView
-      contentContainerStyle={styles.container}
-      keyboardShouldPersistTaps="handled"
-      enableOnAndroid={true}
-      extraScrollHeight={20}
-      enableAutomaticScroll={true}
-      showsVerticalScrollIndicator={false}
+    <AuthScreenWrapper
+      title="Sign In"
+      onFacebookPress={handleFacebookLogin}
+      onGooglePress={handleGoogleLogin}
     >
-      <TouchableOpacity
-        style={styles.backButton}
-        onPress={handleBackPress}
-        activeOpacity={0.7}
-      >
-        <View style={styles.backButtonCircle}>
-          <Ionicons name="arrow-back" size={24} color="#0D6EFD" />
-        </View>
-      </TouchableOpacity>
-
-      <Text style={styles.title}>Sign In</Text>
-
-      <View style={styles.socialButtonsRow}>
-        <TouchableOpacity
-          style={[styles.socialButton, { marginRight: 8 }]}
-          onPress={handleFacebookLogin}
-        >
-          <View style={styles.socialButtonContent}>
-            <FontAwesome name="facebook-f" size={20} color="#1877F2" />
-            <Text style={styles.socialButtonText}>Facebook</Text>
-          </View>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={[styles.socialButton, { marginLeft: 8 }]}
-          onPress={handleGoogleLogin}
-        >
-          <View style={styles.socialButtonContent}>
-            <FontAwesome name="google" size={20} color="#DB4437" />
-            <Text style={styles.socialButtonText}>Google</Text>
-          </View>
-        </TouchableOpacity>
-      </View>
-
-      <OrSeparator />
-
       <Input
         placeholder="Email"
         keyboardType="email-address"
@@ -170,6 +146,7 @@ export default function Login() {
         value={email}
         onChangeText={setEmail}
         style={styles.input}
+        accessibilityLabel="Email input field"
       />
 
       <View style={styles.passwordInputWrapper}>
@@ -179,23 +156,23 @@ export default function Login() {
           value={password}
           onChangeText={setPassword}
           autoCapitalize="none"
-          style={{
-            flex: 1,
-            backgroundColor: 'transparent',
-            marginBottom: 0,
-            paddingHorizontal: 4,
-          }}
+          style={styles.passwordInput}
+          accessibilityLabel="Password input field"
         />
         <TouchableOpacity
           onPress={() => setPasswordVisible(!passwordVisible)}
           style={styles.eyeIcon}
+          accessibilityLabel={passwordVisible ? 'Hide password' : 'Show password'}
         >
           <Ionicons name={passwordVisible ? 'eye' : 'eye-off'} size={24} color="#999" />
         </TouchableOpacity>
       </View>
 
       <View style={styles.forgotPasswordWrapper}>
-        <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('ForgotPassword')}
+          accessibilityLabel="Forgot password link"
+        >
           <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
         </TouchableOpacity>
       </View>
@@ -209,19 +186,18 @@ export default function Login() {
 
       <View style={styles.signUpTextWrapper}>
         <Text style={styles.signUpText}>Don't have an account? </Text>
-        <TouchableOpacity onPress={handleSignUpPress}>
+        <TouchableOpacity onPress={handleSignUpPress} accessibilityLabel="Sign up link">
           <Text style={[styles.signUpText, styles.signUpLink]}>Sign up</Text>
         </TouchableOpacity>
       </View>
 
-      {/* Modal */}
       <Modal
         transparent
         visible={modalVisible}
-        onRequestClose={() => animateModal(false)}
+        onRequestClose={() => animateFirstModal(false)}
         animationType="none"
       >
-        <TouchableWithoutFeedback onPress={() => animateModal(false)}>
+        <TouchableWithoutFeedback onPress={() => animateFirstModal(false)}>
           <Animated.View style={[styles.modalOverlay, { opacity: overlayOpacity }]} />
         </TouchableWithoutFeedback>
 
@@ -229,173 +205,127 @@ export default function Login() {
           style={[styles.modalContainer, { transform: [{ translateY: slideAnim }] }]}
         >
           <Text style={styles.modalTitle}>Registration like who?</Text>
-          {registrationOptions.map((option) => (
+          {USER_TYPE_OPTIONS.map((option) => (
             <TouchableOpacity
               key={option}
               style={styles.modalItem}
               onPress={() => handleOptionSelect(option)}
+              accessibilityLabel={`Register as ${option}`}
             >
               <Text style={styles.modalItemText}>{option}</Text>
             </TouchableOpacity>
           ))}
           <TouchableOpacity
-            onPress={() => animateModal(false)}
+            onPress={() => animateFirstModal(false)}
             style={styles.modalCloseButton}
+            accessibilityLabel="Cancel registration type selection"
           >
             <Text style={styles.modalCloseButtonText}>Cancel</Text>
           </TouchableOpacity>
         </Animated.View>
       </Modal>
-    </KeyboardAwareScrollView>
+
+      <Modal
+        transparent
+        visible={secondModalVisible}
+        onRequestClose={() => setSecondModalVisible(false)}
+        animationType="none"
+      >
+        <TouchableWithoutFeedback onPress={() => setSecondModalVisible(false)}>
+          <Animated.View style={[styles.modalOverlay, { opacity: overlayOpacity }]} />
+        </TouchableWithoutFeedback>
+
+        <Animated.View
+          style={[styles.modalContainer, { transform: [{ translateY: secondSlideAnim }] }]}
+        >
+          <Text style={styles.modalTitle}>Select your type:</Text>
+          <TouchableOpacity
+            style={styles.modalItem}
+            onPress={() => handleSecondOptionSelect(COMPANY_OPTION)}
+            accessibilityLabel={`Select ${COMPANY_OPTION}`}
+          >
+            <Text style={styles.modalItemText}>{COMPANY_OPTION}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.modalItem}
+            onPress={() => handleSecondOptionSelect(SELF_EMPLOYER_OPTION)}
+            accessibilityLabel={`Select ${SELF_EMPLOYER_OPTION}`}
+          >
+            <Text style={styles.modalItemText}>{SELF_EMPLOYER_OPTION}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => setSecondModalVisible(false)}
+            style={styles.modalCloseButton}
+            accessibilityLabel="Cancel company/self employer selection"
+          >
+            <Text style={styles.modalCloseButtonText}>Cancel</Text>
+          </TouchableOpacity>
+        </Animated.View>
+      </Modal>
+    </AuthScreenWrapper>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: 24,
-    backgroundColor: 'white',
-    paddingBottom: 40,
-  },
-  backButton: {
-    position: 'absolute',
-    top: Platform.OS === 'ios' ? 50 : 20,
-    left: 16,
-    zIndex: 10,
-    padding: 8,
-    borderRadius: 20,
-  },
-  backButtonCircle: {
-    backgroundColor: '#e6f0ff',
-    borderRadius: 24,
-    padding: 8,
-    justifyContent: 'center',
-    alignItems: 'center',
-    shadowColor: '#0D6EFD',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 3,
-    elevation: 4,
-  },
-  title: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    color: '#0D6EFD',
-    marginBottom: 24,
-    textAlign: 'center',
-    width: '100%',
-  },
-  socialButtonsRow: {
-    flexDirection: 'row',
-    marginBottom: 12,
-    width: '100%',
-  },
-  socialButton: {
-    flex: 1,
-    backgroundColor: '#f5f5f5',
-    borderRadius: 8,
-    paddingVertical: 12,
-    paddingHorizontal: 16,
-    justifyContent: 'center',
-  },
-  socialButtonContent: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 8,
-  },
-  socialButtonText: {
-    fontSize: 16,
-    color: '#000',
-    fontWeight: '600',
-  },
-  orContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    width: '100%',
-    marginVertical: 16,
-  },
-  line: {
-    flex: 1,
-    height: 1,
-    backgroundColor: '#ccc',
-  },
-  orText: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#999',
-    marginHorizontal: 8,
-  },
   input: {
     width: '100%',
-    marginBottom: 12,
+    marginBottom: 16,
   },
   passwordInputWrapper: {
+    position: 'relative',
+    width: '100%',
+    marginBottom: 16,
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#f5f5f5',
     borderRadius: 8,
     paddingHorizontal: 12,
-    marginBottom: 8,
-    width: '100%',
+  },
+  passwordInput: {
+    flex: 1,
+    backgroundColor: 'transparent',
+    marginBottom: 0,
+    paddingHorizontal: 4,
   },
   eyeIcon: {
     padding: 8,
   },
   forgotPasswordWrapper: {
-    width: '100%',
+    marginTop: 8,
     alignItems: 'flex-end',
-    marginBottom: 24,
+    width: '100%',
   },
   forgotPasswordText: {
     color: '#0D6EFD',
-    fontWeight: '600',
+    fontWeight: 'bold',
   },
   loginButton: {
+    marginTop: 20,
+    paddingVertical: 16,
+    backgroundColor: '#0D6EFD',
+    borderRadius: 10,
     width: '100%',
-    marginBottom: 12,
   },
   loginButtonText: {
-    fontSize: 18,
+    color: 'white',
     fontWeight: '700',
+    fontSize: 16,
   },
   signUpTextWrapper: {
     flexDirection: 'row',
-    justifyContent: 'flex-end',
-    width: '100%',
-    marginBottom: 24,
-    paddingLeft: 4,
+    marginTop: 12,
   },
   signUpText: {
     fontSize: 14,
-    color: '#555',
+    color: '#666',
   },
   signUpLink: {
     color: '#0D6EFD',
-    fontWeight: '700',
-  },
-  checkbox: {
-    height: 20,
-    width: 20,
-    borderWidth: 2,
-    borderColor: '#0D6EFD',
-    borderRadius: 4,
-    marginRight: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  checkboxChecked: {
-    backgroundColor: '#0D6EFD',
-  },
-  linkText: {
-    color: '#0D6EFD',
-    textDecorationLine: 'underline',
+    fontWeight: 'bold',
   },
   modalOverlay: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: '#00000066',
+    backgroundColor: '#00000080',
   },
   modalContainer: {
     position: 'absolute',
@@ -404,35 +334,37 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
-    paddingVertical: 20,
+    paddingVertical: 24,
     paddingHorizontal: 24,
     paddingBottom: 40,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: -3 },
-    shadowOpacity: 0.3,
-    shadowRadius: 6,
-    elevation: 10,
+    shadowOpacity: 0.4,
+    shadowRadius: 8,
+    elevation: 12,
   },
   modalTitle: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: '700',
     color: '#0D6EFD',
-    marginBottom: 16,
+    marginBottom: 20,
   },
   modalItem: {
-    paddingVertical: 12,
+    paddingVertical: 14,
     borderBottomColor: '#ddd',
     borderBottomWidth: 1,
+    borderRadius: 10,
+    marginVertical: 8,
   },
   modalItemText: {
     fontSize: 16,
     color: '#333',
   },
   modalCloseButton: {
-    marginTop: 20,
-    paddingVertical: 14,
+    marginTop: 24,
+    paddingVertical: 16,
     backgroundColor: '#0D6EFD',
-    borderRadius: 10,
+    borderRadius: 12,
     alignItems: 'center',
   },
   modalCloseButtonText: {
