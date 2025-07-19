@@ -10,16 +10,17 @@ import {
   KeyboardAvoidingView,
   Platform,
   useWindowDimensions,
-  SafeAreaView, // Added for better handling of safe areas
+  SafeAreaView,
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withTiming,
-  FadeIn, // For subtle entry animations
+  runOnJS,
+  FadeIn,
   FadeOut,
-} from 'react-native-reanimated'; // Added reanimated for smoother animations
+} from 'react-native-reanimated';
 
 interface Props {
   onClose: () => void;
@@ -84,24 +85,23 @@ const LanguageLocationSelector: React.FC<Props> = ({
   const modalTranslateY = useSharedValue(height);
   const modalOpacity = useSharedValue(0);
 
-  const modalAnimatedStyle = useAnimatedStyle(() => {
-    return {
-      transform: [{ translateY: modalTranslateY.value }],
-      opacity: modalOpacity.value,
-    };
-  });
+  const modalAnimatedStyle = useAnimatedStyle(() => ({
+    transform: [{ translateY: modalTranslateY.value }],
+    opacity: modalOpacity.value,
+  }));
+
+  // Fix here: use runOnJS to safely update React state inside animation callbacks
+  const closeModals = (callback: () => void) => {
+    modalTranslateY.value = withTiming(height, { duration: 300 }, () => {
+      modalOpacity.value = withTiming(0, { duration: 200 }, () => {
+        runOnJS(callback)();
+      });
+    });
+  };
 
   const openModal = () => {
     modalTranslateY.value = withTiming(0, { duration: 300 });
     modalOpacity.value = withTiming(1, { duration: 200 });
-  };
-
-  const closeModals = (callback: () => void) => {
-    modalTranslateY.value = withTiming(height, { duration: 300 }, () => {
-      modalOpacity.value = withTiming(0, { duration: 200 }, () => {
-        callback();
-      });
-    });
   };
 
   const renderModal = (
@@ -125,7 +125,12 @@ const LanguageLocationSelector: React.FC<Props> = ({
           style={styles.keyboardAvoidingView}
         >
           <SafeAreaView style={styles.fullscreenModal}>
-            <TouchableOpacity style={styles.modalHandle} onPress={() => closeModals(onCloseModal)} />
+            <TouchableOpacity
+              style={styles.modalHandle}
+              onPress={() => closeModals(onCloseModal)}
+              accessible={true}
+              accessibilityLabel="Close modal"
+            />
             <Text style={styles.modalTitle}>{title}</Text>
 
             <View style={styles.searchBox}>
@@ -143,6 +148,7 @@ const LanguageLocationSelector: React.FC<Props> = ({
               data={data.filter(item =>
                 item.name.toLowerCase().includes(searchValue.toLowerCase())
               )}
+              contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 20 }}
               keyExtractor={item => item.name}
               showsVerticalScrollIndicator={false}
               renderItem={({ item }) => (
@@ -153,17 +159,17 @@ const LanguageLocationSelector: React.FC<Props> = ({
                     setSearch('');
                     closeModals(onCloseModal);
                   }}
+                  accessibilityLabel={`Select ${item.name}`}
                 >
-                  <Text style={styles.listText}>{item.flag} {item.name}</Text>
-                  {onSelectItem === setSelectedLanguage && item.name === selectedLanguage && (
+                  <Text style={styles.listText}>
+                    {item.flag} {item.name}
+                  </Text>
+                  {(onSelectItem === setSelectedLanguage && item.name === selectedLanguage) ||
+                  (onSelectItem === setSelectedLocation && item.name === selectedLocation) ? (
                     <Feather name="check-circle" size={20} color="#007AFF" />
-                  )}
-                   {onSelectItem === setSelectedLocation && item.name === selectedLocation && (
-                    <Feather name="check-circle" size={20} color="#007AFF" />
-                  )}
+                  ) : null}
                 </TouchableOpacity>
               )}
-              // Add a small footer for better spacing with keyboard on Android
               ListFooterComponent={<View style={{ height: Platform.OS === 'android' ? 50 : 0 }} />}
             />
           </SafeAreaView>
@@ -173,7 +179,11 @@ const LanguageLocationSelector: React.FC<Props> = ({
   );
 
   return (
-    <Animated.View entering={FadeIn.duration(300)} exiting={FadeOut.duration(300)} style={[styles.wrapper, { width, height }]}>
+    <Animated.View
+      entering={FadeIn.duration(300)}
+      exiting={FadeOut.duration(300)}
+      style={[styles.wrapper, { width, height }]}
+    >
       <View style={styles.container}>
         {/* Back Button */}
         <TouchableOpacity onPress={onClose} style={styles.backButton}>
@@ -182,7 +192,9 @@ const LanguageLocationSelector: React.FC<Props> = ({
         </TouchableOpacity>
 
         <Text style={styles.mainTitle}>Choose Your Preference</Text>
-        <Text style={styles.subtitle}>Select your preferred language and location to personalize your experience.</Text>
+        <Text style={styles.subtitle}>
+          Select your preferred language and location to personalize your experience.
+        </Text>
 
         <TouchableOpacity
           style={styles.selector}
@@ -190,6 +202,7 @@ const LanguageLocationSelector: React.FC<Props> = ({
             setLanguageModalVisible(true);
             openModal();
           }}
+          accessibilityLabel="Open language selection modal"
         >
           <Text style={styles.selectorText}>🌐 Language:</Text>
           <Text style={styles.selectedValue}>{selectedLanguage}</Text>
@@ -202,6 +215,7 @@ const LanguageLocationSelector: React.FC<Props> = ({
             setLocationModalVisible(true);
             openModal();
           }}
+          accessibilityLabel="Open location selection modal"
         >
           <Text style={styles.selectorText}>📍 Location:</Text>
           <Text style={styles.selectedValue}>{selectedLocation}</Text>
@@ -214,6 +228,7 @@ const LanguageLocationSelector: React.FC<Props> = ({
             onSelect(selectedLanguage, selectedLocation);
             onClose();
           }}
+          accessibilityLabel="Confirm selected language and location"
         >
           <Text style={styles.confirmText}>Confirm Selections</Text>
         </TouchableOpacity>
@@ -248,18 +263,18 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 0,
     left: 0,
-    backgroundColor: '#F7F9FC', // Lighter, modern background
+    backgroundColor: '#F7F9FC',
     zIndex: 9999,
     justifyContent: 'center',
     alignItems: 'center',
   },
   container: {
-    padding: 28, // Increased padding
-    borderRadius: 20, // More rounded corners
+    padding: 28,
+    borderRadius: 20,
     backgroundColor: '#FFFFFF',
     width: '90%',
-    maxWidth: 400, // Max width for larger screens
-    shadowColor: 'rgba(0, 0, 0, 0.08)', // Softer shadow
+    maxWidth: 400,
+    shadowColor: 'rgba(0, 0, 0, 0.08)',
     shadowOffset: { width: 0, height: 8 },
     shadowOpacity: 0.1,
     shadowRadius: 20,
@@ -268,13 +283,13 @@ const styles = StyleSheet.create({
   backButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 24, // Increased margin
+    marginBottom: 24,
     alignSelf: 'flex-start',
   },
   backButtonText: {
     marginLeft: 8,
     fontSize: 16,
-    color: '#5C6BC0', // Muted blue
+    color: '#5C6BC0',
     fontWeight: '500',
   },
   mainTitle: {
@@ -288,41 +303,41 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#7F8C8D',
     textAlign: 'center',
-    marginBottom: 30, // More spacing
+    marginBottom: 30,
     lineHeight: 20,
   },
   selector: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#EBF1FA', // Lighter, more subtle background for selectors
+    backgroundColor: '#EBF1FA',
     paddingVertical: 16,
     paddingHorizontal: 20,
-    borderRadius: 14, // Slightly more rounded
-    marginBottom: 14, // Consistent spacing
+    borderRadius: 14,
+    marginBottom: 14,
     borderWidth: 1,
-    borderColor: '#DDE6F0', // Subtle border
+    borderColor: '#DDE6F0',
   },
   selectorText: {
     fontSize: 16,
-    color: '#5C6BC0', // Muted blue for labels
+    color: '#5C6BC0',
     fontWeight: '500',
   },
   selectedValue: {
     fontSize: 16,
     color: '#2C3E50',
     fontWeight: '600',
-    flex: 1, // Allows value to take up available space
-    textAlign: 'right', // Aligns value to the right
+    flex: 1,
+    textAlign: 'right',
     marginRight: 10,
   },
   confirmButton: {
-    backgroundColor: '#5C6BC0', // Primary action color
+    backgroundColor: '#5C6BC0',
     paddingVertical: 16,
     borderRadius: 14,
     alignItems: 'center',
-    marginTop: 20, // More top margin
-    shadowColor: 'rgba(92, 107, 192, 0.4)', // Shadow for button
+    marginTop: 20,
+    shadowColor: 'rgba(92, 107, 192, 0.4)',
     shadowOffset: { width: 0, height: 6 },
     shadowOpacity: 0.3,
     shadowRadius: 10,
@@ -330,12 +345,12 @@ const styles = StyleSheet.create({
   },
   confirmText: {
     color: '#fff',
-    fontSize: 18, // Larger font
-    fontWeight: '700', // Bolder
+    fontSize: 18,
+    fontWeight: '700',
   },
   modalOverlay: {
     flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.45)', // Darker, more pronounced overlay
+    backgroundColor: 'rgba(0, 0, 0, 0.45)',
     justifyContent: 'flex-end',
   },
   keyboardAvoidingView: {
@@ -345,43 +360,43 @@ const styles = StyleSheet.create({
   fullscreenModal: {
     backgroundColor: '#FFFFFF',
     width: '100%',
-    height: '90%', // Slightly taller modal
-    borderTopLeftRadius: 30, // More rounded corners
+    height: '90%',
+    borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
-    padding: 25, // Increased padding
-    shadowColor: 'rgba(0, 0, 0, 0.15)', // Enhanced shadow
+    padding: 25,
+    shadowColor: 'rgba(0, 0, 0, 0.15)',
     shadowOffset: { width: 0, height: -5 },
     shadowOpacity: 0.25,
     shadowRadius: 15,
     elevation: 15,
   },
   modalHandle: {
-    width: 50, // Wider handle
-    height: 6, // Thicker handle
-    backgroundColor: '#D1D1D6', // Softer grey
+    width: 50,
+    height: 6,
+    backgroundColor: '#D1D1D6',
     borderRadius: 3,
     alignSelf: 'center',
-    marginBottom: 20, // More spacing
+    marginBottom: 20,
   },
   modalTitle: {
     fontSize: 22,
     fontWeight: '700',
-    marginBottom: 20, // More spacing
+    marginBottom: 20,
     color: '#2C3E50',
     textAlign: 'center',
   },
   searchBox: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#F0F2F5', // Lighter search box background
+    backgroundColor: '#F0F2F5',
     paddingHorizontal: 15,
-    borderRadius: 25, // More rounded search input
+    borderRadius: 25,
     marginBottom: 20,
-    height: 48, // Fixed height for input
+    height: 48,
   },
   searchInput: {
     flex: 1,
-    paddingVertical: Platform.OS === 'ios' ? 12 : 10, // Adjust padding for consistent height
+    paddingVertical: Platform.OS === 'ios' ? 12 : 10,
     paddingLeft: 10,
     fontSize: 16,
     color: '#333',
@@ -390,31 +405,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 16, // More vertical padding
-    borderBottomWidth: StyleSheet.hairlineWidth, // Finer line
-    borderBottomColor: '#E0E0E0', // Lighter border color
+    paddingVertical: 16,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: '#E0E0E0',
   },
   listText: {
-    fontSize: 17, // Slightly larger text
+    fontSize: 17,
     color: '#333333',
     flex: 1,
-  },
-  closeButton: {
-    marginTop: 25,
-    backgroundColor: '#007AFF', // iOS blue for close button
-    paddingVertical: 14,
-    borderRadius: 12,
-    alignItems: 'center',
-    shadowColor: 'rgba(0, 122, 255, 0.3)',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.2,
-    shadowRadius: 8,
-    elevation: 4,
-  },
-  closeButtonText: {
-    color: '#fff',
-    fontWeight: '700',
-    fontSize: 17,
   },
 });
 
