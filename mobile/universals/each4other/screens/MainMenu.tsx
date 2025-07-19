@@ -89,7 +89,6 @@ export default function MainMenu() {
 
   return (
     <View style={[styles.container, { backgroundColor: theme.colors.background }]}>
-      <Header />
       <View style={styles.menuContainer}>
         {sections.map((section, index) => (
           <Animated.View

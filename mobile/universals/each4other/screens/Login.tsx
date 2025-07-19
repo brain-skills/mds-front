@@ -1,5 +1,16 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Alert, Modal, Animated, TouchableWithoutFeedback, Easing, Keyboard } from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Alert,
+  Modal,
+  Animated,
+  TouchableWithoutFeedback,
+  Easing,
+  Keyboard,
+} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -39,24 +50,28 @@ export default function Login() {
   const overlayOpacity = useRef(new Animated.Value(0)).current;
   const secondSlideAnim = useRef(new Animated.Value(MODAL_INITIAL_TRANSLATE_Y)).current;
 
-  const animateFirstModal = useCallback((visible: boolean) => {
-    Keyboard.dismiss();
-    Animated.parallel([
-      Animated.timing(slideAnim, {
-        toValue: visible ? 0 : MODAL_INITIAL_TRANSLATE_Y,
-        duration: ANIMATION_DURATION,
-        easing: Easing.out(Easing.ease),
-        useNativeDriver: true,
-      }),
-      Animated.timing(overlayOpacity, {
-        toValue: visible ? OVERLAY_OPACITY : 0,
-        duration: ANIMATION_DURATION,
-        useNativeDriver: true,
-      }),
-    ]).start(() => {
-      if (!visible) setModalVisible(false);
-    });
-  }, [slideAnim, overlayOpacity]);
+  const animateFirstModal = useCallback(
+    (visible: boolean, onComplete?: () => void) => {
+      Keyboard.dismiss();
+      Animated.parallel([
+        Animated.timing(slideAnim, {
+          toValue: visible ? 0 : MODAL_INITIAL_TRANSLATE_Y,
+          duration: ANIMATION_DURATION,
+          easing: Easing.out(Easing.ease),
+          useNativeDriver: true,
+        }),
+        Animated.timing(overlayOpacity, {
+          toValue: visible ? OVERLAY_OPACITY : 0,
+          duration: ANIMATION_DURATION,
+          useNativeDriver: true,
+        }),
+      ]).start(() => {
+        if (!visible) setModalVisible(false);
+        if (onComplete) onComplete();
+      });
+    },
+    [slideAnim, overlayOpacity]
+  );
 
   useEffect(() => {
     if (modalVisible) {
@@ -89,11 +104,14 @@ export default function Login() {
 
   const handleOptionSelect = (option: string) => {
     if (option === COMPANY_SELF_OPTION) {
-      animateFirstModal(false);
-      setTimeout(() => setSecondModalVisible(true), ANIMATION_DURATION / 2);
+      // Hide first modal, then show second modal after animation completes
+      animateFirstModal(false, () => {
+        setSecondModalVisible(true);
+      });
     } else {
-      animateFirstModal(false);
-      navigation.navigate('SignUp', { userType: option });
+      animateFirstModal(false, () => {
+        navigation.navigate('SignUp', { userType: option });
+      });
     }
   };
 
@@ -191,6 +209,7 @@ export default function Login() {
         </TouchableOpacity>
       </View>
 
+      {/* First modal */}
       <Modal
         transparent
         visible={modalVisible}
@@ -225,6 +244,7 @@ export default function Login() {
         </Animated.View>
       </Modal>
 
+      {/* Second modal */}
       <Modal
         transparent
         visible={secondModalVisible}
