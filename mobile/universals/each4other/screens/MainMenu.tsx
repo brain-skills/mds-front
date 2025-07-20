@@ -8,12 +8,12 @@ import {
   Easing,
   Dimensions,
 } from "react-native";
-import Header from "../components/Header";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../App";
 import { useThemeContext } from "../context/ThemeContext";
+import Logo from '../assets/logo/each4other-logo-light-mobile.svg';
 
 const { width } = Dimensions.get("window");
 
@@ -88,7 +88,10 @@ export default function MainMenu() {
   };
 
   return (
-    <View style={[styles.container, { backgroundColor: theme.colors.background }]}>
+      <View style={[styles.container, { backgroundColor: theme.colors.background }]}>
+        <View style={styles.logoContainer}>
+          <Logo/>
+        </View>
       <View style={styles.menuContainer}>
         {sections.map((section, index) => (
           <Animated.View
@@ -122,6 +125,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 30,
     paddingBottom: 20,
+  },
+  logoContainer:{
+    alignItems:'center',
+    paddingTop:20
   },
   menuContainer: {
     flex: 1,
