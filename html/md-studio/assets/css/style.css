@@ -474,6 +474,13 @@ html, body {
   color: #249FDD;
 }
 
+.dropdown-menu .dropdown-item:hover, 
+.dropdown-menu .dropdown-item:focus, 
+.dropdown-item:active {
+    background-color: transparent !important;
+    color: var(--color-primary) !important; 
+}
+
 #desktop-filters a.active-service,
 #desktop-filters a.active {
     color: #249FDD !important;
@@ -509,6 +516,11 @@ html, body {
 .toggle-label.active {
   opacity: 1;
   color: #fff;
+}
+
+.menu-link.active {
+    color: var(--color-primary) !important; 
+    font-weight: bold;
 }
 
 /* Switch */
@@ -664,6 +676,35 @@ input:checked + .slider:before {
     background-color: #fff;
 }
 
+.portfolio-row {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.portfolio-item {
+    min-width: 280px;
+    max-width: 280px;
+    scroll-snap-align: start;
+}
+
+@media (min-width: 992px) {
+    .portfolio-row {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .portfolio-item {
+        min-width: auto;
+        max-width: 100%;
+        flex: 1 1 calc(33.333% - 1rem);
+    }
+}
+
 .service-img-graphic-design {
   max-width: 600px;
 }
@@ -789,53 +830,7 @@ input:checked + .slider:before {
   .fs-28 { 
     font-size: 22px;
   }
-}
-
-@media (max-width: 767.98px) {
-    #desktop-categories { display: none; }
-    #mobile-categories   { display: block !important; }
-}
-@media (min-width: 768px) {
-    #desktop-categories { display: block; }
-    #mobile-categories   { display: none; }
-}
-
-@media (max-width: 750px) {
-  #portfolioCarousel .carousel-item > div {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 16px;
-    overflow-x: auto;
-    padding-bottom: 16px;
-
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-  }
-
-  #portfolioCarousel .carousel-item > div > div {
-    flex: 0 0 80%;
-    max-width: 60%;
-    scroll-snap-align: start;
-  }
-
-  #portfolioCarousel .carousel-item > div::-webkit-scrollbar, .footer-nav, .footer-services {
-    display: none;
-  }
-
-  .news-wrapper {
-    flex-direction: column !important;
-    gap: 50px;
-  }
-
-  .news-card {
-    flex-direction: row;
-    gap: 12px;
-    flex: 0 0 auto;
-  }
-
-  .news-card img{
-    max-height: 100px;
-  }
+  
 }
 
 @media (max-width: 600px) {

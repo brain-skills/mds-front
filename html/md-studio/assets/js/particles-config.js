@@ -68,18 +68,29 @@ const darkConfig = {
   retina_detect: true
 };
 
-document.querySelectorAll('.particles-bottom-dark, .particles-bottom-light, .particles-full').forEach(container => {
-  const uniqueId = 'particles-' + Math.random().toString(36).substr(2, 9);
-  container.id = uniqueId;
+document
+  .querySelectorAll(
+    '.particles-bottom-dark, .particles-bottom-light, .particles-top-light, .particles-full'
+  )
+  .forEach(container => {
 
-  let config;
-  if (container.classList.contains('particles-bottom-light')) {
-    config = lightConfig;
-  } else if (container.classList.contains('particles-full')) {
-    config = fullConfig;
-  } else {
-    config = darkConfig;
-  }
+    const uniqueId = 'particles-' + Math.random().toString(36).substr(2, 9);
+    container.id = uniqueId;
 
-  particlesJS(uniqueId, config);
-});
+    let config;
+
+    if (container.classList.contains('particles-bottom-light')) {
+      config = lightConfig;
+
+    } else if (container.classList.contains('particles-top-light')) {
+      config = lightConfig;
+
+    } else if (container.classList.contains('particles-full')) {
+      config = fullConfig;
+
+    } else {
+      config = darkConfig;
+    }
+
+    particlesJS(uniqueId, config);
+  });

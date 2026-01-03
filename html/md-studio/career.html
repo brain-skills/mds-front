@@ -27,16 +27,12 @@
 <body>
     <main>
         <section class="bg-common">
-            <!-- HEADER -->
             <header class="header">
-                <nav class="d-flex justify-content-between align-items-center p-0 container">
+                <nav class="d-flex justify-content-between align-items-center p-0">
                     <a href="/">
                         <img src="./assets/images/logos/md-studio.svg" alt="MD Studio logo" class="header-logo">
                     </a>
-
                     <div class="d-flex align-items-center">
-
-                        <!-- Desktop Location / Flag / Currency Buttons -->
                         <ul class="list-unstyled d-flex align-items-center mb-0 me-3 me-lg-5 header-divider header-settings d-none d-lg-flex">
                             <li class="ps-0 pe-2">
                                 <button type="button"
@@ -65,9 +61,7 @@
                                 </button>
                             </li>
                         </ul>
-
-                        <!-- Call, Cart, User Dropdown -->
-                        <ul class="list-unstyled d-flex align-items-center mb-0 d-none d-lg-flex">
+                        <ul class="list-unstyled d-flex align-items-center mb-0 d-lg-flex">
 
                             <li>
                                 <button type="button" class="btn btn-primary d-flex gap-2 me-2 me-lg-4 align-items-center">
@@ -89,7 +83,6 @@
                                 </button>
                             </li>
 
-                            <!-- User Avatar Dropdown -->
                             <li class="dropdown position-static">
                                 <a href="#"
                                 class="p-0 border-0 bg-transparent"
@@ -126,7 +119,6 @@
 
                                             <div class="tab-content">
 
-                                                <!-- LOGIN -->
                                                 <div class="tab-pane fade show active" id="login-dd">
                                                     <form>
                                                         <input type="email"
@@ -182,7 +174,6 @@
                                                     </div>
                                                 </div>
 
-                                                <!-- REGISTER -->
                                                 <div class="tab-pane fade" id="register-dd">
                                                     <form>
                                                         <input type="email"
@@ -261,9 +252,8 @@
                     </div>
                 </nav>
 
-                <!-- Main Navigation Menu -->
-                <nav aria-label="Main menu" class="bg-blurred p-12 d-flex justify-content-between align-items-center mt-3 rounded container">
-                    <ul class="menu list-unstyled d-flex align-items-center justify-content-between gap-4 mb-0 w-100 d-none d-lg-flex">
+                <nav aria-label="Main menu" class="bg-blurred p-2 p-lg-3 d-flex justify-content-between align-items-center mt-3 rounded">
+                    <ul class="menu list-unstyled d-none d-md-flex align-items-center justify-content-between gap-4 mb-0 w-100">
                         <li class="menu-item"><a href="main.html" class="menu-link text-light text-decoration-none">Home</a></li>
                         <li class="menu-item position-relative">
                             <a href="services.html" class="menu-link text-light text-decoration-none d-flex align-items-center">
@@ -298,8 +288,7 @@
                         </li>
                     </ul>
 
-                    <!-- Mobile Menu & Settings -->
-                    <ul class="list-unstyled d-flex align-items-center mb-0 header-settings menu-mobile justify-content-between w-100 d-lg-none">
+                    <ul class="list-unstyled d-flex d-lg-none align-items-center mb-0 header-settings menu-mobile justify-content-between w-100">
                         <li class="d-flex align-items-center">
                             <button type="button" class="border-0 bg-transparent text-light p-0" aria-label="Open menu" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMobileMenu">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
@@ -350,8 +339,7 @@
                     <div class="col-lg-3 order-lg-1">
                         <div class="d-flex flex-column gap-3 position-sticky" style="top: 2rem;">
 
-                            <!-- Desktop version: pills -->
-                            <nav id="desktop-categories" class="nav flex-column" aria-label="Vacancy categories">
+                            <nav id="desktop-categories" class="nav flex-column d-none d-md-flex" aria-label="Vacancy categories">
                                 <a class="nav-link text-muted py-3 rounded" href="#all" data-category="all">All vacancies</a>
                                 <a class="nav-link text-muted py-3 rounded" href="#managers" data-category="managers">Managers</a>
                                 <a class="nav-link text-muted py-3 rounded" href="#developers" data-category="developers">Developers</a>
@@ -360,8 +348,7 @@
                                 <a class="nav-link text-muted py-3 rounded" href="#content" data-category="content">Content managers</a>
                             </nav>
 
-                            <!-- Mobile version: dropdown -->
-                            <div id="mobile-categories" class="d-none">
+                            <div id="mobile-categories" class="d-block d-md-none">
                                 <select class="form-select form-select-lg" id="mobileCategorySelect">
                                     <option value="all">All vacancies</option>
                                     <option value="managers">Managers</option>
@@ -371,6 +358,7 @@
                                     <option value="content">Content managers</option>
                                 </select>
                             </div>
+                            
                         </div>
                     </div>
 
@@ -589,7 +577,7 @@
     <script src="./assets/js/jquery-3.7.1.min.js"></script>
     <script src="./assets/js/bootstrap.bundle.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="/assets/js/particles-config.js"></script>
+    <script src="./assets/js/particles-config.js"></script>
 
     <!-- Custom Scripts  -->
     <script src="./assets/js/custom.js"></script>

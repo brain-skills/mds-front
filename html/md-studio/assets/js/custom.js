@@ -52,11 +52,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-document.querySelector('select').addEventListener('change', function() {
-    const category = this.value;
-    console.log('Filter by:', category);
-});
-
 document.addEventListener('DOMContentLoaded', function () {
     const desktopLinks = document.querySelectorAll('#desktop-filters a');
 
@@ -72,29 +67,6 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log('Selected filter:', filterValue);
         });
     });
-});
-
-const dropZone = document.getElementById('dropZone');
-const fileInput = document.getElementById('fileInput');
-const thumbnails = document.getElementById('thumbnails');
-
-dropZone.addEventListener('click', () => fileInput.click());
-
-dropZone.addEventListener('dragover', (e) => {
-    e.preventDefault();
-    dropZone.classList.add('dragover');
-});
-
-dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
-
-dropZone.addEventListener('drop', (e) => {
-    e.preventDefault();
-    dropZone.classList.remove('dragover');
-    handleFiles(e.dataTransfer.files);
-});
-
-fileInput.addEventListener('change', (e) => {
-    if (e.target.files.length) handleFiles(e.target.files);
 });
 
 function handleFiles(files) {
