@@ -188,7 +188,7 @@ html, body {
 .carousel-control-next {
   pointer-events: all;
   position: absolute;
-  top: -30%;
+  top: 0;
   bottom: 0;
   z-index: 1;
   display: flex;
@@ -662,6 +662,10 @@ input:checked + .slider:before {
     border-radius: 0.5rem;
     border: 1px solid #dee2e6;
     background-color: #fff;
+}
+
+.service-img-graphic-design {
+  max-width: 600px;
 }
 
 @media (max-width: 1200px) {

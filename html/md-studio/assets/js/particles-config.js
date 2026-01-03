@@ -21,6 +21,30 @@ const lightConfig = {
   retina_detect: true
 };
 
+const fullConfig = {
+  particles: {
+    number: { value: 150, density: { enable: true, value_area: 800 } },
+    color: { value: "#666D6E" },
+    shape: { type: "circle" },
+    opacity: { value: 0.3 },
+    size: { value: 2 },
+    line_linked: {
+      enable: true,
+      distance: 150,
+      color: "#666D6E",
+      opacity: 0.2
+    },
+    move: { enable: true, speed: 2 }
+  },
+  interactivity: {
+    events: {
+      onhover: { enable: true, mode: "grab" },
+      onclick: { enable: true, mode: "push" }
+    }
+  },
+  retina_detect: true
+};
+
 const darkConfig = {
   particles: {
     number: { value: 100 },
@@ -44,11 +68,18 @@ const darkConfig = {
   retina_detect: true
 };
 
-document.querySelectorAll('.particles-bottom-dark, .particles-bottom-light').forEach(container => {
+document.querySelectorAll('.particles-bottom-dark, .particles-bottom-light, .particles-full').forEach(container => {
   const uniqueId = 'particles-' + Math.random().toString(36).substr(2, 9);
   container.id = uniqueId;
 
-  const config = container.classList.contains('particles-bottom-light') ? lightConfig : darkConfig;
+  let config;
+  if (container.classList.contains('particles-bottom-light')) {
+    config = lightConfig;
+  } else if (container.classList.contains('particles-full')) {
+    config = fullConfig;
+  } else {
+    config = darkConfig;
+  }
 
   particlesJS(uniqueId, config);
 });

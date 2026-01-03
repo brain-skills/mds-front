@@ -1,0 +1,1 @@
+{include file="templates/universal/payments/payments-widgets/donate/donate.tpl" customUniqName="HQWCK" widgetData=$widgetData}

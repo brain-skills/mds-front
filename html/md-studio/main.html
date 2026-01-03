@@ -272,15 +272,15 @@
                                     <img src="./assets/images/svg/chevron.svg" alt="dropdown icon" class="menu-icon ms-2">
                                 </a>
                                 <ul class="dropdown-menu rounded shadow-lg border-0 p-3 bg-blurred">
-                                    <li><a class="dropdown-item text-light" href="service.html">Web Development</a></li>
-                                    <li><a class="dropdown-item text-light" href="service.html">Software Development</a></li>
-                                    <li><a class="dropdown-item text-light" href="service.html">Development</a></li>
-                                    <li><a class="dropdown-item text-light" href="service.html">UI/UX</a></li>
-                                    <li><a class="dropdown-item text-light" href="service.html">SEO</a></li>
-                                    <li><a class="dropdown-item text-light" href="service.html">SMM</a></li>
-                                    <li><a class="dropdown-item text-light" href="service.html">Target</a></li>
-                                    <li><a class="dropdown-item text-light" href="service.html">Data</a></li>
-                                    <li><a class="dropdown-item text-light" href="service.html">Graphic Design</a></li>
+                                    <li><a class="dropdown-item text-dark-custom" href="service.html">Web Development</a></li>
+                                    <li><a class="dropdown-item text-dark-custom" href="service.html">Software Development</a></li>
+                                    <li><a class="dropdown-item text-dark-custom" href="service.html">Development</a></li>
+                                    <li><a class="dropdown-item text-dark-custom" href="service.html">UI/UX</a></li>
+                                    <li><a class="dropdown-item text-dark-custom" href="service.html">SEO</a></li>
+                                    <li><a class="dropdown-item text-dark-custom" href="service.html">SMM</a></li>
+                                    <li><a class="dropdown-item text-dark-custom" href="service.html">Target</a></li>
+                                    <li><a class="dropdown-item text-dark-custom" href="service.html">Data</a></li>
+                                    <li><a class="dropdown-item text-dark-custom" href="service.html">Graphic Design</a></li>
                                 </ul>
                             </li>
                             <li class="menu-item"><a href="portfolio.html" class="menu-link text-light text-decoration-none">Portfolio</a></li>
@@ -778,7 +778,34 @@
                 </div>
             </div>
         </section>
-        <div id="site-request-consultation-large"></div>
+        <section class="bg-common pt-4 pt-md-0 position-relative overflow-hidden">
+            <div class="d-flex flex-column flex-md-row container justify-content-between align-items-center pt-3 position-relative" style="z-index: 2;">
+                <div style="max-width: 812px; width: 100%;">
+                    <h2 class="title text-light text-center text-md-start">
+                        Leave a request for <br> a consultation on services
+                    </h2>
+                    <p class="description text-white-50 pt-2 text-center text-md-start">
+                        Leave your contact information<br> and we will contact <br> you and answer all your questions in detail.
+                    </p>
+                    <form class="d-flex flex-column flex-md-row gap-3 w-100">
+                        <label for="name" class="sr-only">Your Name</label>
+                        <input type="text" id="name" class="white-input" autocomplete="off" placeholder="Your Name">
+                        
+                        <label for="email" class="sr-only">Your Email</label>
+                        <input type="email" id="email" class="white-input" autocomplete="off" placeholder="Your Email">
+                        
+                        <button class="px-5 py-2 text-white border-0" style="background-color: #249FDD;">
+                            Send Request
+                        </button>
+                    </form>
+                </div>
+                <img src="./assets/images/contact-phone.png" 
+                    alt="Contact us by phone illustration" 
+                    loading="lazy" 
+                    class="contact-phone">
+            </div>
+            <div id="particles-contact"></div>
+        </section>
         <!-- FOOTER -->
         <footer class="py-4 bg-dark-opacity">
             <div class="container d-flex flex-column flex-md-row align-items-center align-items-md-start justify-content-between py-4 my-0 my-md-2 gap-4">
@@ -837,13 +864,12 @@
             </div>
         </footer>
     </main>
-
     
     <!-- SCRIPTS  -->
     <script src="./assets/js/jquery-3.7.1.min.js"></script>
     <script src="./assets/js/bootstrap.bundle.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="/assets/js/particles-config.js"></script>
+    <script src="./assets/js/particles-config.js"></script>
 
     <!-- Custom Scripts  -->
     <script src="./assets/js/custom.js"></script>
