@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MD Studio offers high-quality web development services including websites, CRM, and ERP systems. Responsive, functional, and effective solutions.">
+    <title>Services</title>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicons/apple-touch-icon-120x120" href="/assets/images/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicons/apple-touch-icon-57x57.png">
+
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="./assets/css/normalize.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/particle.css">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/print.css">
+
+</head>
+<body>
+    <main class="">
+        <section class="bg-common">
+            <div id="site-header" class="container"></div>
+        </section>
+
+        <section class="container py-5">
+            <h1 class="title text-dark-custom text-center mb-3">Form template</h1>
+            <p class="fs-6 text-dark-custom text-center mb-4">Subheader or another important information</p>
+
+            <!-- Step Navigation -->
+            <div class="step-nav">
+                <span>Step 1</span>
+                <span>Step 2</span>
+                <strong>Step 3</strong>
+                <span>Step 4</span>
+            </div>
+
+            <p class="fs-6 fw-bold text-center mb-4">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+            </p>
+            <p class="small text-center text-muted mb-5">
+                Mauris porttitor ante id arcu laoreet sagittis. Integer sagittis, orci mattis vestibulum venenatis, nulla massa vehicula risus, ac euismod odio lectus vel risus. Cras pellentesque augue vel dui accumsan pretium in in dolor.
+            </p>
+
+            <!-- Form Card -->
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-5">
+
+                    <!-- Title -->
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <label class="form-label">Input title</label>
+                            <input type="text" class="form-control" placeholder="Your title">
+                        </div>
+                    </div>
+
+                    <!-- Attached Files -->
+                    <div class="mb-4">
+                        <strong>Attached files</strong>
+                        <div class="attached-file">
+                            <a href="#">Attached_document_sample.pdf</a>
+                            <button aria-label="Remove"><i class="bi bi-x"></i></button>
+                        </div>
+                        <div class="attached-file">
+                            <a href="#">Attached_document_template.pdf</a>
+                            <button aria-label="Remove"><i class="bi bi-x"></i></button>
+                        </div>
+                        <div class="attached-file">
+                            <a href="#">another_document_example.pdf</a>
+                            <button aria-label="Remove"><i class="bi bi-x"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Focused Input -->
+                    <div class="mb-4">
+                        <label class="form-label">Focused input</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control">
+                            <button class="btn btn-outline-secondary"><i class="bi bi-calendar"></i></button>
+                            <button class="btn btn-outline-secondary"><i class="bi bi-clock"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Drag & Drop Zone -->
+                    <div class="drop-zone mb-4" id="dropZone">
+                        <p class="text-muted">Drag & Drop files here or click to select your files</p>
+                        <div class="preview-thumbnails d-flex flex-wrap justify-content-center" id="thumbnails">
+                            <!-- Example thumbnails -->
+                            <img src="https://via.placeholder.com/80x80?text=Img1" alt="Preview">
+                            <img src="https://via.placeholder.com/80x80?text=Img2" alt="Preview">
+                            <img src="https://via.placeholder.com/80x80?text=Img3" alt="Preview">
+                        </div>
+                        <input type="file" id="fileInput" multiple accept="image/*,.pdf" style="display: none;">
+                    </div>
+
+                    <!-- Language & Other Dropdowns -->
+                    <div class="row mb-4">
+                        <div class="col-md-4">
+                            <label class="form-label">Language selection</label>
+                            <select class="form-select">
+                                <option>Present selection</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Present selection</label>
+                            <select class="form-select">
+                                <option></option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Select template</label>
+                            <select class="form-select">
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Template Checkboxes -->
+                    <div class="mb-5">
+                        <strong>Choose template</strong>
+                        <div class="form-check mt-3">
+                            <input class="form-check-input" type="checkbox" id="template1">
+                            <label class="form-check-label" for="template1">
+                                Placeholder template
+                            </label>
+                        </div>
+                        <div class="form-check mt-3">
+                            <input class="form-check-input" type="checkbox" id="template2" checked>
+                            <label class="form-check-label" for="template2">
+                                Present template
+                            </label>
+                            <div class="template-desc">
+                                Vivamus risus ligula, finibus eget vehicula in, blandit vitae mi. Mauris laoreet sagittis augue, ut blandit magna vestibulum ut. Aliquam erat volutpat...
+                            </div>
+                        </div>
+                        <div class="form-check mt-3">
+                            <input class="form-check-input" type="checkbox" id="template3">
+                            <label class="form-check-label" for="template3">
+                                Switch template
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="d-flex justify-content-between">
+                        <button class="btn btn-outline-primary btn-lg">Previous</button>
+                        <button class="btn btn-primary btn-lg">Next</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="site-footer"></div>
+    </main>
+
+    <!-- SCRIPTS -->
+    <script src="./assets/js/jquery-3.7.1.min.js"></script>
+    <script src="./assets/js/bootstrap.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="/assets/js/particles-config.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="./assets/js/custom.js"></script>
+</body>
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MD Studio offers high-quality web development services including websites, CRM, and ERP systems. Responsive, functional, and effective solutions.">
+    <title>Main</title>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicons/apple-touch-icon-57x57.png">
+
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="./assets/css/normalize.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/particle.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/print.css">
+
+    <style>
+        /* Mobile/Tablet Horizontal Scroll */
+        @media (max-width: 991.98px) {
+            #pricingScrollContainer {
+                overflow-x: auto;
+                overflow-y: hidden;
+                -webkit-overflow-scrolling: touch;
+                scroll-behavior: smooth;
+                scrollbar-width: none; /* Firefox */
+                -ms-overflow-style: none; /* IE/Edge */
+                padding-bottom: 20px;
+            }
+
+            #pricingScrollContainer::-webkit-scrollbar {
+                display: none; /* Chrome/Safari */
+            }
+
+            #pricingScrollContainer .pricing-row {
+                display: flex;
+                gap: 24px;
+                padding: 0 20px;
+                width: max-content;
+            }
+
+            #pricingScrollContainer .pricing-card {
+                flex: 0 0 88%; /* Shows most of one card + a peek of the next */
+                max-width: 395px;
+                scroll-snap-align: center;
+            }
+
+            #pricingScrollContainer {
+                scroll-snap-type: x mandatory;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section class="bg-common">
+            <div class="container">
+                <!-- HEADER -->
+                <div id="site-header"></div>
+
+                <div class="d-flex flex-column align-items-center pb-4">
+                    <div class="d-flex flex-column align-items-center">
+                        <h2 class="text-white">Price</h2>
+
+                        <!-- Desktop Filters -->
+                        <ul class="list-inline mb-0 d-none d-md-flex justify-content-center align-items-center flex-wrap" id="desktop-filters">
+                            <li class="list-inline-item mx-3 my-2">
+                                <a href="#web-development" class="text-white fs-22 text-decoration-none fw-medium active-service" data-filter="web-development">Web Development</a>
+                            </li>
+                            <li class="list-inline-item mx-3 my-2">
+                                <a href="#mobile-app" class="text-white fs-22 text-decoration-none fw-medium opacity-75" data-filter="mobile-app">Mobile App Development</a>
+                            </li>
+                            <li class="list-inline-item mx-3 my-2">
+                                <a href="#software" class="text-white text-decoration-none fw-medium opacity-75" data-filter="software">Software Development</a>
+                            </li>
+                            <li class="list-inline-item mx-3 my-2">
+                                <a href="#seo" class="text-white fs-22 text-decoration-none fw-medium opacity-75" data-filter="seo">SEO</a>
+                            </li>
+                            <li class="list-inline-item mx-3 my-2">
+                                <a href="#smm" class="text-white text-decoration-none fw-medium opacity-75" data-filter="smm">SMM</a>
+                            </li>
+                            <li class="list-inline-item mx-3 my-2">
+                                <a href="#data-extraction" class="text-white fs-22 text-decoration-none fw-medium opacity-75" data-filter="data-extraction">Data Extraction & Integration</a>
+                            </li>
+                            <li class="list-inline-item mx-3 my-2">
+                                <a href="#targeted-ads" class="text-white text-decoration-none fw-medium opacity-75" data-filter="targeted-ads">Targeted Ads</a>
+                            </li>
+                            <li class="list-inline-item mx-3 my-2">
+                                <a href="#ui-ux" class="text-white fs-22 text-decoration-none fw-medium opacity-75" data-filter="ui-ux">UI/UX Design</a>
+                            </li>
+                            <li class="list-inline-item mx-3 my-2">
+                                <a href="#graphic-design" class="text-white text-decoration-none fw-medium opacity-75" data-filter="graphic-design">Graphic Design</a>
+                            </li>
+                        </ul>
+
+                        <!-- Mobile Dropdown -->
+                        <div class="d-md-none my-4">
+                            <select class="form-select form-select-lg text-muted fw-medium border-0 shadow-sm" id="mobile-filter">
+                                <option value="web-development" selected>Web Development</option>
+                                <option value="mobile-app">Mobile App Development</option>
+                                <option value="software">Software Development</option>
+                                <option value="seo">SEO</option>
+                                <option value="smm">SMM</option>
+                                <option value="data-extraction">Data Extraction & Integration</option>
+                                <option value="targeted-ads">Targeted Ads</option>
+                                <option value="ui-ux">UI/UX Design</option>
+                                <option value="graphic-design">Graphic Design</option>
+                            </select>
+                        </div>
+
+                        <!-- Billing Toggle -->
+                        <div class="pricing-toggle py-4">
+                            <span class="toggle-label active text-white">Monthly</span>
+                            <label class="switch mx-3">
+                                <input type="checkbox" id="billingToggle">
+                                <span class="slider"></span>
+                            </label>
+                            <span class="text-white">Annually</span>
+                        </div>
+
+                        <!-- MOBILE/TABLET: Horizontal Scroll -->
+                        <div id="pricingScrollContainer" class="d-lg-none">
+                            <div class="pricing-row">
+                                <!-- Card 1 -->
+                                <div class="pricing-card bg-light d-flex flex-column gap-4 p-4 rounded">
+                                    <div class="d-flex flex-row align-items-start">
+                                        <img src="./assets/images/price-img.png" alt="Price image" style="width: 80px;">
+                                        <div class="ms-3 flex-grow-1">
+                                            <h3>Start</h3>
+                                            <button class="btn text-white mb-2" style="background-color: #0E71A2;">Basic version</button>
+                                            <p class="small text-dark-custom mb-0">Perfect for small projects and startups</p>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-column gap-3">
+                                        <div class="d-flex gap-3"><span class="text-success fs-5">✓</span><p class="small fw-bold mb-0">Landing page or simple site</p></div>
+                                        <div class="d-flex gap-3"><span class="text-success fs-5">✓</span><p class="small fw-bold mb-0">Responsive design</p></div>
+                                        <div class="d-flex gap-3"><span class="text-success fs-5">✓</span><p class="small fw-bold mb-0">Basic SEO</p></div>
+                                        <div class="d-flex gap-3"><span class="text-success fs-5">✓</span><p class="small fw-bold mb-0">1 month support</p></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-end mt-4">
+                                        <div>
+                                            <small class="text-muted text-decoration-line-through">$1,200</small>
+                                            <h2 class="fw-bold mb-0">$850</h2>
+                                        </div>
+                                        <button class="btn btn-primary">Select Start</button>
+                                    </div>
+                                </div>
+
+                                <!-- Card 2 -->
+                                <div class="pricing-card bg-light d-flex flex-column gap-4 p-4 rounded">
+                                    <div class="d-flex flex-row align-items-start">
+                                        <img src="./assets/images/price-img.png" alt="Price image" style="width: 80px;">
+                                        <div class="ms-3 flex-grow-1">
+                                            <h3>Standard</h3>
+                                            <button class="btn text-white mb-2" style="background-color: #0E71A2;">Most Popular</button>
+                                            <p class="small text-dark-custom mb-0">Best balance of features and price</p>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-column gap-3">
+                                        <div class="d-flex gap-3"><span class="text-success fs-5">✓</span><p class="small fw-bold mb-0">Everything in Start</p></div>
+                                        <div class="d-flex gap-3"><span class="text-success fs-5">✓</span><p class="small fw-bold mb-0">E-commerce or multi-page</p></div>
+                                        <div class="d-flex gap-3"><span class="text-success fs-5">✓</span><p class="small fw-bold mb-0">Advanced SEO</p></div>
+                                        <div class="d-flex gap-3"><span class="text-success fs-5">✓</span><p class="small fw-bold mb-0">3 months support</p></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-end mt-4">
+                                        <div>
+                                            <small class="text-muted text-decoration-line-through">$2,400</small>
+                                            <h2 class="fw-bold mb-0">$1,800</h2>
+                                        </div>
+                                        <button class="btn btn-primary">Select Standard</button>
+                                    </div>
+                                </div>
+
+                                <!-- Card 3 -->
+                                <div class="pricing-card bg-light d-flex flex-column gap-4 p-4 rounded">
+                                    <div class="d-flex flex-row align-items-start">
+                                        <img src="./assets/images/price-img.png" alt="Price image" style="width: 80px;">
+                                        <div class="ms-3 flex-grow-1">
+                                            <h3>Premium</h3>
+                                            <button class="btn text-white mb-2" style="background-color: #0E71A2;">Enterprise</button>
+                                            <p class="small text-dark-custom mb-0">For complex platforms and custom solutions</p>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-column gap-3">
+                                        <div class="d-flex gap-3"><span class="text-success fs-5">✓</span><p class="small fw-bold mb-0">Everything in Standard</p></div>
+                                        <div class="d-flex gap-3"><span class="text-success fs-5">✓</span><p class="small fw-bold mb-0">CRM/ERP integration</p></div>
+                                        <div class="d-flex gap-3"><span class="text-success fs-5">✓</span><p class="small fw-bold mb-0">Custom functionality</p></div>
+                                        <div class="d-flex gap-3"><span class="text-success fs-5">✓</span><p class="small fw-bold mb-0">Ongoing support</p></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-end mt-4">
+                                        <div>
+                                            <small class="text-muted text-decoration-line-through">$5,000</small>
+                                            <h2 class="fw-bold mb-0">$3,900</h2>
+                                        </div>
+                                        <button class="btn btn-primary">Select Premium</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DESKTOP: Static 3 cards -->
+                        <div class="d-none d-lg-flex justify-content-center gap-5 mt-5">
+                            <!-- Card 1 -->
+                            <div class="bg-light d-flex flex-column gap-4 p-4 rounded" style="max-width: 395px; flex: 1;">
+                                <div class="d-flex flex-row align-items-start">
+                                    <img src="./assets/images/price-img.png" alt="Price image" style="width: 80px;">
+                                    <div class="ms-3 flex-grow-1">
+                                        <h3>Start</h3>
+                                        <button class="btn text-white mb-2" style="background-color: #0E71A2;">Basic version</button>
+                                        <p class="small text-dark-custom mb-0">Perfect for small projects and startups</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-column gap-3">
+                                    <div class="d-flex gap-3"><span class="text-success fs-5">✓</span><p class="small fw-bold mb-0">Landing page or simple site</p></div>
+                                    <div class="d-flex gap-3"><span class="text-success fs-5">✓</span><p class="small fw-bold mb-0">Responsive design</p></div>
+                                    <div class="d-flex gap-3"><span class="text-success fs-5">✓</span><p class="small fw-bold mb-0">Basic SEO</p></div>
+                                    <div class="d-flex gap-3"><span class="text-success fs-5">✓</span><p class="small fw-bold mb-0">1 month support</p></div>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-end mt-4">
+                                    <div>
+                                        <small class="text-muted text-decoration-line-through">$1,200</small>
+                                        <h2 class="fw-bold mb-0">$850</h2>
+                                    </div>
+                                    <button class="btn btn-primary">Select Start</button>
+                                </div>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div class="bg-light d-flex flex-column gap-4 p-4 rounded" style="max-width: 395px; flex: 1;">
+                                <div class="d-flex flex-row align-items-start">
+                                    <img src="./assets/images/price-img.png" alt="Price image" style="width: 80px;">
+                                    <div class="ms-3 flex-grow-1">
+                                        <h3>Standard</h3>
+                                        <button class="btn text-white mb-2" style="background-color: #0E71A2;">Most Popular</button>
+                                        <p class="small text-dark-custom mb-0">Best balance of features and price</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-column gap-3">
+                                    <div class="d-flex gap-3"><span class="text-success fs-5">✓</span><p class="small fw-bold mb-0">Everything in Start</p></div>
+                                    <div class="d-flex gap-3"><span class="text-success fs-5">✓</span><p class="small fw-bold mb-0">E-commerce or multi-page</p></div>
+                                    <div class="d-flex gap-3"><span class="text-success fs-5">✓</span><p class="small fw-bold mb-0">Advanced SEO</p></div>
+                                    <div class="d-flex gap-3"><span class="text-success fs-5">✓</span><p class="small fw-bold mb-0">3 months support</p></div>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-end mt-4">
+                                    <div>
+                                        <small class="text-muted text-decoration-line-through">$2,400</small>
+                                        <h2 class="fw-bold mb-0">$1,800</h2>
+                                    </div>
+                                    <button class="btn btn-primary">Select Standard</button>
+                                </div>
+                            </div>
+
+                            <!-- Card 3 -->
+                            <div class="bg-light d-flex flex-column gap-4 p-4 rounded" style="max-width: 395px; flex: 1;">
+                                <div class="d-flex flex-row align-items-start">
+                                    <img src="./assets/images/price-img.png" alt="Price image" style="width: 80px;">
+                                    <div class="ms-3 flex-grow-1">
+                                        <h3>Premium</h3>
+                                        <button class="btn text-white mb-2" style="background-color: #0E71A2;">Enterprise</button>
+                                        <p class="small text-dark-custom mb-0">For complex platforms and custom solutions</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-column gap-3">
+                                    <div class="d-flex gap-3"><span class="text-success fs-5">✓</span><p class="small fw-bold mb-0">Everything in Standard</p></div>
+                                    <div class="d-flex gap-3"><span class="text-success fs-5">✓</span><p class="small fw-bold mb-0">CRM/ERP integration</p></div>
+                                    <div class="d-flex gap-3"><span class="text-success fs-5">✓</span><p class="small fw-bold mb-0">Custom functionality</p></div>
+                                    <div class="d-flex gap-3"><span class="text-success fs-5">✓</span><p class="small fw-bold mb-0">Ongoing support</p></div>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-end mt-4">
+                                    <div>
+                                        <small class="text-muted text-decoration-line-through">$5,000</small>
+                                        <h2 class="fw-bold mb-0">$3,900</h2>
+                                    </div>
+                                    <button class="btn btn-primary">Select Premium</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="particles-js"></div>
+        </section>
+
+        <section>
+            <div class="container py-5">
+                <h2 class="title text-center text-dark-custom pb-5">Every plan includes:</h2>
+                <div class="d-flex flex-row justify-content-between flex-wrap gap-4">
+                    <div class="d-flex flex-column align-items-center text-center px-0">
+                        <img src="./assets/images/benefit_adaptability.png" alt="" class="mb-4">
+                        <h5 class="mb-3 fs-22 text-dark-custom">High-quality</h5>
+                        <p class="mb-0 small fw-light">well-thought-out development</p>
+                    </div>
+                    <div class="d-flex flex-column align-items-center text-center px-0">
+                        <img src="./assets/images/benefit_adaptability.png" alt="" class="mb-4">
+                        <h5 class="mb-3 fs-22 text-dark-custom">Responsive Design</h5>
+                        <p class="mb-0 small fw-light">works perfectly on all devices</p>
+                    </div>
+                    <div class="d-flex flex-column align-items-center text-center px-0">
+                        <img src="./assets/images/benefit_adaptability.png" alt="" class="mb-4">
+                        <h5 class="mb-3 fs-22 text-dark-custom">Fast Support</h5>
+                        <p class="mb-0 small fw-light">quick responses and fixes</p>
+                    </div>
+                    <div class="d-flex flex-column align-items-center text-center px-0">
+                        <img src="./assets/images/benefit_adaptability.png" alt="" class="mb-4">
+                        <h5 class="mb-3 fs-22 text-dark-custom">Regular Updates</h5>
+                        <p class="mb-0 small fw-light">new features and improvements</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="site-request-consultation"></div>
+        <!-- FOOTER -->
+        <div id="site-footer"></div>
+    </main>
+
+    <!-- SCRIPTS -->
+    <script src="./assets/js/jquery-3.7.1.min.js"></script>
+    <script src="./assets/js/bootstrap.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="/assets/js/particles-config.js"></script>
+    <script src="./assets/js/custom.js"></script>
+</body>
+</html>

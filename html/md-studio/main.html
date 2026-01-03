@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MD Studio offers high-quality web development services including websites, CRM, and ERP systems. Responsive, functional, and effective solutions.">
+    <title>Main</title>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicons/apple-touch-icon-57x57.png">
+
+    <!-- CSS Libraries  -->
+    <link rel="stylesheet" href="./assets/css/normalize.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/particle.css">
+
+    <!-- Custom CSS  -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/print.css">
+
+</head>
+<body>
+    <main>
+        <section class="bg-common">
+            <div class="container">
+                <!-- HEADER -->
+                <header class="header">
+                    <nav class="d-flex justify-content-between align-items-center p-0 container">
+                        <a href="/">
+                            <img src="./assets/images/logos/md-studio.svg" alt="MD Studio logo" class="header-logo">
+                        </a>
+
+                        <div class="d-flex align-items-center">
+
+                            <!-- Desktop Location / Flag / Currency Buttons -->
+                            <ul class="list-unstyled d-flex align-items-center mb-0 me-3 me-lg-5 header-divider header-settings d-none d-lg-flex">
+                                <li class="ps-0 pe-2">
+                                    <button type="button"
+                                            class="d-flex gap-2 border-0 bg-transparent text-light fs-8 ps-0 pe-1"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#settingsModal">
+                                        <img src="./assets/images/svg/icon_geo-white.svg" alt="geo icon"> USA
+                                    </button>
+                                </li>
+
+                                <li class="px-2">
+                                    <button type="button"
+                                            class="border-0 bg-transparent text-light px-1 py-0"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#settingsModal">
+                                        🇺🇸
+                                    </button>
+                                </li>
+
+                                <li class="ps-2 pe-0">
+                                    <button type="button"
+                                            class="d-flex gap-2 border-0 bg-transparent text-light fs-8 ps-1 pe-0"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#settingsModal">
+                                        <img src="./assets/images/svg/icon_currency-white.svg" alt="currency icon"> USD
+                                    </button>
+                                </li>
+                            </ul>
+
+                            <!-- Call, Cart, User Dropdown -->
+                            <ul class="list-unstyled d-flex align-items-center mb-0 d-none d-lg-flex">
+
+                                <li>
+                                    <button type="button" class="btn btn-primary d-flex gap-2 me-2 me-lg-4 align-items-center">
+                                        <img src="./assets/images/svg/icon_call.svg" alt="call icon" class="phone-icon">
+                                        <p class="mb-0 call-me-back">Call me back</p>
+                                    </button>
+                                </li>
+
+                                <li>
+                                    <button type="button" class="btn bg-blurred btn-primary d-flex me-2 me-lg-4 align-items-center gap-3">
+                                        <img src="./assets/images/svg/icon_cart.svg" alt="cart icon" class="cart-icon">
+                                        <div class="col">
+                                            <p class="mb-0 text-start small cart">Cart</p>
+                                            <p class="mb-0 text-start fs-9 fw-light">
+                                                2 <span class="products-word">products</span> /
+                                                <span class="fw-semibold">$2750</span>
+                                            </p>
+                                        </div>
+                                    </button>
+                                </li>
+
+                                <!-- User Avatar Dropdown -->
+                                <li class="dropdown position-static">
+                                    <a href="#"
+                                    class="p-0 border-0 bg-transparent"
+                                    role="button"
+                                    data-bs-toggle="dropdown"
+                                    data-bs-auto-close="outside">
+                                        <img src="./assets/images/svg/avatar.svg" alt="User account" class="rounded avatar">
+                                    </a>
+
+                                    <div class="dropdown-menu dropdown-menu-end shadow-lg border-0 p-0 mt-3"
+                                        style="overflow: hidden;">
+
+                                        <div class="card bg-white border-0" style="border-radius: 4px;">
+                                            <div class="card-body p-4">
+
+                                                <ul class="nav nav-pills mb-4" role="tablist">
+                                                    <li class="nav-item">
+                                                        <button class="nav-link active fs-4 fw-bold pb-2 px-4 tab-link"
+                                                                data-bs-toggle="pill"
+                                                                data-bs-target="#login-dd"
+                                                                type="button">
+                                                            Login
+                                                        </button>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <button class="nav-link fs-4 fw-bold pb-2 px-4 tab-link"
+                                                                data-bs-toggle="pill"
+                                                                data-bs-target="#register-dd"
+                                                                type="button">
+                                                            Register
+                                                        </button>
+                                                    </li>
+                                                </ul>
+
+                                                <div class="tab-content">
+
+                                                    <!-- LOGIN -->
+                                                    <div class="tab-pane fade show active" id="login-dd">
+                                                        <form>
+                                                            <input type="email"
+                                                                class="form-control form-control-lg mb-3 rounded p-12 auth-input"
+                                                                placeholder="Email" required>
+
+                                                            <div class="mb-3 position-relative">
+                                                                <input type="password"
+                                                                    class="form-control form-control-lg rounded p-12 pe-5 auth-input"
+                                                                    id="loginPassDD"
+                                                                    placeholder="Password" required>
+                                                                <span class="position-absolute end-0 top-50 translate-middle-y pe-4 text-muted cursor-pointer"
+                                                                    onclick="togglePassword('loginPassDD')">
+                                                                    <i class="fa fa-eye"></i>
+                                                                </span>
+                                                            </div>
+
+                                                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                <div class="form-check d-flex align-items-center gap-3">
+                                                                    <input class="form-check-input"
+                                                                        type="checkbox"
+                                                                        id="rememberLoginDD"
+                                                                        style="width: 24px; height: 24px;">
+                                                                    <label class="form-check-label text-muted small"
+                                                                        for="rememberLoginDD">
+                                                                        Remember me
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                <button type="submit" class="btn btn-primary w-50">
+                                                                    Login
+                                                                </button>
+                                                                <a href="#" class="text-primary-blue text-decoration-none small text-nowrap">
+                                                                    Forgot password?
+                                                                </a>
+                                                            </div>
+                                                        </form>
+
+                                                        <hr class="my-4">
+
+                                                        <div class="text-center my-3 d-flex flex-row gap-4 justify-content-center">
+                                                            <p class="text-muted fw-bold small mb-0">Login with:</p>
+                                                            <div class="d-flex gap-3">
+                                                                <a href="#" class="btn btn-outline-danger rounded-circle p-0">
+                                                                    <img src="./assets/images/svg/fb-icon.svg" width="24" alt="fb icon">
+                                                                </a>
+                                                                <a href="#" class="btn btn-outline-primary rounded-circle p-0">
+                                                                    <img src="./assets/images/svg/google-icon.svg" width="24" alt="google icon">
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- REGISTER -->
+                                                    <div class="tab-pane fade" id="register-dd">
+                                                        <form>
+                                                            <input type="email"
+                                                                class="form-control form-control-lg mb-3 rounded p-12 auth-input"
+                                                                placeholder="Email" required>
+
+                                                            <input type="number"
+                                                                class="form-control form-control-lg mb-3 rounded p-12 auth-input"
+                                                                placeholder="Phone Number" required>
+
+                                                            <div class="mb-3 position-relative">
+                                                                <input type="password"
+                                                                    class="form-control form-control-lg rounded p-12 pe-5 auth-input"
+                                                                    id="registerPassDD"
+                                                                    placeholder="Create Password" required>
+                                                                <span class="position-absolute end-0 top-50 translate-middle-y pe-4 text-muted cursor-pointer"
+                                                                    onclick="togglePassword('registerPassDD')">
+                                                                    <i class="fa fa-eye"></i>
+                                                                </span>
+                                                            </div>
+
+                                                            <div class="mb-3 position-relative">
+                                                                <input type="password"
+                                                                    class="form-control form-control-lg rounded p-12 pe-5 auth-input"
+                                                                    id="registerRepeatPassDD"
+                                                                    placeholder="Repeat Password" required>
+                                                                <span class="position-absolute end-0 top-50 translate-middle-y pe-4 text-muted cursor-pointer"
+                                                                    onclick="togglePassword('registerRepeatPassDD')">
+                                                                    <i class="fa fa-eye"></i>
+                                                                </span>
+                                                            </div>
+
+                                                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                <div class="form-check d-flex align-items-center gap-3">
+                                                                    <input class="form-check-input"
+                                                                        type="checkbox"
+                                                                        id="agreeRegisterDD"
+                                                                        style="width: 24px; height: 24px;">
+                                                                    <label class="form-check-label text-muted small"
+                                                                        for="agreeRegisterDD">
+                                                                        I agree with Privacy Policy and Terms and Conditions
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="d-flex gap-3">
+                                                                <button type="button"
+                                                                        class="btn btn-outline-secondary w-50 text-dark"
+                                                                        data-bs-dismiss="dropdown">
+                                                                    Cancel
+                                                                </button>
+                                                                <button type="submit"
+                                                                        class="btn btn-primary w-50">
+                                                                    Register
+                                                                </button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="text-center mt-3">
+                                                    <small class="text-muted">
+                                                        <a href="#" class="text-primary-blue text-decoration-none">Privacy Policy</a> |
+                                                        <a href="#" class="text-primary-blue text-decoration-none">Terms and Conditions</a> |
+                                                        <a href="#" class="text-primary-blue text-decoration-none">Cookies Policy</a>
+                                                    </small>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </nav>
+
+                    <!-- Main Navigation Menu -->
+                    <nav aria-label="Main menu" class="bg-blurred p-12 d-flex justify-content-between align-items-center mt-3 rounded container">
+                        <ul class="menu list-unstyled d-flex align-items-center justify-content-between gap-4 mb-0 w-100 d-none d-lg-flex">
+                            <li class="menu-item"><a href="main.html" class="menu-link text-light text-decoration-none">Home</a></li>
+                            <li class="menu-item position-relative">
+                                <a href="services.html" class="menu-link text-light text-decoration-none d-flex align-items-center">
+                                    Services
+                                    <img src="./assets/images/svg/chevron.svg" alt="dropdown icon" class="menu-icon ms-2">
+                                </a>
+                                <ul class="dropdown-menu rounded shadow-lg border-0 p-3 bg-blurred">
+                                    <li><a class="dropdown-item text-light" href="service.html">Web Development</a></li>
+                                    <li><a class="dropdown-item text-light" href="service.html">Software Development</a></li>
+                                    <li><a class="dropdown-item text-light" href="service.html">Development</a></li>
+                                    <li><a class="dropdown-item text-light" href="service.html">UI/UX</a></li>
+                                    <li><a class="dropdown-item text-light" href="service.html">SEO</a></li>
+                                    <li><a class="dropdown-item text-light" href="service.html">SMM</a></li>
+                                    <li><a class="dropdown-item text-light" href="service.html">Target</a></li>
+                                    <li><a class="dropdown-item text-light" href="service.html">Data</a></li>
+                                    <li><a class="dropdown-item text-light" href="service.html">Graphic Design</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item"><a href="portfolio.html" class="menu-link text-light text-decoration-none">Portfolio</a></li>
+                            <li class="menu-item"><a href="about.html" class="menu-link text-light text-decoration-none">About us</a></li>
+                            <li class="menu-item"><a href="news.html" class="menu-link text-light text-decoration-none">News</a></li>
+                            <li class="menu-item"><a href="price.html" class="menu-link text-light text-decoration-none">Price</a></li>
+                            <li class="menu-item"><a href="feedback.html" class="menu-link text-light text-decoration-none">Feedback</a></li>
+                            <li class="menu-item"><a href="career.html" class="menu-link text-light text-decoration-none">Career</a></li>
+                            <li class="menu-item"><a href="faq.html" class="menu-link text-light text-decoration-none">FAQ</a></li>
+                            <li class="menu-item"><a href="contacts.html" class="menu-link text-light text-decoration-none">Contacts</a></li>
+
+                            <li class="d-flex align-items-center ms-auto">
+                                <a href="#" class="border-0 bg-transparent text-light p-0" aria-label="Search">
+                                    <img src="./assets/images/svg/icon_search.svg" alt="search icon" width="24" height="24">
+                                </a>
+                            </li>
+                        </ul>
+
+                        <!-- Mobile Menu & Settings -->
+                        <ul class="list-unstyled d-flex align-items-center mb-0 header-settings menu-mobile justify-content-between w-100 d-lg-none">
+                            <li class="d-flex align-items-center">
+                                <button type="button" class="border-0 bg-transparent text-light p-0" aria-label="Open menu" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMobileMenu">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm.5-3.5a.5.5 0 0 0 0 1h10a.5.5 0 0 0 0-1H3z"/>
+                                    </svg>
+                                </button>
+                            </li>
+
+                            <li class="d-flex align-items-center text-light fs-8">
+                                <button type="button" class="d-flex align-items-center gap-2 border-0 bg-transparent text-light"
+                                        data-bs-toggle="modal" data-bs-target="#settingsModal">
+                                    <img src="./assets/images/svg/icon_geo-white.svg" alt="geo icon" width="16" height="16">
+                                    <span>USA</span>
+                                </button>
+
+                                <span class="divider-vertical mx-2 opacity-50">|</span>
+
+                                <button type="button" class="border-0 bg-transparent text-light px-0"
+                                        data-bs-toggle="modal" data-bs-target="#settingsModal">
+                                    🇺🇸
+                                </button>
+
+                                <span class="divider-vertical mx-2 opacity-50">|</span>
+
+                                <button type="button" class="d-flex align-items-center gap-2 border-0 bg-transparent text-light"
+                                        data-bs-toggle="modal" data-bs-target="#settingsModal">
+                                    <img src="./assets/images/svg/icon_currency-white.svg" alt="currency icon" width="16" height="16">
+                                    <span>USD</span>
+                                </button>
+                            </li>
+
+                            <li class="d-flex align-items-center">
+                                <a href="#" class="border-0 bg-transparent text-light p-0" aria-label="Search">
+                                    <img src="./assets/images/svg/icon_search.svg" alt="search icon" width="24" height="24">
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </header>
+
+                <!-- Mobile Menu Offcanvas -->
+                <div class="offcanvas offcanvas-start bg-blurred text-light" tabindex="-1" id="offcanvasMobileMenu" aria-labelledby="offcanvasMobileMenuLabel">
+                    <div class="offcanvas-header border-bottom border-light border-opacity-25 pb-3">
+                        <h5 class="offcanvas-title d-flex align-items-center" id="offcanvasMobileMenuLabel">
+                            <img src="./assets/images/logos/md-studio.svg" alt="MD Studio logo" class="header-logo me-3">
+                        </h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body pt-4">
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-4"><a href="main.html" class="text-light text-decoration-none fs-3 fw-medium">Home</a></li>
+                            
+                            <li class="mb-4">
+                                <a href="services.html" class="text-light text-decoration-none fs-3 fw-medium d-flex justify-content-between align-items-center" 
+                                data-bs-toggle="collapse" data-bs-target="#servicesSubmenuMobile" aria-expanded="false">
+                                    Services
+                                    <img src="./assets/images/svg/chevron.svg" alt="dropdown icon" class="menu-icon ms-2">
+                                </a>
+                                <div class="collapse mt-3" id="servicesSubmenuMobile">
+                                    <ul class="list-unstyled ps-4">
+                                        <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">Web Development</a></li>
+                                        <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">Software Development</a></li>
+                                        <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">Development</a></li>
+                                        <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">UI/UX</a></li>
+                                        <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">SEO</a></li>
+                                        <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">SMM</a></li>
+                                        <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">Target</a></li>
+                                        <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">Data</a></li>
+                                        <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">Graphic Design</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            
+                            <li class="mb-4"><a href="portfolio.html" class="text-light text-decoration-none fs-3 fw-medium">Portfolio</a></li>
+                            <li class="mb-4"><a href="about.html" class="text-light text-decoration-none fs-3 fw-medium">About us</a></li>
+                            <li class="mb-4"><a href="news.html" class="text-light text-decoration-none fs-3 fw-medium">News</a></li>
+                            <li class="mb-4"><a href="price.html" class="text-light text-decoration-none fs-3 fw-medium">Price</a></li>
+                            <li class="mb-4"><a href="feedback.html" class="text-light text-decoration-none fs-3 fw-medium">Feedback</a></li>
+                            <li class="mb-4"><a href="career.html" class="text-light text-decoration-none fs-3 fw-medium">Career</a></li>
+                            <li class="mb-4"><a href="faq.html" class="text-light text-decoration-none fs-3 fw-medium">FAQ</a></li>
+                            <li class="mb-4"><a href="contacts.html" class="text-light text-decoration-none fs-3 fw-medium">Contacts</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Settings Modal -->
+                <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content border-0 shadow-lg rounded">
+                            <div class="modal-header border-0 p-3">
+                                <h5 class="modal-title fw-bold" id="settingsModalLabel">Select Language, Location & Currency</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body p-3">
+                                <form class="d-flex flex-column">
+                                    <div class="mb-4 d-flex align-items-center gap-3">
+                                        <div class="d-flex flex-row w-100 gap-4">
+                                            <div class="d-flex flex-row gap-2 align-items-center" style="width: 150px;">
+                                                <img src="./assets/images/svg/icon_language.svg" alt="" style="width: 24px;">
+                                                <label class="form-label mb-1 fw-semibold">Language</label>
+                                            </div>
+                                            <select class="form-select form-select-lg rounded shadow-sm">
+                                                <option selected>English</option>
+                                                <option>Español</option>
+                                                <option>Français</option>
+                                                <option>Deutsch</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-4 d-flex align-items-center gap-3">
+                                        <div class="d-flex flex-row w-100 gap-4">
+                                            <div class="d-flex flex-row gap-2 align-items-center" style="width: 150px;">
+                                                <img src="./assets/images/svg/icon_geo.svg" alt="" style="width: 24px;">
+                                                <label class="form-label mb-1 fw-semibold">Location</label>
+                                            </div>
+                                            <select class="form-select form-select-lg rounded shadow-sm">
+                                                <option selected>United States</option>
+                                                <option>Spain</option>
+                                                <option>France</option>
+                                                <option>Germany</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-4 d-flex align-items-center gap-3">
+                                        <div class="d-flex flex-row w-100 gap-4">
+                                            <div class="d-flex flex-row gap-2 align-items-center" style="width: 150px;">
+                                                <img src="./assets/images/svg/icon_currency.svg" alt="" style="width: 24px;">
+                                                <label class="form-label mb-1 fw-semibold">Currency</label>
+                                            </div>
+                                            <select class="form-select form-select-lg rounded shadow-sm">
+                                                <option selected>USD</option>
+                                                <option>RUB</option>
+                                                <option>AMD</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-primary btn-lg px-5 rounded">
+                                            Save Preferences
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="carouselExampleIndicators" class="carousel slide mt-3" data-bs-ride="carousel">
+                <!-- Indicators will be auto-generated here by JS -->
+                <div class="carousel-indicators mb-4 mb-md-5"></div>
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="container d-flex align-items-center justify-content-center hero-content mb-5 pb-4">
+                            <div class="text-white me-0 me-md-3 me-lg-5">
+                                <h1 class="title pb-2 text-center text-lg-start">High-quality <br> Web Development</h1>
+                                <h3 class="text-white-50 fs-3 mb-4 pt-1 description text-center text-lg-start">
+                                    Website, CRM, and ERP system development. Responsive, functional, aesthetically pleasing, and effective.
+                                </h3>
+                                <button class="btn btn-primary d-flex justify-content-center m-auto m-lg-0">More info</button>
+                            </div>
+                            <div class="position-relative images">
+                                <img src="./assets/images/laptop.png" alt="Laptop showcasing a modern web development project" class="position-absolute hero-image">
+                                <img src="./assets/images/gear.png" alt="" class="gear-rotate banner-gear" aria-hidden="true">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="container d-flex align-items-center justify-content-center hero-content mb-5 pb-4">
+                            <div class="text-white me-0 me-md-3 me-lg-5">
+                                <h1 class="title pb-2 text-center text-lg-start">High-quality <br> Web Development</h1>
+                                <h3 class="text-white-50 fs-3 mb-4 pt-1 description text-center text-lg-start">
+                                    Website, CRM, and ERP system development. Responsive, functional, aesthetically pleasing, and effective.
+                                </h3>
+                                <button class="btn btn-primary d-flex justify-content-center m-auto m-lg-0">More info</button>
+                            </div>
+                            <div class="position-relative images">
+                                <img src="./assets/images/laptop.png" alt="Laptop showcasing a modern web development project" class="position-absolute hero-image">
+                                <img src="./assets/images/gear.png" alt="" class="gear-rotate banner-gear" aria-hidden="true">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="container d-flex align-items-center justify-content-center hero-content mb-5 pb-4">
+                            <div class="text-white me-0 me-md-3 me-lg-5">
+                                <h1 class="title pb-2 text-center text-lg-start">High-quality <br> Web Development</h1>
+                                <h3 class="text-white-50 fs-3 mb-4 pt-1 description text-center text-lg-start">
+                                    Website, CRM, and ERP system development. Responsive, functional, aesthetically pleasing, and effective.
+                                </h3>
+                                <button class="btn btn-primary d-flex justify-content-center m-auto m-lg-0">More info</button>
+                            </div>
+                            <div class="position-relative images">
+                                <img src="./assets/images/laptop.png" alt="Laptop showcasing a modern web development project" class="position-absolute hero-image">
+                                <img src="./assets/images/gear.png" alt="" class="gear-rotate banner-gear" aria-hidden="true">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <a class="carousel-control-prev bg-blurred" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+                    <img src="./assets/images/svg/icon_arrow-left.svg" alt="arrow left icon">
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next bg-blurred" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+                    <img src="./assets/images/svg/icon_arrow-right.svg" alt="arrow right icon">
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <div class="particles-bottom-light"></div>
+        </section>
+        <section class="py-90 feature-section bg-light-gray-opacity">
+            <div class="container d-flex flex-column gap-4 gap-lg-5">
+                <div class="text-center d-flex flex-column gap-12">
+                    <h2 class="title b-2 text-dark-custom">Why our clients trust us</h2>
+                    <p class="fs-6 text-secondary mb-0 mb-lg-3">Our results are evidence of competitive advantages</p>
+                </div>
+
+                <div class="features-wrapper position-relative">
+                    <div class="center-feature-gear">
+                        <img src="./assets/images/gear-black.png" alt="" class="w-100 h-100 gear-rotate" loading="lazy">
+                    </div>
+
+                    <div class="top-row row g-4 justify-content-center">
+                        <div class="feature-col col-12 col-lg-3 text-center feature-box has-horizontal-dash my-0 my-lg-4">
+                            <img src="./assets/images/benefit_development.png" alt="">
+                            <h5 class="mt-4 fs-22 fw-normal feature-title-dark">Development of any complexity</h5>
+                            <p class="text-muted small mb-4 mb-lg-5 feature-desc-muted">Here each point will be described in more detail - a brief description of the benefit in two or three lines</p>
+                            <span class="vertical-dash-line line-down"></span>
+                        </div>
+                        <div class="feature-col col-12 col-lg-3 text-center feature-box my-0 my-lg-4">
+                            <img src="./assets/images/benefit_software.png" alt="">
+                            <h5 class="mt-4 fs-22 fw-normal feature-title-dark">Effective software for any task</h5>
+                            <p class="text-muted small mb-4 mb-lg-5 feature-desc-muted">Here each point will be described in more detail - a brief description of the benefit in two or three lines</p>
+                        </div>
+                        <div class="feature-col col-12 col-lg-3 text-center feature-box has-horizontal-dash my-0 my-lg-4">
+                            <img src="./assets/images/benefit_design.png" alt="Competent resource design icon">
+                            <h5 class="mt-4 fs-22 fw-normal feature-title-dark">Competent resource design</h5>
+                            <p class="text-muted small mb-4 mb-lg-5 feature-desc-muted">Here each point will be described in more detail - a brief description of the benefit in two or three lines</p>
+                        </div>
+                        <div class="feature-col col-12 col-lg-3 text-center feature-box my-0 my-lg-4">
+                            <img src="./assets/images/benefit_adaptability.png" alt="">
+                            <h5 class="mt-4 fs-22 fw-normal feature-title-dark">Adaptability to different devices</h5>
+                            <p class="text-muted small mb-4 mb-lg-5 feature-desc-muted">Here each point will be described in more detail - a brief description of the benefit in two or three lines</p>
+                        </div>
+                    </div>
+
+                    <div class="bottom-row row g-4 justify-content-center">
+                        <div class="feature-col col-12 col-lg-3 text-center feature-box has-horizontal-dash my-0 my-lg-4">
+                            <img src="./assets/images/benefit_best-solution.png" alt="">
+                            <h5 class="mt-4 fs-22 fw-normal feature-title-dark">Best solutions based on deep analytics</h5>
+                            <p class="text-muted small mb-4 mb-lg-5 feature-desc-muted">Here each point will be described in more detail - a brief description of the benefit in two or three lines</p>
+                        </div>
+                        <div class="feature-col col-12 col-lg-3 text-center feature-box my-0 my-lg-4">
+                            <img src="./assets/images/benefit_security.png" alt="">
+                            <h5 class="mt-4 fs-22 fw-normal feature-title-dark">Compliance with total data security</h5>
+                            <p class="text-muted small mb-4 mb-lg-5 feature-desc-muted">Here each point will be described in more detail - a brief description of the benefit in two or three lines</p>
+                        </div>
+                        <div class="feature-col col-12 col-lg-3 text-center feature-box has-horizontal-dash my-0 my-lg-4">
+                            <img src="./assets/images/benefit_quality.png" alt="">
+                            <h5 class="mt-4 fs-22 fw-normal feature-title-dark">Excellent quality and great results</h5>
+                            <p class="text-muted small mb-4 mb-lg-5 feature-desc-muted">Here each point will be described in more detail - a brief description of the benefit in two or three lines</p>
+                        </div>
+                        <div class="feature-col col-12 col-lg-3 text-center feature-box my-0 my-lg-4">
+                            <img src="./assets/images/benefit_qualified-specialists.png" alt="">
+                            <h5 class="mt-4 fs-22 fw-normal feature-title-dark">Highly qualified specialists...</h5>
+                            <p class="text-muted small mb-4 mb-lg-5 feature-desc-muted">Here each point will be described in more detail - a brief description of the benefit in two or three lines</p>
+                            <span class="vertical-dash-line line-up"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="position-relative my-3 my-md-5">
+            <div class="container d-flex flex-column flex-lg-row gap-4 justify-content-center">
+                <div class="d-flex flex-column justify-content-between gap-4">
+                    <div class="offer">
+                        <h2 class="text-center text-md-start">What We offer</h2>
+                        <p class="text-center text-md-start mb-0">A full range of digital development services</p>
+                    </div>
+                    <img src="./assets/images/offers/offer1.png" alt="Offer 1 illustration" loading="lazy" class="border-1">
+                    <img src="./assets/images/offers/offer2.png" alt="Offer 2 illustration" loading="lazy" class="border-1">
+                    <img src="./assets/images/offers/offer3.png" alt="Offer 3 illustration" loading="lazy" class="border-1">
+                    <img src="./assets/images/offers/offer4.png" alt="Offer 4 illustration" loading="lazy" class="d-flex d-xl-none">
+                </div>
+                <div class="d-flex flex-column gap-4">
+                    <div class="d-flex flex-row gap-4">
+                        <img src="./assets/images/offers/offer4.png" alt="Offer 4 illustration" loading="lazy" class="d-none d-xl-flex hover-image">
+                        <img src="./assets/images/offers/offer8.png" alt="Offer 8 illustration" loading="lazy" class="w-100 border-transparent">
+                    </div>
+                    <div class="d-flex flex-row gap-4">
+                        <div class="d-flex flex-column gap-4 w-100">
+                            <div class="d-flex flex-row flex-xl-row gap-4">
+                                <div class="d-flex flex-column flex-md-row flex-lg-column flex-xl-row gap-4 w-100">
+                                    <img src="./assets/images/offers/offer5.png" alt="Offer 5 illustration" loading="lazy" class="offer-center-img w-100 hover-image border-transparent">
+                                    <img src="./assets/images/offers/offer6.png" alt="Offer 6 illustration" loading="lazy" class="offer-center-img w-100 hover-image border-transparent">
+                                </div>
+                                <img src="./assets/images/offers/offer9.png" alt="Offer 9 illustration" loading="lazy" class="d-none d-lg-flex d-xl-none hover-image border-transparent">
+                            </div>
+                            <img src="./assets/images/offers/offer7.png" alt="Offer 7 illustration" loading="lazy" class="d-none d-xl-flex hover-image border-transparent">
+                            <img src="./assets/images/offers/offer7-mobile.png" alt="Offer 7 mobile illustration" loading="lazy" class="d-flex d-xl-none hover-image border-transparent">
+                        </div>
+                        <img src="./assets/images/offers/offer9.png" alt="Offer 9 illustration" loading="lazy" class="d-none d-xl-flex hover-image border-transparent">
+                    </div>
+                </div>
+            </div>
+            <div class="particles-bottom-dark"></div>
+        </section>
+        <section class="bg-common py-4 py-lg-5  position-relative">
+            <div class="particles-top-light"></div>
+            <div class="container text-center text-white">
+                <h2 class="title fw-normal">Portfolio</h2>
+                <p class="text-white-50 mb-4 mt-2">Look at our cases</p>
+
+                <div id="portfolioCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="d-flex justify-content-center gap-4 pt-0 pt-lg-3">
+                                <article>
+                                    <img src="./assets/images/portfolio/portfolio1.png" class="img-fluid w-100" alt="portfolio img" loading="lazy" style="position: relative; z-index: 2;">
+                                    <div class="pt-4 text-start">
+                                        <h3 class="description">Project Title</h3>
+                                        <p class="text-white-50 mb-2">Web development / SMM / SEO</p>
+                                        <p class="fw-light small mb-2">A description of the project and its stages. Briefly, what the objectives were, how they were solved, and what the results were.</p>
+                                        <button class="text-white fw-bold border-0 bg-transparent p-0">
+                                            View Details <span class="ms-2 text-primary-blue">&gt;</span>
+                                        </button>
+                                    </div>
+                                </article>
+                                <div>
+                                    <img src="./assets/images/portfolio/portfolio2.png" class="img-fluid w-100" alt="portfolio img" loading="lazy" style="position: relative; z-index: 2;">
+                                    <div class="pt-4 text-start">
+                                        <h3 class="description">Project Title</h3>
+                                        <p class="text-white-50 mb-2">Web development / SMM / SEO</p>
+                                        <p class="fw-light small mb-2">A description of the project and its stages. Briefly, what the objectives were, how they were solved, and what the results were.</p>
+                                        <button class="text-white fw-bold border-0 bg-transparent p-0">
+                                            View Details <span class="ms-2 text-primary-blue">&gt;</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <img src="./assets/images/portfolio/portfolio3.png" class="img-fluid w-100" alt="portfolio img" loading="lazy" style="position: relative; z-index: 2;">
+                                    <div class="pt-4 text-start">
+                                        <h3 class="description">Project Title</h3>
+                                        <p class="text-white-50 mb-2">Web development / SMM / SEO</p>
+                                        <p class="fw-light small mb-2">A description of the project and its stages. Briefly, what the objectives were, how they were solved, and what the results were.</p>
+                                        <button class="text-white fw-bold border-0 bg-transparent p-0">
+                                            View Details <span class="ms-2 text-primary-blue">&gt;</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <a class="carousel-control-prev bg-blurred" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+                    <img src="./assets/images/svg/icon_arrow-left.svg" alt="arrow left icon">
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next bg-blurred" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+                    <img src="./assets/images/svg/icon_arrow-right.svg" alt="arrow right icon">
+                    <span class="sr-only">Next</span>
+                </a>
+        </section>
+        <section class="d-flex flex-column justify-content-center py-90 position-relative">
+            <div class="mb-0 mb-lg-5">
+                <h2 class="title text-center text-dark-custom">About Mega Digital Studio</h2>
+                <p class="text-dark small text-center pt-2 fw-bold text-gray-custom">Here you need to add SEO text for the site to be indexed</p>
+            </div>
+            <div class="container d-flex flex-column flex-lg-row gap-4 align-items-center">
+                <img src="./assets/images/laptop2.png" alt="Team working on web development project in office" loading="lazy" class="laptop-2">
+                <div class="d-flex flex-row flex-md-column gap-3 bg-blurred p-3">
+                    <div>
+                        <h3 class="description fw-normal text-dark-custom">
+                            Who we are
+                        </h3>
+                        <p class="fs-6 fw-bold text-gray-custom">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor sapien ligula, vel convallis neque ultricies vulputate. </p>
+                        <p class="small text-dark fw-light text-dark-custom">Suspendisse iaculis a arcu id faucibus. Proin orci libero, vehicula id ligula nec, scelerisque tempus dui. Etiam tempus scelerisque quam, eu accumsan tortor eleifend sed. Vivamus vitae justo sed erat accumsan vestibulum sed sit amet quam. Phasellus elementum lectus massa, vehicula egestas lorem malesuada ac. Donec et iaculis justo. Donec ac eros in urna volutpat varius. Proin ultricies maximus nulla in mattis.</p>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row gap-4">
+                        <div class="d-flex flex-column justify-content-between">
+                            <h4 class="fs-32 fw-normal badge text-bg-secondary">125</h4>
+                            <p class="small fw-bold mb-0">successfull</p>
+                        </div>
+                        <div class="d-flex flex-column justify-content-between">
+                            <h4 class="fs-32 fw-normal badge text-bg-secondary">98</h4>
+                            <p class="small fw-bold mb-0">happy clients</p>
+                        </div>
+                        <div class="d-flex flex-column justify-content-between">
+                            <h4 class="fs-32 fw-normal badge text-bg-secondary">20</h4>
+                            <p class="small fw-bold mb-0">years in development</p>
+                        </div>
+                        <div class="d-flex flex-column justify-content-between">
+                            <h4 class="fs-32 fw-normal badge text-bg-secondary">125</h4>
+                            <p class="small fw-bold mb-0">successfull</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="particles-bottom-dark"></div>
+        </section>
+        <section class="bg-light-gray-opacity d-flex flex-column justify-content-center py-90">
+            <div class="container">
+                <h2 class="title text-dark text-center text-dark-custom">News</h2>
+                <p class="text-center mb-4 mb-md-5 fs-5 fw-bold text-gray-dark pt-2 text-gray-custom">Follow our news - there's always a lot of interesting stuff here</p>
+                <div class="d-flex justify-content-center gap-4 news-wrapper">
+                    <article class="news-card">
+                        <img src="./assets/images/news/news1.png" alt="Preview image for article about web trends 2025" loading="lazy">
+                        <div>
+                            <div class="pt-0 pt-lg-3">
+                                <h5 class="fs-6 fw-bold">Ut pellentesque enim eget tortor faucibus convallis</h5>
+                                <div class="d-flex align-items-baseline justify-content-between">
+                                    <p class="mb-3">November 25, 2025</p>
+                                    <div class="d-flex gap-3">
+                                        <img src="./assets/images/svg/icon_share.svg" class="icon-xs" alt="share icon">
+                                        <img src="./assets/images/svg/icon_like.svg" class="icon-xs" alt="like icon">
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="small mb-0">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <img src="./assets/images/news/news2.png" alt="Preview image for article about new technologies" loading="lazy">
+                        <div>
+                            <div class="pt-0 pt-lg-3">
+                                <h5 class="fs-6 fw-bold">Ut pellentesque enim eget tortor faucibus convallis</h5>
+                                <div class="d-flex align-items-baseline justify-content-between">
+                                    <p class="mb-3">November 25, 2025</p>
+                                    <div class="d-flex gap-3">
+                                        <img src="./assets/images/svg/icon_share.svg" class="icon-xs" alt="share icon">
+                                        <img src="./assets/images/svg/icon_like.svg" class="icon-xs" alt="like icon">
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="small mb-0">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <img src="./assets/images/news/news3.png" alt="Preview image for news article" loading="lazy">
+                        <div>
+                            <div class="pt-0 pt-lg-3">
+                                <h5 class="fs-6 fw-bold">Ut pellentesque enim eget tortor faucibus convallis</h5>
+                                <div class="d-flex align-items-baseline justify-content-between">
+                                    <p class="mb-3">November 25, 2025</p>
+                                    <div class="d-flex gap-3">
+                                        <img src="./assets/images/svg/icon_share.svg" class="icon-xs" alt="share icon">
+                                        <img src="./assets/images/svg/icon_like.svg" class="icon-xs" alt="like icon">
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="small mb-0">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <img src="./assets/images/news/news4.png" alt="news img" loading="lazy">
+                        <div>
+                            <div class="pt-0 pt-lg-3">
+                                <h5 class="fs-6 fw-bold">Ut pellentesque enim eget tortor faucibus convallis</h5>
+                                <div class="d-flex align-items-baseline justify-content-between">
+                                    <p class="mb-3">November 25, 2025</p>
+                                    <div class="d-flex gap-3">
+                                        <img src="./assets/images/svg/icon_share.svg" class="icon-xs" alt="share icon">
+                                        <img src="./assets/images/svg/icon_like.svg" class="icon-xs" alt="like icon">
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="small mb-0">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <div id="site-request-consultation-large"></div>
+        <!-- FOOTER -->
+        <footer class="py-4 bg-dark-opacity">
+            <div class="container d-flex flex-column flex-md-row align-items-center align-items-md-start justify-content-between py-4 my-0 my-md-2 gap-4">
+                <section class="company-info d-flex flex-column justify-content-between">
+                    <div>
+                        <figure class="mb-0">
+                            <img src="./assets/images/logos/footer-logo.svg" alt="Mega Digital Studio logo" class="mb-4 d-flex justify-content-center m-auto m-md-0 mb-md-4" style="max-width: 214px;">
+                        </figure>
+                        <p class="small/ mb-0 fw-light text-gray-custom text-center text-md-start">
+                            Legal information, organization details or other data necessary for display here
+                        </p>
+                    </div>
+                    <p class="small/ mb-0 fw-light text-gray-custom text-center text-md-start">
+                        © 2025 Mega Digital Studio <br>All rights reserved
+                    </p>
+                </section>
+
+                <nav class="footer-nav">
+                    <ul class="list-unstyled d-flex flex-column gap-12">
+                        <li><a href="#" class="fw-light small/ text-decoration-none text-dark-custom">Home</a></li>
+                        <li><a href="#" class="fw-light small/ text-decoration-none text-dark-custom">Portfolio</a></li>
+                        <li><a href="#" class="fw-light small/ text-decoration-none text-dark-custom">About us</a></li>
+                        <li><a href="#" class="fw-light small/ text-decoration-none text-dark-custom">News</a></li>
+                        <li><a href="#" class="fw-light small/ text-decoration-none text-dark-custom">Price</a></li>
+                        <li><a href="#" class="fw-light small/ text-decoration-none text-dark-custom">Feedback</a></li>
+                        <li><a href="#" class="fw-light small/ text-decoration-none text-dark-custom">Career</a></li>
+                        <li><a href="#" class="fw-light small/ text-decoration-none text-dark-custom">FAQ</a></li>
+                        <li><a href="#" class="fw-light small/ text-decoration-none text-dark-custom">Contacts</a></li>
+                    </ul>
+                </nav>
+
+                <section class="footer-services">
+                    <ul class="list-unstyled d-flex flex-column gap-12">
+                        <li><a href=""  class="fw-light small/ text-decoration-none text-dark-custom">Web Development</a></li>
+                        <li><a href=""  class="fw-light small/ text-decoration-none text-dark-custom">Mobile App Development</a></li>
+                        <li><a href=""  class="fw-light small/ text-decoration-none text-dark-custom">Software Development</a></li>
+                        <li><a href=""  class="fw-light small/ text-decoration-none text-dark-custom">UI/UX Design</a></li>
+                        <li><a href=""  class="fw-light small/ text-decoration-none text-dark-custom">Graphic Design</a></li>
+                        <li><a href=""  class="fw-light small/ text-decoration-none text-dark-custom">SEO</a></li>
+                        <li><a href=""  class="fw-light small/ text-decoration-none text-dark-custom">SMM</a></li>
+                        <li><a href=""  class="fw-light small/ text-decoration-none text-dark-custom">Targeted Ads</a></li>
+                        <li><a href=""  class="fw-light small/ text-decoration-none text-dark-custom">Data Extraction & Integration</a></li>
+                    </ul>
+                </section>
+
+                <address class="footer-contact d-flex flex-column align-items-center align-items-md-start">
+                    <div class="d-flex align-items-center mb-2 justify-content-center">
+                        <img src="./assets/images/svg/icon_call-blue.svg" alt="Phone icon" class="me-2">
+                        <span class="fw-bold fs-6">+00 (123) 456-78-90</span>
+                    </div>
+                    <p class="fw-semibold text-blue-custom">megadigitalstudio@domain.com</p>
+                    <p class="fw-light small/ text-decoration-none text-dark-custom">Address: 012345 City, State Street title 12/3</p>
+                    <a href="#" class="d-flex justify-content-end"><img src="./assets/images/svg/fb-icon.svg" alt="Facebook icon"></a>
+                </address>
+
+            </div>
+        </footer>
+    </main>
+
+    
+    <!-- SCRIPTS  -->
+    <script src="./assets/js/jquery-3.7.1.min.js"></script>
+    <script src="./assets/js/bootstrap.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="/assets/js/particles-config.js"></script>
+
+    <!-- Custom Scripts  -->
+    <script src="./assets/js/custom.js"></script>
+     
+</body>
+</html>
