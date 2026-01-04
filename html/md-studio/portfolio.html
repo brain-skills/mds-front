@@ -341,7 +341,7 @@
                                     <button class="btn btn-primary d-flex justify-content-center">Send request</button>
                                 </div>
                                 <div class="w-75 w-md-100">
-                                    <img src="./assets/images/devices-desktop.png"  alt="" class="w-100">
+                                    <img src="./assets/images/devices-desktop.png"  alt="" class="w-100" style="z-index: 2; position: relative;">
                                 </div>
                             </div>
                         </div>
@@ -356,31 +356,49 @@
                     <!-- Desktop Version: Horizontal List -->
                     <ul class="list-inline mb-0 d-none d-md-block" id="desktop-filters">
                         <li class="list-inline-item mx-3 my-2">
-                            <a href="#web-development" class="text-muted text-decoration-none fw-medium active-service" data-filter="web-development">Web Development</a>
+                            <a href="#web-development"
+                            class="text-muted text-decoration-none fw-medium active-service service-link"
+                            data-filter="web-development">Web Development</a>
                         </li>
                         <li class="list-inline-item mx-3 my-2">
-                            <a href="#mobile-app" class="text-muted text-decoration-none fw-medium" data-filter="mobile-app">Mobile App Development</a>
+                            <a href="#mobile-app"
+                            class="text-muted text-decoration-none fw-medium service-link"
+                            data-filter="mobile-app">Mobile App Development</a>
                         </li>
                         <li class="list-inline-item mx-3 my-2">
-                            <a href="#software" class="text-muted text-decoration-none fw-medium" data-filter="software">Software Development</a>
+                            <a href="#software"
+                            class="text-muted text-decoration-none fw-medium service-link"
+                            data-filter="software">Software Development</a>
                         </li>
                         <li class="list-inline-item mx-3 my-2">
-                            <a href="#seo" class="text-muted text-decoration-none fw-medium" data-filter="seo">SEO</a>
+                            <a href="#seo"
+                            class="text-muted text-decoration-none fw-medium service-link"
+                            data-filter="seo">SEO</a>
                         </li>
                         <li class="list-inline-item mx-3 my-2">
-                            <a href="#smm" class="text-muted text-decoration-none fw-medium" data-filter="smm">SMM</a>
+                            <a href="#smm"
+                            class="text-muted text-decoration-none fw-medium service-link"
+                            data-filter="smm">SMM</a>
                         </li>
                         <li class="list-inline-item mx-3 my-2">
-                            <a href="#data-extraction" class="text-muted text-decoration-none fw-medium" data-filter="data-extraction">Data Extraction & Integration</a>
+                            <a href="#data-extraction"
+                            class="text-muted text-decoration-none fw-medium service-link"
+                            data-filter="data-extraction">Data Extraction & Integration</a>
                         </li>
                         <li class="list-inline-item mx-3 my-2">
-                            <a href="#targeted-ads" class="text-muted text-decoration-none fw-medium" data-filter="targeted-ads">Targeted Ads</a>
+                            <a href="#targeted-ads"
+                            class="text-muted text-decoration-none fw-medium service-link"
+                            data-filter="targeted-ads">Targeted Ads</a>
                         </li>
                         <li class="list-inline-item mx-3 my-2">
-                            <a href="#ui-ux" class="text-muted text-decoration-none fw-medium" data-filter="ui-ux">UI/UX Design</a>
+                            <a href="#ui-ux"
+                            class="text-muted text-decoration-none fw-medium service-link"
+                            data-filter="ui-ux">UI/UX Design</a>
                         </li>
                         <li class="list-inline-item mx-3 my-2">
-                            <a href="#graphic-design" class="text-muted text-decoration-none fw-medium" data-filter="graphic-design">Graphic Design</a>
+                            <a href="#graphic-design"
+                            class="text-muted text-decoration-none fw-medium service-link"
+                            data-filter="graphic-design">Graphic Design</a>
                         </li>
                     </ul>
 
@@ -399,7 +417,6 @@
                         </select>
                     </div>
                 </div>
-
                 <!-- Project Cards Container -->
                 <div class="projects-wrapper d-flex flex-row flex-nowrap overflow-auto gap-3">
                     <!-- Card 1 -->
@@ -514,8 +531,6 @@
             </div>
         </section>
         <section class="py-4 py-lg-5 bg-light position-relative">
-            <div id="particles-portfolio"></div>
-
             <div class="container text-center">
                 <h2 class="title text-dark-custom fw-normal">
                     What our clients say
@@ -591,21 +606,14 @@
                 </div>
             </div>
 
-            <button class="carousel-control-prev"
-                    type="button"
-                    data-bs-target="#portfolioCarousel"
-                    data-bs-slide="prev"
-                    aria-label="Previous">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            </button>
-            <button class="carousel-control-next"
-                    type="button"
-                    data-bs-target="#portfolioCarousel"
-                    data-bs-slide="next"
-                    aria-label="Next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            </button>
-
+            <div class="slider-buttons" id="news-slider-buttons">
+                <button id="news-prev" class="prev bg-blurred p-3" style="border-radius: 0px 100px 100px 0px;">
+                    <img src="./assets/images/svg/icon_arrow-left.svg" alt="Previous">
+                </button>
+                <button id="news-next" class="next bg-blurred p-3" style="border-radius: 100px 0px 0px 100px;">
+                    <img src="./assets/images/svg/icon_arrow-right.svg" alt="Next">
+                </button>
+            </div>
         </section>
 
         <section class="bg-gradient-tech py-5 position-relative overflow-hidden">

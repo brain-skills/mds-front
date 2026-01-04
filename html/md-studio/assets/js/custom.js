@@ -109,3 +109,23 @@ function togglePassword(id) {
         icon.classList.add("fa-eye");
     }
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    const openSearchBtns = document.querySelectorAll("#open-search-mobile, #open-search-desktop");
+    const closeSearchBtn = document.getElementById("close-search");
+    const headerSearch = document.getElementById("header-search");
+
+    openSearchBtns.forEach(btn => {
+        btn.addEventListener("click", function(e) {
+            e.preventDefault();
+            headerSearch.classList.remove("d-none");
+            headerSearch.classList.add("d-flex");
+            headerSearch.querySelector("input").focus();
+        });
+    });
+
+    closeSearchBtn.addEventListener("click", function() {
+        headerSearch.classList.add("d-none");
+        headerSearch.classList.remove("d-flex");
+    });
+});
