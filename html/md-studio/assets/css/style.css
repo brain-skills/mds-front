@@ -821,6 +821,207 @@ nav[aria-label="Main menu"] {
   max-width: 600px;
 }
 
+.plan-card {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.plan-card:first-of-type {
+  border-bottom: 1px solid #ddd;
+}
+
+.plan-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.plan-header.premium {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+}
+.plan-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: rgba(255,255,255,0.9);
+  color: #333;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 1rem;
+}
+.discounted-price {
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #282828;
+}
+.remove-btn {
+  color: #282828;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+.remove-btn:hover {
+  text-decoration: underline;
+}
+
+.billing-select {
+  cursor: pointer;
+}
+
+.billing-select:hover {
+    border-color: #aaa;
+}
+
+.billing-select:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15);
+}
+
+.billing-select:disabled {
+  background-color: #f5f5f5;
+  color: #999;
+  cursor: not-allowed;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: ">";
+  font-weight: bold;
+  color: #666;
+  padding: 0 10px;
+}
+
+.payment-card:hover,
+.payment-card:focus,
+.payment-card:active,
+.bonus-card:hover,
+.bonus-card:focus,
+.bonus-card:active {
+    background-color: #CFECFA;
+    border: 0;
+}
+
+.sortable {
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+.sort-arrow {
+  font-size: 0.7rem;
+  margin-left: 4px;
+  color: #6c757d;
+  display: inline-block;
+  vertical-align: middle;
+}
+.sortable:hover .sort-arrow {
+  color: #000;
+}
+
+/* Responsive adjustments */
+.table td, .table th {
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.table-responsive {
+  overflow-x: auto;
+}
+.profile-container .card {
+  border: 1px solid #f0f0f0;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+/* Personal Details Section */
+.profile-container .avatar-wrapper {
+    width: 150px;
+    position: relative;
+    margin: 0 auto;
+}
+.profile-container .profile-pic {
+    width: 100%;
+    border-radius: 4px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+.profile-container .delete-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: white;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    border: 1px solid #ddd;
+}
+.profile-container .btn-save-main {
+    background-color: #2daae1;
+    color: white;
+    border: none;
+    padding: 8px 25px;
+    border-radius: 4px;
+}
+
+/* Security Section */
+.profile-container .input-group-text {
+    background: transparent;
+    color: #adb5bd;
+    cursor: pointer;
+}
+.profile-container .btn-disabled-gray {
+    background-color: #cccccc;
+    color: white;
+    border: none;
+    cursor: not-allowed;
+}
+
+.profile-container .badge-vip {
+    background-color: #e91e63;
+    color: white;
+    font-weight: 500;
+}
+.profile-container .discount-pill {
+    background-color: #d1f7e0;
+    color: #1f9d55;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+.profile-container .date-highlight {
+    background-color: #ffebee;
+    color: #e91e63;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .table td, .table th {
+    font-size: 0.85rem;
+  }
+  .badge {
+    font-size: 0.75rem;
+  }
+}
+@media (max-width: 480px) {
+  .table td, .table th {
+    font-size: 0.8rem;
+  }
+  .badge {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.4rem;
+  }
+  .btn-sm {
+    font-size: 0.9rem;
+    width: 28px;
+    height: 28px;
+  }
+}
+
 @media (min-width: 1450px) {
   .container {
     max-width: 1472px ;
@@ -862,6 +1063,9 @@ nav[aria-label="Main menu"] {
 @media (max-width: 1200px) {
   .service-img {
     max-width: 391px !important;
+  }
+  .discounted-price {
+    font-size: 30px;
   }
 }
 

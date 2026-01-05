@@ -26,7 +26,7 @@
 </head>
 <body>
     <main>
-        <section class="bg-common min-vh-100 d-flex flex-column justify-content-between position-relative overflow-hidden">
+        <section class="bg-common vh-xxl-100 d-flex flex-column justify-content-between position-relative overflow-hidden">
             <div class="container">
                 <header class="header">
                     <nav class="d-flex justify-content-between align-items-center p-0">
@@ -37,10 +37,10 @@
                             <ul class="list-unstyled d-flex align-items-center mb-0 me-3 me-lg-5 header-divider header-settings d-none d-lg-flex">
                                 <li class="ps-0 pe-2">
                                     <button type="button"
-                                            class="d-flex gap-2 border-0 bg-transparent text-light fs-8 ps-0 pe-1"
+                                            class="d-flex gap-2 border-0 bg-transparent text-light fs-7 ps-0 pe-1"
                                             data-bs-toggle="modal"
                                             data-bs-target="#settingsModal">
-                                        <img src="./assets/images/svg/icon_geo-white.svg" alt="geo icon"> USA
+                                        <img src="./assets/images/svg/icon_geo-white.svg" alt="geo icon" style="width: 20px;"> USA
                                     </button>
                                 </li>
 
@@ -49,16 +49,16 @@
                                             class="border-0 bg-transparent text-light px-1 py-0"
                                             data-bs-toggle="modal"
                                             data-bs-target="#settingsModal">
-                                        🇺🇸
+                                        <img src="./assets/images/flag.png" alt="">
                                     </button>
                                 </li>
 
                                 <li class="ps-2 pe-0">
                                     <button type="button"
-                                            class="d-flex gap-2 border-0 bg-transparent text-light fs-8 ps-1 pe-0"
+                                            class="d-flex gap-2 border-0 bg-transparent text-light fs-7 ps-1 pe-0"
                                             data-bs-toggle="modal"
                                             data-bs-target="#settingsModal">
-                                        <img src="./assets/images/svg/icon_currency-white.svg" alt="currency icon"> USD
+                                        <img src="./assets/images/svg/icon_currency-white.svg" alt="currency icon" style="width: 20px;"> USD
                                     </button>
                                 </li>
                             </ul>
@@ -72,15 +72,19 @@
                                 </li>
 
                                 <li>
-                                    <button type="button" class="btn bg-blurred btn-primary d-flex me-2 me-lg-4 align-items-center gap-3">
-                                        <img src="./assets/images/svg/icon_cart.svg" alt="cart icon" class="cart-icon">
-                                        <div class="col">
-                                            <p class="mb-0 text-start small cart">Cart</p>
-                                            <p class="mb-0 text-start fs-9 fw-light">
-                                                2 <span class="products-word">products</span> /
-                                                <span class="fw-semibold">$2750</span>
-                                            </p>
-                                        </div>
+                                    <button
+                                    type="button"
+                                    class="px-3 px-md-4 py-2 btn btn-primary bg-blurred cart-btn d-flex align-items-center gap-2 gap-md-3 me-2 me-lg-4 cart-btn" 
+                                    >
+                                    <img src="./assets/images/svg/icon_cart.svg" alt="cart icon" class="cart-icon">
+
+                                    <div class="d-flex flex-column text-start">
+                                        <p class="mb-0 cart-label d-none d-md-flex">Cart</p>
+                                        <p class="mb-0 cart-info">
+                                       <span class="fw-light">2</span> <span class="products-word fw-light"> products</span> /
+                                        <span class="cart-price">$2750</span>
+                                        </p>
+                                    </div>
                                     </button>
                                 </li>
 
@@ -253,11 +257,11 @@
                         </div>
                     </nav>
 
-                    <nav aria-label="Main menu" class="bg-blurred p-2 p-lg-3 d-flex justify-content-between align-items-center mt-3 rounded">
-                        <ul class="menu list-unstyled d-none d-md-flex align-items-center justify-content-between gap-4 mb-0 w-100">
+                    <nav aria-label="Main menu" class="bg-blurred p-2 p-lg-3 d-flex justify-content-between align-items-center mt-3 rounded position-relative">
+                        <ul class="menu list-unstyled d-none d-md-flex align-items-center justify-content-between gap-4 gap-xl-5 mb-0 w-100">
                             <li class="menu-item"><a href="main.html" class="menu-link text-light text-decoration-none">Home</a></li>
                             <li class="menu-item position-relative">
-                                <a href="services.html" class="menu-link text-light text-decoration-none d-flex align-items-center">
+                                <a href="services.html" class="menu-link text-decoration-none d-flex align-items-center">
                                     Services
                                     <img src="./assets/images/svg/chevron.svg" alt="dropdown icon" class="menu-icon ms-2">
                                 </a>
@@ -283,7 +287,7 @@
                             <li class="menu-item"><a href="contacts.html" class="menu-link text-light text-decoration-none">Contacts</a></li>
 
                             <li class="d-flex align-items-center ms-auto">
-                                <a href="#" class="border-0 bg-transparent text-light p-0" aria-label="Search">
+                                <a href="#" id="open-search-desktop"  class="border-0 bg-transparent text-light p-0" aria-label="Search">
                                     <img src="./assets/images/svg/icon_search.svg" alt="search icon" width="24" height="24">
                                 </a>
                             </li>
@@ -301,7 +305,7 @@
                             <li class="d-flex align-items-center text-light fs-8">
                                 <button type="button" class="d-flex align-items-center gap-2 border-0 bg-transparent text-light"
                                         data-bs-toggle="modal" data-bs-target="#settingsModal">
-                                    <img src="./assets/images/svg/icon_geo-white.svg" alt="geo icon" width="16" height="16">
+                                    <img src="./assets/images/svg/icon_geo-white.svg" alt="geo icon">
                                     <span>USA</span>
                                 </button>
 
@@ -309,7 +313,7 @@
 
                                 <button type="button" class="border-0 bg-transparent text-light px-0"
                                         data-bs-toggle="modal" data-bs-target="#settingsModal">
-                                    🇺🇸
+                                    <img src="./assets/images/flag.png" alt="Flag" class="">
                                 </button>
 
                                 <span class="divider-vertical mx-2 opacity-50">|</span>
@@ -317,24 +321,35 @@
                                 <button type="button" class="d-flex align-items-center gap-2 border-0 bg-transparent text-light"
                                         data-bs-toggle="modal" data-bs-target="#settingsModal">
                                     <img src="./assets/images/svg/icon_currency-white.svg" alt="currency icon" width="16" height="16">
-                                    <span>USD</span>
+                                    <span class="">USD</span>
                                 </button>
                             </li>
 
                             <li class="d-flex align-items-center">
-                                <a href="#" class="border-0 bg-transparent text-light p-0" aria-label="Search">
+                                <a href="#" id="open-search-mobile"  class="border-0 bg-transparent text-light p-0" aria-label="Search">
                                     <img src="./assets/images/svg/icon_search.svg" alt="search icon" width="24" height="24">
                                 </a>
                             </li>
                         </ul>
+                        <div id="header-search" class="header-search rounded d-none p-0 p-lg-3">
+                            <form class="search-form rounded align-items-center bg-blurred">
+                                <input type="text" class="form-control form-control-lg header-search-input" placeholder="Search..." autofocus>
+                                <div class="d-flex flex-row align-items-center gap-2 rounded" style="background-color: #249fdd;">
+                                    <button type="submit" class="btn btn-primary d-flex align-items-center justify-content-center">
+                                        <img src="./assets/images/svg/icon_search.svg" alt="Search" width="20" height="20">
+                                    </button>                                
+                                    <button type="button" id="close-search" class="btn-close" aria-label="Close"></button>
+                                </div>
+                            </form>
+                        </div>
                     </nav>
                 </header>
             </div>
 
             <!-- Hero Content -->
             <div class="container flex-grow-1 d-flex align-items-center">
-                <div class="row align-items-center g-5">
-                    <div class="col-lg-6 text-white text-center text-lg-start">
+                <div class="d-flex flex-column flex-lg-row gap-4 align-items-center justify-content-center mb-4 mg-lg-0">
+                    <div class="col-lg-6 text-white text-center text-lg-start mt-0">
                         <h1 class="title display-4 fw-bold mb-4">Our Services</h1>
                         <p class="fs-4 text-white-50 mb-5 lead">
                             We offer a wide range of web services at various price points. We can customize a ready-made solution or develop a custom website. We also offer promotion and advertising services in search engines, marketplaces, and social media.
@@ -344,13 +359,11 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-6 position-relative text-center p-0 m-0">
-                        <img src="./assets/images/services/services-banner.svg"
-                            alt="Professional web development and data services illustration"
-                            loading="lazy"
-                            class="services-banner-img"
-                        >
-                    </div>
+                    <img src="./assets/images/services/services-banner-img.svg"
+                        alt="Professional web development and data services illustration"
+                        loading="lazy"
+                        class="w-50 p-0"
+                    >
                 </div>
             </div>
         </section>

@@ -467,100 +467,189 @@
                         <li class="breadcrumb-item active text-primary-blue fw-semibold" aria-current="page">
                             Cart
                         </li>
+                        <li class="breadcrumb-item active text-primary-blue fw-semibold" aria-current="page">
+                            Checkout
+                        </li>
                     </ol>
                 </nav>
-                <h1 class="title text-dark mb-0  mb-lg-4 pb-3">Cart</h1>
-                <div class="shadow p-4 d-flex flex-column">        
-                    <div class="row flex-column flex-md-row align-items-start align-items-md-center justify-content-between plan-card">
-                        <div class="col-12 col-md-6 col-xxl-4 d-flex px-0 align-items-center">
-                            <img src="./assets/images/price-img.png" alt="price img" class="cart-img me-2">
-                            <div class="d-flex flex-column gap-2">
-                                <p class="mb-0 fs-22 text-dark-custom font-normal">Premium plan</p>
-                                <button class="d-flex flex-row gap-2 align-items-center btn btn-primary w-50"
-                                    style="background-color: #DA2650;">
-                                    <img src="./assets/images/svg/icon_premium.svg" alt="">
-                                    <p class="mb-0 small text-white">VIP package</p>
-                                </button>
+                <h1 class="title text-dark mb-0  mb-lg-4 pb-3">Checkout</h1>
+                <div class="p-4 bg-light rounded">  <!-- Your container with light background -->
+                    <div class="row g-4 align-items-center">
+                        <!-- Left: Text -->
+                        <div class="col-12 col-md-6">
+                            <h4 class="mb-2">Do you have a promo code?</h4>
+                            <p class="mb-0 text-muted">You can use it and get a discount.</p>
+                        </div>
 
-                                <p class="small fw-light text-dark-custom mb-0">
-                                    The key advantage of this plan should be briefly and succinctly reflected here
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 d-flex flex-row justify-content-between align-items-center">                    
-                            <div class="col-6 col-lg-4">
-                                <select class="billing-select rounded p-2 bg-white w-100">
-                                    <option>Paid annually</option>
-                                    <option>Paid monthly</option>
-                                </select>
-                            </div>
-                            <div class="col-5 col-lg-6 d-flex flex-column flex-lg-row align-items-center gap-2 justify-content-between">
-                                <div class="text-center text-lg-start">
-                                    <div class="original-price d-inline-block me-2">$4,750</div>
-                                    <span class="badge bg-success">-25%</span>
-                                    <div class="discounted-price px-0">$3 970</div>
-                                </div>
-                                <div class="text-center text-lg-end">
-                                    <a href="#" class="remove-btn d-inline-flex align-items-center gap-1 fs-6 fs-xxl-5 ">
-                                        <img src="./assets/images/svg/icon_delete.svg" alt="">
-                                        Remove
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row flex-column flex-md-row align-items-start align-items-md-center justify-content-between plan-card">
-                        <div class="col-12 col-md-6 col-xxl-4 d-flex px-0 align-items-center">
-                            <img src="./assets/images/price-img.png" alt="price img" class="cart-img me-2">
-                            <div class="d-flex flex-column gap-2">
-                                <p class="mb-0 fs-22 text-dark-custom font-normal">Standard plan</p>
-                                <button class="d-flex flex-row gap-2 align-items-center btn btn-primary w-50" style="background-color: #119947;">
-                                    <img src="./assets/images/svg/icon_menu_important.svg" alt="">
-                                    <p class="mb-0 small text-white" style="line-height: 120%;">Optimal solution</p>
-                                </button>
-
-                                <p class="small fw-light text-dark-custom mb-0">
-                                    The key advantage of this plan should be briefly and succinctly reflected here
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 d-flex flex-row justify-content-between align-items-center">                    
-                            <div class="col-6 col-lg-4">
-                                <select class="billing-select rounded p-2 bg-white w-100">
-                                    <option>Paid annually</option>
-                                    <option>Paid monthly</option>
-                                </select>
-                            </div>
-                            <div class="col-5 col-lg-6 d-flex flex-column flex-lg-row align-items-center gap-2 justify-content-between">
-                                <div class="text-center text-lg-start">
-                                    <div class="original-price d-inline-block me-2">$2,470</div>
-                                    <span class="badge bg-success">-25%</span>
-                                    <div class="discounted-price px-0">$1 130</div>
-                                </div>
-                                <div class="text-center text-lg-end">
-                                    <a href="#" class="remove-btn d-inline-flex align-items-center gap-1 fs-6 fs-xxl-5 ">
-                                        <img src="./assets/images/svg/icon_delete.svg" alt="">
-                                        Remove
-                                    </a>
-                                </div>
+                        <!-- Right: Promo code input + Apply button -->
+                        <div class="col-12 col-md-6">
+                            <div class="input-group">
+                                <input type="text" 
+                                    class="form-control" 
+                                    placeholder="Promocode" 
+                                    aria-label="Promocode">
+                                <span class="input-group-text bg-transparent border-0">
+                                    <i class="fa fa-gift text-muted"></i>  <!-- Gift icon (from Font Awesome) -->
+                                </span>
+                                <button class="btn btn-primary" type="button">Apply</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="d-flex align-items-center justify-content-between mt-4 pt-4 border-top">
-                    <div>
-                        <p class="mb-1 text-dark-custom">Total:</p>
-                        <p class="mb-0 text-dark-custom fw-semibold small">2 products</p>
-                    </div>
-                    <div class="text-end">
-                        <div class="d-flex align-items-center gap-5">
-                            <div>
-                                <p class="mb-0 fs-4 fw-bold text-dark">$5 000</p>
-                                <span class="badge bg-light text-success small">economy: -25%</span>
+                <div class="container pt-4">
+                    <div class="mb-5">
+                        <div class="d-flex flex-row align-items-start gap-3 mb-4">
+                            <img src="./assets/images/svg/badge1.svg" alt="">
+                            <div class="d-flex flex-column gap-2">
+                                <h3 class="mb-0 fw-light" style="line-height: 100%;"> Select payment method </h3>
+                                <p class="mb-0 small fw-semibold">
+                                    If your card was issued outside the Russian Federation, please use the Stripe payment system, or <a href="#" class="text-primary">contact us</a>
+                                </p>
                             </div>
-                            <button class="btn btn-primary btn-lg px-4" style="border-radius: 0.5rem;">
-                                Place an order
-                            </button>
+                        </div>
+                        <div class="d-flex flex-wrap justify-content-between gap-3 gap-xxl-4">
+
+                            <!-- Coinbase -->
+                            <div class="payment-card d-flex flex-row align-items-start gap-3 gap-xxl-4 p-3 p-md-4 p-xxl-5 border rounded flex-fill" style="border-color:#2828281A;">
+                                <img src="./assets/images/svg/coinbase.svg" class="flex-shrink-0" width="48">
+                                <div class="d-flex flex-column">
+                                    <p class="mb-1 fw-semibold fs-6">Coinbase | Cryptocurrency</p>
+                                    <p class="mb-0 small">Commission 3% + $0.60</p>
+                                    <p class="mb-0 small">Bonus 7%</p>
+                                </div>
+                            </div>
+
+                            <!-- Stripe -->
+                            <div class="payment-card d-flex flex-row align-items-start gap-3 gap-xxl-4 p-3 p-md-4 p-xxl-5 border rounded flex-fill">
+                                <img src="./assets/images/svg/stripe.svg" class="flex-shrink-0" width="48">
+                                <div class="d-flex flex-column">
+                                    <p class="mb-1 fw-semibold fs-6"> Stripe | Visa, Mastercard, Apple Pay </p>
+                                    <p class="mb-0 small"> Commission 3.2% + $0.75 </p>
+                                    <p class="mb-0 small"> Bonus 12%</p>
+                                </div>
+                            </div>
+
+                            <!-- PayPal -->
+                            <div class="payment-card d-flex flex-row align-items-start gap-3 gap-xxl-4 p-3 p-md-4 p-xxl-5 border rounded flex-fill" style="border-color:#2828281A;">
+                                <img src="./assets/images/svg/paypal.svg" class="flex-shrink-0" width="48">
+                                <div class="d-flex flex-column">
+                                    <p class="mb-1 fw-semibold fs-6"> PayPal </p>
+                                    <p class="mb-0 small"> Commission 3% + $0.60 </p>
+                                    <p class="mb-0 small"> Bonus 10% </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-5">
+                        <h3 class="mb-0 fw-light" style="line-height: 100%;">
+                            <img src="./assets/images/svg/badge2.svg" alt="">
+                            Select bonus
+                        </h3>
+
+                        <div class="row g-4">
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="bonus-card border-0 shadow-sm text-center p-3">
+                                    <p class="fw-bold mb-1">Bonus 1 %</p>
+                                    <p class="small text-muted mb-0">Payments from $ 500</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="bonus-card border-0 shadow-sm text-center p-3">
+                                    <p class="fw-bold mb-1">Bonus 3 %</p>
+                                    <p class="small text-muted mb-0">Payments from $ 1 000</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="bonus-card border-0 shadow-sm text-center p-3">
+                                    <p class="fw-bold mb-1">Bonus 4 %</p>
+                                    <p class="small text-muted mb-0">Payments from $ 2 500</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="bonus-card border-0 shadow-sm text-center p-3">
+                                    <p class="fw-bold mb-1">Bonus 5 %</p>
+                                    <p class="small text-muted mb-0">Payments from $ 5 000</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="d-flex flex-row align-items-start gap-3 mb-4">
+                            <img src="./assets/images/svg/badge3.svg" alt="">
+                            <div class="d-flex flex-column gap-2">
+                                <h3 class="mb-0 fw-light" style="line-height: 100%;">Check the total amount and click "Pay" button </h3>
+                                <p class="mb-0 small fw-semibold">
+                                    After the transaction is complete, the receipt and payment information will appear in the "Transaction History" section of your<a href="#" class="text-primary">profile.</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="row align-items-end g-3 mb-4 pb-3">
+                            <div class="col-md-3">
+                                <label class="form-label small text-muted">Total amount, $:</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" value="1100">
+                                    <span class="input-group-text">$</span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label small text-muted">Your bonus, $:</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" value="300">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-gift"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label small text-muted">Discount with promocode:</label>
+                                <p class="mb-0 small">
+                                    3 % → <span class="text-success fw-semibold">$ 500</span>
+                                </p>
+                            </div>
+                            <div class="col-md-3 text-md-end">
+                                <button class="btn btn-primary px-5 w-100 w-md-auto">
+                                    Pay
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row g-4 mt-4 border-top">
+                            <div class="col-md-4">
+                                <h6 class="fw-semibold">How to refill balance?</h6>
+                                <p class="small text-muted">
+                                    Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit
+                                    quam non felis.
+                                </p>
+                                <a href="#" class="small fw-semibold text-decoration-none">
+                                    Top up wallet →
+                                </a>
+                            </div>
+
+                            <div class="col-md-4">
+                                <h6 class="fw-semibold">
+                                    I’m not from Russian Federation. How to refill balance?
+                                </h6>
+                                <p class="small text-muted">
+                                    Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit
+                                    quam non felis.
+                                </p>
+                                <a href="#" class="small fw-semibold text-decoration-none">
+                                    Top up wallet →
+                                </a>
+                            </div>
+
+                            <div class="col-md-4">
+                                <h6 class="fw-semibold">Bonuses and promocodes</h6>
+                                <p class="small text-muted">
+                                    Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit
+                                    quam non felis.
+                                </p>
+                                <a href="#" class="small fw-semibold text-decoration-none">
+                                    Read more →
+                                </a>
+                            </div>
+
                         </div>
                     </div>
                 </div>

@@ -457,114 +457,103 @@
                 </div>
             </div>
         </section>
-        <section class="py-4 py-md-5">
-            <div class="container px-0">
-                <nav aria-label="breadcrumb" class="mb-4">
-                    <ol class="breadcrumb mb-0">
-                        <li class="breadcrumb-item">
-                            <a href="main.html" class="text-decoration-none text-muted">Home</a>
-                        </li>
-                        <li class="breadcrumb-item active text-primary-blue fw-semibold" aria-current="page">
-                            Cart
-                        </li>
-                    </ol>
-                </nav>
-                <h1 class="title text-dark mb-0  mb-lg-4 pb-3">Cart</h1>
-                <div class="shadow p-4 d-flex flex-column">        
-                    <div class="row flex-column flex-md-row align-items-start align-items-md-center justify-content-between plan-card">
-                        <div class="col-12 col-md-6 col-xxl-4 d-flex px-0 align-items-center">
-                            <img src="./assets/images/price-img.png" alt="price img" class="cart-img me-2">
-                            <div class="d-flex flex-column gap-2">
-                                <p class="mb-0 fs-22 text-dark-custom font-normal">Premium plan</p>
-                                <button class="d-flex flex-row gap-2 align-items-center btn btn-primary w-50"
-                                    style="background-color: #DA2650;">
-                                    <img src="./assets/images/svg/icon_premium.svg" alt="">
-                                    <p class="mb-0 small text-white">VIP package</p>
-                                </button>
+        <section class="profile-container container py-4">
+            <nav class="small mb-2">
+                <span class="text-muted">Home &gt; Profile</span>
+            </nav>
+            <h1 class="fw-bold mb-4">Profile</h1>
 
-                                <p class="small fw-light text-dark-custom mb-0">
-                                    The key advantage of this plan should be briefly and succinctly reflected here
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 d-flex flex-row justify-content-between align-items-center">                    
-                            <div class="col-6 col-lg-4">
-                                <select class="billing-select rounded p-2 bg-white w-100">
-                                    <option>Paid annually</option>
-                                    <option>Paid monthly</option>
-                                </select>
-                            </div>
-                            <div class="col-5 col-lg-6 d-flex flex-column flex-lg-row align-items-center gap-2 justify-content-between">
-                                <div class="text-center text-lg-start">
-                                    <div class="original-price d-inline-block me-2">$4,750</div>
-                                    <span class="badge bg-success">-25%</span>
-                                    <div class="discounted-price px-0">$3 970</div>
+            <div class="row g-4">
+                <div class="col-lg-7">
+                    <div class="card p-4 h-100 rounded">
+                        <h5 class="fw-bold mb-4">Personal details:</h5>
+                        <div class="row">
+                            <div class="col-sm-4 text-center mb-3">
+                                <div class="avatar-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200" class="profile-pic">
+                                    <span class="delete-btn"><i class="bi bi-trash"></i></span>
                                 </div>
-                                <div class="text-center text-lg-end">
-                                    <a href="#" class="remove-btn d-inline-flex align-items-center gap-1 fs-6 fs-xxl-5 ">
-                                        <img src="./assets/images/svg/icon_delete.svg" alt="">
-                                        Remove
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row flex-column flex-md-row align-items-start align-items-md-center justify-content-between plan-card">
-                        <div class="col-12 col-md-6 col-xxl-4 d-flex px-0 align-items-center">
-                            <img src="./assets/images/price-img.png" alt="price img" class="cart-img me-2">
-                            <div class="d-flex flex-column gap-2">
-                                <p class="mb-0 fs-22 text-dark-custom font-normal">Standard plan</p>
-                                <button class="d-flex flex-row gap-2 align-items-center btn btn-primary w-50" style="background-color: #119947;">
-                                    <img src="./assets/images/svg/icon_menu_important.svg" alt="">
-                                    <p class="mb-0 small text-white" style="line-height: 120%;">Optimal solution</p>
+                                <button class="btn btn-link text-dark text-decoration-none small mt-2 fw-bold">
+                                    <i class="bi bi-image text-primary me-1"></i> Upload avatar
                                 </button>
-
-                                <p class="small fw-light text-dark-custom mb-0">
-                                    The key advantage of this plan should be briefly and succinctly reflected here
-                                </p>
                             </div>
-                        </div>
-                        <div class="col-12 col-md-6 d-flex flex-row justify-content-between align-items-center">                    
-                            <div class="col-6 col-lg-4">
-                                <select class="billing-select rounded p-2 bg-white w-100">
-                                    <option>Paid annually</option>
-                                    <option>Paid monthly</option>
-                                </select>
-                            </div>
-                            <div class="col-5 col-lg-6 d-flex flex-column flex-lg-row align-items-center gap-2 justify-content-between">
-                                <div class="text-center text-lg-start">
-                                    <div class="original-price d-inline-block me-2">$2,470</div>
-                                    <span class="badge bg-success">-25%</span>
-                                    <div class="discounted-price px-0">$1 130</div>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control mb-3" placeholder="Username">
+                                <input type="text" class="form-control mb-3" placeholder="Secondname edited">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control border-end-0" placeholder="+00 (123) 456-78-90">
+                                    <span class="input-group-text"><i class="bi bi-telephone"></i></span>
                                 </div>
-                                <div class="text-center text-lg-end">
-                                    <a href="#" class="remove-btn d-inline-flex align-items-center gap-1 fs-6 fs-xxl-5 ">
-                                        <img src="./assets/images/svg/icon_delete.svg" alt="">
-                                        Remove
-                                    </a>
+                                <div class="input-group mb-4">
+                                    <input type="email" class="form-control border-end-0" placeholder="username@domain.com">
+                                    <span class="input-group-text"><i class="bi bi-envelope"></i></span>
                                 </div>
+                                <button class="btn btn-save-main">Save changes</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="d-flex align-items-center justify-content-between mt-4 pt-4 border-top">
-                    <div>
-                        <p class="mb-1 text-dark-custom">Total:</p>
-                        <p class="mb-0 text-dark-custom fw-semibold small">2 products</p>
+
+                <div class="col-lg-5">
+                    <div class="card p-4 mb-4 rounded">
+                        <h5 class="fw-bold">Security settings:</h5>
+                        <p class="text-muted small">Your password hasn't changed for more than 4 months</p>
+                        <div class="input-group mb-2">
+                            <input type="password" class="form-control border-end-0" placeholder="Current password">
+                            <span class="input-group-text"><i class="bi bi-eye"></i></span>
+                        </div>
+                        <div class="input-group mb-2">
+                            <input type="password" class="form-control border-end-0" placeholder="New password">
+                            <span class="input-group-text"><i class="bi bi-eye"></i></span>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="password" class="form-control border-end-0" placeholder="Repeat new password">
+                            <span class="input-group-text"><i class="bi bi-eye"></i></span>
+                        </div>
+                        <button class="btn btn-disabled-gray px-4">Save changes</button>
                     </div>
-                    <div class="text-end">
-                        <div class="d-flex align-items-center gap-5">
-                            <div>
-                                <p class="mb-0 fs-4 fw-bold text-dark">$5 000</p>
-                                <span class="badge bg-light text-success small">economy: -25%</span>
+
+                    <div class="card p-3 rounded">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center gap-2">
+                                <span class="fw-bold small">Payment settings:</span>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" height="18">
                             </div>
-                            <button class="btn btn-primary btn-lg px-4" style="border-radius: 0.5rem;">
-                                Place an order
-                            </button>
+                            <a href="#" class="text-dark text-decoration-none small fw-bold">
+                                Change payment method <i class="bi bi-chevron-right text-primary"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
-            </div> 
+
+                <div class="col-12">
+                    <div class="card p-4 rounded">
+                        <div class="row align-items-center gy-3 text-center text-md-start">
+                            <div class="col-md-1">
+                                <div class="bg-dark rounded p-2 text-white text-center mx-auto" style="width:50px; height:70px; font-size:10px;">Premium</div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="fw-bold">Current subscrypion:</div>
+                                <div class="text-muted small">Premium plan</div>
+                            </div>
+                            <div class="col-md-3">
+                                <span class="badge badge-vip mb-2"><i class="bi bi-crown-fill"></i> VIP package</span>
+                                <p class="small text-muted mb-0">The key advantage of this plan should be briefly reflected here. <a href="#">More abour plans</a></p>
+                            </div>
+                            <div class="col-md-3 text-center">
+                                <h4 class="fw-bold mb-0">$ 3 970</h4>
+                                <div class="small"><span class="text-muted text-decoration-line-through me-2">$ 4 750</span> <span class="discount-pill">-25%</span></div>
+                                <div class="text-muted small">payed annually</div>
+                            </div>
+                            <div class="col-md-3 text-md-end">
+                                <div class="text-muted small mb-1">Available through:</div>
+                                <div class="mb-2"><span class="date-highlight">02.01.2025</span> <span class="text-danger small fw-bold">/ 15 days left</span></div>
+                                <a href="#" class="text-dark text-decoration-none fw-bold">Update plan <i class="bi bi-chevron-right text-primary"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
         <footer class="py-4 bg-dark-opacity">
             <div class="container d-flex flex-column flex-md-row align-items-center align-items-md-start justify-content-between py-4 my-0 my-md-2">
