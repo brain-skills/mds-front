@@ -134,11 +134,6 @@ const askBtn = document.getElementById('askQuestionBtn');
 const chatWindow = document.getElementById('supportChat');
 const closeBtn = document.getElementById('closeChat');
 
-askBtn.addEventListener('click', function() {
-    chatWindow.classList.remove('d-none');
-    askBtn.classList.add('d-none'); 
-});
-
 closeBtn.addEventListener('click', function() {
     chatWindow.classList.add('d-none');
     askBtn.classList.remove('d-none');

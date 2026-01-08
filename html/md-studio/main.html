@@ -457,38 +457,91 @@
                         </div>
                     </div>
                 </div>
-                <div>
-                    <div class="container d-flex align-items-center justify-content-center hero-content">
-                        <div class="text-white me-0 me-md-3 me-lg-5">
-                            <h1 class="title pb-2 text-center text-lg-start">High-quality <br> Web Development</h1>
-                            <h3 class="text-white-50 fs-3 mb-4 pt-1 description text-center text-lg-start">
-                                Website, CRM, and ERP system development. Responsive, functional, aesthetically pleasing, and effective.
-                            </h3>
-                            <button class="btn btn-primary d-flex justify-content-center m-auto m-lg-0">More info</button>
+                <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+                    
+                    <!-- Slides -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="container d-flex align-items-center justify-content-center hero-content">
+                                <div class="text-white me-0 me-md-3 me-lg-5">
+                                    <h1 class="title pb-2 text-center text-lg-start">High-quality <br> Web Development</h1>
+                                    <h3 class="text-white-50 fs-3 mb-4 pt-1 description text-center text-lg-start">
+                                        Website, CRM, and ERP system development. Responsive, functional, aesthetically pleasing, and effective.
+                                    </h3>
+                                    <button class="btn btn-primary d-flex justify-content-center m-auto m-lg-0">More info</button>
+                                </div>
+                                <div class="position-relative images">
+                                    <img src="./assets/images/laptop.png" alt="Laptop showcasing a modern web development project" class="position-absolute hero-image">
+                                    <img src="./assets/images/gear.png" alt="" class="gear-rotate banner-gear" aria-hidden="true">
+                                </div>
+                            </div>
                         </div>
-                        <div class="position-relative images">
-                            <img src="./assets/images/laptop.png" alt="Laptop showcasing a modern web development project" class="position-absolute hero-image">
-                            <img src="./assets/images/gear.png" alt="" class="gear-rotate banner-gear" aria-hidden="true">
+                        <div class="carousel-item">
+                            <div class="container d-flex align-items-center justify-content-center hero-content">
+                                <div class="text-white me-0 me-md-3 me-lg-5">
+                                    <h1 class="title pb-2 text-center text-lg-start">Mobile App Development</h1>
+                                    <h3 class="text-white-50 fs-3 mb-4 pt-1 description text-center text-lg-start">
+                                        Creating mobile apps for iOS and Android
+                                    </h3>
+                                    <button class="btn btn-primary d-flex justify-content-center m-auto m-lg-0">More info</button>
+                                </div>
+                                <div class="position-relative images">
+                                    <img src="./assets/images/laptop.png" alt="Laptop showcasing a modern web development project" class="position-absolute hero-image">
+                                    <img src="./assets/images/gear.png" alt="" class="gear-rotate banner-gear" aria-hidden="true">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="container d-flex align-items-center justify-content-center hero-content">
+                                <div class="text-white me-0 me-md-3 me-lg-5">
+                                    <h1 class="title pb-2 text-center text-lg-start">Software Development</h1>
+                                    <h3 class="text-white-50 fs-3 mb-4 pt-1 description text-center text-lg-start">
+                                        Development of programs, internal systems, utilities, bots, and automations
+                                    </h3>
+                                    <button class="btn btn-primary d-flex justify-content-center m-auto m-lg-0">More info</button>
+                                </div>
+                                <div class="position-relative images">
+                                    <img src="./assets/images/laptop.png" alt="Laptop showcasing a modern web development project" class="position-absolute hero-image">
+                                    <img src="./assets/images/gear.png" alt="" class="gear-rotate banner-gear" aria-hidden="true">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="container d-flex align-items-center justify-content-center hero-content">
+                                <div class="text-white me-0 me-md-3 me-lg-5">
+                                    <h1 class="title pb-2 text-center text-lg-start">UI/UX Design</h1>
+                                    <h3 class="text-white-50 fs-3 mb-4 pt-1 description text-center text-lg-start">
+                                        Interface design + usability
+                                    </h3>
+                                    <button class="btn btn-primary d-flex justify-content-center m-auto m-lg-0">More info</button>
+                                </div>
+                                <div class="position-relative images">
+                                    <img src="./assets/images/services/laptop.svg" alt="Laptop showcasing a modern web development project" class="position-absolute hero-image">
+                                    <img src="./assets/images/gear.png" alt="" class="gear-rotate banner-gear" aria-hidden="true">
+                                </div>
+                            </div>
                         </div>
                     </div>
+
                 </div>
             </div>
+            <!-- Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                <img src="./assets/images/svg/icon_arrow-left.svg" alt="">
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                <img src="./assets/images/svg/icon_arrow-right.svg" alt="">
+                <span class="visually-hidden">Next</span>
+            </button>
+            <!-- Indicators/dots -->
+            <div class="carousel-indicators indicators">
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active bar" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" class="bar" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" class="bar" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" class="bar" aria-label="Slide 4"></button>
+            </div>
             <div class="particles-bottom-light"></div>
-            <div class="indicators">
-                <div class="bar active"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-            <div class="slider-buttons">
-                <button class="prev bg-blurred p-3">
-                    <img src="./assets/images/svg/icon_arrow-left.svg" alt="">
-                </button>
-                <button class="next bg-blurred p-3">
-                    <img src="./assets/images/svg/icon_arrow-right.svg" alt="">
-                </button>
-            </div>
         </section>
         <section class="py-90 feature-section bg-light-gray-opacity">
             <div class="container d-flex flex-column gap-4 gap-lg-5">
