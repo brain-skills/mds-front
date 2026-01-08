@@ -129,3 +129,40 @@ document.addEventListener("DOMContentLoaded", function() {
         headerSearch.classList.remove("d-flex");
     });
 });
+
+const askBtn = document.getElementById('askQuestionBtn');
+const chatWindow = document.getElementById('supportChat');
+const closeBtn = document.getElementById('closeChat');
+
+askBtn.addEventListener('click', function() {
+    chatWindow.classList.remove('d-none');
+    askBtn.classList.add('d-none'); 
+});
+
+closeBtn.addEventListener('click', function() {
+    chatWindow.classList.add('d-none');
+    askBtn.classList.remove('d-none');
+});
+
+document.querySelectorAll('.ticket-list-item').forEach(item => {
+    item.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        document.querySelectorAll('.ticket-list-item').forEach(i => i.classList.remove('active'));
+        this.classList.add('active');
+
+        if (window.innerWidth < 992) {
+            document.querySelector('.sidebar').classList.add('d-none');
+            document.querySelector('.ticket-detail').classList.remove('d-none');
+            document.querySelector('.ticket-detail').classList.add('d-block');
+        }
+
+    });
+});
+
+document.querySelector('.back-to-list').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelector('.sidebar').classList.remove('d-none');
+    document.querySelector('.ticket-detail').classList.add('d-none');
+    document.querySelector('.ticket-detail').classList.remove('d-block');
+});

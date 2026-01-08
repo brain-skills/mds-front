@@ -935,11 +935,6 @@ nav[aria-label="Main menu"] {
 }
 
 /* Personal Details Section */
-.profile-container .avatar-wrapper {
-    width: 150px;
-    position: relative;
-    margin: 0 auto;
-}
 .profile-container .profile-pic {
     width: 100%;
     border-radius: 4px;
@@ -997,6 +992,104 @@ nav[aria-label="Main menu"] {
     padding: 2px 8px;
     border-radius: 4px;
     font-weight: bold;
+}
+
+.side-ask-btn {
+  position: fixed;
+  right: -58px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg); 
+  background-color: #249fdd;
+  color: white;
+  padding: 10px 20px;
+  font-weight: 500;
+  z-index: 2000;
+  border: none;
+  white-space: nowrap;
+}
+
+.side-ask-btn i {
+  transform: rotate(0deg);
+  display: inline-block;
+}
+
+.chat-window {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 400px;
+  z-index: 3000;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #dee2e6;
+}
+
+.chat-header {
+  background-color: #249fdd;
+}
+
+.chat-body {
+  height: 350px;
+  overflow-y: auto;
+}
+
+.sidebar {
+    background-color: #ffffff;
+  height: 100vh;
+  padding-top: 2rem;
+}
+.ticket-list-item {
+  padding: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.ticket-list-item:hover {
+    background-color: #f8f9fa;
+}
+.ticket-list-item.active {
+    background-color: #e3f2fd;
+    border-left: 4px solid #2196f3;
+}
+.status-badge {
+    font-size: 0.75rem;
+}
+.message {
+    margin-bottom: 2rem;
+    max-width: 80%;
+}
+.message-support {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.message-you {
+    background-color: #e3f2fd;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-left: auto;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.attachment {
+    background-color: #f8f9fa;
+    border: 1px dashed #ced4da;
+    padding: 0.75rem;
+    border-radius: 6px;
+    margin-top: 0.75rem;
+}
+.editor-toolbar {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-bottom: none;
+    border-radius: 6px 6px 0 0;
+    padding: 0.5rem;
+}
+.file-preview {
+    background-color: #e7f3ff;
+    border: 1px solid #90caf9;
+    border-radius: 6px;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
 }
 
 @media (max-width: 768px) {
@@ -1287,5 +1380,19 @@ nav[aria-label="Main menu"] {
 
   .cart-btn {
     max-height: 32px;
+  }
+
+  .chat-window {
+    right: 50% !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    
+    width: 90% !important;
+    max-width: none !important;
+    
+    bottom: 20px !important;
+    
+    display: flex;
+    flex-direction: column;
   }
 }
