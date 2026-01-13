@@ -223,32 +223,6 @@ html, body {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-#news-slider-buttons {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
-    pointer-events: none; 
-    gap: 1rem;
-}
-
-#news-slider-buttons button {
-    pointer-events: all;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    background-color: #2828280D;
-    cursor: pointer;
-}
-
-#news-slider-buttons button img {
-    filter: brightness(0) invert(0);
-}
-
 @keyframes rotate-gear {
   from {
     transform: rotate(0deg);
@@ -663,16 +637,12 @@ input:checked + .slider:before {
     animation: gearSpin 30s linear infinite;
 }
 
-/* 3. Laptop Appearance */
 .hero-laptop {
     transform: perspective(1000px) rotateY(-5deg); /* Slight angle like in your image */
     filter: drop-shadow(0 30px 50px rgba(0,0,0,0.8));
     max-width: 90%;
 }
 
-.z-3 { z-index: 3; }
-
-/* Carousel Dash Indicators (Matches image) */
 .carousel-indicators [data-bs-target] {
     width: 60px;
     height: 4px;
@@ -1066,42 +1036,42 @@ nav[aria-label="Main menu"] {
     font-size: 0.75rem;
 }
 .message {
-    margin-bottom: 2rem;
-    max-width: 80%;
+  margin-bottom: 2rem;
+  max-width: 80%;
 }
 .message-support {
-    background-color: #ffffff;
-    border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 .message-you {
-    background-color: #e3f2fd;
-    border-radius: 8px;
-    padding: 1rem;
-    margin-left: auto;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  background-color: #e3f2fd;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-left: auto;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 .attachment {
-    background-color: #f8f9fa;
-    border: 1px dashed #ced4da;
-    padding: 0.75rem;
-    border-radius: 6px;
-    margin-top: 0.75rem;
+  background-color: #f8f9fa;
+  border: 1px dashed #ced4da;
+  padding: 0.75rem;
+  border-radius: 6px;
+  margin-top: 0.75rem;
 }
 .editor-toolbar {
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
-    border-bottom: none;
-    border-radius: 6px 6px 0 0;
-    padding: 0.5rem;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+  padding: 0.5rem;
 }
 .file-preview {
-    background-color: #e7f3ff;
-    border: 1px solid #90caf9;
-    border-radius: 6px;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
+  background-color: #e7f3ff;
+  border: 1px solid #90caf9;
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
 }
 
 @media (min-width: 1450px) {
@@ -1248,13 +1218,57 @@ nav[aria-label="Main menu"] {
     margin-top: 2rem;
     margin-bottom: 1rem;
   }
+
   .gear-wrapper {
     width: 100%;
   }
+
   .hero-laptop {
     transform: none;
   }
 
+  .slider-item {
+    width: 30%;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .team-card.wide {
+    grid-column: span 2;
+  }
+
+  #pricingScrollContainer {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 20px;
+  }
+
+  #pricingScrollContainer::-webkit-scrollbar {
+    display: none;
+  }
+
+  #pricingScrollContainer .pricing-row {
+    display: flex;
+    gap: 24px;
+    padding: 0 20px;
+    width: max-content;
+  }
+
+  #pricingScrollContainer .pricing-card {
+    flex: 0 0 88%;
+    max-width: 395px;
+    scroll-snap-align: center;
+  }
+
+  #pricingScrollContainer {
+    scroll-snap-type: x mandatory;
+  }
 }
 
 @media (max-width: 820px) {
@@ -1391,15 +1405,36 @@ nav[aria-label="Main menu"] {
     right: 50% !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
-    
     width: 90% !important;
     max-width: none !important;
-    
     bottom: 20px !important;
-    
     display: flex;
     flex-direction: column;
   }
+
+  .slider-item {
+    width: 50%;
+  }
+
+  .portfolio-item {
+    flex: 0 0 90%;
+  }
+  .news-slide {
+    width: 220px;
+  }
+  
+  .news-slide .card-img-top {
+    height: 140px;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-card.wide {
+    grid-column: span 1;
+  }
+
 }
 
 @media (max-width: 480px) {
@@ -1421,52 +1456,6 @@ nav[aria-label="Main menu"] {
   flex: 0 0 calc(33.333% - 16px);
 }
 
-@media (max-width: 575px) {
-  .portfolio-item {
-      flex: 0 0 90%;
-  }
-}
-@media (max-width: 991.98px) {
-
-  #news-slider-buttons {
-    display: none !important;
-  }
-
-  .news-slider {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  gap: 16px;
-  padding-bottom: 10px;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  }
-
-  .news-slider::-webkit-scrollbar {
-    display: none;
-  }
-
-  .news-slide {
-    flex: 0 0 auto;
-    width: 260px;
-    scroll-snap-align: start;
-  }
-
-  .news-slide .card-img-top {
-      height: 160px;
-      object-fit: cover;
-  }
-}
-
-@media (max-width: 575.98px) {
-  .news-slide {
-      width: 220px;
-  }
-
-  .news-slide .card-img-top {
-      height: 140px;
-  }
-}
 .team-section {
   padding: 80px 0;
   background: #f6f6f6;
@@ -1532,26 +1521,6 @@ nav[aria-label="Main menu"] {
   grid-column: span 2;
 }
 
-/* Responsive */
-@media (max-width: 992px) {
-  .team-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .team-card.wide {
-    grid-column: span 2;
-  }
-}
-
-@media (max-width: 576px) {
-  .team-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .team-card.wide {
-    grid-column: span 1;
-  }
-}
 .slider-section {
   overflow: hidden; 
 }
@@ -1593,16 +1562,6 @@ nav[aria-label="Main menu"] {
   justify-content: start;
 }
 
-@media (max-width: 992px) {
-  .slider-item {
-    width: 30%;
-  }
-}
-@media (max-width: 600px) {
-  .slider-item {
-    width: 50%;
-  }
-}
 .global-slider {
   overflow-x: auto;
   scrollbar-width: none;
@@ -1611,37 +1570,4 @@ nav[aria-label="Main menu"] {
 
 .global-slider::-webkit-scrollbar {
   display: none;
-}
-
-@media (max-width: 991.98px) {
-  #pricingScrollContainer {
-      overflow-x: auto;
-      overflow-y: hidden;
-      -webkit-overflow-scrolling: touch;
-      scroll-behavior: smooth;
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* IE/Edge */
-      padding-bottom: 20px;
-  }
-
-  #pricingScrollContainer::-webkit-scrollbar {
-      display: none; /* Chrome/Safari */
-  }
-
-  #pricingScrollContainer .pricing-row {
-      display: flex;
-      gap: 24px;
-      padding: 0 20px;
-      width: max-content;
-  }
-
-  #pricingScrollContainer .pricing-card {
-      flex: 0 0 88%;
-      max-width: 395px;
-      scroll-snap-align: center;
-  }
-
-  #pricingScrollContainer {
-      scroll-snap-type: x mandatory;
-  }
 }
