@@ -305,12 +305,6 @@ html, body {
     transform: scale(1.1);
 }
 
-.bg-blurred {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: var(--blur-glass);
-  -webkit-backdrop-filter: var(--blur-glass);
-}
-
 .hero-image {
     top: -15px;
     right: -10px;
@@ -691,39 +685,9 @@ input:checked + .slider:before {
     background-color: #0d6efd;
 }
 
-.portfolio-wrapper {
-    margin: 0 -12px; /* Pulls items slightly wider to account for gaps */
-}
-
-.portfolio-row {
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-    will-change: transform;
-}
-
 .portfolio-item {
-    /* Desktop: 3 items per view (accounting for gap-4 which is 1.5rem / 24px) */
     flex: 0 0 calc(33.333% - 24px); 
     min-width: calc(33.333% - 24px);
-}
-
-/* Button Positioning */
-.portfolio-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 100;
-    border: none;
-    cursor: pointer;
-}
-
-.portfolio-nav.prev {
-    left: 0;
-    border-radius: 0 100px 100px 0;
-}
-
-.portfolio-nav.next {
-    right: 0;
-    border-radius: 100px 0 0 100px;
 }
 
 .bg-blurred {
@@ -1453,30 +1417,8 @@ nav[aria-label="Main menu"] {
   }
 }
 
-.portfolio-row {
-  width: 100%;
-  overflow: hidden;
-}
-
-.portfolio-track {
-  display: flex;
-  gap: 24px;
-  transition: transform 0.4s ease;
-}
-
 .portfolio-item {
   flex: 0 0 calc(33.333% - 16px);
-}
-
-@media (max-width: 991px) {
-  .portfolio-row {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .portfolio-track {
-    transform: none !important;
-  }
 }
 
 @media (max-width: 575px) {
@@ -1623,7 +1565,7 @@ nav[aria-label="Main menu"] {
 
 .slider-item {
   flex: 0 0 auto;
-  width: 35%;
+  width: 25%;
   min-height: 200px;
 }
 
@@ -1635,9 +1577,8 @@ nav[aria-label="Main menu"] {
   width: 96px;
   height: 96x;
   border: none;
-  background: #2828280D;
   font-size: 24px;
-  padding: 12px;
+  padding: 16px;
 }
 
 .slider-prev {
