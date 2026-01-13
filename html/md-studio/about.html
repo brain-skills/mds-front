@@ -29,7 +29,8 @@
     <main>
         <section class="bg-common" style="background: black">            
             <div class="container">
-                <header class="header">
+            <header class="header">
+                <div class="container"> 
                     <nav class="d-flex justify-content-between align-items-center p-0">
                         <a href="/">
                             <img src="./assets/images/logos/md-studio.svg" alt="MD Studio logo" class="header-logo">
@@ -38,10 +39,10 @@
                             <ul class="list-unstyled d-flex align-items-center mb-0 me-3 me-lg-5 header-divider header-settings d-none d-lg-flex">
                                 <li class="ps-0 pe-2">
                                     <button type="button"
-                                            class="d-flex gap-2 border-0 bg-transparent text-light fs-8 ps-0 pe-1"
+                                            class="d-flex gap-2 border-0 bg-transparent text-light fs-7 ps-0 pe-1"
                                             data-bs-toggle="modal"
                                             data-bs-target="#settingsModal">
-                                        <img src="./assets/images/svg/icon_geo-white.svg" alt="geo icon"> USA
+                                        <img src="./assets/images/svg/icon_geo-white.svg" alt="geo icon" style="width: 20px;"> USA
                                     </button>
                                 </li>
 
@@ -50,16 +51,16 @@
                                             class="border-0 bg-transparent text-light px-1 py-0"
                                             data-bs-toggle="modal"
                                             data-bs-target="#settingsModal">
-                                        🇺🇸
+                                        <img src="./assets/images/flag.png" alt="">
                                     </button>
                                 </li>
 
                                 <li class="ps-2 pe-0">
                                     <button type="button"
-                                            class="d-flex gap-2 border-0 bg-transparent text-light fs-8 ps-1 pe-0"
+                                            class="d-flex gap-2 border-0 bg-transparent text-light fs-7 ps-1 pe-0"
                                             data-bs-toggle="modal"
                                             data-bs-target="#settingsModal">
-                                        <img src="./assets/images/svg/icon_currency-white.svg" alt="currency icon"> USD
+                                        <img src="./assets/images/svg/icon_currency-white.svg" alt="currency icon" style="width: 20px;"> USD
                                     </button>
                                 </li>
                             </ul>
@@ -73,13 +74,14 @@
                                 </li>
 
                                 <li>
-                                    <button type="button" class="btn bg-blurred btn-primary d-flex me-2 me-lg-4 align-items-center gap-3">
+                                    <button onclick="window.location.href='cart.html'" type="button" class="px-3 px-md-4 py-2 btn btn-primary bg-blurred cart-btn d-flex align-items-center gap-2 gap-md-3 me-2 me-lg-4 cart-btn"  >
                                         <img src="./assets/images/svg/icon_cart.svg" alt="cart icon" class="cart-icon">
-                                        <div class="col">
-                                            <p class="mb-0 text-start small cart">Cart</p>
-                                            <p class="mb-0 text-start fs-9 fw-light">
-                                                2 <span class="products-word">products</span> /
-                                                <span class="fw-semibold">$2750</span>
+
+                                        <div class="d-flex flex-column text-start">
+                                            <p class="mb-0 cart-label d-none d-md-flex">Cart</p>
+                                            <p class="mb-0 cart-info">
+                                        <span class="fw-light">2</span> <span class="products-word fw-light"> products</span> /
+                                            <span class="cart-price">$2750</span>
                                             </p>
                                         </div>
                                     </button>
@@ -123,15 +125,10 @@
 
                                                     <div class="tab-pane fade show active" id="login-dd">
                                                         <form>
-                                                            <input type="email"
-                                                                class="form-control form-control-lg mb-3 rounded p-12 auth-input"
-                                                                placeholder="Email" required>
-
+                                                            <input type="email" class="form-control form-control-lg mb-3 rounded p-12 auth-input" placeholder="Email" required autocomplete="username">
                                                             <div class="mb-3 position-relative">
                                                                 <input type="password"
-                                                                    class="form-control form-control-lg rounded p-12 pe-5 auth-input"
-                                                                    id="loginPassDD"
-                                                                    placeholder="Password" required>
+                                                                    class="form-control form-control-lg rounded p-12 pe-5 auth-input" id="loginPassDD" autocomplete="current-password" placeholder="Password" required>
                                                                 <span class="position-absolute end-0 top-50 translate-middle-y pe-4 text-muted cursor-pointer"
                                                                     onclick="togglePassword('loginPassDD')">
                                                                     <i class="fa fa-eye"></i>
@@ -179,18 +176,14 @@
                                                     <div class="tab-pane fade" id="register-dd">
                                                         <form>
                                                             <input type="email"
-                                                                class="form-control form-control-lg mb-3 rounded p-12 auth-input"
-                                                                placeholder="Email" required>
+                                                                class="form-control form-control-lg mb-3 rounded p-12 auth-input" placeholder="Email" required autocomplete="username">
 
                                                             <input type="number"
                                                                 class="form-control form-control-lg mb-3 rounded p-12 auth-input"
                                                                 placeholder="Phone Number" required>
 
                                                             <div class="mb-3 position-relative">
-                                                                <input type="password"
-                                                                    class="form-control form-control-lg rounded p-12 pe-5 auth-input"
-                                                                    id="registerPassDD"
-                                                                    placeholder="Create Password" required>
+                                                                <input type="password" class="form-control form-control-lg rounded p-12 pe-5 auth-input" id="registerPassDD" placeholder="Create Password" autocomplete="new-password" required>
                                                                 <span class="position-absolute end-0 top-50 translate-middle-y pe-4 text-muted cursor-pointer"
                                                                     onclick="togglePassword('registerPassDD')">
                                                                     <i class="fa fa-eye"></i>
@@ -198,10 +191,7 @@
                                                             </div>
 
                                                             <div class="mb-3 position-relative">
-                                                                <input type="password"
-                                                                    class="form-control form-control-lg rounded p-12 pe-5 auth-input"
-                                                                    id="registerRepeatPassDD"
-                                                                    placeholder="Repeat Password" required>
+                                                                <input type="password" class="form-control form-control-lg rounded p-12 pe-5 auth-input" id="registerRepeatPassDD" autocomplete="repeat-password" placeholder="Repeat Password" required>
                                                                 <span class="position-absolute end-0 top-50 translate-middle-y pe-4 text-muted cursor-pointer"
                                                                     onclick="togglePassword('registerRepeatPassDD')">
                                                                     <i class="fa fa-eye"></i>
@@ -253,16 +243,16 @@
 
                         </div>
                     </nav>
-
-                    <nav aria-label="Main menu" class="bg-blurred p-2 p-lg-3 d-flex justify-content-between align-items-center mt-3 rounded">
-                        <ul class="menu list-unstyled d-none d-md-flex align-items-center justify-content-between gap-4 mb-0 w-100">
+                    
+                    <nav aria-label="Main menu" class="bg-blurred p-2 p-lg-3 d-flex justify-content-between align-items-center mt-3 rounded position-relative">
+                        <ul class="menu list-unstyled d-none d-md-flex align-items-center justify-content-between gap-4 gap-xl-5 mb-0 w-100">
                             <li class="menu-item"><a href="main.html" class="menu-link text-light text-decoration-none">Home</a></li>
                             <li class="menu-item position-relative">
-                                <a href="services.html" class="menu-link text-light text-decoration-none d-flex align-items-center">
+                                <a href="services.html" class="menu-link text-decoration-none d-flex align-items-center">
                                     Services
                                     <img src="./assets/images/svg/chevron.svg" alt="dropdown icon" class="menu-icon ms-2">
                                 </a>
-                                <ul class="dropdown-menu rounded shadow-lg border-0 p-3 bg-blurred">
+                                <ul class="dropdown-menu rounded shadow-lg border-0 p-3">
                                     <li><a class="dropdown-item text-dark-custom" href="service.html">Web Development</a></li>
                                     <li><a class="dropdown-item text-dark-custom" href="service.html">Software Development</a></li>
                                     <li><a class="dropdown-item text-dark-custom" href="service.html">Development</a></li>
@@ -284,7 +274,7 @@
                             <li class="menu-item"><a href="contacts.html" class="menu-link text-light text-decoration-none">Contacts</a></li>
 
                             <li class="d-flex align-items-center ms-auto">
-                                <a href="#" class="border-0 bg-transparent text-light p-0" aria-label="Search">
+                                <a href="#" id="open-search-desktop"  class="border-0 bg-transparent text-light p-0" aria-label="Search">
                                     <img src="./assets/images/svg/icon_search.svg" alt="search icon" width="24" height="24">
                                 </a>
                             </li>
@@ -302,7 +292,7 @@
                             <li class="d-flex align-items-center text-light fs-8">
                                 <button type="button" class="d-flex align-items-center gap-2 border-0 bg-transparent text-light"
                                         data-bs-toggle="modal" data-bs-target="#settingsModal">
-                                    <img src="./assets/images/svg/icon_geo-white.svg" alt="geo icon" width="16" height="16">
+                                    <img src="./assets/images/svg/icon_geo-white.svg" alt="geo icon">
                                     <span>USA</span>
                                 </button>
 
@@ -310,7 +300,7 @@
 
                                 <button type="button" class="border-0 bg-transparent text-light px-0"
                                         data-bs-toggle="modal" data-bs-target="#settingsModal">
-                                    🇺🇸
+                                    <img src="./assets/images/flag.png" alt="Flag" class="">
                                 </button>
 
                                 <span class="divider-vertical mx-2 opacity-50">|</span>
@@ -318,25 +308,37 @@
                                 <button type="button" class="d-flex align-items-center gap-2 border-0 bg-transparent text-light"
                                         data-bs-toggle="modal" data-bs-target="#settingsModal">
                                     <img src="./assets/images/svg/icon_currency-white.svg" alt="currency icon" width="16" height="16">
-                                    <span>USD</span>
+                                    <span class="">USD</span>
                                 </button>
                             </li>
 
                             <li class="d-flex align-items-center">
-                                <a href="#" class="border-0 bg-transparent text-light p-0" aria-label="Search">
+                                <a href="#" id="open-search-mobile"  class="border-0 bg-transparent text-light p-0" aria-label="Search">
                                     <img src="./assets/images/svg/icon_search.svg" alt="search icon" width="24" height="24">
                                 </a>
                             </li>
                         </ul>
+                        <div id="header-search" class="header-search rounded d-none p-0 p-lg-3">
+                            <form class="search-form rounded align-items-center bg-blurred">
+                                <input type="text" class="form-control form-control-lg header-search-input" placeholder="Search..." autofocus>
+                                <div class="d-flex flex-row align-items-center gap-2 rounded" style="background-color: #249fdd;">
+                                    <button type="submit" class="btn btn-primary d-flex align-items-center justify-content-center">
+                                        <img src="./assets/images/svg/icon_search.svg" alt="Search" width="20" height="20">
+                                    </button>                                
+                                    <button type="button" id="close-search" class="btn-close" aria-label="Close"></button>
+                                </div>
+                            </form>
+                        </div>
                     </nav>
-                </header>
+                </div>
+            </header>
                 <div class="mt-3">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <div class="container mt-0 mt-md-5 d-flex flex-column flex-md-row gap-4 gap-md-0 align-items-center justify-content-center mb-5 pb-4">
                                 <div class="text-white d-flex flex-column align-items-center align-items-md-start me-0 me-md-3 me-lg-5">
                                     <h1 class="title pb-2">Mega Digital Studio</h1>
-                                    <h3 class="text-white-50 fs-3 mb-4 pt-1 description">
+                                    <h3 class="text-white-50 text-center text-md-start fs-3 mb-4 pt-1 description">
                                         A few words about the studio - a short and concise teaser text about the company
                                     </h3>
                                     <button class="btn btn-primary d-flex justify-content-center">Contact us</button>
@@ -354,7 +356,7 @@
         <section class="d-flex flex-column justify-content-center py-90 position-relative overflow-hidden">
             <div class="mb-0 mb-lg-5">
                 <h2 class="title text-center text-dark-custom">About Mega Digital Studio</h2>
-                <p class="text-dark small/ text-center pt-2 fw-bold text-gray-custom">Here you need to add SEO text for the site to be indexed</p>
+                <p class="text-dark small text-center pt-2 fw-bold text-gray-custom">Here you need to add SEO text for the site to be indexed</p>
             </div>
             <div class="container d-flex flex-column flex-lg-row gap-4 align-items-center">
                 <img src="./assets/images/laptop2.png" alt="Team working on web development project in office" loading="lazy" class="laptop-2">
@@ -388,138 +390,258 @@
             </div>
             <div class="particles-bottom-dark"></div>
         </section>
-        <section class="bg-common d-flex flex-column justify-content-center py-90 position-relative overflow-hidden">
-            <div class="mb-0 mb-lg-5">
-                <h2 class="title text-center text-white">What we offer</h2>
-            </div>
-            <div class="container d-flex flex-column flex-lg-row gap-4 align-items-center">
-                <div class="d-flex flex-column gap-3">
-                    <div>
-                        <h3 class="description fw-normal text-white">
-                           Effective Software development
-                        </h3>
-                        <p class="fs-6 fw-bold text-white-50">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor sapien ligula, vel convallis neque ultricies vulputate. </p>
-                        <p class="small text-dark fw-light text-white">Suspendisse iaculis a arcu id faucibus. Proin orci libero, vehicula id ligula nec, scelerisque tempus dui. Etiam tempus scelerisque quam, eu accumsan tortor eleifend sed. Vivamus vitae justo sed erat accumsan vestibulum sed sit amet quam. Phasellus elementum lectus massa, vehicula egestas lorem malesuada ac. Donec et iaculis justo. Donec ac eros in urna volutpat varius. Proin ultricies maximus nulla in mattis.</p>
-                    </div>
-                    <div class="d-flex flex-column flex-md-row gap-4">
-                        <div class="d-flex flex-column justify-content-between">
-                            <img src="./assets/images/benefit_development.png" alt="" class="mb-3" style="max-width: 48px;">
-                            <p class="small fw-bold mb-1 text-white">Option Title</p>
-                            <p class="small text-white-50 mb-0">Option descroption template, a couple words about option</p>
-                        </div>
-                        <div class="d-flex flex-column justify-content-between">
-                            <img src="./assets/images/benefit_development.png" alt="" class="mb-3" style="max-width: 48px;">
-                            <p class="small fw-bold mb-1 text-white">Option Title</p>
-                            <p class="small text-white-50 mb-0">Option descroption template, a couple words about option</p>
-                        </div>
-                        <div class="d-flex flex-column justify-content-between">
-                            <img src="./assets/images/benefit_development.png" alt="" class="mb-3" style="max-width: 48px;">
-                            <p class="small fw-bold mb-1 text-white">Option Title</p>
-                            <p class="small text-white-50 mb-0">Option descroption template, a couple words about option</p>
-                        </div>
-                    </div>
-                </div>
-                <img src="./assets/images/software2.png" alt="software" loading="lazy" style="z-index: 1;">
-            </div>
-            <div class="particles-bottom-light"></div>
-        </section>
-        <section class="position-relative my-3 my-md-5">
-            <div class="container d-flex flex-column gap-4">
-                <div class="d-flex flex-column flex-md-row gap-4 justify-content-between">
-                    <div class="d-flex flex-row flex-md-column justify-content-between">
-                        <div class="">
-                            <h2 class="text-center text-md-start title mb-3">Professional Team</h2>
-                            <p class="fw-bold fs-6 text-center text-md-start mb-0">The best specialists are working on your projects</p>
-                        </div>
-                        <div>
-                            <img src="./assets/images/team/profi1.png" alt="" onclick="goToTeam()" class="img-fluid">
-                        </div>
-                    </div>
-                    <div class="d-flex flex-column gap-4 justify-content-between">
-                        <div class="row">
-                            <img src="./assets/images/team/profi2.png" alt="" onclick="goToTeam()" class="img-fluid col-6">
-                            <img src="./assets/images/team/profi3.png" alt="" onclick="goToTeam()" class="img-fluid col-6">
-                        </div>
-                        <img src="./assets/images/team/profi4.png" alt="" onclick="goToTeam()" class="img-fluid">
-                    </div>
-                </div>
-                <div class="row">
-                    <img src="./assets/images/team/profi5.png" alt="" onclick="goToTeam()" class="img-fluid col-6">
-                    <img src="./assets/images/team/profi6.png" alt="" onclick="goToTeam()" class="img-fluid col-6">
-                </div>
-            </div>
-        </section>
-        <section class="py-4 py-lg-5 bg-light position-relative">
-            <div id="particles-portfolio"></div>
+<section class="bg-common position-relative overflow-hidden py-5 py-lg-6">
+    <div class="particles-bottom-light"></div>
 
-            <!-- CONTENT -->
-            <div class="container text-center text-dark-custom">
-                <h2 class="title fw-normal">
-                   Look at our cases
+    <div class="container position-relative" style="z-index:2;">
+        
+        <!-- Title -->
+        <div class="row mb-4 mb-lg-5">
+            <div class="col text-center">
+                <h2 class="title text-white mb-0">
+                    What we offer
                 </h2>
+            </div>
+        </div>
 
-                <p class="text-dark-custom mb-4 mt-2">
-                    Mobile applications created by us
+        <!-- Content -->
+        <div class="row align-items-center gy-5 gy-lg-0">
+
+            <!-- Text column -->
+            <div class="col-12 col-lg-7">
+                
+                <h3 class="description fw-normal text-white mb-3 text-center text-lg-start">
+                    Effective Software Development
+                </h3>
+
+                <p class="fs-6 fw-bold text-white-50 mb-3 text-center text-lg-start">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor sapien ligula, vel convallis neque ultricies vulputate.
                 </p>
 
-                <!-- CAROUSEL -->
-                <div id="portfolioCarousel" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="d-flex justify-content-center gap-4 py-0 py-md-3 pt-3">
-                                <div>
-                                    <img src="./assets/images/portfolio/portfolio3.png" class="img-fluid w-100" alt="portfolio img" loading="lazy" style="position: relative; z-index: 2;">
-                                    <div class="pt-4 text-start">
-                                        <h3 class="description">Project Title</h3>
-                                        <p class="text-dark-custom mb-2">Web development / SMM / SEO</p>
-                                        <p class="fw-light small mb-2">A description of the project and its stages. Briefly, what the objectives were, how they were solved, and what the results were.</p>
-                                        <button class="text-dark-custom fw-bold border-0 bg-transparent p-0">
-                                            View Details <span class="ms-2 text-primary-blue">&gt;</span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div>
-                                    <img src="./assets/images/portfolio/portfolio3.png" class="img-fluid w-100" alt="portfolio img" loading="lazy" style="position: relative; z-index: 2;">
-                                    <div class="pt-4 text-start">
-                                        <h3 class="description">Project Title</h3>
-                                        <p class="text-dark-custom mb-2">Web development / SMM / SEO</p>
-                                        <p class="fw-light small mb-2">A description of the project and its stages. Briefly, what the objectives were, how they were solved, and what the results were.</p>
-                                        <button class="text-dark-custom fw-bold border-0 bg-transparent p-0">
-                                            View Details <span class="ms-2 text-primary-blue">&gt;</span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div>
-                                    <img src="./assets/images/portfolio/portfolio3.png" class="img-fluid w-100" alt="portfolio img" loading="lazy" style="position: relative; z-index: 2;">
-                                    <div class="pt-4 text-start">
-                                        <h3 class="description">Project Title</h3>
-                                        <p class="text-dark-custom mb-2">Web development / SMM / SEO</p>
-                                        <p class="fw-light small mb-2">A description of the project and its stages. Briefly, what the objectives were, how they were solved, and what the results were.</p>
-                                        <button class="text-dark-custom fw-bold border-0 bg-transparent p-0">
-                                            View Details <span class="ms-2 text-primary-blue">&gt;</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                <p class="small text-white mb-4 text-center text-lg-start">
+                    Suspendisse iaculis a arcu id faucibus. Proin orci libero, vehicula id ligula nec, scelerisque tempus dui.
+                    Etiam tempus scelerisque quam, eu accumsan tortor eleifend sed.
+                </p>
+
+                <!-- Options -->
+                <div class="row g-4 text-center text-md-start">
+
+                    <div class="col-12 col-md-4">
+                        <div class="h-100 d-flex flex-column align-items-center align-items-md-start">
+                            <img src="./assets/images/benefit_development.png"
+                                 alt=""
+                                 class="mb-3"
+                                 style="max-width:48px;">
+                            <p class="small fw-bold mb-1 text-white">
+                                Option Title
+                            </p>
+                            <p class="small text-white-50 mb-0">
+                                Option description template, a couple words about option
+                            </p>
                         </div>
                     </div>
+
+                    <div class="col-12 col-md-4">
+                        <div class="h-100 d-flex flex-column align-items-center align-items-md-start">
+                            <img src="./assets/images/benefit_development.png"
+                                 alt=""
+                                 class="mb-3"
+                                 style="max-width:48px;">
+                            <p class="small fw-bold mb-1 text-white">
+                                Option Title
+                            </p>
+                            <p class="small text-white-50 mb-0">
+                                Option description template, a couple words about option
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <div class="h-100 d-flex flex-column align-items-center align-items-md-start">
+                            <img src="./assets/images/benefit_development.png"
+                                 alt=""
+                                 class="mb-3"
+                                 style="max-width:48px;">
+                            <p class="small fw-bold mb-1 text-white">
+                                Option Title
+                            </p>
+                            <p class="small text-white-50 mb-0">
+                                Option description template, a couple words about option
+                            </p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
-            <button class="carousel-control-prev"
-                    type="button"
-                    data-bs-target="#portfolioCarousel"
-                    data-bs-slide="prev"
-                    aria-label="Previous">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            </button>
-            <button class="carousel-control-next"
-                    type="button"
-                    data-bs-target="#portfolioCarousel"
-                    data-bs-slide="next"
-                    aria-label="Next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            </button>
+            <!-- Image column -->
+            <div class="col-12 col-lg-5 text-center">
+                <img src="./assets/images/software2.png"
+                     alt="software"
+                     loading="lazy"
+                     class="img-fluid"
+                     style="max-width: 480px;">
+            </div>
+
+        </div>
+    </div>
+</section>
+
+        <section class="team-section">
+            <div class="container">
+                <div class="team-grid">
+
+                <!-- Text block -->
+                <div class="team-intro">
+                    <h2>Professional Team</h2>
+                    <p>The best specialists are working on your projects</p>
+                </div>
+
+                <!-- Card -->
+                <div class="team-card dark align-items-center text-center">
+                    <img src="./assets/images/team/profi5.png" alt="">
+                    <h3 class="mb-0">Creative web designers</h3>
+                    <p class="mb-0">
+                        People who struggle constantly between creativity and usability.
+                        The same struggle affects their mood.
+                    </p>
+                </div>
+
+                <div class="team-card light align-items-center text-center">
+                    <img src="./assets/images/team/profi6.png" alt="">
+                    <h3 class="mb-0">Responsible technologists</h3>
+                    <p class="mb-0">
+                    They never get bored, as they're constantly solving
+                    difficult technical issues.
+                    </p>
+                </div>
+
+                <div class="team-card light  align-items-center text-center">
+                    <img src="./assets/images/team/profi3.svg" alt="">
+                    <h3 class="mb-0">Ambitious managers</h3>
+                    <p class="mb-0">
+                    They do not settle for the ordinary. They know
+                    that great results take effort.
+                    </p>
+                </div>
+
+                <div class="team-card dark wide">
+                    <img src="./assets/images/team/profi4.svg" alt="">
+                    <h3 class="mb-0">Nimble content managers</h3>
+                    <div>
+                        <p class="mb-0">
+                            Always with music in their headphones, they don't like to be
+                            distracted from their work.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="team-card dark wide">
+                    <img src="./assets/images/team/profi5.png" alt="">
+                    <h3 class="mb-0">Pragmatic coders</h3>
+                    <p class="mb-0">
+                    They speak through code and often think about
+                    work even after hours.
+                    </p>
+                </div>
+
+                <div class="team-card light">
+                    <img src="./assets/images/team/profi6.png" alt="">
+                    <h3 class="mb-0">Omniscient programmers</h3>
+                    <p class="mb-0">
+                    They always try to think several steps ahead,
+                    but have reality checks often.
+                    </p>
+                </div>
+
+                </div>
+            </div>
+        </section>
+        <section class="slider-section py-5 position-relative">
+            <div class="container px-0">
+
+                <h2 class="mb-3 title text-center">Look at our cases</h2>
+                <p class="mb-5 fs-6 text-center">Mobile applications created by us</p>
+
+                <!-- LEFT BUTTON -->
+                <button class="slider-arrow slider-prev d-none d-lg-flex">
+                ‹
+                </button>
+
+                <!-- RIGHT BUTTON -->
+                <button class="slider-arrow slider-next d-none d-lg-flex">
+                ›
+                </button>
+
+                <div class="global-slider">
+                    <article class="slider-item card border-0">
+                        <img src="./assets/images/portfolio/portfolio3.png" class="img-fluid w-100 shadow-lg" alt="portfolio img" loading="lazy" style="position: relative; z-index: 2;">
+                        <div class="pt-4 text-start">
+                            <h3 class="description">Project Title</h3>
+                            <p class="mb-2 small" style="color: #666D6E;">Web development / SMM / SEO</p>
+                            <p class="fw-light small mb-2">A description of the project and its stages. Briefly, what the objectives were, how they were solved, and what the results were.</p>
+                            <button class="text-dark-custom fw-bold border-0 bg-transparent p-0">
+                                View Details <span class="ms-2 text-primary-blue">&gt;</span>
+                            </button>
+                        </div>
+                    </article>
+                    <article class="slider-item card border-0">
+                        <img src="./assets/images/portfolio/portfolio3.png" class="img-fluid w-100 shadow-lg" alt="portfolio img" loading="lazy" style="position: relative; z-index: 2;">
+                        <div class="pt-4 text-start">
+                            <h3 class="description">Project Title</h3>
+                            <p class="mb-2 small" style="color: #666D6E;">Web development / SMM / SEO</p>
+                            <p class="fw-light small mb-2">A description of the project and its stages. Briefly, what the objectives were, how they were solved, and what the results were.</p>
+                            <button class="text-dark-custom fw-bold border-0 bg-transparent p-0">
+                                View Details <span class="ms-2 text-primary-blue">&gt;</span>
+                            </button>
+                        </div>
+                    </article>
+                    <article class="slider-item card border-0">
+                        <img src="./assets/images/portfolio/portfolio3.png" class="img-fluid w-100 shadow-lg" alt="portfolio img" loading="lazy" style="position: relative; z-index: 2;">
+                        <div class="pt-4 text-start">
+                            <h3 class="description">Project Title</h3>
+                            <p class="mb-2 small" style="color: #666D6E;">Web development / SMM / SEO</p>
+                            <p class="fw-light small mb-2">A description of the project and its stages. Briefly, what the objectives were, how they were solved, and what the results were.</p>
+                            <button class="text-dark-custom fw-bold border-0 bg-transparent p-0">
+                                View Details <span class="ms-2 text-primary-blue">&gt;</span>
+                            </button>
+                        </div>
+                    </article>
+                    <article class="slider-item card border-0">
+                        <img src="./assets/images/portfolio/portfolio3.png" class="img-fluid w-100 shadow-lg" alt="portfolio img" loading="lazy" style="position: relative; z-index: 2;">
+                        <div class="pt-4 text-start">
+                            <h3 class="description">Project Title</h3>
+                            <p class="mb-2 small" style="color: #666D6E;">Web development / SMM / SEO</p>
+                            <p class="fw-light small mb-2">A description of the project and its stages. Briefly, what the objectives were, how they were solved, and what the results were.</p>
+                            <button class="text-dark-custom fw-bold border-0 bg-transparent p-0">
+                                View Details <span class="ms-2 text-primary-blue">&gt;</span>
+                            </button>
+                        </div>
+                    </article>
+                    <article class="slider-item card border-0">
+                        <img src="./assets/images/portfolio/portfolio3.png" class="img-fluid w-100 shadow-lg" alt="portfolio img" loading="lazy" style="position: relative; z-index: 2;">
+                        <div class="pt-4 text-start">
+                            <h3 class="description">Project Title</h3>
+                            <p class="mb-2 small" style="color: #666D6E;">Web development / SMM / SEO</p>
+                            <p class="fw-light small mb-2">A description of the project and its stages. Briefly, what the objectives were, how they were solved, and what the results were.</p>
+                            <button class="text-dark-custom fw-bold border-0 bg-transparent p-0">
+                                View Details <span class="ms-2 text-primary-blue">&gt;</span>
+                            </button>
+                        </div>
+                    </article>
+                    <article class="slider-item card border-0">
+                        <img src="./assets/images/portfolio/portfolio3.png" class="img-fluid w-100 shadow-lg" alt="portfolio img" loading="lazy" style="position: relative; z-index: 2;">
+                        <div class="pt-4 text-start">
+                            <h3 class="description">Project Title</h3>
+                            <p class="mb-2 small" style="color: #666D6E;">Web development / SMM / SEO</p>
+                            <p class="fw-light small mb-2">A description of the project and its stages. Briefly, what the objectives were, how they were solved, and what the results were.</p>
+                            <button class="text-dark-custom fw-bold border-0 bg-transparent p-0">
+                                View Details <span class="ms-2 text-primary-blue">&gt;</span>
+                            </button>
+                        </div>
+                    </article>
+                </div>
+            </div>
         </section>
         <section class="bg-common pt-4 pt-md-0 position-relative overflow-hidden">
             <div class="particles-bottom-light"></div>
@@ -540,7 +662,7 @@
                         <input type="email" id="email" class="white-input" autocomplete="off" placeholder="Your Email">
                         
                         <button class="px-5 py-2 text-white border-0" style="background-color: #249FDD;">
-                            Send Request
+                            Send
                         </button>
                     </form>
                 </div>
@@ -552,57 +674,59 @@
         </section>
         <!-- FOOTER -->
         <footer class="py-4 bg-dark-opacity">
-            <div class="container d-flex flex-column flex-md-row align-items-center align-items-md-start justify-content-between py-4 my-0 my-md-2 gap-4">
-                <section class="company-info d-flex flex-column justify-content-between">
+            <div class="container d-flex flex-column flex-md-row gap-4 py-4 my-0 my-md-2 justify-content-between">
+
+                <div class="company-info d-flex flex-column">
                     <div>
                         <figure class="mb-0">
                             <img src="./assets/images/logos/footer-logo.svg" alt="Mega Digital Studio logo" class="mb-4 d-flex justify-content-center m-auto m-md-0 mb-md-4" style="max-width: 214px;">
                         </figure>
-                        <p class="small/ mb-0 fw-light text-gray-custom text-center text-md-start">
+                        <p class="fs-6 mb-0 fw-normal text-gray-custom text-center text-md-start">
                             Legal information, organization details or other data necessary for display here
                         </p>
                     </div>
-                    <p class="small/ mb-0 fw-light text-gray-custom text-center text-md-start">
+
+                    <p class="fs-6 mb-0 fw-normal text-gray-custom text-center text-md-start mt-auto">
                         © 2025 Mega Digital Studio <br>All rights reserved
                     </p>
-                </section>
+                </div>
 
-                <nav class="footer-nav">
+                <nav class="footer-nav d-none d-md-flex">
                     <ul class="list-unstyled d-flex flex-column gap-12">
-                        <li><a href="#" class="fw-light small/ text-decoration-none text-dark-custom">Home</a></li>
-                        <li><a href="#" class="fw-light small/ text-decoration-none text-dark-custom">Portfolio</a></li>
-                        <li><a href="#" class="fw-light small/ text-decoration-none text-dark-custom">About us</a></li>
-                        <li><a href="#" class="fw-light small/ text-decoration-none text-dark-custom">News</a></li>
-                        <li><a href="#" class="fw-light small/ text-decoration-none text-dark-custom">Price</a></li>
-                        <li><a href="#" class="fw-light small/ text-decoration-none text-dark-custom">Feedback</a></li>
-                        <li><a href="#" class="fw-light small/ text-decoration-none text-dark-custom">Career</a></li>
-                        <li><a href="#" class="fw-light small/ text-decoration-none text-dark-custom">FAQ</a></li>
-                        <li><a href="#" class="fw-light small/ text-decoration-none text-dark-custom">Contacts</a></li>
+                        <li><a href="#" class="fw-normal fs-6 text-decoration-none text-dark-custom">Home</a></li>
+                        <li><a href="#" class="fw-normal fs-6 text-decoration-none text-dark-custom">Portfolio</a></li>
+                        <li><a href="#" class="fw-normal fs-6 text-decoration-none text-dark-custom">About us</a></li>
+                        <li><a href="#" class="fw-normal fs-6 text-decoration-none text-dark-custom">News</a></li>
+                        <li><a href="#" class="fw-normal fs-6 text-decoration-none text-dark-custom">Price</a></li>
+                        <li><a href="#" class="fw-normal fs-6 text-decoration-none text-dark-custom">Feedback</a></li>
+                        <li><a href="#" class="fw-normal fs-6 text-decoration-none text-dark-custom">Career</a></li>
+                        <li><a href="#" class="fw-normal fs-6 text-decoration-none text-dark-custom">FAQ</a></li>
+                        <li><a href="#" class="fw-normal fs-6 text-decoration-none text-dark-custom">Contacts</a></li>
                     </ul>
                 </nav>
 
-                <section class="footer-services">
+                <section class="footer-services d-none d-md-flex">
                     <ul class="list-unstyled d-flex flex-column gap-12">
-                        <li><a href=""  class="fw-light small/ text-decoration-none text-dark-custom">Web Development</a></li>
-                        <li><a href=""  class="fw-light small/ text-decoration-none text-dark-custom">Mobile App Development</a></li>
-                        <li><a href=""  class="fw-light small/ text-decoration-none text-dark-custom">Software Development</a></li>
-                        <li><a href=""  class="fw-light small/ text-decoration-none text-dark-custom">UI/UX Design</a></li>
-                        <li><a href=""  class="fw-light small/ text-decoration-none text-dark-custom">Graphic Design</a></li>
-                        <li><a href=""  class="fw-light small/ text-decoration-none text-dark-custom">SEO</a></li>
-                        <li><a href=""  class="fw-light small/ text-decoration-none text-dark-custom">SMM</a></li>
-                        <li><a href=""  class="fw-light small/ text-decoration-none text-dark-custom">Targeted Ads</a></li>
-                        <li><a href=""  class="fw-light small/ text-decoration-none text-dark-custom">Data Extraction & Integration</a></li>
+                        <li><a href="" class="fw-normal fs-6 text-decoration-none text-dark-custom">Web Development</a></li>
+                        <li><a href="" class="fw-normal fs-6 text-decoration-none text-dark-custom">Mobile App Development</a></li>
+                        <li><a href="" class="fw-normal fs-6 text-decoration-none text-dark-custom">Software Development</a></li>
+                        <li><a href="" class="fw-normal fs-6 text-decoration-none text-dark-custom">UI/UX Design</a></li>
+                        <li><a href="" class="fw-normal fs-6 text-decoration-none text-dark-custom">Graphic Design</a></li>
+                        <li><a href="" class="fw-normal fs-6 text-decoration-none text-dark-custom">SEO</a></li>
+                        <li><a href="" class="fw-normal fs-6 text-decoration-none text-dark-custom">SMM</a></li>
+                        <li><a href="" class="fw-normal fs-6 text-decoration-none text-dark-custom">Targeted Ads</a></li>
+                        <li><a href="" class="fw-normal fs-6 text-decoration-none text-dark-custom">Data Extraction & Integration</a></li>
                     </ul>
                 </section>
 
                 <address class="footer-contact d-flex flex-column align-items-center align-items-md-start">
                     <div class="d-flex align-items-center mb-2 justify-content-center">
                         <img src="./assets/images/svg/icon_call-blue.svg" alt="Phone icon" class="me-2">
-                        <span class="fw-bold fs-6">+00 (123) 456-78-90</span>
+                        <span class="fw-bold fs-5">+00 (123) 456-78-90</span>
                     </div>
-                    <p class="fw-semibold text-blue-custom">megadigitalstudio@domain.com</p>
-                    <p class="fw-light small/ text-decoration-none text-dark-custom">Address: 012345 City, State Street title 12/3</p>
-                    <a href="#" class="d-flex justify-content-end"><img src="./assets/images/svg/fb-icon.svg" alt="Facebook icon"></a>
+                    <p class="fw-semibold text-blue-custom fs-5">megadigitalstudio@domain.com</p>
+                    <p class="fw-light fs-5 text-decoration-none text-dark-custom">Address: 012345 City, State Street title 12/3</p>
+                    <a href="#" class="d-flex align-self-end"><img src="./assets/images/svg/fb-icon.svg" alt="Facebook icon" width="36px" height="36px"></a>
                 </address>
 
             </div>
@@ -621,3 +745,140 @@
     
 </body>
 </html>
+
+<!-- Services List  -->
+<div class="offcanvas offcanvas-start bg-blurred text-light" tabindex="-1" id="offcanvasMobileMenu" aria-labelledby="offcanvasMobileMenuLabel">
+    <div class="offcanvas-header border-bottom border-light border-opacity-25 pb-3">
+        <h5 class="offcanvas-title d-flex align-items-center" id="offcanvasMobileMenuLabel">
+            <img src="./assets/images/logos/md-studio.svg" alt="MD Studio logo" class="header-logo me-3">
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body pt-4">
+        <ul class="list-unstyled mb-0">
+            <li class="mb-4"><a href="main.html" class="text-light text-decoration-none fs-3 fw-medium">Home</a></li>
+            
+            <li class="mb-4">
+                <a href="services.html" class="text-light text-decoration-none fs-3 fw-medium d-flex justify-content-between align-items-center" 
+                data-bs-toggle="collapse" data-bs-target="#servicesSubmenuMobile" aria-expanded="false">
+                    Services
+                    <img src="./assets/images/svg/chevron.svg" alt="dropdown icon" class="menu-icon ms-2">
+                </a>
+                <div class="collapse mt-3" id="servicesSubmenuMobile">
+                    <ul class="list-unstyled ps-4">
+                        <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">Web Development</a></li>
+                        <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">Software Development</a></li>
+                        <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">Development</a></li>
+                        <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">UI/UX</a></li>
+                        <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">SEO</a></li>
+                        <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">SMM</a></li>
+                        <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">Target</a></li>
+                        <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">Data</a></li>
+                        <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">Graphic Design</a></li>
+                    </ul>
+                </div>
+            </li>
+            
+            <li class="mb-4"><a href="portfolio.html" class="text-light text-decoration-none fs-3 fw-medium">Portfolio</a></li>
+            <li class="mb-4"><a href="about.html" class="text-light text-decoration-none fs-3 fw-medium">About us</a></li>
+            <li class="mb-4"><a href="news.html" class="text-light text-decoration-none fs-3 fw-medium">News</a></li>
+            <li class="mb-4"><a href="price.html" class="text-light text-decoration-none fs-3 fw-medium">Price</a></li>
+            <li class="mb-4"><a href="feedback.html" class="text-light text-decoration-none fs-3 fw-medium">Feedback</a></li>
+            <li class="mb-4"><a href="career.html" class="text-light text-decoration-none fs-3 fw-medium">Career</a></li>
+            <li class="mb-4"><a href="faq.html" class="text-light text-decoration-none fs-3 fw-medium">FAQ</a></li>
+            <li class="mb-4"><a href="contacts.html" class="text-light text-decoration-none fs-3 fw-medium">Contacts</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- Settings Modal  -->
+<div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg rounded">
+            <div class="modal-header border-0 p-3">
+                <h5 class="modal-title fw-bold" id="settingsModalLabel">Select Language, Location & Currency</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-3">
+                <form class="d-flex flex-column">
+                    <div class="mb-4 d-flex align-items-center gap-3">
+                        <div class="d-flex flex-row w-100 gap-4">
+                            <div class="d-flex flex-row gap-2 align-items-center" style="width: 150px;">
+                                <img src="./assets/images/svg/icon_language.svg" alt="" style="width: 24px;">
+                                <label class="form-label mb-1 fw-semibold">Language</label>
+                            </div>
+                            <select class="form-select form-select-lg rounded shadow-sm">
+                                <option selected>English</option>
+                                <option>Español</option>
+                                <option>Français</option>
+                                <option>Deutsch</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-4 d-flex align-items-center gap-3">
+                        <div class="d-flex flex-row w-100 gap-4">
+                            <div class="d-flex flex-row gap-2 align-items-center" style="width: 150px;">
+                                <img src="./assets/images/svg/icon_geo.svg" alt="" style="width: 24px;">
+                                <label class="form-label mb-1 fw-semibold">Location</label>
+                            </div>
+                            <select class="form-select form-select-lg rounded shadow-sm">
+                                <option selected>United States</option>
+                                <option>Spain</option>
+                                <option>France</option>
+                                <option>Germany</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-4 d-flex align-items-center gap-3">
+                        <div class="d-flex flex-row w-100 gap-4">
+                            <div class="d-flex flex-row gap-2 align-items-center" style="width: 150px;">
+                                <img src="./assets/images/svg/icon_currency.svg" alt="" style="width: 24px;">
+                                <label class="form-label mb-1 fw-semibold">Currency</label>
+                            </div>
+                            <select class="form-select form-select-lg rounded shadow-sm">
+                                <option selected>USD</option>
+                                <option>RUB</option>
+                                <option>AMD</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary btn-lg px-5 rounded">
+                            Save Preferences
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Mobile Menu  -->
+<div class="offcanvas offcanvas-start bg-dark text-white" tabindex="-1" id="offcanvasMobileMenu" aria-labelledby="offcanvasMobileMenuLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasMobileMenuLabel"> Menu </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body p-0">
+        <ul class="list-unstyled m-0">
+            <li class="border-bottom">
+                <a href="main.html" class="d-block p-3 text-white text-decoration-none"> Home </a>
+            </li>
+            <li class="border-bottom">
+                <a href="services.html" class="d-block p-3 text-white text-decoration-none"> Services </a>
+            </li>
+            <li class="border-bottom">
+                <a href="portfolio.html" class="d-block p-3 text-white text-decoration-none"> Portfolio </a>
+            </li>
+            <li class="border-bottom">
+                <a href="about.html" class="d-block p-3 text-white text-decoration-none"> About us </a>
+            </li>
+            <li class="border-bottom">
+                <a href="contacts.html" class="d-block p-3 text-white text-decoration-none"> Contacts </a>
+            </li>
+        </ul>
+    </div>
+</div>

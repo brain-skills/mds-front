@@ -180,3 +180,57 @@ document.addEventListener('DOMContentLoaded', function () {
         indicators[e.to].classList.add('active');
     });
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const track = document.querySelector(".portfolio-track");
+    const items = document.querySelectorAll(".portfolio-item");
+    const prevBtn = document.getElementById("portfolio-prev");
+    const nextBtn = document.getElementById("portfolio-next");
+
+    let index = 0;
+
+    function itemsPerView() {
+        return window.innerWidth >= 992 ? 3 : 1;
+    }
+
+    function updateSlider() {
+        const itemWidth = items[0].offsetWidth + 24; // gap included
+        track.style.transform = `translateX(-${index * itemWidth}px)`;
+    }
+
+    nextBtn.addEventListener("click", () => {
+        if (index < items.length - itemsPerView()) {
+            index++;
+            updateSlider();
+        }
+    });
+
+    prevBtn.addEventListener("click", () => {
+        if (index > 0) {
+            index--;
+            updateSlider();
+        }
+    });
+
+    window.addEventListener("resize", () => {
+        index = 0;
+        updateSlider();
+    });
+});
+
+document.querySelectorAll('.container').forEach(container => {
+  const slider = container.querySelector('.global-slider');
+  const next = container.querySelector('.slider-next');
+  const prev = container.querySelector('.slider-prev');
+
+  if (!slider) return;
+
+  const scrollAmount = slider.offsetWidth * 0.8;
+
+  next?.addEventListener('click', () => {
+    slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  });
+
+  prev?.addEventListener('click', () => {
+    slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  });
+});

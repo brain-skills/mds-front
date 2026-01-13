@@ -35,317 +35,307 @@
         <section class="bg-common">
             <div class="container px-0">
                 <header class="header">
-                    <nav class="d-flex justify-content-between align-items-center p-0">
-                        <a href="/">
-                            <img src="./assets/images/logos/md-studio.svg" alt="MD Studio logo" class="header-logo">
-                        </a>
-                        <div class="d-flex align-items-center">
-                            <ul class="list-unstyled d-flex align-items-center mb-0 me-3 me-lg-5 header-divider header-settings d-none d-lg-flex">
-                                <li class="ps-0 pe-2">
-                                    <button type="button"
-                                            class="d-flex gap-2 border-0 bg-transparent text-light fs-7 ps-0 pe-1"
-                                            data-bs-toggle="modal"
-                                            data-bs-target="#settingsModal">
-                                        <img src="./assets/images/svg/icon_geo-white.svg" alt="geo icon" style="width: 20px;"> USA
-                                    </button>
-                                </li>
+                    <div class="container"> 
+                        <nav class="d-flex justify-content-between align-items-center p-0">
+                            <a href="/">
+                                <img src="./assets/images/logos/md-studio.svg" alt="MD Studio logo" class="header-logo">
+                            </a>
+                            <div class="d-flex align-items-center">
+                                <ul class="list-unstyled d-flex align-items-center mb-0 me-3 me-lg-5 header-divider header-settings d-none d-lg-flex">
+                                    <li class="ps-0 pe-2">
+                                        <button type="button"
+                                                class="d-flex gap-2 border-0 bg-transparent text-light fs-7 ps-0 pe-1"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#settingsModal">
+                                            <img src="./assets/images/svg/icon_geo-white.svg" alt="geo icon" style="width: 20px;"> USA
+                                        </button>
+                                    </li>
 
-                                <li class="px-2">
-                                    <button type="button"
-                                            class="border-0 bg-transparent text-light px-1 py-0"
-                                            data-bs-toggle="modal"
-                                            data-bs-target="#settingsModal">
-                                        <img src="./assets/images/flag.png" alt="">
-                                    </button>
-                                </li>
+                                    <li class="px-2">
+                                        <button type="button"
+                                                class="border-0 bg-transparent text-light px-1 py-0"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#settingsModal">
+                                            <img src="./assets/images/flag.png" alt="">
+                                        </button>
+                                    </li>
 
-                                <li class="ps-2 pe-0">
-                                    <button type="button"
-                                            class="d-flex gap-2 border-0 bg-transparent text-light fs-7 ps-1 pe-0"
-                                            data-bs-toggle="modal"
-                                            data-bs-target="#settingsModal">
-                                        <img src="./assets/images/svg/icon_currency-white.svg" alt="currency icon" style="width: 20px;"> USD
-                                    </button>
-                                </li>
-                            </ul>
-                            <ul class="list-unstyled d-flex align-items-center mb-0 d-lg-flex">
+                                    <li class="ps-2 pe-0">
+                                        <button type="button"
+                                                class="d-flex gap-2 border-0 bg-transparent text-light fs-7 ps-1 pe-0"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#settingsModal">
+                                            <img src="./assets/images/svg/icon_currency-white.svg" alt="currency icon" style="width: 20px;"> USD
+                                        </button>
+                                    </li>
+                                </ul>
+                                <ul class="list-unstyled d-flex align-items-center mb-0 d-lg-flex">
 
-                                <li>
-                                    <button type="button" class="btn btn-primary d-flex gap-2 me-2 me-lg-4 align-items-center">
-                                        <img src="./assets/images/svg/icon_call.svg" alt="call icon" class="phone-icon">
-                                        <p class="mb-0 call-me-back">Call me back</p>
-                                    </button>
-                                </li>
+                                    <li>
+                                        <button type="button" class="btn btn-primary d-flex gap-2 me-2 me-lg-4 align-items-center">
+                                            <img src="./assets/images/svg/icon_call.svg" alt="call icon" class="phone-icon">
+                                            <p class="mb-0 call-me-back">Call me back</p>
+                                        </button>
+                                    </li>
 
-                                <li>
-                                    <button onclick="window.location.href='cart.html'" type="button" class="px-3 px-md-4 py-2 btn btn-primary bg-blurred cart-btn d-flex align-items-center gap-2 gap-md-3 me-2 me-lg-4 cart-btn"  >
-                                        <img src="./assets/images/svg/icon_cart.svg" alt="cart icon" class="cart-icon">
+                                    <li>
+                                        <button onclick="window.location.href='cart.html'" type="button" class="px-3 px-md-4 py-2 btn btn-primary bg-blurred cart-btn d-flex align-items-center gap-2 gap-md-3 me-2 me-lg-4 cart-btn"  >
+                                            <img src="./assets/images/svg/icon_cart.svg" alt="cart icon" class="cart-icon">
 
-                                        <div class="d-flex flex-column text-start">
-                                            <p class="mb-0 cart-label d-none d-md-flex">Cart</p>
-                                            <p class="mb-0 cart-info">
-                                        <span class="fw-light">2</span> <span class="products-word fw-light"> products</span> /
-                                            <span class="cart-price">$2750</span>
-                                            </p>
-                                        </div>
-                                    </button>
-                                </li>
+                                            <div class="d-flex flex-column text-start">
+                                                <p class="mb-0 cart-label d-none d-md-flex">Cart</p>
+                                                <p class="mb-0 cart-info">
+                                            <span class="fw-light">2</span> <span class="products-word fw-light"> products</span> /
+                                                <span class="cart-price">$2750</span>
+                                                </p>
+                                            </div>
+                                        </button>
+                                    </li>
 
-                                <li class="dropdown position-static">
-                                    <a href="#"
-                                    class="p-0 border-0 bg-transparent"
-                                    role="button"
-                                    data-bs-toggle="dropdown"
-                                    data-bs-auto-close="outside">
-                                        <img src="./assets/images/svg/avatar.svg" alt="User account" class="rounded avatar">
-                                    </a>
+                                    <li class="dropdown position-static">
+                                        <a href="#"
+                                        class="p-0 border-0 bg-transparent"
+                                        role="button"
+                                        data-bs-toggle="dropdown"
+                                        data-bs-auto-close="outside">
+                                            <img src="./assets/images/svg/avatar.svg" alt="User account" class="rounded avatar">
+                                        </a>
 
-                                    <div class="dropdown-menu dropdown-menu-end shadow-lg border-0 p-0 mt-3"
-                                        style="overflow: hidden;">
+                                        <div class="dropdown-menu dropdown-menu-end shadow-lg border-0 p-0 mt-3"
+                                            style="overflow: hidden;">
 
-                                        <div class="card bg-white border-0" style="border-radius: 4px;">
-                                            <div class="card-body p-4">
+                                            <div class="card bg-white border-0" style="border-radius: 4px;">
+                                                <div class="card-body p-4">
 
-                                                <ul class="nav nav-pills mb-4" role="tablist">
-                                                    <li class="nav-item">
-                                                        <button class="nav-link active fs-4 fw-bold pb-2 px-4 tab-link"
-                                                                data-bs-toggle="pill"
-                                                                data-bs-target="#login-dd"
-                                                                type="button">
-                                                            Login
-                                                        </button>
-                                                    </li>
-                                                    <li class="nav-item">
-                                                        <button class="nav-link fs-4 fw-bold pb-2 px-4 tab-link"
-                                                                data-bs-toggle="pill"
-                                                                data-bs-target="#register-dd"
-                                                                type="button">
-                                                            Register
-                                                        </button>
-                                                    </li>
-                                                </ul>
+                                                    <ul class="nav nav-pills mb-4" role="tablist">
+                                                        <li class="nav-item">
+                                                            <button class="nav-link active fs-4 fw-bold pb-2 px-4 tab-link"
+                                                                    data-bs-toggle="pill"
+                                                                    data-bs-target="#login-dd"
+                                                                    type="button">
+                                                                Login
+                                                            </button>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <button class="nav-link fs-4 fw-bold pb-2 px-4 tab-link"
+                                                                    data-bs-toggle="pill"
+                                                                    data-bs-target="#register-dd"
+                                                                    type="button">
+                                                                Register
+                                                            </button>
+                                                        </li>
+                                                    </ul>
 
-                                                <div class="tab-content">
+                                                    <div class="tab-content">
 
-                                                    <div class="tab-pane fade show active" id="login-dd">
-                                                        <form>
-                                                            <input type="email"
-                                                                class="form-control form-control-lg mb-3 rounded p-12 auth-input"
-                                                                placeholder="Email" required>
-
-                                                            <div class="mb-3 position-relative">
-                                                                <input type="password"
-                                                                    class="form-control form-control-lg rounded p-12 pe-5 auth-input"
-                                                                    id="loginPassDD"
-                                                                    placeholder="Password" required>
-                                                                <span class="position-absolute end-0 top-50 translate-middle-y pe-4 text-muted cursor-pointer"
-                                                                    onclick="togglePassword('loginPassDD')">
-                                                                    <i class="fa fa-eye"></i>
-                                                                </span>
-                                                            </div>
-
-                                                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                                                <div class="form-check d-flex align-items-center gap-3">
-                                                                    <input class="form-check-input"
-                                                                        type="checkbox"
-                                                                        id="rememberLoginDD"
-                                                                        style="width: 24px; height: 24px;">
-                                                                    <label class="form-check-label text-muted small"
-                                                                        for="rememberLoginDD">
-                                                                        Remember me
-                                                                    </label>
+                                                        <div class="tab-pane fade show active" id="login-dd">
+                                                            <form>
+                                                                <input type="email" class="form-control form-control-lg mb-3 rounded p-12 auth-input" placeholder="Email" required autocomplete="username">
+                                                                <div class="mb-3 position-relative">
+                                                                    <input type="password"
+                                                                        class="form-control form-control-lg rounded p-12 pe-5 auth-input" id="loginPassDD" autocomplete="current-password" placeholder="Password" required>
+                                                                    <span class="position-absolute end-0 top-50 translate-middle-y pe-4 text-muted cursor-pointer"
+                                                                        onclick="togglePassword('loginPassDD')">
+                                                                        <i class="fa fa-eye"></i>
+                                                                    </span>
                                                                 </div>
-                                                            </div>
 
-                                                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                                                <button type="submit" class="btn btn-primary w-50">
-                                                                    Login
-                                                                </button>
-                                                                <a href="#" class="text-primary-blue text-decoration-none small text-nowrap">
-                                                                    Forgot password?
-                                                                </a>
-                                                            </div>
-                                                        </form>
+                                                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                    <div class="form-check d-flex align-items-center gap-3">
+                                                                        <input class="form-check-input"
+                                                                            type="checkbox"
+                                                                            id="rememberLoginDD"
+                                                                            style="width: 24px; height: 24px;">
+                                                                        <label class="form-check-label text-muted small"
+                                                                            for="rememberLoginDD">
+                                                                            Remember me
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
 
-                                                        <hr class="my-4">
+                                                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                    <button type="submit" class="btn btn-primary w-50">
+                                                                        Login
+                                                                    </button>
+                                                                    <a href="#" class="text-primary-blue text-decoration-none small text-nowrap">
+                                                                        Forgot password?
+                                                                    </a>
+                                                                </div>
+                                                            </form>
 
-                                                        <div class="text-center my-3 d-flex flex-row gap-4 justify-content-center">
-                                                            <p class="text-muted fw-bold small mb-0">Login with:</p>
-                                                            <div class="d-flex gap-3">
-                                                                <a href="#" class="btn btn-outline-danger rounded-circle p-0">
-                                                                    <img src="./assets/images/svg/fb-icon.svg" width="24" alt="fb icon">
-                                                                </a>
-                                                                <a href="#" class="btn btn-outline-primary rounded-circle p-0">
-                                                                    <img src="./assets/images/svg/google-icon.svg" width="24" alt="google icon">
-                                                                </a>
+                                                            <hr class="my-4">
+
+                                                            <div class="text-center my-3 d-flex flex-row gap-4 justify-content-center">
+                                                                <p class="text-muted fw-bold small mb-0">Login with:</p>
+                                                                <div class="d-flex gap-3">
+                                                                    <a href="#" class="btn btn-outline-danger rounded-circle p-0">
+                                                                        <img src="./assets/images/svg/fb-icon.svg" width="24" alt="fb icon">
+                                                                    </a>
+                                                                    <a href="#" class="btn btn-outline-primary rounded-circle p-0">
+                                                                        <img src="./assets/images/svg/google-icon.svg" width="24" alt="google icon">
+                                                                    </a>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
 
-                                                    <div class="tab-pane fade" id="register-dd">
-                                                        <form>
-                                                            <input type="email"
-                                                                class="form-control form-control-lg mb-3 rounded p-12 auth-input"
-                                                                placeholder="Email" required>
+                                                        <div class="tab-pane fade" id="register-dd">
+                                                            <form>
+                                                                <input type="email"
+                                                                    class="form-control form-control-lg mb-3 rounded p-12 auth-input" placeholder="Email" required autocomplete="username">
 
-                                                            <input type="number"
-                                                                class="form-control form-control-lg mb-3 rounded p-12 auth-input"
-                                                                placeholder="Phone Number" required>
+                                                                <input type="number"
+                                                                    class="form-control form-control-lg mb-3 rounded p-12 auth-input"
+                                                                    placeholder="Phone Number" required>
 
-                                                            <div class="mb-3 position-relative">
-                                                                <input type="password"
-                                                                    class="form-control form-control-lg rounded p-12 pe-5 auth-input"
-                                                                    id="registerPassDD"
-                                                                    placeholder="Create Password" required>
-                                                                <span class="position-absolute end-0 top-50 translate-middle-y pe-4 text-muted cursor-pointer"
-                                                                    onclick="togglePassword('registerPassDD')">
-                                                                    <i class="fa fa-eye"></i>
-                                                                </span>
-                                                            </div>
-
-                                                            <div class="mb-3 position-relative">
-                                                                <input type="password"
-                                                                    class="form-control form-control-lg rounded p-12 pe-5 auth-input"
-                                                                    id="registerRepeatPassDD"
-                                                                    placeholder="Repeat Password" required>
-                                                                <span class="position-absolute end-0 top-50 translate-middle-y pe-4 text-muted cursor-pointer"
-                                                                    onclick="togglePassword('registerRepeatPassDD')">
-                                                                    <i class="fa fa-eye"></i>
-                                                                </span>
-                                                            </div>
-
-                                                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                                                <div class="form-check d-flex align-items-center gap-3">
-                                                                    <input class="form-check-input"
-                                                                        type="checkbox"
-                                                                        id="agreeRegisterDD"
-                                                                        style="width: 24px; height: 24px;">
-                                                                    <label class="form-check-label text-muted small"
-                                                                        for="agreeRegisterDD">
-                                                                        I agree with Privacy Policy and Terms and Conditions
-                                                                    </label>
+                                                                <div class="mb-3 position-relative">
+                                                                    <input type="password" class="form-control form-control-lg rounded p-12 pe-5 auth-input" id="registerPassDD" placeholder="Create Password" autocomplete="new-password" required>
+                                                                    <span class="position-absolute end-0 top-50 translate-middle-y pe-4 text-muted cursor-pointer"
+                                                                        onclick="togglePassword('registerPassDD')">
+                                                                        <i class="fa fa-eye"></i>
+                                                                    </span>
                                                                 </div>
-                                                            </div>
 
-                                                            <div class="d-flex gap-3">
-                                                                <button type="button"
-                                                                        class="btn btn-outline-secondary w-50 text-dark"
-                                                                        data-bs-dismiss="dropdown">
-                                                                    Cancel
-                                                                </button>
-                                                                <button type="submit"
-                                                                        class="btn btn-primary w-50">
-                                                                    Register
-                                                                </button>
-                                                            </div>
-                                                        </form>
+                                                                <div class="mb-3 position-relative">
+                                                                    <input type="password" class="form-control form-control-lg rounded p-12 pe-5 auth-input" id="registerRepeatPassDD" autocomplete="repeat-password" placeholder="Repeat Password" required>
+                                                                    <span class="position-absolute end-0 top-50 translate-middle-y pe-4 text-muted cursor-pointer"
+                                                                        onclick="togglePassword('registerRepeatPassDD')">
+                                                                        <i class="fa fa-eye"></i>
+                                                                    </span>
+                                                                </div>
+
+                                                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                                                    <div class="form-check d-flex align-items-center gap-3">
+                                                                        <input class="form-check-input"
+                                                                            type="checkbox"
+                                                                            id="agreeRegisterDD"
+                                                                            style="width: 24px; height: 24px;">
+                                                                        <label class="form-check-label text-muted small"
+                                                                            for="agreeRegisterDD">
+                                                                            I agree with Privacy Policy and Terms and Conditions
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="d-flex gap-3">
+                                                                    <button type="button"
+                                                                            class="btn btn-outline-secondary w-50 text-dark"
+                                                                            data-bs-dismiss="dropdown">
+                                                                        Cancel
+                                                                    </button>
+                                                                    <button type="submit"
+                                                                            class="btn btn-primary w-50">
+                                                                        Register
+                                                                    </button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="text-center mt-3">
+                                                        <small class="text-muted">
+                                                            <a href="#" class="text-primary-blue text-decoration-none">Privacy Policy</a> |
+                                                            <a href="#" class="text-primary-blue text-decoration-none">Terms and Conditions</a> |
+                                                            <a href="#" class="text-primary-blue text-decoration-none">Cookies Policy</a>
+                                                        </small>
                                                     </div>
 
                                                 </div>
-
-                                                <div class="text-center mt-3">
-                                                    <small class="text-muted">
-                                                        <a href="#" class="text-primary-blue text-decoration-none">Privacy Policy</a> |
-                                                        <a href="#" class="text-primary-blue text-decoration-none">Terms and Conditions</a> |
-                                                        <a href="#" class="text-primary-blue text-decoration-none">Cookies Policy</a>
-                                                    </small>
-                                                </div>
-
                                             </div>
                                         </div>
-                                    </div>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </nav>
+                        
+                        <nav aria-label="Main menu" class="bg-blurred p-2 p-lg-3 d-flex justify-content-between align-items-center mt-3 rounded position-relative">
+                            <ul class="menu list-unstyled d-none d-md-flex align-items-center justify-content-between gap-4 gap-xl-5 mb-0 w-100">
+                                <li class="menu-item"><a href="main.html" class="menu-link text-light text-decoration-none">Home</a></li>
+                                <li class="menu-item position-relative">
+                                    <a href="services.html" class="menu-link text-decoration-none d-flex align-items-center">
+                                        Services
+                                        <img src="./assets/images/svg/chevron.svg" alt="dropdown icon" class="menu-icon ms-2">
+                                    </a>
+                                    <ul class="dropdown-menu rounded shadow-lg border-0 p-3">
+                                        <li><a class="dropdown-item text-dark-custom" href="service.html">Web Development</a></li>
+                                        <li><a class="dropdown-item text-dark-custom" href="service.html">Software Development</a></li>
+                                        <li><a class="dropdown-item text-dark-custom" href="service.html">Development</a></li>
+                                        <li><a class="dropdown-item text-dark-custom" href="service.html">UI/UX</a></li>
+                                        <li><a class="dropdown-item text-dark-custom" href="service.html">SEO</a></li>
+                                        <li><a class="dropdown-item text-dark-custom" href="service.html">SMM</a></li>
+                                        <li><a class="dropdown-item text-dark-custom" href="service.html">Target</a></li>
+                                        <li><a class="dropdown-item text-dark-custom" href="service.html">Data</a></li>
+                                        <li><a class="dropdown-item text-dark-custom" href="service.html">Graphic Design</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item"><a href="portfolio.html" class="menu-link text-light text-decoration-none">Portfolio</a></li>
+                                <li class="menu-item"><a href="about.html" class="menu-link text-light text-decoration-none">About us</a></li>
+                                <li class="menu-item"><a href="news.html" class="menu-link text-light text-decoration-none">News</a></li>
+                                <li class="menu-item"><a href="price.html" class="menu-link text-light text-decoration-none">Price</a></li>
+                                <li class="menu-item"><a href="feedback.html" class="menu-link text-light text-decoration-none">Feedback</a></li>
+                                <li class="menu-item"><a href="career.html" class="menu-link text-light text-decoration-none">Career</a></li>
+                                <li class="menu-item"><a href="faq.html" class="menu-link text-light text-decoration-none">FAQ</a></li>
+                                <li class="menu-item"><a href="contacts.html" class="menu-link text-light text-decoration-none">Contacts</a></li>
+
+                                <li class="d-flex align-items-center ms-auto">
+                                    <a href="#" id="open-search-desktop"  class="border-0 bg-transparent text-light p-0" aria-label="Search">
+                                        <img src="./assets/images/svg/icon_search.svg" alt="search icon" width="24" height="24">
+                                    </a>
                                 </li>
                             </ul>
 
-                        </div>
-                    </nav>
+                            <ul class="list-unstyled d-flex d-lg-none align-items-center mb-0 header-settings menu-mobile justify-content-between w-100">
+                                <li class="d-flex align-items-center">
+                                    <button type="button" class="border-0 bg-transparent text-light p-0" aria-label="Open menu" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMobileMenu">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm.5-3.5a.5.5 0 0 0 0 1h10a.5.5 0 0 0 0-1H3z"/>
+                                        </svg>
+                                    </button>
+                                </li>
 
-                    <nav aria-label="Main menu" class="bg-blurred p-2 p-lg-3 d-flex justify-content-between align-items-center mt-3 rounded position-relative">
-                        <ul class="menu list-unstyled d-none d-md-flex align-items-center justify-content-between gap-4 gap-xl-5 mb-0 w-100">
-                            <li class="menu-item"><a href="main.html" class="menu-link text-light text-decoration-none">Home</a></li>
-                            <li class="menu-item position-relative">
-                                <a href="services.html" class="menu-link text-decoration-none d-flex align-items-center">
-                                    Services
-                                    <img src="./assets/images/svg/chevron.svg" alt="dropdown icon" class="menu-icon ms-2">
-                                </a>
-                                <ul class="dropdown-menu rounded shadow-lg border-0 p-3 bg-blurred">
-                                    <li><a class="dropdown-item text-dark-custom" href="service.html">Web Development</a></li>
-                                    <li><a class="dropdown-item text-dark-custom" href="service.html">Software Development</a></li>
-                                    <li><a class="dropdown-item text-dark-custom" href="service.html">Development</a></li>
-                                    <li><a class="dropdown-item text-dark-custom" href="service.html">UI/UX</a></li>
-                                    <li><a class="dropdown-item text-dark-custom" href="service.html">SEO</a></li>
-                                    <li><a class="dropdown-item text-dark-custom" href="service.html">SMM</a></li>
-                                    <li><a class="dropdown-item text-dark-custom" href="service.html">Target</a></li>
-                                    <li><a class="dropdown-item text-dark-custom" href="service.html">Data</a></li>
-                                    <li><a class="dropdown-item text-dark-custom" href="service.html">Graphic Design</a></li>
-                                </ul>
-                            </li>
-                            <li class="menu-item"><a href="portfolio.html" class="menu-link text-light text-decoration-none">Portfolio</a></li>
-                            <li class="menu-item"><a href="about.html" class="menu-link text-light text-decoration-none">About us</a></li>
-                            <li class="menu-item"><a href="news.html" class="menu-link text-light text-decoration-none">News</a></li>
-                            <li class="menu-item"><a href="price.html" class="menu-link text-light text-decoration-none">Price</a></li>
-                            <li class="menu-item"><a href="feedback.html" class="menu-link text-light text-decoration-none">Feedback</a></li>
-                            <li class="menu-item"><a href="career.html" class="menu-link text-light text-decoration-none">Career</a></li>
-                            <li class="menu-item"><a href="faq.html" class="menu-link text-light text-decoration-none">FAQ</a></li>
-                            <li class="menu-item"><a href="contacts.html" class="menu-link text-light text-decoration-none">Contacts</a></li>
+                                <li class="d-flex align-items-center text-light fs-8">
+                                    <button type="button" class="d-flex align-items-center gap-2 border-0 bg-transparent text-light"
+                                            data-bs-toggle="modal" data-bs-target="#settingsModal">
+                                        <img src="./assets/images/svg/icon_geo-white.svg" alt="geo icon">
+                                        <span>USA</span>
+                                    </button>
 
-                            <li class="d-flex align-items-center ms-auto">
-                                <a href="#" id="open-search-desktop"  class="border-0 bg-transparent text-light p-0" aria-label="Search">
-                                    <img src="./assets/images/svg/icon_search.svg" alt="search icon" width="24" height="24">
-                                </a>
-                            </li>
-                        </ul>
+                                    <span class="divider-vertical mx-2 opacity-50">|</span>
 
-                        <ul class="list-unstyled d-flex d-lg-none align-items-center mb-0 header-settings menu-mobile justify-content-between w-100">
-                            <li class="d-flex align-items-center">
-                                <button type="button" class="border-0 bg-transparent text-light p-0" aria-label="Open menu" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMobileMenu">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm.5-3.5a.5.5 0 0 0 0 1h10a.5.5 0 0 0 0-1H3z"/>
-                                    </svg>
-                                </button>
-                            </li>
+                                    <button type="button" class="border-0 bg-transparent text-light px-0"
+                                            data-bs-toggle="modal" data-bs-target="#settingsModal">
+                                        <img src="./assets/images/flag.png" alt="Flag" class="">
+                                    </button>
 
-                            <li class="d-flex align-items-center text-light fs-8">
-                                <button type="button" class="d-flex align-items-center gap-2 border-0 bg-transparent text-light"
-                                        data-bs-toggle="modal" data-bs-target="#settingsModal">
-                                    <img src="./assets/images/svg/icon_geo-white.svg" alt="geo icon">
-                                    <span>USA</span>
-                                </button>
+                                    <span class="divider-vertical mx-2 opacity-50">|</span>
 
-                                <span class="divider-vertical mx-2 opacity-50">|</span>
+                                    <button type="button" class="d-flex align-items-center gap-2 border-0 bg-transparent text-light"
+                                            data-bs-toggle="modal" data-bs-target="#settingsModal">
+                                        <img src="./assets/images/svg/icon_currency-white.svg" alt="currency icon" width="16" height="16">
+                                        <span class="">USD</span>
+                                    </button>
+                                </li>
 
-                                <button type="button" class="border-0 bg-transparent text-light px-0"
-                                        data-bs-toggle="modal" data-bs-target="#settingsModal">
-                                    <img src="./assets/images/flag.png" alt="Flag" class="">
-                                </button>
-
-                                <span class="divider-vertical mx-2 opacity-50">|</span>
-
-                                <button type="button" class="d-flex align-items-center gap-2 border-0 bg-transparent text-light"
-                                        data-bs-toggle="modal" data-bs-target="#settingsModal">
-                                    <img src="./assets/images/svg/icon_currency-white.svg" alt="currency icon" width="16" height="16">
-                                    <span class="">USD</span>
-                                </button>
-                            </li>
-
-                            <li class="d-flex align-items-center">
-                                <a href="#" id="open-search-mobile"  class="border-0 bg-transparent text-light p-0" aria-label="Search">
-                                    <img src="./assets/images/svg/icon_search.svg" alt="search icon" width="24" height="24">
-                                </a>
-                            </li>
-                        </ul>
-                        <div id="header-search" class="header-search rounded d-none p-0 p-lg-3">
-                            <form class="search-form rounded align-items-center bg-blurred">
-                                <input type="text" class="form-control form-control-lg header-search-input" placeholder="Search..." autofocus>
-                                <div class="d-flex flex-row align-items-center gap-2 rounded" style="background-color: #249fdd;">
-                                    <button type="submit" class="btn btn-primary d-flex align-items-center justify-content-center">
-                                        <img src="./assets/images/svg/icon_search.svg" alt="Search" width="20" height="20">
-                                    </button>                                
-                                    <button type="button" id="close-search" class="btn-close" aria-label="Close"></button>
-                                </div>
-                            </form>
-                        </div>
-                    </nav>
+                                <li class="d-flex align-items-center">
+                                    <a href="#" id="open-search-mobile"  class="border-0 bg-transparent text-light p-0" aria-label="Search">
+                                        <img src="./assets/images/svg/icon_search.svg" alt="search icon" width="24" height="24">
+                                    </a>
+                                </li>
+                            </ul>
+                            <div id="header-search" class="header-search rounded d-none p-0 p-lg-3">
+                                <form class="search-form rounded align-items-center bg-blurred">
+                                    <input type="text" class="form-control form-control-lg header-search-input" placeholder="Search..." autofocus>
+                                    <div class="d-flex flex-row align-items-center gap-2 rounded" style="background-color: #249fdd;">
+                                        <button type="submit" class="btn btn-primary d-flex align-items-center justify-content-center">
+                                            <img src="./assets/images/svg/icon_search.svg" alt="Search" width="20" height="20">
+                                        </button>                                
+                                        <button type="button" id="close-search" class="btn-close" aria-label="Close"></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </nav>
+                    </div>
                 </header>
                 <!-- Settings Modal -->
                 <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
@@ -585,63 +575,65 @@
 
         </div>
         </section>
-        <footer class="py-4 bg-dark-opacity">
-            <div class="container d-flex flex-column flex-md-row align-items-center align-items-md-start justify-content-between py-4 my-0 my-md-2">
-                <section class="company-info d-flex flex-column justify-content-between">
-                    <div>
-                        <figure class="mb-0">
-                            <img src="./assets/images/logos/footer-logo.svg" alt="Mega Digital Studio logo" class="mb-4 d-flex justify-content-center m-auto m-md-0 mb-md-4" style="max-width: 214px;">
-                        </figure>
-                        <p class="small/ mb-0 fw-light text-gray-custom text-center text-md-start">
-                            Legal information, organization details or other data necessary for display here
-                        </p>
-                    </div>
-                    <p class="small/ mb-0 fw-light text-gray-custom text-center text-md-start">
-                        © 2025 Mega Digital Studio <br>All rights reserved
-                    </p>
-                </section>
-
-                <nav class="footer-nav d-none d-md-flex">
-                    <ul class="list-unstyled d-flex flex-column gap-12">
-                        <li><a href="#" class="fw-light small/ text-decoration-none text-dark-custom">Home</a></li>
-                        <li><a href="#" class="fw-light small/ text-decoration-none text-dark-custom">Portfolio</a></li>
-                        <li><a href="#" class="fw-light small/ text-decoration-none text-dark-custom">About us</a></li>
-                        <li><a href="#" class="fw-light small/ text-decoration-none text-dark-custom">News</a></li>
-                        <li><a href="#" class="fw-light small/ text-decoration-none text-dark-custom">Price</a></li>
-                        <li><a href="#" class="fw-light small/ text-decoration-none text-dark-custom">Feedback</a></li>
-                        <li><a href="#" class="fw-light small/ text-decoration-none text-dark-custom">Career</a></li>
-                        <li><a href="#" class="fw-light small/ text-decoration-none text-dark-custom">FAQ</a></li>
-                        <li><a href="#" class="fw-light small/ text-decoration-none text-dark-custom">Contacts</a></li>
-                    </ul>
-                </nav>
-
-                <section class="footer-services d-none d-md-flex">
-                    <ul class="list-unstyled d-flex flex-column gap-12">
-                        <li><a href=""  class="fw-light small/ text-decoration-none text-dark-custom">Web Development</a></li>
-                        <li><a href=""  class="fw-light small/ text-decoration-none text-dark-custom">Mobile App Development</a></li>
-                        <li><a href=""  class="fw-light small/ text-decoration-none text-dark-custom">Software Development</a></li>
-                        <li><a href=""  class="fw-light small/ text-decoration-none text-dark-custom">UI/UX Design</a></li>
-                        <li><a href=""  class="fw-light small/ text-decoration-none text-dark-custom">Graphic Design</a></li>
-                        <li><a href=""  class="fw-light small/ text-decoration-none text-dark-custom">SEO</a></li>
-                        <li><a href=""  class="fw-light small/ text-decoration-none text-dark-custom">SMM</a></li>
-                        <li><a href=""  class="fw-light small/ text-decoration-none text-dark-custom">Targeted Ads</a></li>
-                        <li><a href=""  class="fw-light small/ text-decoration-none text-dark-custom">Data Extraction & Integration</a></li>
-                    </ul>
-                </section>
-
-                <address class="footer-contact d-flex flex-column align-items-center align-items-md-start">
-                    <div class="d-flex align-items-center mb-2 justify-content-center">
-                        <img src="./assets/images/svg/icon_call-blue.svg" alt="Phone icon" class="me-2">
-                        <span class="fw-bold fs-6">+00 (123) 456-78-90</span>
-                    </div>
-                    <p class="fw-semibold text-blue-custom">megadigitalstudio@domain.com</p>
-                    <p class="fw-light small/ text-decoration-none text-dark-custom">Address: 012345 City, State Street title 12/3</p>
-                    <a href="#" class="d-flex justify-content-end"><img src="./assets/images/svg/fb-icon.svg" alt="Facebook icon"></a>
-                </address>
-
-            </div>
-        </footer>
     </main>
+    <footer class="py-4 bg-dark-opacity">
+        <div class="container d-flex flex-column flex-md-row gap-4 py-4 my-0 my-md-2 justify-content-between">
+
+            <div class="company-info d-flex flex-column">
+                <div>
+                    <figure class="mb-0">
+                        <img src="./assets/images/logos/footer-logo.svg" alt="Mega Digital Studio logo" class="mb-4 d-flex justify-content-center m-auto m-md-0 mb-md-4" style="max-width: 214px;">
+                    </figure>
+                    <p class="fs-6 mb-0 fw-normal text-gray-custom text-center text-md-start">
+                        Legal information, organization details or other data necessary for display here
+                    </p>
+                </div>
+
+                <p class="fs-6 mb-0 fw-normal text-gray-custom text-center text-md-start mt-auto">
+                    © 2025 Mega Digital Studio <br>All rights reserved
+                </p>
+            </div>
+
+            <nav class="footer-nav d-none d-md-flex">
+                <ul class="list-unstyled d-flex flex-column gap-12">
+                    <li><a href="#" class="fw-normal fs-6 text-decoration-none text-dark-custom">Home</a></li>
+                    <li><a href="#" class="fw-normal fs-6 text-decoration-none text-dark-custom">Portfolio</a></li>
+                    <li><a href="#" class="fw-normal fs-6 text-decoration-none text-dark-custom">About us</a></li>
+                    <li><a href="#" class="fw-normal fs-6 text-decoration-none text-dark-custom">News</a></li>
+                    <li><a href="#" class="fw-normal fs-6 text-decoration-none text-dark-custom">Price</a></li>
+                    <li><a href="#" class="fw-normal fs-6 text-decoration-none text-dark-custom">Feedback</a></li>
+                    <li><a href="#" class="fw-normal fs-6 text-decoration-none text-dark-custom">Career</a></li>
+                    <li><a href="#" class="fw-normal fs-6 text-decoration-none text-dark-custom">FAQ</a></li>
+                    <li><a href="#" class="fw-normal fs-6 text-decoration-none text-dark-custom">Contacts</a></li>
+                </ul>
+            </nav>
+
+            <section class="footer-services d-none d-md-flex">
+                <ul class="list-unstyled d-flex flex-column gap-12">
+                    <li><a href="" class="fw-normal fs-6 text-decoration-none text-dark-custom">Web Development</a></li>
+                    <li><a href="" class="fw-normal fs-6 text-decoration-none text-dark-custom">Mobile App Development</a></li>
+                    <li><a href="" class="fw-normal fs-6 text-decoration-none text-dark-custom">Software Development</a></li>
+                    <li><a href="" class="fw-normal fs-6 text-decoration-none text-dark-custom">UI/UX Design</a></li>
+                    <li><a href="" class="fw-normal fs-6 text-decoration-none text-dark-custom">Graphic Design</a></li>
+                    <li><a href="" class="fw-normal fs-6 text-decoration-none text-dark-custom">SEO</a></li>
+                    <li><a href="" class="fw-normal fs-6 text-decoration-none text-dark-custom">SMM</a></li>
+                    <li><a href="" class="fw-normal fs-6 text-decoration-none text-dark-custom">Targeted Ads</a></li>
+                    <li><a href="" class="fw-normal fs-6 text-decoration-none text-dark-custom">Data Extraction & Integration</a></li>
+                </ul>
+            </section>
+
+            <address class="footer-contact d-flex flex-column align-items-center align-items-md-start">
+                <div class="d-flex align-items-center mb-2 justify-content-center">
+                    <img src="./assets/images/svg/icon_call-blue.svg" alt="Phone icon" class="me-2">
+                    <span class="fw-bold fs-5">+00 (123) 456-78-90</span>
+                </div>
+                <p class="fw-semibold text-blue-custom fs-5">megadigitalstudio@domain.com</p>
+                <p class="fw-light fs-5 text-decoration-none text-dark-custom">Address: 012345 City, State Street title 12/3</p>
+                <a href="#" class="d-flex align-self-end"><img src="./assets/images/svg/fb-icon.svg" alt="Facebook icon" width="36px" height="36px"></a>
+            </address>
+
+        </div>
+    </footer>
     
     <!-- SCRIPTS  -->
     <script src="./assets/js/jquery-3.7.1.min.js"></script>
@@ -654,3 +646,140 @@
      
 </body>
 </html>
+
+<!-- Services List  -->
+<div class="offcanvas offcanvas-start bg-blurred text-light" tabindex="-1" id="offcanvasMobileMenu" aria-labelledby="offcanvasMobileMenuLabel">
+    <div class="offcanvas-header border-bottom border-light border-opacity-25 pb-3">
+        <h5 class="offcanvas-title d-flex align-items-center" id="offcanvasMobileMenuLabel">
+            <img src="./assets/images/logos/md-studio.svg" alt="MD Studio logo" class="header-logo me-3">
+        </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body pt-4">
+        <ul class="list-unstyled mb-0">
+            <li class="mb-4"><a href="main.html" class="text-light text-decoration-none fs-3 fw-medium">Home</a></li>
+            
+            <li class="mb-4">
+                <a href="services.html" class="text-light text-decoration-none fs-3 fw-medium d-flex justify-content-between align-items-center" 
+                data-bs-toggle="collapse" data-bs-target="#servicesSubmenuMobile" aria-expanded="false">
+                    Services
+                    <img src="./assets/images/svg/chevron.svg" alt="dropdown icon" class="menu-icon ms-2">
+                </a>
+                <div class="collapse mt-3" id="servicesSubmenuMobile">
+                    <ul class="list-unstyled ps-4">
+                        <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">Web Development</a></li>
+                        <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">Software Development</a></li>
+                        <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">Development</a></li>
+                        <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">UI/UX</a></li>
+                        <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">SEO</a></li>
+                        <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">SMM</a></li>
+                        <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">Target</a></li>
+                        <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">Data</a></li>
+                        <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">Graphic Design</a></li>
+                    </ul>
+                </div>
+            </li>
+            
+            <li class="mb-4"><a href="portfolio.html" class="text-light text-decoration-none fs-3 fw-medium">Portfolio</a></li>
+            <li class="mb-4"><a href="about.html" class="text-light text-decoration-none fs-3 fw-medium">About us</a></li>
+            <li class="mb-4"><a href="news.html" class="text-light text-decoration-none fs-3 fw-medium">News</a></li>
+            <li class="mb-4"><a href="price.html" class="text-light text-decoration-none fs-3 fw-medium">Price</a></li>
+            <li class="mb-4"><a href="feedback.html" class="text-light text-decoration-none fs-3 fw-medium">Feedback</a></li>
+            <li class="mb-4"><a href="career.html" class="text-light text-decoration-none fs-3 fw-medium">Career</a></li>
+            <li class="mb-4"><a href="faq.html" class="text-light text-decoration-none fs-3 fw-medium">FAQ</a></li>
+            <li class="mb-4"><a href="contacts.html" class="text-light text-decoration-none fs-3 fw-medium">Contacts</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- Settings Modal  -->
+<div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg rounded">
+            <div class="modal-header border-0 p-3">
+                <h5 class="modal-title fw-bold" id="settingsModalLabel">Select Language, Location & Currency</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-3">
+                <form class="d-flex flex-column">
+                    <div class="mb-4 d-flex align-items-center gap-3">
+                        <div class="d-flex flex-row w-100 gap-4">
+                            <div class="d-flex flex-row gap-2 align-items-center" style="width: 150px;">
+                                <img src="./assets/images/svg/icon_language.svg" alt="" style="width: 24px;">
+                                <label class="form-label mb-1 fw-semibold">Language</label>
+                            </div>
+                            <select class="form-select form-select-lg rounded shadow-sm">
+                                <option selected>English</option>
+                                <option>Español</option>
+                                <option>Français</option>
+                                <option>Deutsch</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-4 d-flex align-items-center gap-3">
+                        <div class="d-flex flex-row w-100 gap-4">
+                            <div class="d-flex flex-row gap-2 align-items-center" style="width: 150px;">
+                                <img src="./assets/images/svg/icon_geo.svg" alt="" style="width: 24px;">
+                                <label class="form-label mb-1 fw-semibold">Location</label>
+                            </div>
+                            <select class="form-select form-select-lg rounded shadow-sm">
+                                <option selected>United States</option>
+                                <option>Spain</option>
+                                <option>France</option>
+                                <option>Germany</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-4 d-flex align-items-center gap-3">
+                        <div class="d-flex flex-row w-100 gap-4">
+                            <div class="d-flex flex-row gap-2 align-items-center" style="width: 150px;">
+                                <img src="./assets/images/svg/icon_currency.svg" alt="" style="width: 24px;">
+                                <label class="form-label mb-1 fw-semibold">Currency</label>
+                            </div>
+                            <select class="form-select form-select-lg rounded shadow-sm">
+                                <option selected>USD</option>
+                                <option>RUB</option>
+                                <option>AMD</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary btn-lg px-5 rounded">
+                            Save Preferences
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Mobile Menu  -->
+<div class="offcanvas offcanvas-start bg-dark text-white" tabindex="-1" id="offcanvasMobileMenu" aria-labelledby="offcanvasMobileMenuLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasMobileMenuLabel"> Menu </h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body p-0">
+        <ul class="list-unstyled m-0">
+            <li class="border-bottom">
+                <a href="main.html" class="d-block p-3 text-white text-decoration-none"> Home </a>
+            </li>
+            <li class="border-bottom">
+                <a href="services.html" class="d-block p-3 text-white text-decoration-none"> Services </a>
+            </li>
+            <li class="border-bottom">
+                <a href="portfolio.html" class="d-block p-3 text-white text-decoration-none"> Portfolio </a>
+            </li>
+            <li class="border-bottom">
+                <a href="about.html" class="d-block p-3 text-white text-decoration-none"> About us </a>
+            </li>
+            <li class="border-bottom">
+                <a href="contacts.html" class="d-block p-3 text-white text-decoration-none"> Contacts </a>
+            </li>
+        </ul>
+    </div>
+</div>
