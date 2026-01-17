@@ -234,3 +234,40 @@ document.querySelectorAll('.container').forEach(container => {
     slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const links = document.querySelectorAll("#desktop-filters .service-link");
+    const mobileSelect = document.getElementById("mobile-filter");
+    const cards = document.querySelectorAll("#projects-wrapper .project-card");
+
+    function filterProjects(category) {
+        cards.forEach(card => {
+            const categories = (card.dataset.category || "").split(" ").filter(Boolean);
+            card.classList.toggle("show", categories.includes(category));
+        });
+
+        links.forEach(link => {
+            link.classList.toggle("active-service", link.dataset.filter === category);
+        });
+
+        if (mobileSelect) mobileSelect.value = category;
+
+        history.replaceState(null, "", `#${category}`);
+    }
+
+    links.forEach(link => {
+        link.addEventListener("click", (e) => {
+            e.preventDefault();
+            filterProjects(link.dataset.filter);
+        });
+    });
+
+    if (mobileSelect) {
+        mobileSelect.addEventListener("change", (e) => {
+            filterProjects(e.target.value);
+        });
+    }
+
+    const initial = location.hash.replace("#", "") || "web-development";
+    filterProjects(initial);
+});

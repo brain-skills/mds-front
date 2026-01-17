@@ -289,10 +289,9 @@
             </div>
             <div class="particles-bottom-light"></div>
         </section>
-        <section class="py-4 py-md-5">
+        <section class="py-4 py-md-5" id="projects">
             <div class="container">
                 <div class="text-center mb-5">
-                    <!-- Desktop Version: Horizontal List -->
                     <ul class="list-inline mb-0 d-none d-md-block" id="desktop-filters">
                         <li class="list-inline-item mx-3 my-2">
                             <a href="#web-development"
@@ -341,9 +340,10 @@
                         </li>
                     </ul>
 
-                    <!-- Mobile Version: Dropdown -->
                     <div class="d-md-none">
-                        <select class="form-select form-select-lg text-muted fw-medium border-0 shadow-sm" id="mobile-filter" aria-label="Filter by service">
+                        <select class="form-select form-select-lg text-muted fw-medium border-0 shadow-sm"
+                                id="mobile-filter"
+                                aria-label="Filter by service">
                             <option value="web-development" selected>Web Development</option>
                             <option value="mobile-app">Mobile App Development</option>
                             <option value="software">Software Development</option>
@@ -356,15 +356,17 @@
                         </select>
                     </div>
                 </div>
-                <!-- Project Cards Container -->
-                <div class="projects-wrapper d-flex flex-row flex-nowrap overflow-auto gap-3">
-                    <!-- Card 1 -->
-                    <div class="col-md-6 col-lg-4 flex-shrink-0 project-card">
-                        <div class="">
-                            <img src="./assets/images/laptop.png" alt="Project mockup" class="img-fluid mb-3 mb-md-4 rounded shadow">
-                            <h5 class="fw-normal fs-28 text-black mb-2">Project Title</h5>
-                            <p class="small fw-light text-gray-custom mb-2">Web development / SMM / SEO</p>
-                            <p class="small fw-light text-dark-custom mb-2">Advanced web app built with React and Node.js. Features real-time data sync and responsive design.</p>
+
+                <div class="projects-wrapper d-flex flex-row flex-nowrap overflow-auto gap-3 justify-content-center" id="projects-wrapper">
+                    <div class="col-md-6 col-lg-4 flex-shrink-0 project-card show" data-category="web-development seo">
+                        <div>
+                            <img src="./assets/images/laptop.png" alt="Project mockup"
+                                class="img-fluid mb-3 mb-md-4 rounded shadow">
+                            <h5 class="fw-normal fs-28 text-black mb-2">Project Title (Web)</h5>
+                            <p class="small fw-light text-gray-custom mb-2">Web development / SEO</p>
+                            <p class="small fw-light text-dark-custom mb-2">
+                                Advanced web app built with React and Node.js. Features real-time data sync and responsive design.
+                            </p>
                             <a href="#" class="text-dark fw-bold text-decoration-none d-inline-flex align-items-center">
                                 View details
                                 <span class="ms-2">
@@ -375,13 +377,16 @@
                             </a>
                         </div>
                     </div>
-                    <!-- Card 2 -->
-                    <div class="col-md-6 col-lg-4 flex-shrink-0 project-card">
-                        <div class="">
-                            <img src="./assets/images/laptop.png" alt="Project mockup" class="img-fluid mb-3 mb-md-4 rounded shadow">
-                            <h5 class="fw-normal fs-28 text-black mb-2">Project Title</h5>
-                            <p class="small fw-light text-gray-custom mb-2">Web development / SMM / SEO</p>
-                            <p class="small fw-light text-dark-custom mb-2">Advanced web app built with React and Node.js. Features real-time data sync and responsive design.</p>
+
+                    <div class="col-md-6 col-lg-4 flex-shrink-0 project-card show" data-category="mobile-app ui-ux">
+                        <div>
+                            <img src="./assets/images/laptop.png" alt="Project mockup"
+                                class="img-fluid mb-3 mb-md-4 rounded shadow">
+                            <h5 class="fw-normal fs-28 text-black mb-2">Project Title (Mobile)</h5>
+                            <p class="small fw-light text-gray-custom mb-2">Mobile app / UI/UX</p>
+                            <p class="small fw-light text-dark-custom mb-2">
+                                Cross-platform mobile app with clean UI, push notifications, and smooth performance.
+                            </p>
                             <a href="#" class="text-dark fw-bold text-decoration-none d-inline-flex align-items-center">
                                 View details
                                 <span class="ms-2">
@@ -392,13 +397,16 @@
                             </a>
                         </div>
                     </div>
-                    <!-- Card 3 -->
-                    <div class="col-md-6 col-lg-4 flex-shrink-0 project-card">
-                        <div class="">
-                            <img src="./assets/images/laptop.png" alt="Project mockup" class="img-fluid mb-3 mb-md-4 rounded shadow">
-                            <h5 class="fw-normal fs-28 text-black mb-2">Project Title</h5>
-                            <p class="small fw-light text-gray-custom mb-2">Web development / SMM / SEO</p>
-                            <p class="small fw-light text-dark-custom mb-2">Advanced web app built with React and Node.js. Features real-time data sync and responsive design.</p>
+
+                    <div class="col-md-6 col-lg-4 flex-shrink-0 project-card show" data-category="software data-extraction">
+                        <div>
+                            <img src="./assets/images/laptop.png" alt="Project mockup"
+                                class="img-fluid mb-3 mb-md-4 rounded shadow">
+                            <h5 class="fw-normal fs-28 text-black mb-2">Project Title (Software)</h5>
+                            <p class="small fw-light text-gray-custom mb-2">Software / Integration</p>
+                            <p class="small fw-light text-dark-custom mb-2">
+                                Backend + automation service with robust integrations, logs, and monitoring.
+                            </p>
                             <a href="#" class="text-dark fw-bold text-decoration-none d-inline-flex align-items-center">
                                 View details
                                 <span class="ms-2">
@@ -409,13 +417,16 @@
                             </a>
                         </div>
                     </div>
-                    <!-- Card 4 -->
-                    <div class="col-md-6 col-lg-4 flex-shrink-0 project-card">
-                        <div class="">
-                            <img src="./assets/images/laptop.png" alt="Project mockup" class="img-fluid mb-3 mb-md-4 rounded shadow">
-                            <h5 class="fw-normal fs-28 text-black mb-2">Project Title</h5>
-                            <p class="small fw-light text-gray-custom mb-2">Web development / SMM / SEO</p>
-                            <p class="small fw-light text-dark-custom mb-2">Advanced web app built with React and Node.js. Features real-time data sync and responsive design.</p>
+
+                    <div class="col-md-6 col-lg-4 flex-shrink-0 project-card show" data-category="seo smm targeted-ads">
+                        <div>
+                            <img src="./assets/images/laptop.png" alt="Project mockup"
+                                class="img-fluid mb-3 mb-md-4 rounded shadow">
+                            <h5 class="fw-normal fs-28 text-black mb-2">Project Title (Marketing)</h5>
+                            <p class="small fw-light text-gray-custom mb-2">SEO / SMM / Ads</p>
+                            <p class="small fw-light text-dark-custom mb-2">
+                                Marketing campaign with measurable growth, reporting dashboard, and conversion optimization.
+                            </p>
                             <a href="#" class="text-dark fw-bold text-decoration-none d-inline-flex align-items-center">
                                 View details
                                 <span class="ms-2">
@@ -426,13 +437,16 @@
                             </a>
                         </div>
                     </div>
-                    <!-- Card 5 -->
-                    <div class="col-md-6 col-lg-4 flex-shrink-0 project-card">
-                        <div class="">
-                            <img src="./assets/images/laptop.png" alt="Project mockup" class="img-fluid mb-3 mb-md-4 rounded shadow">
-                            <h5 class="fw-normal fs-28 text-black mb-2">Project Title</h5>
-                            <p class="small fw-light text-gray-custom mb-2">Web development / SMM / SEO</p>
-                            <p class="small fw-light text-dark-custom mb-2">Advanced web app built with React and Node.js. Features real-time data sync and responsive design.</p>
+
+                    <div class="col-md-6 col-lg-4 flex-shrink-0 project-card show" data-category="ui-ux graphic-design">
+                        <div>
+                            <img src="./assets/images/laptop.png" alt="Project mockup"
+                                class="img-fluid mb-3 mb-md-4 rounded shadow">
+                            <h5 class="fw-normal fs-28 text-black mb-2">Project Title (Design)</h5>
+                            <p class="small fw-light text-gray-custom mb-2">UI/UX / Graphic</p>
+                            <p class="small fw-light text-dark-custom mb-2">
+                                Full brand + product design system: layouts, components, icons, and marketing visuals.
+                            </p>
                             <a href="#" class="text-dark fw-bold text-decoration-none d-inline-flex align-items-center">
                                 View details
                                 <span class="ms-2">
@@ -443,13 +457,16 @@
                             </a>
                         </div>
                     </div>
-                    <!-- Card 6 -->
-                    <div class="col-md-6 col-lg-4 flex-shrink-0 project-card">
-                        <div class="">
-                            <img src="./assets/images/laptop.png" alt="Project mockup" class="img-fluid mb-3 mb-md-4 rounded shadow">
-                            <h5 class="fw-normal fs-28 text-black mb-2">Project Title</h5>
-                            <p class="small fw-light text-gray-custom mb-2">Web development / SMM / SEO</p>
-                            <p class="small fw-light text-dark-custom mb-2">Advanced web app built with React and Node.js. Features real-time data sync and responsive design.</p>
+
+                    <div class="col-md-6 col-lg-4 flex-shrink-0 project-card show" data-category="data-extraction software">
+                        <div>
+                            <img src="./assets/images/laptop.png" alt="Project mockup"
+                                class="img-fluid mb-3 mb-md-4 rounded shadow">
+                            <h5 class="fw-normal fs-28 text-black mb-2">Project Title (Data)</h5>
+                            <p class="small fw-light text-gray-custom mb-2">Data Extraction / Software</p>
+                            <p class="small fw-light text-dark-custom mb-2">
+                                Data pipeline with ETL, integrations, exports, and automated scheduled syncing.
+                            </p>
                             <a href="#" class="text-dark fw-bold text-decoration-none d-inline-flex align-items-center">
                                 View details
                                 <span class="ms-2">
@@ -461,7 +478,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- View More Button -->
+
                 <div class="text-center mt-4 mt-md-5">
                     <button class="btn btn-primary px-5 py-3 rounded">Show more</button>
                 </div>
@@ -471,168 +488,98 @@
             <div class="container px-0">
 
                 <h2 class="mb-3 title text-center">What our clients say</h2>
-                <p class="mb-5 fs-5 text-center">Read reviews from clients who have ordered mobile app development from us</p>
+                <p class="mb-5 fs-3 text-center">Read reviews from clients who have ordered mobile app development from us</p>
 
-                <!-- LEFT BUTTON -->
-                <button class="slider-arrow slider-prev d-none d-lg-flex">
+                <button class="slider-arrow slider-prev d-none d-lg-flex bg-dark-opacity">
                     <img src="./assets/images/svg/icon-prev-black.svg" alt="Previous">
                 </button>
 
-                <!-- RIGHT BUTTON -->
-                <button class="slider-arrow slider-next d-none d-lg-flex">
+                <button class="slider-arrow slider-next d-none d-lg-flex bg-dark-opacity">
                     <img src="./assets/images/svg/icon-next-black.svg" alt="next">
                 </button>
 
                 <div class="global-slider">
-                    <article class="h-100 border-0 shadow-sm slider-item p-3" style="background-color: #FFFFFF;">
-                        <div class="d-flex flex-row gap-12">
+                    <article class="rounded shadow h-100 border-0 shadow-sm client-item  slider-item p-3" style="background-color: #FFFFFF;">
+                        <div class="d-flex flex-row gap-12 mb-3">
                             <img src="./assets/images/svg/avatar.svg" alt="">
                             <div class="d-flex flex-column text-start">
-                                <h5 class="text-dark-custom mb-0 small fw-bold">John Smith</h5>
-                                <p class="text-blue-custom mb-0">www.company.com</p>
+                                <h5 class="text-dark-custom mb-0 fs-5 fw-bold">John Smith</h5>
+                                <p class="fs-6 text-blue-custom mb-0">www.company.com</p>
                             </div>
                         </div>
-                        <p class="text-dark-custom text-start small fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
-                        <button class="text-dark-custom fw-bold border-0 bg-transparent p-0">
+                        <p class="text-dark-custom text-start fs-6 fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
+                        <button class="text-dark-custom fs-6 fw-bold border-0 bg-transparent p-0">
                             Read more <span class="ms-2 text-primary-blue">&gt;</span>
                         </button>
                     </article>
-                    <article class="h-100 border-0 shadow-sm slider-item p-3" style="background-color: #FFFFFF;">
-                        <div class="d-flex flex-row gap-12">
+                    <article class="rounded shadow h-100 border-0 shadow-sm slider-item client-item p-3" style="background-color: #FFFFFF;">
+                        <div class="d-flex flex-row gap-12 mb-3">
                             <img src="./assets/images/svg/avatar.svg" alt="">
                             <div class="d-flex flex-column text-start">
-                                <h5 class="text-dark-custom mb-0 small fw-bold">John Smith</h5>
-                                <p class="text-blue-custom mb-0">www.company.com</p>
+                                <h5 class="text-dark-custom mb-0 fs-5 fw-bold">John Smith</h5>
+                                <p class="fs-6 text-blue-custom mb-0">www.company.com</p>
                             </div>
                         </div>
-                        <p class="text-dark-custom text-start small fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
-                        <button class="text-dark-custom fw-bold border-0 bg-transparent p-0">
+                        <p class="text-dark-custom text-start fs-6 fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
+                        <button class="text-dark-custom fs-6 fw-bold border-0 bg-transparent p-0">
                             Read more <span class="ms-2 text-primary-blue">&gt;</span>
                         </button>
                     </article>
-                    <article class="h-100 border-0 shadow-sm slider-item p-3" style="background-color: #FFFFFF;">
-                        <div class="d-flex flex-row gap-12">
+                    <article class="rounded shadow h-100 border-0 shadow-sm slider-item client-item p-3" style="background-color: #FFFFFF;">
+                        <div class="d-flex flex-row gap-12 mb-3">
                             <img src="./assets/images/svg/avatar.svg" alt="">
                             <div class="d-flex flex-column text-start">
-                                <h5 class="text-dark-custom mb-0 small fw-bold">John Smith</h5>
-                                <p class="text-blue-custom mb-0">www.company.com</p>
+                                <h5 class="text-dark-custom mb-0 fs-5 fw-bold">John Smith</h5>
+                                <p class="fs-6 text-blue-custom mb-0">www.company.com</p>
                             </div>
                         </div>
-                        <p class="text-dark-custom text-start small fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
-                        <button class="text-dark-custom fw-bold border-0 bg-transparent p-0">
+                        <p class="text-dark-custom text-start fs-6 fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
+                        <button class="text-dark-custom fs-6 fw-bold border-0 bg-transparent p-0">
                             Read more <span class="ms-2 text-primary-blue">&gt;</span>
                         </button>
                     </article>
-                    <article class="h-100 border-0 shadow-sm slider-item p-3" style="background-color: #FFFFFF;">
-                        <div class="d-flex flex-row gap-12">
+                    <article class="rounded shadow h-100 border-0 shadow-sm slider-item client-item p-3" style="background-color: #FFFFFF;">
+                        <div class="d-flex flex-row gap-12 mb-3">
                             <img src="./assets/images/svg/avatar.svg" alt="">
                             <div class="d-flex flex-column text-start">
-                                <h5 class="text-dark-custom mb-0 small fw-bold">John Smith</h5>
-                                <p class="text-blue-custom mb-0">www.company.com</p>
+                                <h5 class="text-dark-custom mb-0 fs-5 fw-bold">John Smith</h5>
+                                <p class="fs-6 text-blue-custom mb-0">www.company.com</p>
                             </div>
                         </div>
-                        <p class="text-dark-custom text-start small fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
-                        <button class="text-dark-custom fw-bold border-0 bg-transparent p-0">
+                        <p class="text-dark-custom text-start fs-6 fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
+                        <button class="text-dark-custom fs-6 fw-bold border-0 bg-transparent p-0">
                             Read more <span class="ms-2 text-primary-blue">&gt;</span>
                         </button>
                     </article>
-                    <article class="h-100 border-0 shadow-sm slider-item p-3" style="background-color: #FFFFFF;">
-                        <div class="d-flex flex-row gap-12">
+                    <article class="rounded shadow h-100 border-0 shadow-sm slider-item client-item p-3" style="background-color: #FFFFFF;">
+                        <div class="d-flex flex-row gap-12 mb-3">
                             <img src="./assets/images/svg/avatar.svg" alt="">
                             <div class="d-flex flex-column text-start">
-                                <h5 class="text-dark-custom mb-0 small fw-bold">John Smith</h5>
-                                <p class="text-blue-custom mb-0">www.company.com</p>
+                                <h5 class="text-dark-custom mb-0 fs-5 fw-bold">John Smith</h5>
+                                <p class="fs-6 text-blue-custom mb-0">www.company.com</p>
                             </div>
                         </div>
-                        <p class="text-dark-custom text-start small fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
-                        <button class="text-dark-custom fw-bold border-0 bg-transparent p-0">
+                        <p class="text-dark-custom text-start fs-6 fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
+                        <button class="text-dark-custom fs-6 fw-bold border-0 bg-transparent p-0">
                             Read more <span class="ms-2 text-primary-blue">&gt;</span>
                         </button>
                     </article>
-                    <article class="h-100 border-0 shadow-sm slider-item p-3" style="background-color: #FFFFFF;">
-                        <div class="d-flex flex-row gap-12">
+                    <article class="rounded shadow h-100 border-0 shadow-sm slider-item client-item p-3" style="background-color: #FFFFFF;">
+                        <div class="d-flex flex-row gap-12 mb-3">
                             <img src="./assets/images/svg/avatar.svg" alt="">
                             <div class="d-flex flex-column text-start">
-                                <h5 class="text-dark-custom mb-0 small fw-bold">John Smith</h5>
-                                <p class="text-blue-custom mb-0">www.company.com</p>
+                                <h5 class="text-dark-custom mb-0 fs-5 fw-bold">John Smith</h5>
+                                <p class="fs-6 text-blue-custom mb-0">www.company.com</p>
                             </div>
                         </div>
-                        <p class="text-dark-custom text-start small fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
-                        <button class="text-dark-custom fw-bold border-0 bg-transparent p-0">
+                        <p class="text-dark-custom text-start fs-6 fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
+                        <button class="text-dark-custom fs-6 fw-bold border-0 bg-transparent p-0">
                             Read more <span class="ms-2 text-primary-blue">&gt;</span>
                         </button>
                     </article>
                 </div>
             </div>
         </section>
-        <!-- <section class="py-4 py-lg-5">
-            <div class="container text-center">
-                <div id="portfolioCarousel" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="d-flex justify-content-center gap-4 py-0 py-md-3 pt-3">
-                                <article class="d-flex flex-column gap-12 align-items-start p-3 rounded" style="background-color: #FFFFFF;">
-
-                                </article>
-                                <article class="d-flex flex-column gap-12 align-items-start p-3 rounded" style="background-color: #FFFFFF;">
-                                    <div class="d-flex flex-row gap-12">
-                                            <img src="./assets/images/svg/avatar.svg" alt="">
-                                            <div class="d-flex flex-column text-start">
-                                                <h5 class="text-dark-custom mb-0 small fw-bold">John Smith</h5>
-                                            <p class="text-blue-custom mb-0">www.company.com</p>
-                                        </div>
-                                    </div>
-                                    <p class="text-dark-custom text-start small fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
-                                    <button class="text-dark-custom fw-bold border-0 bg-transparent p-0">
-                                            Read more <span class="ms-2 text-primary-blue">&gt;</span>
-                                        </button>
-                                    </article>
-                                <article class="d-flex flex-column gap-12 align-items-start p-3 rounded" style="background-color: #FFFFFF;">
-                                    <div class="d-flex flex-row gap-12">
-                                        <img src="./assets/images/svg/avatar.svg" alt="">
-                                        <div class="d-flex flex-column text-start">
-                                            <h5 class="text-dark-custom mb-0 small fw-bold">John Smith</h5>
-                                            <p class="text-blue-custom mb-0">www.company.com</p>
-                                        </div>
-                                    </div>
-                                    <p class="text-dark-custom text-start small fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
-                                    <button class="text-dark-custom fw-bold border-0 bg-transparent p-0">
-                                        Read more <span class="ms-2 text-primary-blue">&gt;</span>
-                                    </button>
-                                </article>
-                                <article class="d-flex flex-column gap-12 align-items-start p-3 rounded" style="background-color: #FFFFFF;">
-                                    <div class="d-flex flex-row gap-12">
-                                            <img src="./assets/images/svg/avatar.svg" alt="">
-                                            <div class="d-flex flex-column text-start">
-                                                <h5 class="text-dark-custom mb-0 small fw-bold">John Smith</h5>
-                                            <p class="text-blue-custom mb-0">www.company.com</p>
-                                        </div>
-                                    </div>
-                                    <p class="text-dark-custom text-start small fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
-                                    <button class="text-dark-custom fw-bold border-0 bg-transparent p-0">
-                                            Read more <span class="ms-2 text-primary-blue">&gt;</span>
-                                        </button>
-                                    </article>
-                                </div>
-                        </div>
-                        </div>
-
-                    <button class="btn btn-primary mt-5">
-                        View more
-                    </button>
-                </div>
-            </div>
-
-            <div class="slider-buttons" id="news-slider-buttons">
-                <button id="news-prev" class="prev bg-blurred p-3" style="border-radius: 0px 100px 100px 0px;">
-                    <img src="./assets/images/svg/icon_arrow-left.svg" alt="Previous">
-                </button>
-                <button id="news-next" class="next bg-blurred p-3" style="border-radius: 100px 0px 0px 100px;">
-                    <img src="./assets/images/svg/icon_arrow-right.svg" alt="Next">
-                </button>
-            </div>
-        </section> -->
-
         <section class="bg-gradient-tech py-5 position-relative overflow-hidden">
             <div class="particles-full position-absolute top-0 start-0 w-100 h-100"></div>
 

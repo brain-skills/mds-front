@@ -1112,8 +1112,13 @@ nav[aria-label="Main menu"] {
   .service-img {
     max-width: 391px !important;
   }
+
   .discounted-price {
     font-size: 30px;
+  }
+
+  .client-item {
+    width: 40% !important;
   }
 }
 
@@ -1570,4 +1575,12 @@ nav[aria-label="Main menu"] {
 
 .global-slider::-webkit-scrollbar {
   display: none;
+}
+
+.project-card { display: none; }
+.project-card.show { display: block; }
+.service-link.active-service { color: #000 !important; font-weight: 600; }
+
+.client-item {
+  width: 20%;
 }
