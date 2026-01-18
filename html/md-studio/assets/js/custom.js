@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const carouselInner = carousel.querySelector('.carousel-inner');
     const items = carouselInner.querySelectorAll('.carousel-item');
-    const indicatorsContainer = carousel.querySelector('.carousel-indicators');
+    let indicatorsContainer = carousel.querySelector('.carousel-indicators');
 
     if (indicatorsContainer) {
         indicatorsContainer.innerHTML = '';
@@ -134,11 +134,6 @@ const askBtn = document.getElementById('askQuestionBtn');
 const chatWindow = document.getElementById('supportChat');
 const closeBtn = document.getElementById('closeChat');
 
-// closeBtn.addEventListener('click', function() {
-//     chatWindow.classList.add('d-none');
-//     askBtn.classList.remove('d-none');
-// });
-
 document.querySelectorAll('.ticket-list-item').forEach(item => {
     item.addEventListener('click', function(e) {
         e.preventDefault();
@@ -155,26 +150,18 @@ document.querySelectorAll('.ticket-list-item').forEach(item => {
     });
 });
 
-// document.querySelector('.back-to-list').addEventListener('click', function(e) {
-//     e.preventDefault();
-//     document.querySelector('.sidebar').classList.remove('d-none');
-//     document.querySelector('.ticket-detail').classList.add('d-none');
-//     document.querySelector('.ticket-detail').classList.remove('d-block');
-// });
 
 document.addEventListener('DOMContentLoaded', function () {
     const carouselEl = document.querySelector('#myCarousel');
     const carousel = new bootstrap.Carousel(carouselEl);
     const indicators = document.querySelectorAll('.carousel-indicators .bar');
 
-    // Click on indicator
     indicators.forEach((indicator, index) => {
         indicator.addEventListener('click', () => {
             carousel.to(index);
         });
     });
 
-    // Update active indicator on slide change
     carouselEl.addEventListener('slid.bs.carousel', (e) => {
         indicators.forEach(ind => ind.classList.remove('active'));
         indicators[e.to].classList.add('active');
@@ -270,4 +257,96 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const initial = location.hash.replace("#", "") || "web-development";
     filterProjects(initial);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const pricingRoot = document.querySelector("#pricingGroups");
+  if (!pricingRoot) return;
+
+  const groups = Array.from(document.querySelectorAll(".pricing-group"));
+  const tabs = Array.from(document.querySelectorAll("#desktop-filters a[data-filter]"));
+  const mobileSelect = document.getElementById("mobile-filter");
+  const billingToggle = document.getElementById("billingToggle");
+
+  const fmtMoney = (n) => {
+    const num = Number(n);
+    if (!Number.isFinite(num)) return n;
+    return "$" + num.toLocaleString("en-US");
+  };
+
+  function setActiveTab(category) {
+    tabs.forEach((a) => {
+      const isActive = a.dataset.filter === category;
+      a.classList.toggle("active-service", isActive);
+
+      if (isActive) a.classList.remove("opacity-75");
+      else a.classList.add("opacity-75");
+    });
+  }
+
+  function showGroup(category) {
+    groups.forEach((g) => {
+      const isMatch = g.dataset.category === category;
+      g.classList.toggle("d-none", !isMatch);
+    });
+
+    setActiveTab(category);
+
+    if (mobileSelect && mobileSelect.value !== category) {
+      mobileSelect.value = category;
+    }
+
+    if (history.replaceState) history.replaceState(null, "", `#${category}`);
+  }
+
+  function updateBilling(isAnnual) {
+    const visibleGroup = groups.find((g) => !g.classList.contains("d-none")) || document;
+
+    visibleGroup.querySelectorAll(".price-now, .price-old").forEach((el) => {
+      const monthly = el.dataset.monthly;
+      const annual = el.dataset.annual;
+      const val = isAnnual ? annual : monthly;
+      if (val != null) el.textContent = fmtMoney(val);
+    });
+
+    const labels = document.querySelectorAll(".pricing-toggle .toggle-label");
+    if (labels.length) {
+      labels.forEach((l) => l.classList.remove("active"));
+      if (!isAnnual) labels[0].classList.add("active");
+    }
+  }
+
+  tabs.forEach((a) => {
+    a.addEventListener("click", (e) => {
+      e.preventDefault();
+      const category = a.dataset.filter;
+      if (!category) return;
+      showGroup(category);
+
+      updateBilling(!!billingToggle?.checked);
+    });
+  });
+
+  if (mobileSelect) {
+    mobileSelect.addEventListener("change", (e) => {
+      const category = e.target.value;
+      showGroup(category);
+      updateBilling(!!billingToggle?.checked);
+    });
+  }
+
+  if (billingToggle) {
+    billingToggle.addEventListener("change", (e) => {
+      updateBilling(e.target.checked);
+    });
+  }
+
+  const hash = (location.hash || "").replace("#", "");
+  const defaultCategory =
+    (hash && groups.some((g) => g.dataset.category === hash) && hash) ||
+    (mobileSelect && mobileSelect.value) ||
+    "web-development";
+
+  showGroup(defaultCategory);
+  updateBilling(!!billingToggle?.checked);
 });

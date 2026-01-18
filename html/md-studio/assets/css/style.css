@@ -1074,6 +1074,56 @@ nav[aria-label="Main menu"] {
   margin-bottom: 1rem;
 }
 
+[data-news-tabs] .news-card-wrap { display: none; }
+[data-news-tabs] .news-card-wrap.is-visible { display: block; }
+
+[data-news-tabs] .nav-link { cursor: pointer; }
+[data-news-tabs] .nav-link.is-active {
+  color: #0d6efd !important;
+  background: rgba(13,110,253,.10);
+}
+
+.cursor-pointer { cursor: pointer; }
+
+.switch { position: relative; display: inline-block; width: 62px; height: 34px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+  position: absolute; cursor: pointer; inset: 0;
+  background-color: rgba(255,255,255,.25);
+  transition: .25s; border-radius: 999px;
+}
+
+.slider:before {
+  position: absolute; content: "";
+  height: 26px; width: 26px; left: 4px; top: 4px;
+  background-color: white; transition: .25s; border-radius: 50%;
+}
+
+.switch input:checked + .slider { background-color: rgba(255,255,255,.35); }
+.switch input:checked + .slider:before { transform: translateX(28px); }
+
+.pricing-toggle .toggle-label.active { opacity: 1; }
+.pricing-toggle .toggle-label { opacity: .75; }
+
+.pricing-row{
+  display:flex; gap:16px;
+  overflow-x:auto; padding:0 12px;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+}
+.pricing-row::-webkit-scrollbar{ display:none; }
+
+.pricing-card{
+  flex:0 0 auto;
+  width:85%;
+  max-width:360px;
+  scroll-snap-align:start;
+}
+@media (min-width:576px){ .pricing-card{ width:70%; } }
+@media (min-width:768px){ .pricing-card{ width:55%; } }
+
+.active-service{ opacity: 1 !important; text-decoration: underline; text-underline-offset: 6px; }
+
 @media (min-width: 1450px) {
   .container {
     max-width: 1472px ;
@@ -1118,7 +1168,18 @@ nav[aria-label="Main menu"] {
   }
 
   .client-item {
-    width: 40% !important;
+    flex: 0 0 35% !important;
+    max-width: 35% !important;
+    width: 35% !important; 
+  }
+}
+
+@media (max-width: 700px) {
+
+  .client-item {
+    flex: 0 0 70% !important;
+    max-width: 70% !important;
+    width: 70% !important;
   }
 }
 
