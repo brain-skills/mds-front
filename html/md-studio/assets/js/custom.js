@@ -259,94 +259,60 @@ document.addEventListener("DOMContentLoaded", () => {
     filterProjects(initial);
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const pricingRoot = document.querySelector("#pricingGroups");
-  if (!pricingRoot) return;
+const desktopLinks = document.querySelectorAll('.pricing-filter-link');
+const groups = document.querySelectorAll('#pricingGroups .pricing-group');
+const mobileSelect = document.getElementById('mobile-filter');
 
-  const groups = Array.from(document.querySelectorAll(".pricing-group"));
-  const tabs = Array.from(document.querySelectorAll("#desktop-filters a[data-filter]"));
-  const mobileSelect = document.getElementById("mobile-filter");
-  const billingToggle = document.getElementById("billingToggle");
-
-  const fmtMoney = (n) => {
-    const num = Number(n);
-    if (!Number.isFinite(num)) return n;
-    return "$" + num.toLocaleString("en-US");
-  };
-
-  function setActiveTab(category) {
-    tabs.forEach((a) => {
-      const isActive = a.dataset.filter === category;
-      a.classList.toggle("active-service", isActive);
-
-      if (isActive) a.classList.remove("opacity-75");
-      else a.classList.add("opacity-75");
-    });
-  }
-
-  function showGroup(category) {
-    groups.forEach((g) => {
-      const isMatch = g.dataset.category === category;
-      g.classList.toggle("d-none", !isMatch);
-    });
-
-    setActiveTab(category);
-
-    if (mobileSelect && mobileSelect.value !== category) {
-      mobileSelect.value = category;
-    }
-
-    if (history.replaceState) history.replaceState(null, "", `#${category}`);
-  }
-
-  function updateBilling(isAnnual) {
-    const visibleGroup = groups.find((g) => !g.classList.contains("d-none")) || document;
-
-    visibleGroup.querySelectorAll(".price-now, .price-old").forEach((el) => {
-      const monthly = el.dataset.monthly;
-      const annual = el.dataset.annual;
-      const val = isAnnual ? annual : monthly;
-      if (val != null) el.textContent = fmtMoney(val);
-    });
-
-    const labels = document.querySelectorAll(".pricing-toggle .toggle-label");
-    if (labels.length) {
-      labels.forEach((l) => l.classList.remove("active"));
-      if (!isAnnual) labels[0].classList.add("active");
-    }
-  }
-
-  tabs.forEach((a) => {
-    a.addEventListener("click", (e) => {
-      e.preventDefault();
-      const category = a.dataset.filter;
-      if (!category) return;
-      showGroup(category);
-
-      updateBilling(!!billingToggle?.checked);
-    });
-  });
-
-  if (mobileSelect) {
-    mobileSelect.addEventListener("change", (e) => {
-      const category = e.target.value;
-      showGroup(category);
-      updateBilling(!!billingToggle?.checked);
-    });
-  }
-
-  if (billingToggle) {
-    billingToggle.addEventListener("change", (e) => {
-      updateBilling(e.target.checked);
-    });
-  }
-
-  const hash = (location.hash || "").replace("#", "");
-  const defaultCategory =
-    (hash && groups.some((g) => g.dataset.category === hash) && hash) ||
-    (mobileSelect && mobileSelect.value) ||
-    "web-development";
-
-  showGroup(defaultCategory);
-  updateBilling(!!billingToggle?.checked);
+function showGroup(category) {
+groups.forEach(g => g.classList.toggle('d-none', g.dataset.category !== category));
+desktopLinks.forEach(l => {
+    const isActive = l.dataset.filter === category;
+    l.classList.toggle('active-service', isActive);
+    l.classList.toggle('opacity-75', !isActive);
 });
+if (mobileSelect && mobileSelect.value !== category) mobileSelect.value = category;
+}
+
+desktopLinks.forEach(link => {
+link.addEventListener('click', (e) => {
+    e.preventDefault();
+    showGroup(link.dataset.filter);
+});
+});
+
+if (mobileSelect) {
+mobileSelect.addEventListener('change', (e) => showGroup(e.target.value));
+}
+
+const billingToggle = document.getElementById('billingToggle');
+const labelMonthly = document.getElementById('labelMonthly');
+const labelAnnual = document.getElementById('labelAnnual');
+
+function formatMoney(n) {
+return '$' + Number(n).toLocaleString('en-US');
+}
+
+function updatePrices(isAnnual) {
+const visibleGroup = document.querySelector('#pricingGroups .pricing-group:not(.d-none)');
+if (!visibleGroup) return;
+
+visibleGroup.querySelectorAll('.price-old').forEach(el => {
+    const val = isAnnual ? el.dataset.annual : el.dataset.monthly;
+    if (val) el.textContent = formatMoney(val);
+});
+
+visibleGroup.querySelectorAll('.price-now').forEach(el => {
+    const val = isAnnual ? el.dataset.annual : el.dataset.monthly;
+    if (val) el.textContent = formatMoney(val);
+});
+
+labelMonthly.classList.toggle('active', !isAnnual);
+labelAnnual.classList.toggle('active', isAnnual);
+}
+
+if (billingToggle) {
+billingToggle.addEventListener('change', (e) => updatePrices(e.target.checked));
+updatePrices(billingToggle.checked);
+}
+
+showGroup('web-development');
