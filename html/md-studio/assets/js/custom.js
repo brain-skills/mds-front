@@ -130,27 +130,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-const askBtn = document.getElementById('askQuestionBtn');
-const chatWindow = document.getElementById('supportChat');
-const closeBtn = document.getElementById('closeChat');
-
-document.querySelectorAll('.ticket-list-item').forEach(item => {
-    item.addEventListener('click', function(e) {
-        e.preventDefault();
-
-        document.querySelectorAll('.ticket-list-item').forEach(i => i.classList.remove('active'));
-        this.classList.add('active');
-
-        if (window.innerWidth < 992) {
-            document.querySelector('.sidebar').classList.add('d-none');
-            document.querySelector('.ticket-detail').classList.remove('d-none');
-            document.querySelector('.ticket-detail').classList.add('d-block');
-        }
-
-    });
-});
-
-
 document.addEventListener('DOMContentLoaded', function () {
     const carouselEl = document.querySelector('#myCarousel');
     const carousel = new bootstrap.Carousel(carouselEl);
@@ -316,3 +295,49 @@ updatePrices(billingToggle.checked);
 }
 
 showGroup('web-development');
+
+(function() {
+    if (window.supportChatInitialized) return;
+    window.supportChatInitialized = true;
+
+    function initChat() {
+        const askBtn   = document.getElementById("askQuestionBtn");
+        const chatWin  = document.getElementById("supportChat");
+        const closeBtn = document.getElementById("closeChat");
+
+        if (!askBtn)   { console.warn("Ask button (#askQuestionBtn) not found"); return; }
+        if (!chatWin)  { console.warn("Chat window (#supportChat) not found"); return; }
+        if (!closeBtn) { console.warn("Close button (#closeChat) not found"); return; }
+
+        askBtn.addEventListener("click", function(e) {
+            e.stopPropagation();
+            chatWin.style.visibility = "visible";
+            chatWin.style.opacity = "1";
+            chatWin.style.transition = "opacity 0.25s ease, visibility 0s linear 0s";
+            askBtn.classList.add("d-none");
+        });
+
+        closeBtn.addEventListener("click", function(e) {
+            e.stopPropagation();
+            chatWin.style.opacity = "0";
+            chatWin.style.visibility = "hidden";
+            chatWin.style.transition = "opacity 0.25s ease, visibility 0s linear 0.25s";
+            askBtn.classList.remove("d-none");
+        });
+
+        document.addEventListener("click", function(e) {
+            if (!chatWin.contains(e.target) && !askBtn.contains(e.target)) {
+                chatWin.style.opacity = "0";
+                chatWin.style.visibility = "hidden";
+                chatWin.style.transition = "opacity 0.25s ease, visibility 0s linear 0.25s";
+                askBtn.classList.remove("d-none");
+            }
+        });
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initChat);
+    } else {
+        initChat();
+    }
+})();
