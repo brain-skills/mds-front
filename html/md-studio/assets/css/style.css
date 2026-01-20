@@ -1773,3 +1773,9 @@ nav[aria-label="Main menu"] {
   font-weight: 700;
   color: #111;
 }
+
+@media (min-width: 1400px) {
+  .vh-xl-100 {
+    min-height: 100vh;
+  }
+}
