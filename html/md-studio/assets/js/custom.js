@@ -130,59 +130,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    const carouselEl = document.querySelector('#myCarousel');
-    const carousel = new bootstrap.Carousel(carouselEl);
-    const indicators = document.querySelectorAll('.carousel-indicators .bar');
-
-    indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', () => {
-            carousel.to(index);
-        });
-    });
-
-    carouselEl.addEventListener('slid.bs.carousel', (e) => {
-        indicators.forEach(ind => ind.classList.remove('active'));
-        indicators[e.to].classList.add('active');
-    });
-});
-document.addEventListener("DOMContentLoaded", () => {
-    const track = document.querySelector(".portfolio-track");
-    const items = document.querySelectorAll(".portfolio-item");
-    const prevBtn = document.getElementById("portfolio-prev");
-    const nextBtn = document.getElementById("portfolio-next");
-
-    let index = 0;
-
-    function itemsPerView() {
-        return window.innerWidth >= 992 ? 3 : 1;
-    }
-
-    function updateSlider() {
-        const itemWidth = items[0].offsetWidth + 24; // gap included
-        track.style.transform = `translateX(-${index * itemWidth}px)`;
-    }
-
-    nextBtn.addEventListener("click", () => {
-        if (index < items.length - itemsPerView()) {
-            index++;
-            updateSlider();
-        }
-    });
-
-    prevBtn.addEventListener("click", () => {
-        if (index > 0) {
-            index--;
-            updateSlider();
-        }
-    });
-
-    window.addEventListener("resize", () => {
-        index = 0;
-        updateSlider();
-    });
-});
-
 document.querySelectorAll('.container').forEach(container => {
   const slider = container.querySelector('.global-slider');
   const next = container.querySelector('.slider-next');
