@@ -336,114 +336,6 @@
                         </nav>
                     </div>
                 </header>
-                <!-- Settings Modal -->
-                <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content border-0 shadow-lg rounded">
-                            <div class="modal-header border-0 p-3">
-                                <h5 class="modal-title fw-bold" id="settingsModalLabel">Select Language, Location & Currency</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body p-3">
-                                <form class="d-flex flex-column">
-                                    <div class="mb-4 d-flex align-items-center gap-3">
-                                        <div class="d-flex flex-row w-100 gap-4">
-                                            <div class="d-flex flex-row gap-2 align-items-center" style="width: 150px;">
-                                                <img src="./assets/images/svg/icon_language.svg" alt="" style="width: 24px;">
-                                                <label class="form-label mb-1 fw-semibold">Language</label>
-                                            </div>
-                                            <select class="form-select form-select-lg rounded shadow-sm">
-                                                <option selected>English</option>
-                                                <option>Español</option>
-                                                <option>Français</option>
-                                                <option>Deutsch</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="mb-4 d-flex align-items-center gap-3">
-                                        <div class="d-flex flex-row w-100 gap-4">
-                                            <div class="d-flex flex-row gap-2 align-items-center" style="width: 150px;">
-                                                <img src="./assets/images/svg/icon_geo.svg" alt="" style="width: 24px;">
-                                                <label class="form-label mb-1 fw-semibold">Location</label>
-                                            </div>
-                                            <select class="form-select form-select-lg rounded shadow-sm">
-                                                <option selected>United States</option>
-                                                <option>Spain</option>
-                                                <option>France</option>
-                                                <option>Germany</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="mb-4 d-flex align-items-center gap-3">
-                                        <div class="d-flex flex-row w-100 gap-4">
-                                            <div class="d-flex flex-row gap-2 align-items-center" style="width: 150px;">
-                                                <img src="./assets/images/svg/icon_currency.svg" alt="" style="width: 24px;">
-                                                <label class="form-label mb-1 fw-semibold">Currency</label>
-                                            </div>
-                                            <select class="form-select form-select-lg rounded shadow-sm">
-                                                <option selected>USD</option>
-                                                <option>RUB</option>
-                                                <option>AMD</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="text-center">
-                                        <button type="submit" class="btn btn-primary btn-lg px-5 rounded">
-                                            Save Preferences
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            <!-- Mobile Menu Offcanvas -->
-            <div class="offcanvas offcanvas-start bg-blurred text-light" tabindex="-1" id="offcanvasMobileMenu" aria-labelledby="offcanvasMobileMenuLabel">
-                <div class="offcanvas-header border-bottom border-light border-opacity-25 pb-3">
-                    <h5 class="offcanvas-title d-flex align-items-center" id="offcanvasMobileMenuLabel">
-                        <img src="./assets/images/logos/md-studio.svg" alt="MD Studio logo" class="header-logo me-3">
-                    </h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body pt-4">
-                    <ul class="list-unstyled mb-0">
-                        <li class="mb-4"><a href="main.html" class="text-light text-decoration-none fs-3 fw-medium">Home</a></li>
-                        
-                        <li class="mb-4">
-                            <a href="services.html" class="text-light text-decoration-none fs-3 fw-medium d-flex justify-content-between align-items-center" 
-                            data-bs-toggle="collapse" data-bs-target="#servicesSubmenuMobile" aria-expanded="false">
-                                Services
-                                <img src="./assets/images/svg/chevron.svg" alt="dropdown icon" class="menu-icon ms-2">
-                            </a>
-                            <div class="collapse mt-3" id="servicesSubmenuMobile">
-                                <ul class="list-unstyled ps-4">
-                                    <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">Web Development</a></li>
-                                    <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">Software Development</a></li>
-                                    <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">Development</a></li>
-                                    <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">UI/UX</a></li>
-                                    <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">SEO</a></li>
-                                    <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">SMM</a></li>
-                                    <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">Target</a></li>
-                                    <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">Data</a></li>
-                                    <li class="mb-3"><a class="text-light text-decoration-none opacity-75" href="service.html">Graphic Design</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        
-                        <li class="mb-4"><a href="portfolio.html" class="text-light text-decoration-none fs-3 fw-medium">Portfolio</a></li>
-                        <li class="mb-4"><a href="about.html" class="text-light text-decoration-none fs-3 fw-medium">About us</a></li>
-                        <li class="mb-4"><a href="news.html" class="text-light text-decoration-none fs-3 fw-medium">News</a></li>
-                        <li class="mb-4"><a href="price.html" class="text-light text-decoration-none fs-3 fw-medium">Price</a></li>
-                        <li class="mb-4"><a href="career.html" class="text-light text-decoration-none fs-3 fw-medium">Career</a></li>
-                        <li class="mb-4"><a href="faq.html" class="text-light text-decoration-none fs-3 fw-medium">FAQ</a></li>
-                        <li class="mb-4"><a href="contacts.html" class="text-light text-decoration-none fs-3 fw-medium">Contacts</a></li>
-                    </ul>
-                </div>
-            </div>
         </section>
         <section class="py-4 py-md-5">
         <div class="container">
@@ -685,7 +577,7 @@
 <!-- Settings Modal  -->
 <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content border-0 shadow-lg rounded">
+        <div class="modal-content border-0 shadow-lg rounded p-2">
             <div class="modal-header border-0 p-3">
                 <h5 class="modal-title fw-bold" id="settingsModalLabel">Select Language, Location & Currency</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

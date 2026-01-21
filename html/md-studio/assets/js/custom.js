@@ -288,3 +288,29 @@ showGroup('web-development');
         initChat();
     }
 })();
+
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll("section[id]");
+  if (!sections.length) return;
+
+  const setHash = (id) => {
+    const newUrl = `${location.pathname}#${id}`;
+    history.replaceState(null, "", newUrl);
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visible = entries
+        .filter(e => e.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+      if (visible) setHash(visible.target.id);
+    },
+    {
+      root: null,
+      threshold: [0.4, 0.6, 0.8], 
+    }
+  );
+
+  sections.forEach((s) => observer.observe(s));
+});

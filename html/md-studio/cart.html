@@ -47,7 +47,7 @@
                                                 class="d-flex gap-2 border-0 bg-transparent text-light fs-7 ps-0 pe-1"
                                                 data-bs-toggle="modal"
                                                 data-bs-target="#settingsModal">
-                                            <img src="./assets/images/svg/icon_geo-white.svg" alt="geo icon" style="width: 20px;"> USA
+                                            <img src="./assets/images/svg/icon_geo-white.svg" alt="geo icon" width="20"> USA
                                         </button>
                                     </li>
 
@@ -65,7 +65,7 @@
                                                 class="d-flex gap-2 border-0 bg-transparent text-light fs-7 ps-1 pe-0"
                                                 data-bs-toggle="modal"
                                                 data-bs-target="#settingsModal">
-                                            <img src="./assets/images/svg/icon_currency-white.svg" alt="currency icon" style="width: 20px;"> USD
+                                            <img src="./assets/images/svg/icon_currency-white.svg" alt="currency icon" width="20"> USD
                                         </button>
                                     </li>
                                 </ul>
@@ -101,10 +101,9 @@
                                             <img src="./assets/images/svg/avatar.svg" alt="User account" class="rounded avatar">
                                         </a>
 
-                                        <div class="dropdown-menu dropdown-menu-end shadow-lg border-0 p-0 mt-3"
-                                            style="overflow: hidden;">
+                                        <div class="dropdown-menu dropdown-menu-end shadow-lg border-0 p-0 mt-3">
 
-                                            <div class="card bg-white border-0" style="border-radius: 4px;">
+                                            <div class="card bg-white border-0 rounded">
                                                 <div class="card-body p-4">
 
                                                     <ul class="nav nav-pills mb-4" role="tablist">
@@ -145,7 +144,7 @@
                                                                         <input class="form-check-input"
                                                                             type="checkbox"
                                                                             id="rememberLoginDD"
-                                                                            style="width: 24px; height: 24px;">
+                                                                            width="24" height="24">
                                                                         <label class="form-check-label text-muted small"
                                                                             for="rememberLoginDD">
                                                                             Remember me
@@ -208,7 +207,7 @@
                                                                         <input class="form-check-input"
                                                                             type="checkbox"
                                                                             id="agreeRegisterDD"
-                                                                            style="width: 24px; height: 24px;">
+                                                                            width="24" height="24">
                                                                         <label class="form-check-label text-muted small"
                                                                             for="agreeRegisterDD">
                                                                             I agree with Privacy Policy and Terms and Conditions
@@ -325,7 +324,7 @@
                             <div id="header-search" class="header-search rounded d-none p-0 p-lg-3">
                                 <form class="search-form rounded align-items-center bg-blurred">
                                     <input type="text" class="form-control form-control-lg header-search-input" placeholder="Search..." autofocus>
-                                    <div class="d-flex flex-row align-items-center gap-2 rounded" style="background-color: #249fdd;">
+                                    <div class="d-flex flex-row align-items-center gap-2 rounded bg-blue-custom ">
                                         <button type="submit" class="btn btn-primary d-flex align-items-center justify-content-center">
                                             <img src="./assets/images/svg/icon_search.svg" alt="Search" width="20" height="20">
                                         </button>                                
@@ -336,71 +335,6 @@
                         </nav>
                     </div>
                 </header>
-                <!-- Settings Modal -->
-                <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content border-0 shadow-lg rounded">
-                            <div class="modal-header border-0 p-3">
-                                <h5 class="modal-title fw-bold" id="settingsModalLabel">Select Language, Location & Currency</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body p-3">
-                                <form class="d-flex flex-column">
-                                    <div class="mb-4 d-flex align-items-center gap-3">
-                                        <div class="d-flex flex-row w-100 gap-4">
-                                            <div class="d-flex flex-row gap-2 align-items-center" style="width: 150px;">
-                                                <img src="./assets/images/svg/icon_language.svg" alt="" style="width: 24px;">
-                                                <label class="form-label mb-1 fw-semibold">Language</label>
-                                            </div>
-                                            <select class="form-select form-select-lg rounded shadow-sm">
-                                                <option selected>English</option>
-                                                <option>Español</option>
-                                                <option>Français</option>
-                                                <option>Deutsch</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="mb-4 d-flex align-items-center gap-3">
-                                        <div class="d-flex flex-row w-100 gap-4">
-                                            <div class="d-flex flex-row gap-2 align-items-center" style="width: 150px;">
-                                                <img src="./assets/images/svg/icon_geo.svg" alt="" style="width: 24px;">
-                                                <label class="form-label mb-1 fw-semibold">Location</label>
-                                            </div>
-                                            <select class="form-select form-select-lg rounded shadow-sm">
-                                                <option selected>United States</option>
-                                                <option>Spain</option>
-                                                <option>France</option>
-                                                <option>Germany</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="mb-4 d-flex align-items-center gap-3">
-                                        <div class="d-flex flex-row w-100 gap-4">
-                                            <div class="d-flex flex-row gap-2 align-items-center" style="width: 150px;">
-                                                <img src="./assets/images/svg/icon_currency.svg" alt="" style="width: 24px;">
-                                                <label class="form-label mb-1 fw-semibold">Currency</label>
-                                            </div>
-                                            <select class="form-select form-select-lg rounded shadow-sm">
-                                                <option selected>USD</option>
-                                                <option>RUB</option>
-                                                <option>AMD</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="text-center">
-                                        <button type="submit" class="btn btn-primary btn-lg px-5 rounded">
-                                            Save Preferences
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             <!-- Mobile Menu Offcanvas -->
             <div class="offcanvas offcanvas-start bg-blurred text-light" tabindex="-1" id="offcanvasMobileMenu" aria-labelledby="offcanvasMobileMenuLabel">
                 <div class="offcanvas-header border-bottom border-light border-opacity-25 pb-3">
@@ -546,7 +480,7 @@
                                 <p class="mb-0 fs-4 fw-bold text-dark">$5 000</p>
                                 <span class="badge bg-light text-success small">economy: -25%</span>
                             </div>
-                            <button class="btn btn-primary btn-lg px-4" style="border-radius: 0.5rem;">
+                            <button class="btn rounded btn-primary btn-lg px-4">
                                 Place an order
                             </button>
                         </div>
@@ -631,10 +565,8 @@
     <div class="offcanvas-body pt-4">
         <ul class="list-unstyled mb-0">
             <li class="mb-4"><a href="main.html" class="text-light text-decoration-none fs-3 fw-medium">Home</a></li>
-            
             <li class="mb-4">
-                <a href="services.html" class="text-light text-decoration-none fs-3 fw-medium d-flex justify-content-between align-items-center" 
-                data-bs-toggle="collapse" data-bs-target="#servicesSubmenuMobile" aria-expanded="false">
+                <a href="services.html" class="text-light text-decoration-none fs-3 fw-medium d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#servicesSubmenuMobile" aria-expanded="false">
                     Services
                     <img src="./assets/images/svg/chevron.svg" alt="dropdown icon" class="menu-icon ms-2">
                 </a>
@@ -652,7 +584,6 @@
                     </ul>
                 </div>
             </li>
-            
             <li class="mb-4"><a href="portfolio.html" class="text-light text-decoration-none fs-3 fw-medium">Portfolio</a></li>
             <li class="mb-4"><a href="about.html" class="text-light text-decoration-none fs-3 fw-medium">About us</a></li>
             <li class="mb-4"><a href="news.html" class="text-light text-decoration-none fs-3 fw-medium">News</a></li>
@@ -667,7 +598,7 @@
 <!-- Settings Modal  -->
 <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content border-0 shadow-lg rounded">
+        <div class="modal-content border-0 shadow-lg rounded p-2">
             <div class="modal-header border-0 p-3">
                 <h5 class="modal-title fw-bold" id="settingsModalLabel">Select Language, Location & Currency</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -676,8 +607,8 @@
                 <form class="d-flex flex-column">
                     <div class="mb-4 d-flex align-items-center gap-3">
                         <div class="d-flex flex-row w-100 gap-4">
-                            <div class="d-flex flex-row gap-2 align-items-center" style="width: 150px;">
-                                <img src="./assets/images/svg/icon_language.svg" alt="" style="width: 24px;">
+                            <div class="d-flex flex-row gap-2 align-items-center settings-select">
+                                <img src="./assets/images/svg/icon_language.svg" alt="" width="24">
                                 <label class="form-label mb-1 fw-semibold">Language</label>
                             </div>
                             <select class="form-select form-select-lg rounded shadow-sm">
@@ -688,11 +619,10 @@
                             </select>
                         </div>
                     </div>
-
                     <div class="mb-4 d-flex align-items-center gap-3">
                         <div class="d-flex flex-row w-100 gap-4">
-                            <div class="d-flex flex-row gap-2 align-items-center" style="width: 150px;">
-                                <img src="./assets/images/svg/icon_geo.svg" alt="" style="width: 24px;">
+                            <div class="d-flex flex-row gap-2 align-items-center settings-select">
+                                <img src="./assets/images/svg/icon_geo.svg" alt="" width="24">
                                 <label class="form-label mb-1 fw-semibold">Location</label>
                             </div>
                             <select class="form-select form-select-lg rounded shadow-sm">
@@ -703,11 +633,10 @@
                             </select>
                         </div>
                     </div>
-
                     <div class="mb-4 d-flex align-items-center gap-3">
                         <div class="d-flex flex-row w-100 gap-4">
-                            <div class="d-flex flex-row gap-2 align-items-center" style="width: 150px;">
-                                <img src="./assets/images/svg/icon_currency.svg" alt="" style="width: 24px;">
+                            <div class="d-flex flex-row gap-2 align-items-center settings-select">
+                                <img src="./assets/images/svg/icon_currency.svg" alt="" width="24">
                                 <label class="form-label mb-1 fw-semibold">Currency</label>
                             </div>
                             <select class="form-select form-select-lg rounded shadow-sm">
@@ -717,7 +646,6 @@
                             </select>
                         </div>
                     </div>
-
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary btn-lg px-5 rounded">
                             Save Preferences

@@ -138,6 +138,15 @@ html, body {
   outline: none;
 }
 
+.checkbox-24 {
+  width: 24px;
+  height: 24px;
+}
+
+.settings-select {
+  width: 150px;
+}
+
 /******************** Indicators  **************************/
 .indicators {
   display: flex !important;
@@ -220,6 +229,11 @@ html, body {
 .bg-blurred:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
+
+.bg-blue-custom {
+  background-color: #249fdd;
+}
+
 
 @keyframes rotate-gear {
   from {

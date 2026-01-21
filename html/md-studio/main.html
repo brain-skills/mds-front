@@ -42,7 +42,7 @@
                     <ul class="list-unstyled d-flex align-items-center mb-0 me-3 me-lg-5 header-divider header-settings d-none d-lg-flex">
                         <li class="ps-0 pe-2">
                             <button type="button" class="d-flex gap-2 border-0 bg-transparent text-light fs-7 ps-0 pe-1" data-bs-toggle="modal" data-bs-target="#settingsModal">
-                                <img src="./assets/images/svg/icon_geo-white.svg" alt="geo icon" style="width: 20px;"> USA
+                                <img src="./assets/images/svg/icon_geo-white.svg" alt="geo icon" width="20"> USA
                             </button>
                         </li>
                         <li class="px-2">
@@ -52,7 +52,7 @@
                         </li>
                         <li class="ps-2 pe-0">
                             <button type="button" class="d-flex gap-2 border-0 bg-transparent text-light fs-7 ps-1 pe-0" data-bs-toggle="modal" data-bs-target="#settingsModal">
-                                <img src="./assets/images/svg/icon_currency-white.svg" alt="currency icon" style="width: 20px;"> USD
+                                <img src="./assets/images/svg/icon_currency-white.svg" alt="currency icon" width="20"> USD
                             </button>
                         </li>
                     </ul>
@@ -64,13 +64,13 @@
                             </button>
                         </li>
                         <li>
-                            <button onclick="window.location.href='cart.html'" type="button" class="px-3 px-md-4 py-2 btn btn-primary bg-blurred cart-btn d-flex align-items-center gap-2 gap-md-3 me-2 me-lg-4 cart-btn"  >
+                            <button onclick="window.location.href='cart.html'" type="button" class="px-3 px-md-4 py-2 btn btn-primary bg-blurred cart-btn d-flex align-items-center gap-2 gap-md-3 me-2 me-lg-4 cart-btn" >
                                 <img src="./assets/images/svg/icon_cart.svg" alt="cart icon" class="cart-icon">
                                 <div class="d-flex flex-column text-start">
                                     <p class="mb-0 cart-label d-none d-md-flex">Cart</p>
                                     <p class="mb-0 cart-info">
-                                <span class="fw-light">2</span> <span class="products-word fw-light"> products</span> /
-                                    <span class="cart-price">$2750</span>
+                                        <span class="fw-light">2</span> <span class="products-word fw-light"> products</span> /
+                                        <span class="cart-price">$2750</span>
                                     </p>
                                 </div>
                             </button>
@@ -79,8 +79,8 @@
                             <a href="#" class="p-0 border-0 bg-transparent" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside">
                                 <img src="./assets/images/svg/avatar.svg" alt="User account" class="rounded avatar">
                             </a>
-                            <div class="dropdown-menu dropdown-menu-end shadow-lg border-0 p-0 mt-3" style="overflow: hidden;">
-                                <div class="card bg-white border-0" style="border-radius: 4px;">
+                            <div class="dropdown-menu dropdown-menu-end shadow-lg border-0 p-0 mt-3">
+                                <div class="rounded card bg-white border-0">
                                     <div class="card-body p-4">
                                         <ul class="nav nav-pills mb-4" role="tablist">
                                             <li class="nav-item">
@@ -105,9 +105,9 @@
                                                         </span>
                                                     </div>
                                                     <div class="d-flex justify-content-between align-items-center mb-3">
-                                                        <div class="form-check d-flex align-items-center gap-3">
-                                                            <input class="form-check-input" type="checkbox" id="rememberLoginDD" style="width: 24px; height: 24px;">
-                                                            <label class="form-check-label text-muted small"for="rememberLoginDD">
+                                                        <div class="form-check d-flex align-items-center gap-2">
+                                                            <input class="form-check-input checkbox-24" type="checkbox" id="rememberLoginDD">
+                                                            <label class="form-check-label text-muted small" for="rememberLoginDD">
                                                                 Remember me
                                                             </label>
                                                         </div>
@@ -141,7 +141,6 @@
                                                     <div class="mb-3 position-relative">
                                                         <input type="password" class="form-control form-control-lg rounded p-12 pe-5 auth-input" id="registerPassDD" placeholder="Create Password" autocomplete="new-password" required>
                                                         <span class="position-absolute end-0 top-50 translate-middle-y pe-4 text-muted cursor-pointer" onclick="togglePassword('registerPassDD')">
-
                                                             <i class="fa fa-eye"></i>
                                                         </span>
                                                     </div>
@@ -153,7 +152,7 @@
                                                     </div>
                                                     <div class="d-flex justify-content-between align-items-center mb-3">
                                                         <div class="form-check d-flex align-items-center gap-3">
-                                                            <input class="form-check-input" type="checkbox" id="agreeRegisterDD" style="width: 24px; height: 24px;">
+                                                            <input class="form-check-input checkbox-24" type="checkbox" id="agreeRegisterDD">
                                                             <label class="form-check-label text-muted small" for="agreeRegisterDD">
                                                                 I agree with Privacy Policy and Terms and Conditions
                                                             </label>
@@ -226,7 +225,6 @@
                         </button>
                     </li>
                     <li class="d-flex align-items-center text-light fs-8">
-
                         <button type="button" class="d-flex align-items-center gap-2 border-0 bg-transparent text-light" data-bs-toggle="modal" data-bs-target="#settingsModal">
                             <img src="./assets/images/svg/icon_geo-white.svg" alt="geo icon">
                             <span>USA</span>
@@ -250,7 +248,7 @@
                 <div id="header-search" class="header-search rounded d-none p-0 p-lg-3">
                     <form class="search-form rounded align-items-center bg-blurred">
                         <input type="text" class="form-control form-control-lg header-search-input" placeholder="Search..." autofocus>
-                        <div class="d-flex flex-row align-items-center gap-2 rounded" style="background-color: #249fdd;">
+                        <div class="d-flex flex-row align-items-center gap-2 rounded bg-blue-custom">
                             <button type="submit" class="btn btn-primary d-flex align-items-center justify-content-center">
                                 <img src="./assets/images/svg/icon_search.svg" alt="Search" width="20" height="20">
                             </button>                                
@@ -268,7 +266,7 @@
                         <div class="container h-100 d-flex flex-column flex-lg-row align-items-center justify-content-center">
                             <div class="text-white z-2 text-center text-lg-start mb-4 mb-lg-0 me-lg-5">
                                 <h1 class="title pb-2 fw-bold display-4">High-quality <br> Web Development</h1>
-                                <h3 class="text-white-50 fs-4 mb-4 pt-1 description mx-auto mx-lg-0" style="max-width: 550px;">
+                                <h3 class="text-white-50 fs-4 mb-4 pt-1 description mx-auto mx-lg-0 w-75 lh-lg">
                                     Website, CRM, and ERP system development. Responsive, functional, aesthetically pleasing, and effective.
                                 </h3>
                                 <button class="btn btn-primary btn-lg px-5 rounded shadow">More info</button>
@@ -283,7 +281,7 @@
                         <div class="container h-100 d-flex flex-column flex-lg-row align-items-center justify-content-center">
                             <div class="text-white z-2 text-center text-lg-start mb-4 mb-lg-0 me-lg-5">
                                 <h1 class="title pb-2 fw-bold display-4">Mobile App Development</h1>
-                                <h3 class="text-white-50 fs-4 mb-4 pt-1 description mx-auto mx-lg-0" style="max-width: 550px;">
+                                <h3 class="text-white-50 fs-4 mb-4 pt-1 description mx-auto mx-lg-0 w-75 lh-lg">
                                     Creating mobile apps for iOS and Android
                                 </h3>
                                 <button class="btn btn-primary btn-lg px-5 rounded shadow">More info</button>
@@ -310,7 +308,7 @@
         </section>
     </div>
     <main>
-        <section class="vh-xl-100 d-flex flex-column justify-content-center bg-light-gray-opacity py-5 py-xxl-0">
+        <section class="vh-xl-100 d-flex flex-column justify-content-center bg-light-gray-opacity py-5 py-xxl-0" id="features">
             <div class="container w-100 d-flex flex-column gap-4 gap-lg-5">
                 <div class="text-center d-flex flex-column gap-3">
                     <h2 class="title b-2 text-dark-custom">Why our clients trust us</h2>
@@ -396,7 +394,7 @@
                 </div>
             </div>
         </section>
-        <section class="position-relative vh-xl-100 d-flex flex-column justify-content-center py-5 py-xxl-0">
+        <section class="position-relative vh-xl-100 d-flex flex-column justify-content-center py-5 py-xxl-0" id="offers">
             <div class="container d-flex flex-column flex-lg-row gap-4 justify-content-center">
                 <div class="d-flex flex-column justify-content-between gap-4">
                     <div class="offer">
@@ -433,7 +431,7 @@
             </div>
             <div class="particles-bottom-dark"></div>
         </section>
-        <section class="slider-section position-relative bg-common vh-xl-100 d-flex flex-column justify-content-center py-5 py-xxl-0">
+        <section class="slider-section position-relative bg-common vh-xl-100 d-flex flex-column justify-content-center py-5 py-xxl-0" id="portfolio">
             <div class="container px-0">
                 <h2 class="mb-3 title text-center text-white">Portfolio</h2>
                 <p class="mb-5 fs-3 text-center text-white">Look at our cases</p>
@@ -526,13 +524,13 @@
             </div>
             <div class="particles-bottom-light"></div>
         </section> 
-        <section class="d-flex flex-column justify-content-center align-items-center vh-xl-100 position-relative py-5 py-xxl-0">
+        <section class="d-flex flex-column justify-content-center align-items-center vh-xl-100 position-relative py-5 py-xxl-0" id="about-us">
             <div class="mb-2 mb-lg-5">
                 <h2 class="title text-center text-dark-custom">About Mega Digital Studio</h2>
                 <p class="text-dark fs-3 text-center pt-2 fw-medium text-gray-custom">Here you need to add SEO text for the site to be indexed</p>
             </div>
             <div class="container d-flex flex-column flex-xxl-row gap-4 align-items-center">
-                <img src="./assets/images/laptop2.png" alt="Team working on web development project in office" loading="lazy" class="laptop-2" style="z-index: 2;">
+                <img src="./assets/images/laptop2.png" alt="Team working on web development project in office" loading="lazy" class="laptop-2">
                 <div class="d-flex flex-column gap-3 bg-blurred p-3">
                     <div>
                         <h3 class="fs-1 fw-normal text-dark-custom">
@@ -563,7 +561,7 @@
             </div>
             <div class="particles-bottom-dark"></div>
         </section>
-        <section class="slider-section bg-light-gray-opacity vh-xl-100 d-flex flex-column justify-content-center position-relative py-5 py-xxl-0">
+        <section class="slider-section bg-light-gray-opacity vh-xl-100 d-flex flex-column justify-content-center position-relative py-5 py-xxl-0" id="news">
             <div class="container px-0">
                 <h2 class="mb-3 title text-center">News</h2>
                 <p class="mb-5 fs-3 text-center">Follow our news - there's always a lot of interesting stuff here</p>
@@ -685,9 +683,9 @@
                 </div>
             </div>
         </section>
-        <section class="bg-common pt-4 pt-md-0 position-relative overflow-hidden">
-            <div class="d-flex flex-column flex-md-row container justify-content-between align-items-center pt-3 position-relative" style="z-index: 2;">
-                <div style="max-width: 812px; width: 100%;">
+        <section class="bg-common pt-4 pt-md-0 position-relative overflow-hidden" id="request">
+            <div class="d-flex flex-column flex-md-row container justify-content-between align-items-center pt-3 position-relative">
+                <div>
                     <h2 class="title text-light text-center text-md-start">
                         Leave a request for <br> a consultation on services
                     </h2>
@@ -698,7 +696,7 @@
                         <input type="text" id="name" class="white-input" autocomplete="off" placeholder="Your Name">
                         <label for="email" class="sr-only">Your Email</label>
                         <input type="email" id="email" class="white-input" autocomplete="off" placeholder="Your Email">
-                        <button class="px-5 py-2 text-white border-0 w-100" style="background-color: #249FDD;">
+                        <button class="px-5 py-2 text-white border-0 w-100 bg-blue-custom">
                             Send
                         </button>
                     </form>
@@ -708,12 +706,12 @@
             <div class="particles-bottom-light"></div>
         </section>
     </main>
-    <footer class="py-4 bg-dark-opacity">
+    <footer class="py-4 bg-dark-opacity" id="footer">
         <div class="container d-flex flex-column flex-md-row gap-4 py-4 my-0 my-md-2 justify-content-between">
             <div class="company-info d-flex flex-column">
                 <div>
                     <a class="mb-0" href="main.html">
-                        <img src="./assets/images/logos/footer-logo.svg" alt="Mega Digital Studio logo" class="mb-4 d-flex justify-content-center m-auto m-md-0 mb-md-4" style="max-width: 214px;">
+                        <img src="./assets/images/logos/footer-logo.svg" alt="Mega Digital Studio logo" class="mb-4 d-flex justify-content-center m-auto m-md-0 mb-md-4">
                     </a>
                     <p class="fs-6 mb-0 fw-normal text-gray-custom text-center text-md-start">
                         Legal information, organization details or other data necessary for display here
@@ -754,7 +752,7 @@
                 </div>
                 <p class="fw-semibold text-blue-custom fs-5">megadigitalstudio@domain.com</p>
                 <p class="fw-light fs-5 text-decoration-none text-dark-custom">Address: 012345 City, State Street title 12/3</p>
-                <a href="https://www.facebook.com/?locale=ru_RU" target="_blank" class="d-flex align-self-end"><img src="./assets/images/svg/fb-icon.svg" alt="Facebook icon" width="36px" height="36px"></a>
+                <a href="https://www.facebook.com/?locale=ru_RU" target="_blank" class="d-flex align-self-end"><img src="./assets/images/svg/fb-icon.svg" alt="Facebook icon" width="36" height="36"></a>
             </address>
         </div>
     </footer>
@@ -823,8 +821,8 @@
                 <form class="d-flex flex-column">
                     <div class="mb-4 d-flex align-items-center gap-3">
                         <div class="d-flex flex-row w-100 gap-4">
-                            <div class="d-flex flex-row gap-2 align-items-center" style="width: 150px;">
-                                <img src="./assets/images/svg/icon_language.svg" alt="" style="width: 24px;">
+                            <div class="d-flex flex-row gap-2 align-items-center settings-select">
+                                <img src="./assets/images/svg/icon_language.svg" alt="" width="24">
                                 <label class="form-label mb-1 fw-semibold">Language</label>
                             </div>
                             <select class="form-select form-select-lg rounded shadow-sm">
@@ -837,8 +835,8 @@
                     </div>
                     <div class="mb-4 d-flex align-items-center gap-3">
                         <div class="d-flex flex-row w-100 gap-4">
-                            <div class="d-flex flex-row gap-2 align-items-center" style="width: 150px;">
-                                <img src="./assets/images/svg/icon_geo.svg" alt="" style="width: 24px;">
+                            <div class="d-flex flex-row gap-2 align-items-center settings-select">
+                                <img src="./assets/images/svg/icon_geo.svg" alt="" width="24">
                                 <label class="form-label mb-1 fw-semibold">Location</label>
                             </div>
                             <select class="form-select form-select-lg rounded shadow-sm">
@@ -851,8 +849,8 @@
                     </div>
                     <div class="mb-4 d-flex align-items-center gap-3">
                         <div class="d-flex flex-row w-100 gap-4">
-                            <div class="d-flex flex-row gap-2 align-items-center" style="width: 150px;">
-                                <img src="./assets/images/svg/icon_currency.svg" alt="" style="width: 24px;">
+                            <div class="d-flex flex-row gap-2 align-items-center settings-select">
+                                <img src="./assets/images/svg/icon_currency.svg" alt="" width="24">
                                 <label class="form-label mb-1 fw-semibold">Currency</label>
                             </div>
                             <select class="form-select form-select-lg rounded shadow-sm">
