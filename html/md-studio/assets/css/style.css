@@ -256,6 +256,13 @@ html, body {
   padding-bottom: var(--padding-section) !important;
 }
 
+@media (min-width: 1200px) {
+  .service-item {
+    padding-top: 110px !important;
+    padding-bottom: 110px !important;
+  }
+}
+
 .p-12 { padding: var(--padding-12); }
 .gap-12 { gap: var(--gap-12); }
 
@@ -918,7 +925,7 @@ nav[aria-label="Main menu"] {
   position: fixed;
   right: -58px;
   top: 50%;
-  transform: translateY(-50%) rotate(90deg); 
+  transform: translateY(-50%) rotate(-90deg); 
   background-color: #249fdd;
   color: white;
   padding: 10px 20px;
@@ -926,6 +933,7 @@ nav[aria-label="Main menu"] {
   z-index: 2000;
   border: none;
   white-space: nowrap;
+  border-radius: 8px 8px 0 0;
 }
 
 .side-ask-btn i {
