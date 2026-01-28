@@ -52,7 +52,7 @@ html, body {
 
 .description {
   font-size: 28px !important;
-  line-height: 30px !important;
+  line-height: 38px !important;
 }
 
 .menu-link {
@@ -279,7 +279,11 @@ html, body {
   background: url('../images/contacts-bg.png') center/cover no-repeat;
 }
 
-.header { padding: 24px 0 20px; }
+.header { 
+  padding: 14px 0 14px; 
+  position: relative;
+  z-index: 100;
+}
 
 .header-settings button {
   transition: all 0.3s ease;
@@ -492,10 +496,6 @@ html, body {
   max-width: 700px;
   position: absolute;
   left: 0px;
-}
-.header {
-  position: relative;
-  z-index: 100;
 }
 
 .dropdown-menu {
