@@ -23,23 +23,22 @@ const lightConfig = {
 
 const fullConfig = {
   particles: {
-    number: { value: 150, density: { enable: true, value_area: 800 } },
-    color: { value: "#666D6E" },
+    number: { value: 100 },
+    color: { value: "#ffffff" },
     shape: { type: "circle" },
-    opacity: { value: 0.3 },
-    size: { value: 2 },
+    opacity: { value: 0.5 },
+    size: { value: 3 },
     line_linked: {
       enable: true,
-      distance: 150,
-      color: "#666D6E",
-      opacity: 0.2
+      distance: 250,
+      color: "#ffffff",
+      opacity: 0.4
     },
-    move: { enable: true, speed: 2 }
+    move: { enable: true, speed: 4 }
   },
   interactivity: {
     events: {
-      onhover: { enable: true, mode: "grab" },
-      onclick: { enable: true, mode: "push" }
+      onhover: { enable: true, mode: "repulse" }
     }
   },
   retina_detect: true

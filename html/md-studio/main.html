@@ -32,7 +32,7 @@
 </head>
 
 <body>
-    <div class="bg-common position-relative">
+    <div class="bg-common vh-xl-100 d-flex flex-column position-relative">
         <header class="header container">
             <nav class="d-flex justify-content-between align-items-center p-0">
                 <a href="#">
@@ -258,54 +258,33 @@
                 </div>
             </nav>
         </header>
-        <section class="d-flex align-items-center">
-            <div class="particles-bottom-light"></div>
-            <div id="heroCarousel" class="carousel slide w-100" data-bs-ride="carousel">
-                <div class="carousel-inner vh-xxl-100">
-                    <div class="carousel-item active h-100">
-                        <div class="container h-100 d-flex flex-column flex-lg-row align-items-center justify-content-center">
-                            <div class="text-white z-2 text-center text-lg-start mb-4 mb-lg-0 me-lg-5" style="max-width: 560px;">
-                                <h1 class="title pb-2 fw-bold display-4">High-quality <br> Web Development</h1>
-                                <h3 class="text-white-50 fs-4 mb-4 pt-1 description mx-auto mx-lg-0 w-75">
-                                    Website, CRM, and ERP system development. Responsive, functional, aesthetically pleasing, and effective.
-                                </h3>
-                                <button class="btn btn-primary btn-lg px-5 rounded shadow">More info</button>
-                            </div>
-                            <div class="position-relative d-flex align-items-center justify-content-center">
-                                <img src="./assets/images/gear.png" alt="" class="gear-rotate banner-gear position-absolute img-fluid" aria-hidden="true"> 
-                                <img src="assets/images/laptop.png" alt="Laptop showcasing web development" class="hero-image img-fluid">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item h-100">
-                        <div class="container h-100 d-flex flex-column flex-lg-row align-items-center justify-content-center">
-                            <div class="text-white z-2 text-center text-lg-start mb-4 mb-lg-0 me-lg-5">
-                                <h1 class="title pb-2 fw-bold display-4">Mobile App Development</h1>
-                                <h3 class="text-white-50 fs-4 mb-4 pt-1 description mx-auto mx-lg-0 w-75 lh-lg">
-                                    Creating mobile apps for iOS and Android
-                                </h3>
-                                <button class="btn btn-primary btn-lg px-5 rounded shadow">More info</button>
-                            </div>
-                            <div class="position-relative d-flex align-items-center justify-content-center">
-                                <img src="./assets/images/gear.png" alt="" class="gear-rotate banner-gear position-absolute" aria-hidden="true"> 
-                                <img src="assets/images/laptop.png" alt="Laptop showcasing web development" class="hero-image img-fluid">
-                            </div>
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev d-none d-md-flex" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-                        <img src="./assets/images/svg/icon_arrow-left.svg" alt="prev]">
-                    </button>
-                    <button class="carousel-control-next d-none d-md-flex" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-                        <img src="./assets/images/svg/icon_arrow-right.svg" alt="next">
-                    </button>
+        <div class="flex-grow-1 d-flex align-items-center py-90 py-xxl-0">
+            <div class="container h-100 d-flex flex-column flex-lg-row align-items-center justify-content-center gap-5 gap-lg-0">
+                <div class="text-white z-2 text-center text-lg-start">
+                    <h1 class="title pb-2 fw-bold display-4">High-quality <br> Web Development</h1>
+                    <h3 class="text-white-50 fs-4 mb-4 pt-1 description mx-auto mx-lg-0 w-75 lh-lg">
+                        Website, CRM, and ERP system development. Responsive, functional, aesthetically pleasing, and effective.
+                    </h3>
+                    <button class="btn btn-primary btn-lg px-5 rounded shadow">More info</button>
                 </div>
-                <div class="carousel-indicators indicators mb-5">
-                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active bar" aria-current="true"></button>
-                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" class="bar"></button>
-                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" class="bar"></button>
+                <div class="position-relative d-flex align-items-center justify-content-center">
+                    <img src="./assets/images/gear.png" alt="" class="gear-rotate banner-gear position-absolute img-fluid" aria-hidden="true"> 
+                    <img src="assets/images/laptop.png" alt="Laptop showcasing web development" class="hero-image w-75 w-lg-100">
                 </div>
             </div>
-        </section>
+        </div>    
+        <div class="carousel-indicators indicators mb-5">
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active bar" aria-current="true"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" class="bar"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" class="bar"></button>
+        </div>
+        <div class="particles-bottom-light"></div>
+        <button class="carousel-control-prev d-none d-xxl-flex" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <img src="./assets/images/svg/icon_arrow-left.svg" alt="prev]">
+        </button>
+        <button class="carousel-control-next d-none d-xxl-flex" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <img src="./assets/images/svg/icon_arrow-right.svg" alt="next">
+        </button>
     </div>
     <main>
         <section class="vh-xl-100 d-flex flex-column justify-content-center bg-light-gray-opacity py-5 py-xxl-0" id="features">
