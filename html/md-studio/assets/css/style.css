@@ -134,6 +134,18 @@ html, body {
 
 .btn-primary { background-color: var(--color-primary); }
 
+.cancel-btn {
+  border: 1px solid #249fdd;
+  background-color: transparent;
+  color: #249fdd;
+  border-radius: 4px;
+}
+
+.cancel-btn:hover{
+  background-color: #249fdd;
+  color: white;
+}
+
 .white-input {
   background-color: var(--color-white);
   border-radius: var(--radius-sm);
