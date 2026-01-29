@@ -314,3 +314,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   sections.forEach((s) => observer.observe(s));
 });
+
+document.getElementById('forgotPasswordForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    this.classList.add('d-none');
+
+    document.getElementById('resetSuccess').classList.remove('d-none');
+    });
+
+    document.getElementById('forgotPasswordModal').addEventListener('hidden.bs.modal', function () {
+    document.getElementById('forgotPasswordForm').classList.remove('d-none');
+    document.getElementById('resetSuccess').classList.add('d-none');
+    document.getElementById('forgotPasswordForm').reset();
+});

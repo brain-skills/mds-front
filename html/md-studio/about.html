@@ -118,7 +118,7 @@
                                                                     <button type="submit" class="btn btn-primary w-50">
                                                                         Login
                                                                     </button>
-                                                                    <a href="#" class="text-primary-blue text-decoration-none small text-nowrap">
+                                                                    <a href="#" class="text-primary-blue text-decoration-none small text-nowrap" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal" data-close-dropdown-on-open>
                                                                         Forgot password?
                                                                     </a>
                                                                 </div>
@@ -287,7 +287,7 @@
             </div>
             <div class="particles-bottom-light"></div>
         </section>
-        <section class="d-flex flex-column justify-content-center align-items-center min-vh-100 position-relative">
+        <section class="d-flex flex-column justify-content-center align-items-center position-relative py-90">
             <div class="mb-2 mb-lg-5">
                 <h2 class="title text-center text-dark-custom">About Mega Digital Studio</h2>
                 <p class="text-dark fs-3 text-center pt-2 fw-medium text-gray-custom">Here you need to add SEO text for the site to be indexed</p>
@@ -745,5 +745,41 @@
                 <a href="contacts.html" class="d-block p-3 text-white text-decoration-none"> Contacts </a>
             </li>
         </ul>
+    </div>
+</div>
+
+<div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg rounded p-2">
+
+            <div class="modal-header border-0 p-3 pb-0">
+                <h5 class="fs-4 text-dark-custom fw-normal" id="forgotPasswordModalLabel">Reset password</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body p-3">
+                <form id="forgotPasswordForm">
+                    <p class="text-muted small mb-3">
+                        Enter the email you used during registration. We will send you a link and instructions for resetting your password.
+                    </p>
+
+                    <input type="email" class="form-control form-control-lg rounded mb-3" placeholder="Enter your email" required >
+
+                    <button type="submit" class="btn btn-primary btn-lg w-100 rounded">
+                        Send reset link
+                    </button>
+                </form>
+
+                <div id="resetSuccess" class="text-center d-none">
+                    <h5 class="fw-bold">Check your email</h5>
+                    <p class="text-muted small mb-3">
+                        A password recovery link has been sent to the specified email address.
+                    </p>
+                    <button class="btn btn-primary btn-lg w-100 rounded" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

@@ -116,7 +116,7 @@
                                                         <button type="submit" class="btn btn-primary w-50">
                                                             Login
                                                         </button>
-                                                        <a href="#" class="text-primary-blue text-decoration-none small text-nowrap">
+                                                        <a href="#" class="text-primary-blue text-decoration-none small text-nowrap" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal" data-close-dropdown-on-open>
                                                             Forgot password?
                                                         </a>
                                                     </div>
@@ -414,14 +414,14 @@
             <div class="container px-0">
                 <h2 class="mb-3 title text-center text-white">Portfolio</h2>
                 <p class="mb-5 fs-3 text-center text-white">Look at our cases</p>
-                <button class="bg-blurred slider-arrow slider-prev d-none d-lg-flex">
+                <button class="bg-blurred slider-arrow slider-prev d-none d-xxl-flex">
                     <img src="./assets/images/svg/icon_arrow-left.svg" alt="Previous">
                 </button>
-                <button class="bg-blurred slider-arrow slider-next d-none d-lg-flex">
-                    <img src="./assets/images/svg/icon_arrow-right.svg" alt="Previous">
+                <button class="bg-blurred slider-arrow slider-next d-none d-xxl-flex">
+                    <img src="./assets/images/svg/icon_arrow-right.svg" alt="Next">
                 </button>
                 <div class="global-slider">
-                    <article class="slider-item portfolio-item text-start">
+                    <article class="slider-item text-start">
                         <img src="./assets/images/portfolio/portfolio1.png" class="img-fluid w-100" alt="portfolio img" loading="lazy">
                         <div class="pt-4">
                             <h3 class="description text-white">Project Title</h3>
@@ -434,7 +434,7 @@
                             </a>
                         </div>
                     </article>
-                    <article class="slider-item portfolio-item text-start">
+                    <article class="slider-item text-start">
                         <img src="./assets/images/portfolio/portfolio1.png" class="img-fluid w-100" alt="portfolio img" loading="lazy">
                         <div class="pt-4">
                             <h3 class="description text-white">Project Title</h3>
@@ -447,7 +447,7 @@
                             </a>
                         </div>
                     </article>
-                    <article class="slider-item portfolio-item text-start">
+                    <article class="slider-item text-start">
                         <img src="./assets/images/portfolio/portfolio1.png" class="img-fluid w-100" alt="portfolio img" loading="lazy">
                         <div class="pt-4">
                             <h3 class="description text-white">Project Title</h3>
@@ -460,7 +460,7 @@
                             </a>
                         </div>
                     </article>
-                    <article class="slider-item portfolio-item text-start">
+                    <article class="slider-item text-start">
                         <img src="./assets/images/portfolio/portfolio1.png" class="img-fluid w-100" alt="portfolio img" loading="lazy">
                         <div class="pt-4">
                             <h3 class="description text-white">Project Title</h3>
@@ -473,7 +473,7 @@
                             </a>
                         </div>
                     </article>
-                    <article class="slider-item portfolio-item text-start">
+                    <article class="slider-item text-start">
                         <img src="./assets/images/portfolio/portfolio1.png" class="img-fluid w-100" alt="portfolio img" loading="lazy">
                         <div class="pt-4">
                             <h3 class="description text-white">Project Title</h3>
@@ -486,7 +486,7 @@
                             </a>
                         </div>
                     </article>
-                    <article class="slider-item portfolio-item text-start">
+                    <article class="slider-item text-start">
                         <img src="./assets/images/portfolio/portfolio1.png" class="img-fluid w-100" alt="portfolio img" loading="lazy">
                         <div class="pt-4">
                             <h3 class="description text-white">Project Title</h3>
@@ -519,19 +519,19 @@
                         <p class="fs-5 text-dark fw-light text-dark-custom">Suspendisse iaculis a arcu id faucibus. Proin orci libero, vehicula id ligula nec, scelerisque tempus dui. Etiam tempus scelerisque quam, eu accumsan tortor eleifend sed. Vivamus vitae justo sed erat accumsan vestibulum sed sit amet quam. Phasellus elementum lectus massa, vehicula egestas lorem malesuada ac. Donec et iaculis justo. Donec ac eros in urna volutpat varius. Proin ultricies maximus nulla in mattis.</p>
                     </div>
                     <div class="d-flex flex-column flex-md-row gap-4">
-                        <div class="rounded d-flex flex-column justify-content-between">
+                        <div class="rounded d-flex flex-row flex-sm-column justify-content-between">
                             <h4 class="fs-32 fw-normal badge text-bg-secondary">125</h4>
                             <p class="fs-5 fw-bold mb-0">successfull</p>
                         </div>
-                        <div class="rounded d-flex flex-column justify-content-between">
+                        <div class="rounded d-flex flex-row flex-sm-column justify-content-between">
                             <h4 class="fs-32 fw-normal badge text-bg-secondary">98</h4>
                             <p class="fs-5 fw-bold mb-0">happy clients</p>
                         </div>
-                        <div class="rounded d-flex flex-column justify-content-between">
+                        <div class="rounded d-flex flex-row flex-sm-column justify-content-between">
                             <h4 class="fs-32 fw-normal badge text-bg-secondary">20</h4>
                             <p class="fs-5 fw-bold mb-0">years in development</p>
                         </div>
-                        <div class="rounded d-flex flex-column justify-content-between">
+                        <div class="rounded d-flex flex-row flex-sm-column justify-content-between">
                             <h4 class="fs-32 fw-normal badge text-bg-secondary">125</h4>
                             <p class="fs-5 fw-bold mb-0">successfull</p>
                         </div>
@@ -731,10 +731,46 @@
                 </div>
                 <p class="fw-semibold text-blue-custom fs-5">megadigitalstudio@domain.com</p>
                 <p class="fw-light fs-5 text-decoration-none text-dark-custom">Address: 012345 City, State Street title 12/3</p>
-                <a href="https://www.facebook.com/?locale=ru_RU" target="_blank" class="d-flex align-self-end"><img src="./assets/images/svg/fb-icon.svg" alt="Facebook icon" width="36" height="36"></a>
+                <a href="https://www.facebook.com/?locale=ru_RU" target="_blank" class="d-flex align-self-center align-self-md-end"><img src="./assets/images/svg/fb-icon.svg" alt="Facebook icon" width="36" height="36"></a>
             </address>
         </div>
     </footer>
+
+    <div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded p-2">
+
+                <div class="modal-header border-0 p-3 pb-0">
+                    <h5 class="fs-4 text-dark-custom fw-normal" id="forgotPasswordModalLabel">Reset password</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body p-3">
+                    <form id="forgotPasswordForm">
+                        <p class="text-muted small mb-3">
+                            Enter the email you used during registration. We will send you a link and instructions for resetting your password.
+                        </p>
+
+                        <input type="email" class="form-control form-control-lg rounded mb-3" placeholder="Enter your email" required >
+
+                        <button type="submit" class="btn btn-primary btn-lg w-100 rounded">
+                            Send reset link
+                        </button>
+                    </form>
+
+                    <div id="resetSuccess" class="text-center d-none">
+                        <h5 class="fw-bold">Check your email</h5>
+                        <p class="text-muted small mb-3">
+                            A password recovery link has been sent to the specified email address.
+                        </p>
+                        <button class="btn btn-primary btn-lg w-100 rounded" data-bs-dismiss="modal">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- SCRIPTS  -->
     <script src="./assets/js/jquery-3.7.1.min.js"></script>
