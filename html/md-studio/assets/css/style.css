@@ -132,6 +132,10 @@ html, body {
   justify-content: center;
 }
 
+.slider-icon {
+  width: 24px;
+}
+
 .btn-primary { background-color: var(--color-primary); }
 
 .cancel-btn {
@@ -210,8 +214,8 @@ html, body {
   all: unset !important;
   box-sizing: border-box !important;
   cursor: pointer !important;
-  width: 100px !important;       
-  height: 6px !important;       
+  width: 80px !important;       
+  height: 10px !important;       
   background-color: rgba(255, 255, 255, 0.3) !important; 
   border-radius: 2px !important;
   transition: background-color 0.3s !important;
@@ -1203,7 +1207,7 @@ nav[aria-label="Main menu"] {
 
 .slider-item {
   flex: 0 0 auto;
-  width: 25%;
+  width: 24%;
   min-height: 200px;
 }
 
