@@ -135,16 +135,61 @@ document.querySelectorAll('.container').forEach(container => {
   const next = container.querySelector('.slider-next');
   const prev = container.querySelector('.slider-prev');
 
-  if (!slider) return;
+  if (!slider || !slider.firstElementChild) return;
 
-  const scrollAmount = slider.offsetWidth * 0.8;
+  // 1. Clone the first 4 items (since 4 fit in the view at 25%)
+  // This allows the slider to "overshoot" into the clones before snapping back
+  const itemsToClone = 4;
+  for (let i = 0; i < itemsToClone; i++) {
+    const clone = slider.children[i].cloneNode(true);
+    slider.appendChild(clone);
+  }
+
+  const getStepWidth = () => {
+    const item = slider.firstElementChild;
+    // We use getBoundingClientRect for sub-pixel precision to avoid gaps
+    return item.getBoundingClientRect().width;
+  };
 
   next?.addEventListener('click', () => {
-    slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    const step = getStepWidth();
+    // Calculate the point where the real items end and clones begin
+    const realItemsWidth = step * (slider.children.length - itemsToClone);
+
+    // If we are about to scroll past the last real item
+    if (slider.scrollLeft >= realItemsWidth - 5) {
+      // Snap to start instantly
+      slider.style.scrollBehavior = 'auto';
+      slider.scrollLeft = 0;
+
+      // Scroll to the first "next" item smoothly
+      setTimeout(() => {
+        slider.style.scrollBehavior = 'smooth';
+        slider.scrollBy({ left: step, behavior: 'smooth' });
+      }, 20);
+    } else {
+      slider.style.scrollBehavior = 'smooth';
+      slider.scrollBy({ left: step, behavior: 'smooth' });
+    }
   });
 
   prev?.addEventListener('click', () => {
-    slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    const step = getStepWidth();
+    const realItemsWidth = step * (slider.children.length - itemsToClone);
+
+    if (slider.scrollLeft <= 5) {
+      // Snap to the end of the real items instantly
+      slider.style.scrollBehavior = 'auto';
+      slider.scrollLeft = realItemsWidth;
+
+      setTimeout(() => {
+        slider.style.scrollBehavior = 'smooth';
+        slider.scrollBy({ left: -step, behavior: 'smooth' });
+      }, 20);
+    } else {
+      slider.style.scrollBehavior = 'smooth';
+      slider.scrollBy({ left: -step, behavior: 'smooth' });
+    }
   });
 });
 
@@ -327,4 +372,49 @@ document.getElementById('forgotPasswordForm').addEventListener('submit', functio
     document.getElementById('forgotPasswordForm').classList.remove('d-none');
     document.getElementById('resetSuccess').classList.add('d-none');
     document.getElementById('forgotPasswordForm').reset();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const filterLinks = document.querySelectorAll('[data-filter]');
+    const items = document.querySelectorAll('.filter-item');
+    const emptyMsg = document.getElementById('filter-empty');
+
+    // DEBUG: Check if elements are found
+    if (filterLinks.length === 0) console.error("Filter links not found! Check [data-filter]");
+    if (items.length === 0) console.error("Items not found! Check .filter-item");
+
+    filterLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            // 1. UI Switch
+            filterLinks.forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+
+            // 2. Normalize values (lowercase) to avoid matching errors
+            const filterValue = this.getAttribute('data-filter').toLowerCase().trim();
+            let visibleCount = 0;
+
+            items.forEach(item => {
+                const itemCategory = item.getAttribute('data-category').toLowerCase().trim();
+
+                if (filterValue === 'all' || itemCategory === filterValue) {
+                    item.classList.remove('is-hidden');
+                    // Force display for immediate feedback
+                    item.style.display = 'block'; 
+                    visibleCount++;
+                } else {
+                    item.classList.add('is-hidden');
+                    item.style.display = 'none';
+                }
+            });
+
+            // 3. Toggle Empty State
+            if (visibleCount === 0) {
+                emptyMsg?.classList.remove('d-none');
+            } else {
+                emptyMsg?.classList.add('d-none');
+            }
+        });
+    });
 });

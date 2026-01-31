@@ -449,6 +449,50 @@ html, body {
   display: block;
 }
 
+/* --- GLOBAL SIDEBAR COMPONENT --- */
+.sidebar-nav {
+    background: #ffffff;
+    padding: 10px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-nav .nav-item {
+    color: #333333 !important;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 16px 0;
+    border-bottom: 1px solid #f0f0f0;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    display: block;
+}
+
+/* Remove border from the last item */
+.sidebar-nav .nav-item:last-child {
+    border-bottom: none;
+}
+
+/* Global Hover & Active State */
+.sidebar-nav .nav-item:hover,
+.sidebar-nav .nav-item.active {
+    color: #00AEEF !important; /* Your signature blue */
+    background-color: transparent;
+    padding-left: 5px; /* Subtle movement effect */
+}
+
+/* --- GLOBAL FILTER LOGIC --- */
+.filter-item {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.filter-item.is-hidden {
+    display: none !important;
+    opacity: 0;
+}
+
 .tab-link {
   background: transparent !important;
   border: none !important;
@@ -1108,7 +1152,11 @@ nav[aria-label="Main menu"] {
   scroll-snap-align:start;
 }
 
-.feature-box:hover {
+.feature-box img {
+  transition: transform 0.3s ease;
+}
+
+.feature-box:hover img {
   transform: translateY(-10px);
 }
 
@@ -1165,6 +1213,37 @@ nav[aria-label="Main menu"] {
   gap: 14px;
 }
 
+.team-card {
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  top: 0;
+}
+
+.team-card img {
+  transition: transform 0.5s ease;
+}
+
+.team-card:hover {
+    top: -10px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.team-card:hover img {
+    transform: scale(1.08);
+}
+
+.team-card.dark:hover {
+    background-color: #1a1a1a;
+}
+
+.team-card.light:hover {
+    background-color: #f8f9fa;
+    border: 1px solid #007bff;
+}
+
+
 .team-card img {
   width: 42px;
   height: 42px;
@@ -1200,15 +1279,81 @@ nav[aria-label="Main menu"] {
 
 .global-slider {
   display: flex;
-  gap: 1rem;
-  overflow-x: auto;
+  overflow-x: hidden;
   scroll-behavior: smooth;
+  width: 100%;
 }
 
 .slider-item {
-  flex: 0 0 auto;
-  width: 24%;
-  min-height: 200px;
+  flex: 0 0 25%;
+  width: 25%;
+  padding: 0 10px; 
+  box-sizing: border-box; 
+}
+
+.global-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* 1. Prevent the image from spilling outside the card when it grows */
+.slider-item.card {
+  overflow: hidden;
+}
+
+.slider-item .card-img-top {
+  transition: transform 0.5s ease; /* Adjust duration for speed */
+  display: block;
+}
+
+.slider-item:hover .card-img-top {
+  transform: scale(1.1);
+}
+
+/* 1. The container (card) must hide the zooming edges */
+.news-card {
+    overflow: hidden;
+    border-radius: 8px; /* Keeps your corners rounded during zoom */
+}
+
+/* 2. Setup the transition on the image itself */
+.news-card .card-img-top {
+    transition: transform 0.5s ease;
+    display: block; /* Removes bottom gap */
+    width: 100%;
+}
+
+/* 3. Scale the image when the card is hovered */
+.news-card:hover .card-img-top {
+    transform: scale(1.1);
+}
+
+.subscribe-widget {
+    background: linear-gradient(135deg, #001a4d 0%, #003399 100%);
+    border-radius: 4px;
+}
+
+.subscribe-widget .form-control {
+    background-color: #fff;
+    border: none;
+    border-radius: 4px;
+}
+
+.subscribe-widget .form-control::placeholder {
+    color: #adb5bd;
+    font-size: 0.9rem;
+}
+
+.subscribe-widget .btn-subscribe {
+    background-color: #26a9e0; /* The bright blue from your image */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.subscribe-widget .btn-subscribe:hover {
+    background-color: #1e87b4;
+    color: white;
 }
 
 .slider-arrow {
@@ -1481,11 +1626,12 @@ nav[aria-label="Main menu"] {
 
 }
 
-@media (max-width: 1440px) {
-  .slider-buttons {
+@media (max-width: 1550px) {
+  .slider-arrow, .carousel-control-prev, .carousel-control-next {
     display: none;
   }
 }
+
 
 @media (min-width: 1400px) {
   .vh-xl-100 {
@@ -1506,6 +1652,10 @@ nav[aria-label="Main menu"] {
     flex: 0 0 35% !important;
     max-width: 35% !important;
     width: 35% !important; 
+  }
+
+  .slider-item {
+    flex: 0 0 30%;
   }
 
 }
@@ -1636,7 +1786,7 @@ nav[aria-label="Main menu"] {
   }
 
   .slider-item {
-    width: 30%;
+    flex: 0 0 40% ;
   }
 
   .team-grid {
@@ -1698,7 +1848,7 @@ nav[aria-label="Main menu"] {
 
 @media(max-width: 768px) {
   .project-card {
-    max-width: 190px;
+    max-width: 420px;
   }
   .fs-28 { 
     font-size: 22px;
@@ -1717,10 +1867,6 @@ nav[aria-label="Main menu"] {
   .portfolio-item {
     flex: 0 0 100%;
     min-width: 40%;
-  }
-
-  .slider-item {
-    width: 40% ;
   }
 }
 
@@ -1781,8 +1927,8 @@ nav[aria-label="Main menu"] {
   }
 
   .py-90 {
-    padding-top: 24px !important;
-    padding-bottom: 24px !important;
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
   }
   .contact-phone {
     max-width: 270px;
@@ -1819,19 +1965,12 @@ nav[aria-label="Main menu"] {
     flex-direction: column;
   }
 
-  .slider-item {
-    width: 50% ;
-  }
-
   .portfolio-item {
     flex: 0 0 90%;
   }
-  .news-slide {
-    width: 220px;
-  }
-  
-  .news-slide .card-img-top {
-    height: 140px;
+
+  .slider-item {
+    flex: 0 0 60% !important;
   }
 
   .team-grid {
@@ -1856,9 +1995,5 @@ nav[aria-label="Main menu"] {
     font-size: 0.9rem;
     width: 28px;
     height: 28px;
-  }
-
-  .slider-item {
-    width: 70% ;
   }
 }
