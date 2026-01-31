@@ -28,118 +28,156 @@
     <main>
         <section class="bg-common vh-xxl-100 d-flex flex-column justify-content-between position-relative overflow-hidden">
             <div class="container">
-                <header class="header">
-                    <div class="container"> 
-                        <nav class="d-flex justify-content-between align-items-center p-0">
-                            <a href="main.html">
-                                <img src="./assets/images/logos/md-studio.svg" alt="MD Studio logo" class="header-logo">
-                            </a>
-                            <div class="d-flex align-items-center">
-                                <ul class="list-unstyled d-none d-lg-flex align-items-center mb-0 me-3 me-lg-5 header-divider header-settings">
-                                    <li class="ps-0 pe-2">
-                                        <button type="button" class="d-flex gap-2 border-0 bg-transparent text-light fs-7"
-                                                data-bs-toggle="modal" data-bs-target="#settingsModal">
-                                            <img src="./assets/images/svg/icon_geo-white.svg" width="20"> USA
-                                        </button>
-                                    </li>
+                <header class="header container">
+                    <nav class="d-flex justify-content-between align-items-center p-0">
+                        <a href="#">
+                            <img src="./assets/images/logos/md-studio.svg" alt="MD Studio logo" class="header-logo">
+                        </a>
+                        <div class="d-flex align-items-center">
+                            <ul class="list-unstyled d-flex align-items-center mb-0 me-3 me-lg-5 header-divider header-settings d-none d-lg-flex">
+                                <li class="ps-0 pe-2">
+                                    <button type="button" class="d-flex gap-2 border-0 bg-transparent text-light fs-7 ps-0 pe-1" data-bs-toggle="modal" data-bs-target="#settingsModal">
+                                        <img src="./assets/images/svg/icon_geo-white.svg" alt="geo icon" width="20"> USA
+                                    </button>
+                                </li>
+                                <li class="px-2">
+                                    <button type="button" class="border-0 bg-transparent text-light px-1 py-0" data-bs-toggle="modal" data-bs-target="#settingsModal">
+                                        <img src="./assets/images/flag.png" alt="">
+                                    </button>
+                                </li>
+                                <li class="ps-2 pe-0">
+                                    <button type="button" class="d-flex gap-2 border-0 bg-transparent text-light fs-7 ps-1 pe-0" data-bs-toggle="modal" data-bs-target="#settingsModal">
+                                        <img src="./assets/images/svg/icon_currency-white.svg" alt="currency icon" width="20"> USD
+                                    </button>
+                                </li>
+                            </ul>
+                            <ul class="list-unstyled d-flex align-items-center mb-0 d-lg-flex">
+                                <li>
+                                    <button type="button" class="btn btn-primary d-flex gap-2 me-2 me-lg-4 align-items-center">
+                                        <img src="./assets/images/svg/icon_call.svg" alt="call icon" class="phone-icon">
+                                        <p class="mb-0 call-me-back">Call me back</p>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button onclick="window.location.href='cart.html'" type="button" class="px-3 px-md-4 py-2 btn btn-primary bg-blurred cart-btn d-flex align-items-center gap-2 gap-md-3 me-2 me-lg-4 cart-btn" >
+                                        <img src="./assets/images/svg/icon_cart.svg" alt="cart icon" class="cart-icon">
+                                        <div class="d-flex flex-column text-start">
+                                            <p class="mb-0 cart-label d-none d-md-flex">Cart</p>
+                                            <p class="mb-0 cart-info">
+                                                <span class="fw-light">2</span> <span class="products-word fw-light"> products</span> /
+                                                <span class="cart-price">$2750</span>
+                                            </p>
+                                        </div>
+                                    </button>
+                                </li>
+                                <li class="dropdown position-static">
+                                    <a href="#" class="p-0 bg-transparent border-0" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                                        <img src="./assets/images/svg/avatar.svg" class="rounded avatar">
+                                    </a>
 
-                                    <li class="px-2">
-                                        <button type="button" class="border-0 bg-transparent text-light"
-                                                data-bs-toggle="modal" data-bs-target="#settingsModal">
-                                            <img src="./assets/images/flag.png">
-                                        </button>
-                                    </li>
-
-                                    <li class="ps-2 pe-0">
-                                        <button type="button" class="d-flex gap-2 border-0 bg-transparent text-light fs-7"
-                                                data-bs-toggle="modal" data-bs-target="#settingsModal">
-                                            <img src="./assets/images/svg/icon_currency-white.svg" width="20"> USD
-                                        </button>
-                                    </li>
-                                </ul>
-
-                                <ul class="list-unstyled d-flex align-items-center mb-0">
-
-                                    <li>
-                                        <button class="btn btn-primary d-flex gap-2 me-2 me-lg-4 align-items-center">
-                                            <img src="./assets/images/svg/icon_call.svg" class="phone-icon">
-                                            <p class="mb-0 call-me-back">Call me back</p>
-                                        </button>
-                                    </li>
-
-                                    <li>
-                                        <button onclick="window.location.href='cart.html'"
-                                                class="px-3 px-md-4 py-2 btn btn-primary bg-blurred d-flex align-items-center gap-3 me-2 me-lg-4">
-                                            <img src="./assets/images/svg/icon_cart.svg" class="cart-icon">
-                                            <div class="d-flex flex-column text-start">
-                                                <p class="mb-0 d-none d-md-flex">Cart</p>
-                                                <p class="mb-0">
-                                                    <span>2</span> products / <span>$2750</span>
-                                                </p>
-                                            </div>
-                                        </button>
-                                    </li>
-
-                                    <li class="dropdown position-static">
-                                        <a href="#" class="p-0 bg-transparent border-0" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside">
-                                            <img src="./assets/images/svg/avatar.svg" class="rounded avatar">
-                                        </a>
-
-                                        <div class="dropdown-menu dropdown-menu-end p-0 border-0 shadow-lg account-dd roudned">
-                                            <div class="account-card bg-white">
-                                                <div class="p-4">
-                                                    <div class="fw-bold fs-4 mb-2">Admin</div>
-                                                    <div class="small text-dark-custom mb-2 fw-semibold">+7 (123) 456-78-90</div>
-                                                    <div class="small fw-semibold mb-3">username@domain.com</div>
-                                                    <div class="d-flex flex-row gap-2 mb-3">
-                                                        <img src="./assets/images/svg/icon_person.svg" alt="">
-                                                        <p class="mb-0">Profile</p>
-                                                    </div>
-                                                    <div class="d-flex flex-row gap-2 mb-3">
-                                                        <img src="./assets/images/svg/icon_wallet.svg" alt="">
-                                                        <p class="mb-0">Wallet</p>
-                                                    </div>
-                                                    <div class="d-flex flex-row gap-2 mb-3">
-                                                        <img src="./assets/images/svg/icon_orders.svg" alt="">
-                                                        <p class="mb-0">My Orders</p>
-                                                    </div>
-                                                    <div class="d-flex flex-row gap-2">
-                                                        <img src="./assets/images/svg/icon_logout.svg" alt="">
-                                                        <p class="mb-0">Logout</p>
-                                                    </div>
+                                    <div class="dropdown-menu dropdown-menu-end p-0 border-0 shadow-lg account-dd roudned">
+                                        <div class="account-card bg-white">
+                                            <div class="p-4">
+                                                <div class="fw-bold fs-4 mb-2">Admin</div>
+                                                <div class="small text-dark-custom mb-2 fw-semibold">+7 (123) 456-78-90</div>
+                                                <div class="small fw-semibold mb-3">username@domain.com</div>
+                                                <div class="d-flex flex-row gap-2 mb-3">
+                                                    <img src="./assets/images/svg/icon_person.svg" alt="">
+                                                    <p class="mb-0">Profile</p>
+                                                </div>
+                                                <div class="d-flex flex-row gap-2 mb-3">
+                                                    <img src="./assets/images/svg/icon_wallet.svg" alt="">
+                                                    <p class="mb-0">Wallet</p>
+                                                </div>
+                                                <div class="d-flex flex-row gap-2 mb-3">
+                                                    <img src="./assets/images/svg/icon_orders.svg" alt="">
+                                                    <p class="mb-0">My Orders</p>
+                                                </div>
+                                                <div class="d-flex flex-row gap-2">
+                                                    <img src="./assets/images/svg/icon_logout.svg" alt="">
+                                                    <p class="mb-0">Logout</p>
                                                 </div>
                                             </div>
                                         </div>
-                                    </li>
-
-                                </ul>
-                            </div>
-                        </nav>
-
-                        <nav class="bg-blurred p-2 p-lg-3 d-flex justify-content-between align-items-center mt-3 rounded position-relative">
-                            <ul class="menu list-unstyled d-none d-md-flex align-items-center gap-4 gap-xl-5 mb-0 w-100">
-                                <li><a href="main.html" class="text-light">Home</a></li>
-                                <li class="position-relative">
-                                    <a href="services.html" class="text-light d-flex align-items-center">
-                                        Services <img src="./assets/images/svg/chevron.svg" class="ms-2">
-                                    </a>
-                                </li>
-                                <li><a href="portfolio.html" class="text-light">Portfolio</a></li>
-                                <li><a href="about.html" class="text-light">About us</a></li>
-                                <li><a href="news.html" class="text-light">News</a></li>
-                                <li><a href="price.html" class="text-light">Price</a></li>
-                                <li><a href="career.html" class="text-light">Career</a></li>
-                                <li><a href="faq.html" class="text-light">FAQ</a></li>
-                                <li><a href="contacts.html" class="text-light">Contacts</a></li>
-
-                                <li class="ms-auto">
-                                    <a href="#" id="open-search-desktop">
-                                        <img src="./assets/images/svg/icon_search.svg" width="24">
-                                    </a>
+                                    </div>
                                 </li>
                             </ul>
-                        </nav>
-                    </div>
+                        </div>
+                    </nav>
+                    <nav aria-label="Main menu" class="bg-blurred p-2 p-lg-3 d-flex justify-content-between align-items-center mt-3 rounded position-relative">
+                        <ul class="menu list-unstyled d-none d-md-flex align-items-center justify-content-between gap-4 gap-xl-5 mb-0 w-100">
+                            <li class="menu-item"><a href="main.html" class="menu-link text-light text-decoration-none">Home</a></li>
+                            <li class="menu-item position-relative">
+                                <a href="services.html" class="menu-link text-decoration-none d-flex align-items-center">
+                                    Services
+                                    <img src="./assets/images/svg/chevron.svg" alt="dropdown icon" class="menu-icon ms-2">
+                                </a>
+                                <ul class="dropdown-menu rounded shadow-lg border-0 p-3">
+                                    <li><a class="dropdown-item text-dark-custom" href="service.html">Web Development</a></li>
+                                    <li><a class="dropdown-item text-dark-custom" href="service.html">Software Development</a></li>
+                                    <li><a class="dropdown-item text-dark-custom" href="service.html">Development</a></li>
+                                    <li><a class="dropdown-item text-dark-custom" href="service.html">UI/UX</a></li>
+                                    <li><a class="dropdown-item text-dark-custom" href="service.html">SEO</a></li>
+                                    <li><a class="dropdown-item text-dark-custom" href="service.html">SMM</a></li>
+                                    <li><a class="dropdown-item text-dark-custom" href="service.html">Target</a></li>
+                                    <li><a class="dropdown-item text-dark-custom" href="service.html">Data</a></li>
+                                    <li><a class="dropdown-item text-dark-custom" href="service.html">Graphic Design</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item"><a href="portfolio.html" class="menu-link text-light text-decoration-none">Portfolio</a></li>
+                            <li class="menu-item"><a href="about.html" class="menu-link text-light text-decoration-none">About us</a></li>
+                            <li class="menu-item"><a href="news.html" class="menu-link text-light text-decoration-none">News</a></li>
+                            <li class="menu-item"><a href="price.html" class="menu-link text-light text-decoration-none">Price</a></li>
+                            <li class="menu-item"><a href="career.html" class="menu-link text-light text-decoration-none">Career</a></li>
+                            <li class="menu-item"><a href="faq.html" class="menu-link text-light text-decoration-none">FAQ</a></li>
+                            <li class="menu-item"><a href="contacts.html" class="menu-link text-light text-decoration-none">Contacts</a></li>
+                            <li class="d-flex align-items-center ms-auto">
+                                <a href="#" id="open-search-desktop"  class="border-0 bg-transparent text-light p-0" aria-label="Search">
+                                    <img src="./assets/images/svg/icon_search.svg" alt="search icon" width="24" height="24">
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="list-unstyled d-flex d-lg-none align-items-center mb-0 header-settings menu-mobile justify-content-between w-100">
+                            <li class="d-flex align-items-center">
+                                <button type="button" class="border-0 bg-transparent text-light p-0" aria-label="Open menu" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMobileMenu">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm.5-3.5a.5.5 0 0 0 0 1h10a.5.5 0 0 0 0-1H3z"/>
+                                    </svg>
+                                </button>
+                            </li>
+                            <li class="d-flex align-items-center text-light fs-8">
+                                <button type="button" class="d-flex align-items-center gap-2 border-0 bg-transparent text-light" data-bs-toggle="modal" data-bs-target="#settingsModal">
+                                    <img src="./assets/images/svg/icon_geo-white.svg" alt="geo icon">
+                                    <span>USA</span>
+                                </button>
+                                <span class="divider-vertical mx-2 opacity-50">|</span>
+                                <button type="button" class="border-0 bg-transparent text-light px-0" data-bs-toggle="modal" data-bs-target="#settingsModal">
+                                    <img src="./assets/images/flag.png" alt="Flag" class="">
+                                </button>
+                                <span class="divider-vertical mx-2 opacity-50">|</span>
+                                <button type="button" class="d-flex align-items-center gap-2 border-0 bg-transparent text-light" data-bs-toggle="modal" data-bs-target="#settingsModal">
+                                    <img src="./assets/images/svg/icon_currency-white.svg" alt="currency icon" width="16" height="16">
+                                    <span class="">USD</span>
+                                </button>
+                            </li>
+                            <li class="d-flex align-items-center">
+                                <a href="#" id="open-search-mobile"  class="border-0 bg-transparent text-light p-0" aria-label="Search">
+                                    <img src="./assets/images/svg/icon_search.svg" alt="search icon" width="24" height="24">
+                                </a>
+                            </li>
+                        </ul>
+                        <div id="header-search" class="header-search rounded d-none p-0 p-lg-3">
+                            <form class="search-form rounded align-items-center bg-blurred">
+                                <input type="text" class="form-control form-control-lg header-search-input" placeholder="Search..." autofocus>
+                                <div class="d-flex flex-row align-items-center gap-2 rounded bg-blue-custom">
+                                    <button type="submit" class="btn btn-primary d-flex align-items-center justify-content-center">
+                                        <img src="./assets/images/svg/icon_search.svg" alt="Search" width="20" height="20">
+                                    </button>                                
+                                    <button type="button" id="close-search" class="btn-close" aria-label="Close"></button>
+                                </div>
+                            </form>
+                        </div>
+                    </nav>
                 </header>
             </div>
 
@@ -148,7 +186,7 @@
                 <div class="d-flex flex-column flex-lg-row gap-4 align-items-center justify-content-center mb-4 mg-lg-0">
                     <div class="col-lg-6 text-white text-center text-lg-start mt-0">
                         <h1 class="title display-4 fw-bold mb-4">Our Services</h1>
-                        <p class="fs-4 text-white-50 mb-5 lead">
+                        <p class="bg-blurred rounded p-3  fs-4 text-white-50 mb-5 lead">
                             We offer a wide range of web services at various price points. We can customize a ready-made solution or develop a custom website. We also offer promotion and advertising services in search engines, marketplaces, and social media.
                         </p>
                         <div class="text-center text-lg-start">
