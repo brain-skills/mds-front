@@ -137,6 +137,12 @@ html, body {
 }
 
 .btn-primary { background-color: var(--color-primary); }
+.btn-success {
+  background-color: #119947;
+}
+.btn-danger {
+  background-color: #DA2650;
+}
 
 .cancel-btn {
   border: 1px solid #249fdd;
@@ -1498,10 +1504,13 @@ nav[aria-label="Main menu"] {
   width: 80px;
   height: auto;
   flex: 0 0 auto;
+  position: absolute;
+  top: -29px;
+  left: -10px;
+  width: 140px;
 }
 
 .pricing-badge {
-  background-color: #0E71A2;
   color: #fff;
   font-weight: 600;
   padding: 8px 12px;

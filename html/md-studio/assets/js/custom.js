@@ -52,23 +52,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    const desktopLinks = document.querySelectorAll('#desktop-filters a');
-
-    desktopLinks.forEach(link => {
-        link.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            desktopLinks.forEach(l => l.classList.remove('active-service', 'active'));
-
-            this.classList.add('active-service');
-
-            const filterValue = this.getAttribute('data-filter');
-            console.log('Selected filter:', filterValue);
-        });
-    });
-});
-
 function handleFiles(files) {
     Array.from(files).forEach(file => {
         if (file.type.startsWith('image/')) {
@@ -193,42 +176,6 @@ document.querySelectorAll('.container').forEach(container => {
   });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    const links = document.querySelectorAll("#desktop-filters .service-link");
-    const mobileSelect = document.getElementById("mobile-filter");
-    const cards = document.querySelectorAll("#projects-wrapper .project-card");
-
-    function filterProjects(category) {
-        cards.forEach(card => {
-            const categories = (card.dataset.category || "").split(" ").filter(Boolean);
-            card.classList.toggle("show", categories.includes(category));
-        });
-
-        links.forEach(link => {
-            link.classList.toggle("active-service", link.dataset.filter === category);
-        });
-
-        if (mobileSelect) mobileSelect.value = category;
-
-        history.replaceState(null, "", `#${category}`);
-    }
-
-    links.forEach(link => {
-        link.addEventListener("click", (e) => {
-            e.preventDefault();
-            filterProjects(link.dataset.filter);
-        });
-    });
-
-    if (mobileSelect) {
-        mobileSelect.addEventListener("change", (e) => {
-            filterProjects(e.target.value);
-        });
-    }
-
-    const initial = location.hash.replace("#", "") || "web-development";
-    filterProjects(initial);
-});
 
 const desktopLinks = document.querySelectorAll('.pricing-filter-link');
 const groups = document.querySelectorAll('#pricingGroups .pricing-group');
@@ -418,3 +365,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
