@@ -725,6 +725,13 @@ input:checked + .slider:before {
   backdrop-filter: blur(10px);
 }
 
+.bg-blurred-dark {
+  background: rgb(172 167 167 / 10%);
+  backdrop-filter: blur(10px);
+}
+
+
+
 .attached-file a {
   color: #0d6efd;
   text-decoration: none;
@@ -1215,16 +1222,18 @@ nav[aria-label="Main menu"] {
 
 .global-slider {
   display: flex;
-  overflow-x: hidden;
+  overflow-x: auto;     /* ✅ allow horizontal scrolling */
+  overflow-y: visible;  /* ✅ don’t clip card/shadow vertically */
   scroll-behavior: smooth;
   width: 100%;
 }
 
-.slider-item {
-  flex: 0 0 25%;
-  width: 25%;
-  padding: 0 10px; 
-  box-sizing: border-box; 
+
+.slider-item{
+  flex: 0 0 calc((100% - 60px) / 4); /* 3 gaps * 20px = 60px */
+  width: auto;
+  padding: 0;         /* remove old padding */
+  box-sizing: border-box;
 }
 
 .global-slider::-webkit-scrollbar {
