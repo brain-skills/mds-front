@@ -75,8 +75,8 @@ html, body {
 }
 
 .menu-link:focus {
-    color: #249FDD;
-    outline: none;
+  color: #249FDD;
+  outline: none;
 }
 
 .menu-link {
@@ -116,6 +116,24 @@ html, body {
   bottom: 55px;
 }
 
+.bg-blurred {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.bg-blurred-dark {
+  background: rgb(172 167 167 / 10%);
+  backdrop-filter: blur(10px);
+}
+
+.bg-blurred:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.bg-blue-custom {
+  background-color: #249fdd;
+}
+
 /******************** Buttons and Inputs  **************************/
 
 .btn {
@@ -124,7 +142,6 @@ html, body {
   font-size: var(--fs-base);
   font-weight: 600;
   color: var(--color-white);
-  background: none;
   border: none;
   cursor: pointer;
   display: inline-flex;
@@ -137,9 +154,11 @@ html, body {
 }
 
 .btn-primary { background-color: var(--color-primary); }
+
 .btn-success {
   background-color: #119947;
 }
+
 .btn-danger {
   background-color: #DA2650;
 }
@@ -255,15 +274,6 @@ html, body {
   justify-content: start;
   display: flex;
 }
-
-.bg-blurred:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-.bg-blue-custom {
-  background-color: #249fdd;
-}
-
 
 @keyframes rotate-gear {
   from {
@@ -719,18 +729,6 @@ input:checked + .slider:before {
 .carousel-indicators .active {
   background-color: #0d6efd;
 }
-
-.bg-blurred {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-}
-
-.bg-blurred-dark {
-  background: rgb(172 167 167 / 10%);
-  backdrop-filter: blur(10px);
-}
-
-
 
 .attached-file a {
   color: #0d6efd;
@@ -1228,30 +1226,8 @@ nav[aria-label="Main menu"] {
   width: 100%;
 }
 
-
-.slider-item{
-  flex: 0 0 calc((100% - 60px) / 4); /* 3 gaps * 20px = 60px */
-  width: auto;
-  padding: 0;         /* remove old padding */
-  box-sizing: border-box;
-}
-
 .global-slider::-webkit-scrollbar {
   display: none;
-}
-
-/* 1. Prevent the image from spilling outside the card when it grows */
-.slider-item.card {
-  overflow: hidden;
-}
-
-.slider-item .card-img-top {
-  transition: transform 0.5s ease; /* Adjust duration for speed */
-  display: block;
-}
-
-.slider-item:hover .card-img-top {
-  transform: scale(1.1);
 }
 
 /* 1. The container (card) must hide the zooming edges */
@@ -1338,10 +1314,6 @@ nav[aria-label="Main menu"] {
 .project-card { display: none; }
 .project-card.show { display: block; }
 .service-link.active-service { color: #000 !important; font-weight: 600; }
-
-.client-item {
-  width: 20%;
-}
 
 .pricing-section {
   overflow: hidden;
@@ -1556,24 +1528,6 @@ nav[aria-label="Main menu"] {
     font-size: 30px;
   }
 
-  .client-item {
-    flex: 0 0 35% !important;
-    max-width: 35% !important;
-    width: 35% !important; 
-  }
-
-  .slider-item {
-    flex: 0 0 30%;
-  }
-
-}
-
-@media (max-width: 700px) {
-  .client-item {
-    flex: 0 0 70% !important;
-    max-width: 70% !important;
-    width: 70% !important;
-  }
 }
 
 @media (min-width: 992px) {
@@ -1693,42 +1647,12 @@ nav[aria-label="Main menu"] {
     width: 100%;
   }
 
-  .slider-item {
-    flex: 0 0 40% ;
-  }
-
   .team-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
   .team-card.wide {
     grid-column: span 2;
-  }
-
-  #pricingScrollContainer {
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    padding-bottom: 20px;
-  }
-
-  #pricingScrollContainer::-webkit-scrollbar {
-    display: none;
-  }
-
-  #pricingScrollContainer .pricing-row {
-    display: flex;
-    gap: 24px;
-    padding: 0 20px;
-    width: max-content;
-  }
-
-
-  #pricingScrollContainer {
-    scroll-snap-type: x mandatory;
   }
 }
 
@@ -1868,10 +1792,6 @@ nav[aria-label="Main menu"] {
     flex-direction: column;
   }
 
-  .slider-item {
-    flex: 0 0 60% !important;
-  }
-
   .team-grid {
     grid-template-columns: 1fr;
   }
@@ -1886,10 +1806,12 @@ nav[aria-label="Main menu"] {
   .table td, .table th {
     font-size: 0.8rem;
   }
+
   .badge {
     font-size: 0.7rem;
     padding: 0.25rem 0.4rem;
   }
+
   .btn-sm {
     font-size: 0.9rem;
     width: 28px;

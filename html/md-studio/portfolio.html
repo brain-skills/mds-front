@@ -23,6 +23,9 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/print.css">
 
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
 </head>
 <body>
     <main>
@@ -62,7 +65,7 @@
                                         </button>
                                     </li>
                                     <li>
-                                        <button onclick="window.location.href='cart.html'" type="button" class="px-3 px-md-4 py-2 btn btn-primary bg-blurred cart-btn d-flex align-items-center gap-2 gap-md-3 me-2 me-lg-4 cart-btn"  >
+                                        <button onclick="window.location.href='cart.html'" type="button" class="px-3 bg-blurred px-md-4 py-2 btn cart-btn d-flex align-items-center gap-2 gap-md-3 me-2 me-lg-4">
                                             <img src="./assets/images/svg/icon_cart.svg" alt="cart icon" class="cart-icon">
 
                                             <div class="d-flex flex-column text-start">
@@ -289,47 +292,67 @@
             </div>
             <div class="particles-bottom-light"></div>
         </section>
-        <section class="py-4 py-md-5" id="projects">
+        <section class="py-4 py-md-5 slider-section position-relative" id="projects">
             <div class="container">
+
                 <div class="text-center mb-5">
                     <ul class="list-inline mb-0 d-none d-md-block" id="desktop-filters">
                         <li class="list-inline-item mx-3 my-2">
-                            <a href="#web-development" class="text-muted text-decoration-none fw-medium active-service service-link" data-filter="web-development">Web Development</a>
+                            <a href="#web-development"
+                            class="text-muted text-decoration-none fw-medium active-service service-link"
+                            data-filter="web-development">Web Development</a>
                         </li>
                         <li class="list-inline-item mx-3 my-2">
-                            <a href="#mobile-app" class="text-muted text-decoration-none fw-medium service-link" data-filter="mobile-app">Mobile App Development</a>
+                            <a href="#mobile-app"
+                            class="text-muted text-decoration-none fw-medium service-link"
+                            data-filter="mobile-app">Mobile App Development</a>
                         </li>
                         <li class="list-inline-item mx-3 my-2">
-                            <a href="#software" class="text-muted text-decoration-none fw-medium service-link" data-filter="software">Software Development</a>
+                            <a href="#software"
+                            class="text-muted text-decoration-none fw-medium service-link"
+                            data-filter="software">Software Development</a>
                         </li>
                         <li class="list-inline-item mx-3 my-2">
-                            <a href="#seo" class="text-muted text-decoration-none fw-medium service-link" data-filter="seo">SEO</a>
+                            <a href="#seo"
+                            class="text-muted text-decoration-none fw-medium service-link"
+                            data-filter="seo">SEO</a>
                         </li>
                         <li class="list-inline-item mx-3 my-2">
-                            <a href="#smm" class="text-muted text-decoration-none fw-medium service-link" data-filter="smm">SMM</a>
+                            <a href="#smm"
+                            class="text-muted text-decoration-none fw-medium service-link"
+                            data-filter="smm">SMM</a>
                         </li>
                         <li class="list-inline-item mx-3 my-2">
-                            <a href="#data-extraction" class="text-muted text-decoration-none fw-medium service-link" data-filter="data-extraction">Data Extraction & Integration</a>
+                            <a href="#data-extraction"
+                            class="text-muted text-decoration-none fw-medium service-link"
+                            data-filter="data-extraction">Data Extraction &amp; Integration</a>
                         </li>
                         <li class="list-inline-item mx-3 my-2">
-                            <a href="#targeted-ads" class="text-muted text-decoration-none fw-medium service-link" data-filter="targeted-ads">Targeted Ads</a>
+                            <a href="#targeted-ads"
+                            class="text-muted text-decoration-none fw-medium service-link"
+                            data-filter="targeted-ads">Targeted Ads</a>
                         </li>
                         <li class="list-inline-item mx-3 my-2">
-                            <a href="#ui-ux" class="text-muted text-decoration-none fw-medium service-link" data-filter="ui-ux">UI/UX Design</a>
+                            <a href="#ui-ux"
+                            class="text-muted text-decoration-none fw-medium service-link"
+                            data-filter="ui-ux">UI/UX Design</a>
                         </li>
                         <li class="list-inline-item mx-3 my-2">
-                            <a href="#graphic-design" class="text-muted text-decoration-none fw-medium service-link" data-filter="graphic-design">Graphic Design</a>
+                            <a href="#graphic-design"
+                            class="text-muted text-decoration-none fw-medium service-link"
+                            data-filter="graphic-design">Graphic Design</a>
                         </li>
                     </ul>
 
                     <div class="d-md-none">
-                        <select class="form-select form-select-lg text-muted fw-medium border-0 shadow-sm" id="mobile-filter" aria-label="Filter by service">
+                        <select class="form-select form-select-lg text-muted fw-medium border-0 shadow-sm"
+                                id="mobile-filter" aria-label="Filter by service">
                             <option value="web-development" selected>Web Development</option>
                             <option value="mobile-app">Mobile App Development</option>
                             <option value="software">Software Development</option>
                             <option value="seo">SEO</option>
                             <option value="smm">SMM</option>
-                            <option value="data-extraction">Data Extraction & Integration</option>
+                            <option value="data-extraction">Data Extraction &amp; Integration</option>
                             <option value="targeted-ads">Targeted Ads</option>
                             <option value="ui-ux">UI/UX Design</option>
                             <option value="graphic-design">Graphic Design</option>
@@ -337,9 +360,10 @@
                     </div>
                 </div>
 
-                <div class="projects-wrapper d-flex flex-row flex-nowrap overflow-auto gap-3 justify-content-center" id="projects-wrapper">
-                    <div class="col-md-6 col-lg-4 flex-shrink-0 project-card show" data-category="web-development seo">
-                        <div>
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+
+                        <article class="swiper-slide text-start mx-2 project-card show" data-category="web-development seo">
                             <img src="./assets/images/laptop.png" alt="Project mockup" class="img-fluid mb-3 mb-md-4 rounded shadow">
                             <h5 class="fw-normal fs-28 text-black mb-2">Project Title (Web)</h5>
                             <p class="small fw-light text-gray-custom mb-2">Web development / SEO</p>
@@ -354,16 +378,14 @@
                                     </svg>
                                 </span>
                             </a>
-                        </div>
-                    </div>
+                        </article>
 
-                    <div class="col-md-6 col-lg-4 flex-shrink-0 project-card show" data-category="mobile-app ui-ux">
-                        <div>
+                        <article class="swiper-slide text-start mx-2 project-card show" data-category="mobile-app ui-ux">
                             <img src="./assets/images/laptop.png" alt="Project mockup" class="img-fluid mb-3 mb-md-4 rounded shadow">
                             <h5 class="fw-normal fs-28 text-black mb-2">Project Title (Mobile)</h5>
-                            <p class="small fw-light text-gray-custom mb-2">Mobile app / UI/UX</p>
+                            <p class="small fw-light text-gray-custom mb-2">Mobile App / UI-UX</p>
                             <p class="small fw-light text-dark-custom mb-2">
-                                Cross-platform mobile app with clean UI, push notifications, and smooth performance.
+                                Cross-platform mobile app with clean UI, authentication, and fast performance.
                             </p>
                             <a href="#" class="text-dark fw-bold text-decoration-none d-inline-flex align-items-center">
                                 View details
@@ -373,16 +395,14 @@
                                     </svg>
                                 </span>
                             </a>
-                        </div>
-                    </div>
+                        </article>
 
-                    <div class="col-md-6 col-lg-4 flex-shrink-0 project-card show" data-category="software data-extraction">
-                        <div>
+                        <article class="swiper-slide text-start mx-2 project-card show" data-category="software data-extraction">
                             <img src="./assets/images/laptop.png" alt="Project mockup" class="img-fluid mb-3 mb-md-4 rounded shadow">
                             <h5 class="fw-normal fs-28 text-black mb-2">Project Title (Software)</h5>
-                            <p class="small fw-light text-gray-custom mb-2">Software / Integration</p>
+                            <p class="small fw-light text-gray-custom mb-2">Software / Data Extraction</p>
                             <p class="small fw-light text-dark-custom mb-2">
-                                Backend + automation service with robust integrations, logs, and monitoring.
+                                ETL pipelines, integrations, exports, and scheduled syncing with monitoring.
                             </p>
                             <a href="#" class="text-dark fw-bold text-decoration-none d-inline-flex align-items-center">
                                 View details
@@ -392,17 +412,14 @@
                                     </svg>
                                 </span>
                             </a>
-                        </div>
-                    </div>
+                        </article>
 
-                    <div class="col-md-6 col-lg-4 flex-shrink-0 project-card show" data-category="seo smm targeted-ads">
-                        <div>
-                            <img src="./assets/images/laptop.png" alt="Project mockup"
-                                class="img-fluid mb-3 mb-md-4 rounded shadow">
+                        <article class="swiper-slide text-start mx-2 project-card show" data-category="seo smm targeted-ads">
+                            <img src="./assets/images/laptop.png" alt="Project mockup" class="img-fluid mb-3 mb-md-4 rounded shadow">
                             <h5 class="fw-normal fs-28 text-black mb-2">Project Title (Marketing)</h5>
                             <p class="small fw-light text-gray-custom mb-2">SEO / SMM / Ads</p>
                             <p class="small fw-light text-dark-custom mb-2">
-                                Marketing campaign with measurable growth, reporting dashboard, and conversion optimization.
+                                Campaign strategy, content planning, SEO growth, and targeted ads optimization.
                             </p>
                             <a href="#" class="text-dark fw-bold text-decoration-none d-inline-flex align-items-center">
                                 View details
@@ -412,17 +429,14 @@
                                     </svg>
                                 </span>
                             </a>
-                        </div>
-                    </div>
+                        </article>
 
-                    <div class="col-md-6 col-lg-4 flex-shrink-0 project-card show" data-category="ui-ux graphic-design">
-                        <div>
-                            <img src="./assets/images/laptop.png" alt="Project mockup"
-                                class="img-fluid mb-3 mb-md-4 rounded shadow">
+                        <article class="swiper-slide text-start mx-2 project-card show" data-category="graphic-design ui-ux">
+                            <img src="./assets/images/laptop.png" alt="Project mockup" class="img-fluid mb-3 mb-md-4 rounded shadow">
                             <h5 class="fw-normal fs-28 text-black mb-2">Project Title (Design)</h5>
-                            <p class="small fw-light text-gray-custom mb-2">UI/UX / Graphic</p>
+                            <p class="small fw-light text-gray-custom mb-2">Graphic Design / UI-UX</p>
                             <p class="small fw-light text-dark-custom mb-2">
-                                Full brand + product design system: layouts, components, icons, and marketing visuals.
+                                Brand visuals, landing page UI, icons, and consistent design system components.
                             </p>
                             <a href="#" class="text-dark fw-bold text-decoration-none d-inline-flex align-items-center">
                                 View details
@@ -432,27 +446,8 @@
                                     </svg>
                                 </span>
                             </a>
-                        </div>
-                    </div>
+                        </article>
 
-                    <div class="col-md-6 col-lg-4 flex-shrink-0 project-card show" data-category="data-extraction software">
-                        <div>
-                            <img src="./assets/images/laptop.png" alt="Project mockup"
-                                class="img-fluid mb-3 mb-md-4 rounded shadow">
-                            <h5 class="fw-normal fs-28 text-black mb-2">Project Title (Data)</h5>
-                            <p class="small fw-light text-gray-custom mb-2">Data Extraction / Software</p>
-                            <p class="small fw-light text-dark-custom mb-2">
-                                Data pipeline with ETL, integrations, exports, and automated scheduled syncing.
-                            </p>
-                            <a href="#" class="text-dark fw-bold text-decoration-none d-inline-flex align-items-center">
-                                View details
-                                <span class="ms-2">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M9 5L16 12L9 19" stroke="#249FDD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </span>
-                            </a>
-                        </div>
                     </div>
                 </div>
 
@@ -461,99 +456,112 @@
                 </div>
             </div>
         </section>
-        <section class="slider-section bg-light-gray-opacity py-90 position-relative">
+        <section class="slider-section d-flex flex-column justify-content-center position-relative py-90 bg-dark-opacity">
             <div class="container px-0">
-
                 <h2 class="mb-3 title text-center">What our clients say</h2>
                 <p class="mb-5 fs-3 text-center">Read reviews from clients who have ordered mobile app development from us</p>
 
-                <button class="slider-arrow slider-prev bg-dark-opacity">
+                <button class="slider-arrow slider-prev bg-dark-opacity" type="button" aria-label="Previous">
                     <img src="./assets/images/svg/icon-prev-black.svg" alt="Previous">
                 </button>
-
-                <button class="slider-arrow slider-next bg-dark-opacity">
-                    <img src="./assets/images/svg/icon-next-black.svg" alt="next">
+                <button class="slider-arrow slider-next bg-dark-opacity" type="button" aria-label="Next">
+                    <img src="./assets/images/svg/icon-next-black.svg" alt="Next">
                 </button>
 
-                <div class="global-slider">
-                    <article class="rounded shadow h-100 border-0 shadow-sm client-item  slider-item p-3 mx-2" style="background-color: #FFFFFF;">
-                        <div class="d-flex flex-row gap-12 mb-3">
-                            <img src="./assets/images/svg/avatar.svg" alt="">
-                            <div class="d-flex flex-column text-start">
-                                <h5 class="text-dark-custom mb-0 fs-5 fw-bold">John Smith</h5>
-                                <p class="fs-6 text-blue-custom mb-0">www.company.com</p>
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <article class="swiper-slide card h-100 border-0 shadow-sm px-0 mx-2">
+                            <img src="./assets/images/laptop.png" alt="Project mockup" class="img-fluid mb-3 mb-md-2 rounded shadow">
+                            <div class="p-3">
+                                <h5 class="fw-normal fs-28 text-black mb-2">Project Title (Software)</h5>
+                                <p class="small fw-light text-gray-custom mb-2">Software / Integration</p>
+                                <p class="small fw-light text-dark-custom mb-2">
+                                    Backend + automation service with robust integrations, logs, and monitoring.
+                                </p>
+                                <a href="#" class="text-dark fw-bold text-decoration-none d-inline-flex align-items-center">
+                                    View details
+                                    <span class="ms-2">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9 5L16 12L9 19" stroke="#249FDD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </span>
+                                </a>
                             </div>
-                        </div>
-                        <p class="text-dark-custom text-start fs-6 fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
-                        <button class="text-dark-custom fs-6 fw-bold border-0 bg-transparent p-0">
-                            Read more <span class="ms-2 text-primary-blue">&gt;</span>
-                        </button>
-                    </article>
-                    <article class="rounded shadow h-100 border-0 shadow-sm client-item  slider-item p-3 mx-2" style="background-color: #FFFFFF;">
-                        <div class="d-flex flex-row gap-12 mb-3">
-                            <img src="./assets/images/svg/avatar.svg" alt="">
-                            <div class="d-flex flex-column text-start">
-                                <h5 class="text-dark-custom mb-0 fs-5 fw-bold">John Smith</h5>
-                                <p class="fs-6 text-blue-custom mb-0">www.company.com</p>
+                        </article>
+                        <article class="swiper-slide card h-100 border-0 shadow-sm px-0 mx-2">
+                            <img src="./assets/images/laptop.png" alt="Project mockup" class="img-fluid mb-3 mb-md-2 rounded shadow">
+                            <div class="p-2">
+                                <h5 class="fw-normal fs-28 text-black mb-2">Project Title (Software)</h5>
+                                <p class="small fw-light text-gray-custom mb-2">Software / Integration</p>
+                                <p class="small fw-light text-dark-custom mb-2">
+                                    Backend + automation service with robust integrations, logs, and monitoring.
+                                </p>
+                                <a href="#" class="text-dark fw-bold text-decoration-none d-inline-flex align-items-center">
+                                    View details
+                                    <span class="ms-2">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9 5L16 12L9 19" stroke="#249FDD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </span>
+                                </a>
                             </div>
-                        </div>
-                        <p class="text-dark-custom text-start fs-6 fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
-                        <button class="text-dark-custom fs-6 fw-bold border-0 bg-transparent p-0">
-                            Read more <span class="ms-2 text-primary-blue">&gt;</span>
-                        </button>
-                    </article>
-                    <article class="rounded shadow h-100 border-0 shadow-sm client-item  slider-item p-3 mx-2" style="background-color: #FFFFFF;">
-                        <div class="d-flex flex-row gap-12 mb-3">
-                            <img src="./assets/images/svg/avatar.svg" alt="">
-                            <div class="d-flex flex-column text-start">
-                                <h5 class="text-dark-custom mb-0 fs-5 fw-bold">John Smith</h5>
-                                <p class="fs-6 text-blue-custom mb-0">www.company.com</p>
+                        </article>
+                        <article class="swiper-slide card h-100 border-0 shadow-sm px-0 mx-2">
+                            <img src="./assets/images/laptop.png" alt="Project mockup" class="img-fluid mb-3 mb-md-2 rounded shadow">
+                            <div class="p-2">
+                                <h5 class="fw-normal fs-28 text-black mb-2">Project Title (Software)</h5>
+                                <p class="small fw-light text-gray-custom mb-2">Software / Integration</p>
+                                <p class="small fw-light text-dark-custom mb-2">
+                                    Backend + automation service with robust integrations, logs, and monitoring.
+                                </p>
+                                <a href="#" class="text-dark fw-bold text-decoration-none d-inline-flex align-items-center">
+                                    View details
+                                    <span class="ms-2">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9 5L16 12L9 19" stroke="#249FDD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </span>
+                                </a>
                             </div>
-                        </div>
-                        <p class="text-dark-custom text-start fs-6 fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
-                        <button class="text-dark-custom fs-6 fw-bold border-0 bg-transparent p-0">
-                            Read more <span class="ms-2 text-primary-blue">&gt;</span>
-                        </button>
-                    </article>
-                    <article class="rounded shadow h-100 border-0 shadow-sm client-item  slider-item p-3 mx-2" style="background-color: #FFFFFF;">
-                        <div class="d-flex flex-row gap-12 mb-3">
-                            <img src="./assets/images/svg/avatar.svg" alt="">
-                            <div class="d-flex flex-column text-start">
-                                <h5 class="text-dark-custom mb-0 fs-5 fw-bold">John Smith</h5>
-                                <p class="fs-6 text-blue-custom mb-0">www.company.com</p>
+                        </article>
+                        <article class="swiper-slide card h-100 border-0 shadow-sm px-0 mx-2">
+                            <img src="./assets/images/laptop.png" alt="Project mockup" class="img-fluid mb-3 mb-md-2 rounded shadow">
+                            <div class="p-2">
+                                <h5 class="fw-normal fs-28 text-black mb-2">Project Title (Software)</h5>
+                                <p class="small fw-light text-gray-custom mb-2">Software / Integration</p>
+                                <p class="small fw-light text-dark-custom mb-2">
+                                    Backend + automation service with robust integrations, logs, and monitoring.
+                                </p>
+                                <a href="#" class="text-dark fw-bold text-decoration-none d-inline-flex align-items-center">
+                                    View details
+                                    <span class="ms-2">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9 5L16 12L9 19" stroke="#249FDD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </span>
+                                </a>
                             </div>
-                        </div>
-                        <p class="text-dark-custom text-start fs-6 fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
-                        <button class="text-dark-custom fs-6 fw-bold border-0 bg-transparent p-0">
-                            Read more <span class="ms-2 text-primary-blue">&gt;</span>
-                        </button>
-                    </article>
-                    <article class="rounded shadow h-100 border-0 shadow-sm client-item  slider-item p-3 mx-2" style="background-color: #FFFFFF;">
-                        <div class="d-flex flex-row gap-12 mb-3">
-                            <img src="./assets/images/svg/avatar.svg" alt="">
-                            <div class="d-flex flex-column text-start">
-                                <h5 class="text-dark-custom mb-0 fs-5 fw-bold">John Smith</h5>
-                                <p class="fs-6 text-blue-custom mb-0">www.company.com</p>
+                        </article>
+                        <article class="swiper-slide card h-100 border-0 shadow-sm px-0 mx-2">
+                            <img src="./assets/images/laptop.png" alt="Project mockup" class="img-fluid mb-3 mb-md-2 rounded shadow">
+                            <div class="p-2">
+                                <h5 class="fw-normal fs-28 text-black mb-2">Project Title (Software)</h5>
+                                <p class="small fw-light text-gray-custom mb-2">Software / Integration</p>
+                                <p class="small fw-light text-dark-custom mb-2">
+                                    Backend + automation service with robust integrations, logs, and monitoring.
+                                </p>
+                                <a href="#" class="text-dark fw-bold text-decoration-none d-inline-flex align-items-center">
+                                    View details
+                                    <span class="ms-2">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9 5L16 12L9 19" stroke="#249FDD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </span>
+                                </a>
                             </div>
-                        </div>
-                        <p class="text-dark-custom text-start fs-6 fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
-                        <button class="text-dark-custom fs-6 fw-bold border-0 bg-transparent p-0">
-                            Read more <span class="ms-2 text-primary-blue">&gt;</span>
-                        </button>
-                    </article>
-                    <article class="rounded shadow h-100 border-0 shadow-sm client-item  slider-item p-3 mx-2" style="background-color: #FFFFFF;">
-                        <div class="d-flex flex-row gap-12 mb-3">
-                            <img src="./assets/images/svg/avatar.svg" alt="">
-                            <div class="d-flex flex-column text-start">
-                                <h5 class="text-dark-custom mb-0 fs-5 fw-bold">John Smith</h5>
-                                <p class="fs-6 text-blue-custom mb-0">www.company.com</p>
-                            </div>
-                        </div>
-                        <p class="text-dark-custom text-start fs-6 fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
-                        <button class="text-dark-custom fs-6 fw-bold border-0 bg-transparent p-0">
-                            Read more <span class="ms-2 text-primary-blue">&gt;</span>
-                        </button>
-                    </article>
+                        </article>
+
+                    </div>
                 </div>
             </div>
         </section>
@@ -644,6 +652,9 @@
     <script src="./assets/js/bootstrap.bundle.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="./assets/js/particles-config.js"></script>
+    
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <!-- Custom Scripts  -->
     <script src="./assets/js/custom.js"></script>
