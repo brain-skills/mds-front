@@ -301,7 +301,7 @@ html, body {
 
 /******************** Gaps and Paddings  **************************/
 
-.py-90 {
+.py-section {
   padding-top: var(--padding-section) !important;
   padding-bottom: var(--padding-section) !important;
 }
@@ -769,7 +769,7 @@ nav[aria-label="Main menu"] {
 }
 
 .header-search {
-    position: absolute;
+  position: absolute;
   inset: 0;
   z-index: 2000;
   display: flex;
@@ -1569,7 +1569,7 @@ nav[aria-label="Main menu"] {
     max-width: 278px;
   }
 
-  .py-90 {
+  .py-section {
     padding-top: 36px !important;
     padding-bottom: 36px !important;
   }
@@ -1627,7 +1627,7 @@ nav[aria-label="Main menu"] {
     font-size: 22px;
   }
   .btn {
-    padding: 8px 16px !important;
+    padding: 8px 8px !important;
   }
   .table td, .table th {
     font-size: 0.85rem;
@@ -1694,7 +1694,7 @@ nav[aria-label="Main menu"] {
     gap: 0px;
   }
 
-  .py-90 {
+  .py-section {
     padding-top: 40px !important;
     padding-bottom: 40px !important;
   }
