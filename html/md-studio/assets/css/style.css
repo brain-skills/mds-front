@@ -134,6 +134,17 @@ html, body {
   background-color: #249fdd;
 }
 
+.bg-common {
+  width: 100%;
+  background: url('../images/bg-banner.png') center/cover no-repeat;
+}
+
+.bg-contacts {
+  width: 100%;
+  height: 420px;
+  background: url('../images/contacts-bg.png') center/cover no-repeat;
+}
+
 /******************** Buttons and Inputs  **************************/
 
 .btn {
@@ -196,7 +207,8 @@ html, body {
   width: 150px;
 }
 
-/******************** Indicators  **************************/
+/******************** Indicators Sliders  **************************/
+
 .indicators {
   display: flex !important;
   gap: 12px !important;
@@ -218,7 +230,6 @@ html, body {
   transform: translateY(-50%); 
   height: min-content;
   z-index: 2;
-
 }
 
 .carousel-control-prev {
@@ -250,7 +261,6 @@ html, body {
   background-color: #fff !important;
 }
 
-/******************** Slider  **************************/
 .prev, .next {
   position: absolute;
   top: 50%;
@@ -296,28 +306,10 @@ html, body {
   padding-bottom: var(--padding-section) !important;
 }
 
-@media (min-width: 1200px) {
-  .service-item {
-    padding-top: 110px !important;
-    padding-bottom: 110px !important;
-  }
-}
-
 .p-12 { padding: var(--padding-12); }
 .gap-12 { gap: var(--gap-12); }
 
 .icon-xs { max-width: 14px; height: auto; }
-
-.bg-common {
-  width: 100%;
-  background: url('../images/bg-banner.png') center/cover no-repeat;
-}
-
-.bg-contacts {
-  width: 100%;
-  height: 420px;
-  background: url('../images/contacts-bg.png') center/cover no-repeat;
-}
 
 .header { 
   padding: 14px 0 14px; 
@@ -361,33 +353,9 @@ html, body {
   pointer-events: none;
 }
 
-.center-feature-gear img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
 .feature-box {
   position: relative;
   z-index: 1;
-}
-
-.top-row-wrapper,
-.bottom-row-wrapper {
-  position: relative;
-}
-
-.feature-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(transparent 49.5%, var(--color-dash-line) 50%, transparent 50.5%), linear-gradient(90deg, transparent 49.5%, var(--color-dash-line) 50%, transparent 50.5%);
-  background-size: 50px 50px;
-  opacity: 0.3;
-  pointer-events: none;
-  z-index: 0;
-  mask-image: radial-gradient(circle at center, transparent 0%, black 30%);
-  -webkit-mask-image: radial-gradient(circle at center, transparent 0%, black 30%);
 }
 
 .vertical-dash-line {
@@ -443,26 +411,6 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 70px;
-}
-
-.news-card {
-  flex: 1 1 250px;
-  display: flex;
-  flex-direction: column;
-}
-
-.news-card .img-wrapper {
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-}
-
-.news-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
 }
 
 .sidebar-nav {
@@ -1167,21 +1115,21 @@ nav[aria-label="Main menu"] {
 }
 
 .team-card:hover {
-    top: -10px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  top: -10px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .team-card:hover img {
-    transform: scale(1.08);
+  transform: scale(1.08);
 }
 
 .team-card.dark:hover {
-    background-color: #1a1a1a;
+  background-color: #1a1a1a;
 }
 
 .team-card.light:hover {
-    background-color: #f8f9fa;
-    border: 1px solid #007bff;
+  background-color: #f8f9fa;
+  border: 1px solid #007bff;
 }
 
 
@@ -1220,8 +1168,8 @@ nav[aria-label="Main menu"] {
 
 .global-slider {
   display: flex;
-  overflow-x: auto;     /* ✅ allow horizontal scrolling */
-  overflow-y: visible;  /* ✅ don’t clip card/shadow vertically */
+  overflow-x: auto;
+  overflow-y: visible;
   scroll-behavior: smooth;
   width: 100%;
 }
@@ -1230,51 +1178,37 @@ nav[aria-label="Main menu"] {
   display: none;
 }
 
-/* 1. The container (card) must hide the zooming edges */
-.news-card {
-    overflow: hidden;
-    border-radius: 8px; /* Keeps your corners rounded during zoom */
-}
-
-/* 2. Setup the transition on the image itself */
-.news-card .card-img-top {
-    transition: transform 0.5s ease;
-    display: block; /* Removes bottom gap */
-    width: 100%;
-}
-
-/* 3. Scale the image when the card is hovered */
 .news-card:hover .card-img-top {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .subscribe-widget {
-    background: linear-gradient(135deg, #001a4d 0%, #003399 100%);
-    border-radius: 4px;
+  background: linear-gradient(135deg, #001a4d 0%, #003399 100%);
+  border-radius: 4px;
 }
 
 .subscribe-widget .form-control {
-    background-color: #fff;
-    border: none;
-    border-radius: 4px;
+  background-color: #fff;
+  border: none;
+  border-radius: 4px;
 }
 
 .subscribe-widget .form-control::placeholder {
-    color: #adb5bd;
-    font-size: 0.9rem;
+  color: #adb5bd;
+  font-size: 0.9rem;
 }
 
 .subscribe-widget .btn-subscribe {
-    background-color: #26a9e0; /* The bright blue from your image */
-    color: white;
-    border: none;
-    border-radius: 4px;
-    transition: background-color 0.3s;
+  background-color: #26a9e0; 
+  color: white;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
 }
 
 .subscribe-widget .btn-subscribe:hover {
-    background-color: #1e87b4;
-    color: white;
+  background-color: #1e87b4;
+  color: white;
 }
 
 .slider-arrow {
@@ -1516,6 +1450,13 @@ nav[aria-label="Main menu"] {
 @media (min-width: 1400px) {
   .vh-xl-100 {
     min-height: 100vh;
+  }
+}
+
+@media (min-width: 1200px) {
+  .service-item {
+    padding-top: 110px !important;
+    padding-bottom: 110px !important;
   }
 }
 
