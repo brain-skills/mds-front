@@ -6,25 +6,22 @@ document.addEventListener('DOMContentLoaded', () => {
         const paginationEl = section.querySelector('.swiper-pagination');
 
         new Swiper(swiperEl, {
-            slidesPerView: 1.1,
+            slidesPerView: 2.1,
             spaceBetween: 16,
             loop: true,
             speed: 600,
             
-            // Link the buttons
             navigation: {
                 nextEl: nextEl,
                 prevEl: prevEl,
             },
 
-            // Link the pagination and create the "bar" structure
             pagination: {
                 el: paginationEl,
                 clickable: true,
-                bulletClass: 'bar', // Uses your bar class
-                bulletActiveClass: 'active', // Uses your active class
+                bulletClass: 'bar',
+                bulletActiveClass: 'active',
                 renderBullet: function (index, className) {
-                    // This generates: <span class="bar active"></span>
                     return '<span class="' + className + '"></span>';
                 },
             },
@@ -273,52 +270,6 @@ updatePrices(billingToggle.checked);
 }
 
 showGroup('web-development');
-
-(function() {
-    if (window.supportChatInitialized) return;
-    window.supportChatInitialized = true;
-
-    function initChat() {
-        const askBtn   = document.getElementById("askQuestionBtn");
-        const chatWin  = document.getElementById("supportChat");
-        const closeBtn = document.getElementById("closeChat");
-
-        if (!askBtn)   { console.warn("Ask button (#askQuestionBtn) not found"); return; }
-        if (!chatWin)  { console.warn("Chat window (#supportChat) not found"); return; }
-        if (!closeBtn) { console.warn("Close button (#closeChat) not found"); return; }
-
-        askBtn.addEventListener("click", function(e) {
-            e.stopPropagation();
-            chatWin.style.visibility = "visible";
-            chatWin.style.opacity = "1";
-            chatWin.style.transition = "opacity 0.25s ease, visibility 0s linear 0s";
-            askBtn.classList.add("d-none");
-        });
-
-        closeBtn.addEventListener("click", function(e) {
-            e.stopPropagation();
-            chatWin.style.opacity = "0";
-            chatWin.style.visibility = "hidden";
-            chatWin.style.transition = "opacity 0.25s ease, visibility 0s linear 0.25s";
-            askBtn.classList.remove("d-none");
-        });
-
-        document.addEventListener("click", function(e) {
-            if (!chatWin.contains(e.target) && !askBtn.contains(e.target)) {
-                chatWin.style.opacity = "0";
-                chatWin.style.visibility = "hidden";
-                chatWin.style.transition = "opacity 0.25s ease, visibility 0s linear 0.25s";
-                askBtn.classList.remove("d-none");
-            }
-        });
-    }
-
-    if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", initChat);
-    } else {
-        initChat();
-    }
-})();
 
 document.addEventListener("DOMContentLoaded", () => {
   const sections = document.querySelectorAll("section[id]");
