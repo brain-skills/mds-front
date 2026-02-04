@@ -254,11 +254,12 @@ html, body {
   height: 10px !important;       
   background-color: rgba(255, 255, 255, 0.3) !important; 
   border-radius: 2px !important;
-  transition: background-color 0.3s !important;
+  transition: all 0.3s ease;
 }
 
 .indicators .bar.active {
   background-color: #fff !important;
+  width: 60px;
 }
 
 .prev, .next {
@@ -1768,28 +1769,25 @@ nav[aria-label="Main menu"] {
   }
 }
 
-/* Container styling */
-.indicators.swiper-pagination {
-    position: relative !important;
-    bottom: 0 !important;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
+.swiper-pagination {
+  position:  relative !important;
 }
 
-.indicators .bar {
-    width: 30px;
-    height: 4px;
-    background-color: rgba(255, 255, 255, 0.3); /* Dimmed white */
-    display: inline-block;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    border-radius: 2px;
-    opacity: 1 !important; /* Override Swiper default opacity */
+.indicators-dark {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
 }
 
-/* STYLE FOR THE ACTIVE INDICATOR */
-.indicators .bar.active {
-    background-color: #ffffff !important; /* Pure white for active slide */
-    width: 45px; /* Optional: makes it wider so you can see it's active */
+.indicators-dark .bar {
+  width: 80px;
+  height: 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.indicators-dark .bar.active {
+  background-color: #000000;
 }

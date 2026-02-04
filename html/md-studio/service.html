@@ -23,6 +23,9 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/print.css">
 
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
 </head>
 <body>
     <main class="">
@@ -476,92 +479,87 @@
                 </div>
             </div>
         </section>
-        <section class="py-4 py-lg-5 bg-light position-relative">
-            <div id="particles-portfolio"></div>
-
-            <div class="container text-center">
-                <h2 class="title text-dark-custom fw-normal">
-                    What our clients say
-                </h2>
-
-                <p class="text-dark-custom mb-4 mt-2">
-                    Read reviews from clients who have ordered mobile app development from us
-                </p>
-
-                <div id="portfolioCarousel" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="d-flex justify-content-center gap-4 py-0 py-md-3 pt-3">
-                              <article class="d-flex flex-column gap-12 align-items-start p-3 rounded" style="background-color: #FFFFFF;">
-                                    <div class="d-flex flex-row gap-12">
-                                        <img src="./assets/images/svg/avatar.svg" alt="">
-                                        <div class="d-flex flex-column text-start">
-                                            <h5 class="text-dark-custom mb-0 small fw-bold">John Smith</h5>
-                                            <p class="text-blue-custom mb-0">www.company.com</p>
-                                        </div>
-                                    </div>
-                                    <p class="text-dark-custom text-start small fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
-                                    <button class="text-dark-custom fw-bold border-0 bg-transparent p-0">
-                                        Read more <span class="ms-2 text-primary-blue">&gt;</span>
-                                    </button>
-                                </article>
-                                <article class="d-flex flex-column gap-12 align-items-start p-3 rounded" style="background-color: #FFFFFF;">
-                                    <div class="d-flex flex-row gap-12">
-                                        <img src="./assets/images/svg/avatar.svg" alt="">
-                                        <div class="d-flex flex-column text-start">
-                                            <h5 class="text-dark-custom mb-0 small fw-bold">John Smith</h5>
-                                            <p class="text-blue-custom mb-0">www.company.com</p>
-                                        </div>
-                                    </div>
-                                    <p class="text-dark-custom text-start small fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
-                                    <button class="text-dark-custom fw-bold border-0 bg-transparent p-0">
-                                        Read more <span class="ms-2 text-primary-blue">&gt;</span>
-                                    </button>
-                                </article>
-                                <article class="d-flex flex-column gap-12 align-items-start p-3 rounded" style="background-color: #FFFFFF;">
-                                    <div class="d-flex flex-row gap-12">
-                                        <img src="./assets/images/svg/avatar.svg" alt="">
-                                        <div class="d-flex flex-column text-start">
-                                            <h5 class="text-dark-custom mb-0 small fw-bold">John Smith</h5>
-                                            <p class="text-blue-custom mb-0">www.company.com</p>
-                                        </div>
-                                    </div>
-                                    <p class="text-dark-custom text-start small fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
-                                    <button class="text-dark-custom fw-bold border-0 bg-transparent p-0">
-                                        Read more <span class="ms-2 text-primary-blue">&gt;</span>
-                                    </button>
-                                </article>
-                                <article class="d-flex flex-column gap-12 align-items-start p-3 rounded" style="background-color: #FFFFFF;">
-                                    <div class="d-flex flex-row gap-12">
-                                        <img src="./assets/images/svg/avatar.svg" alt="">
-                                        <div class="d-flex flex-column text-start">
-                                            <h5 class="text-dark-custom mb-0 small fw-bold">John Smith</h5>
-                                            <p class="text-blue-custom mb-0">www.company.com</p>
-                                        </div>
-                                    </div>
-                                    <p class="text-dark-custom text-start small fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
-                                    <button class="text-dark-custom fw-bold border-0 bg-transparent p-0">
-                                        Read more <span class="ms-2 text-primary-blue">&gt;</span>
-                                    </button>
-                                </article>
+        <section class="slider-section bg-light-gray-opacity d-flex flex-column justify-content-center position-relative py-5 ">
+            <button class="slider-arrow slider-prev bg-dark-opacity" type="button" aria-label="Previous">
+                <img src="./assets/images/svg/icon-prev-black.svg" alt="Previous">
+            </button>
+            <button class="slider-arrow slider-next bg-dark-opacity" type="button" aria-label="Next">
+                <img src="./assets/images/svg/icon-next-black.svg" alt="Next">
+            </button>
+            <div class="container px-0 position-relative">
+                <h2 class="mb-3 title text-center"> What our clients say</h2>
+                <p class="mb-5 fs-3 text-center">Read reviews from clients who have ordered mobile app development from us</p>
+                <div class="swiper">
+                    <div class="swiper-wrapper d-flex">
+                        <article class="swiper-slide d-flex flex-column gap-12 align-items-start p-3 rounded" style="background-color: #FFFFFF;">
+                            <div class="d-flex flex-row gap-12">
+                                <img src="./assets/images/svg/avatar.svg" alt="">
+                                <div class="d-flex flex-column text-start">
+                                    <h5 class="text-dark-custom mb-0 small fw-bold">John Smith</h5>
+                                    <p class="text-blue-custom mb-0">www.company.com</p>
+                                </div>
                             </div>
-                        </div>
+                            <p class="text-dark-custom text-start small fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
+                            <button class="text-dark-custom fw-bold border-0 bg-transparent p-0">
+                                Read more <span class="ms-2 text-primary-blue">&gt;</span>
+                            </button>
+                        </article>
+                        <article class="swiper-slide d-flex flex-column gap-12 align-items-start p-3 rounded" style="background-color: #FFFFFF;">
+                            <div class="d-flex flex-row gap-12">
+                                <img src="./assets/images/svg/avatar.svg" alt="">
+                                <div class="d-flex flex-column text-start">
+                                    <h5 class="text-dark-custom mb-0 small fw-bold">John Smith</h5>
+                                    <p class="text-blue-custom mb-0">www.company.com</p>
+                                </div>
+                            </div>
+                            <p class="text-dark-custom text-start small fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
+                            <button class="text-dark-custom fw-bold border-0 bg-transparent p-0">
+                                Read more <span class="ms-2 text-primary-blue">&gt;</span>
+                            </button>
+                        </article>
+                        <article class="swiper-slide d-flex flex-column gap-12 align-items-start p-3 rounded" style="background-color: #FFFFFF;">
+                            <div class="d-flex flex-row gap-12">
+                                <img src="./assets/images/svg/avatar.svg" alt="">
+                                <div class="d-flex flex-column text-start">
+                                    <h5 class="text-dark-custom mb-0 small fw-bold">John Smith</h5>
+                                    <p class="text-blue-custom mb-0">www.company.com</p>
+                                </div>
+                            </div>
+                            <p class="text-dark-custom text-start small fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
+                            <button class="text-dark-custom fw-bold border-0 bg-transparent p-0">
+                                Read more <span class="ms-2 text-primary-blue">&gt;</span>
+                            </button>
+                        </article>
+                        <article class="swiper-slide d-flex flex-column gap-12 align-items-start p-3 rounded" style="background-color: #FFFFFF;">
+                            <div class="d-flex flex-row gap-12">
+                                <img src="./assets/images/svg/avatar.svg" alt="">
+                                <div class="d-flex flex-column text-start">
+                                    <h5 class="text-dark-custom mb-0 small fw-bold">John Smith</h5>
+                                    <p class="text-blue-custom mb-0">www.company.com</p>
+                                </div>
+                            </div>
+                            <p class="text-dark-custom text-start small fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
+                            <button class="text-dark-custom fw-bold border-0 bg-transparent p-0">
+                                Read more <span class="ms-2 text-primary-blue">&gt;</span>
+                            </button>
+                        </article>
+                        <article class="swiper-slide d-flex flex-column gap-12 align-items-start p-3 rounded" style="background-color: #FFFFFF;">
+                            <div class="d-flex flex-row gap-12">
+                                <img src="./assets/images/svg/avatar.svg" alt="">
+                                <div class="d-flex flex-column text-start">
+                                    <h5 class="text-dark-custom mb-0 small fw-bold">John Smith</h5>
+                                    <p class="text-blue-custom mb-0">www.company.com</p>
+                                </div>
+                            </div>
+                            <p class="text-dark-custom text-start small fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
+                            <button class="text-dark-custom fw-bold border-0 bg-transparent p-0">
+                                Read more <span class="ms-2 text-primary-blue">&gt;</span>
+                            </button>
+                        </article>
                     </div>
-
-                    <button class="btn btn-primary mt-5">
-                        View more
-                    </button>
                 </div>
             </div>
-
-            <div class="slider-buttons" id="news-slider-buttons">
-                <button id="news-prev" class="prev bg-blurred p-3" style="border-radius: 0px 100px 100px 0px;">
-                    <img src="./assets/images/svg/icon_arrow-left.svg" alt="Previous">
-                </button>
-                <button id="news-next" class="next bg-blurred p-3" style="border-radius: 100px 0px 0px 100px;">
-                    <img src="./assets/images/svg/icon_arrow-right.svg" alt="Next">
-                </button>
-            </div>
+            <div class="swiper-pagination indicators-dark mt-5"></div>
         </section>
         <section class="bg-common pt-4 pt-md-0 position-relative overflow-hidden">
             <div class="d-flex flex-column flex-md-row container justify-content-between align-items-center pt-3 position-relative" style="z-index: 2;">
@@ -650,6 +648,9 @@
 
     <!-- Custom Scripts  -->
     <script src="./assets/js/custom.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 </body>
 </html>

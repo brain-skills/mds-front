@@ -456,114 +456,87 @@
                 </div>
             </div>
         </section>
-        <section class="slider-section d-flex flex-column justify-content-center position-relative py-section bg-dark-opacity">
-            <div class="container px-0">
-                <h2 class="mb-3 title text-center">What our clients say</h2>
+        <section class="slider-section bg-light-gray-opacity d-flex flex-column justify-content-center position-relative py-5 ">
+            <button class="slider-arrow slider-prev bg-dark-opacity" type="button" aria-label="Previous">
+                <img src="./assets/images/svg/icon-prev-black.svg" alt="Previous">
+            </button>
+            <button class="slider-arrow slider-next bg-dark-opacity" type="button" aria-label="Next">
+                <img src="./assets/images/svg/icon-next-black.svg" alt="Next">
+            </button>
+            <div class="container px-0 position-relative">
+                <h2 class="mb-3 title text-center"> What our clients say</h2>
                 <p class="mb-5 fs-3 text-center">Read reviews from clients who have ordered mobile app development from us</p>
-
-                <button class="slider-arrow slider-prev bg-dark-opacity" type="button" aria-label="Previous">
-                    <img src="./assets/images/svg/icon-prev-black.svg" alt="Previous">
-                </button>
-                <button class="slider-arrow slider-next bg-dark-opacity" type="button" aria-label="Next">
-                    <img src="./assets/images/svg/icon-next-black.svg" alt="Next">
-                </button>
-
                 <div class="swiper">
-                    <div class="swiper-wrapper">
-                        <article class="swiper-slide card h-100 border-0 shadow-sm px-0 mx-2">
-                            <img src="./assets/images/laptop.png" alt="Project mockup" class="img-fluid mb-3 mb-md-2 rounded shadow">
-                            <div class="p-3">
-                                <h5 class="fw-normal fs-28 text-black mb-2">Project Title (Software)</h5>
-                                <p class="small fw-light text-gray-custom mb-2">Software / Integration</p>
-                                <p class="small fw-light text-dark-custom mb-2">
-                                    Backend + automation service with robust integrations, logs, and monitoring.
-                                </p>
-                                <a href="#" class="text-dark fw-bold text-decoration-none d-inline-flex align-items-center">
-                                    View details
-                                    <span class="ms-2">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9 5L16 12L9 19" stroke="#249FDD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    </span>
-                                </a>
+                    <div class="swiper-wrapper d-flex">
+                        <article class="swiper-slide d-flex flex-column gap-12 align-items-start p-3 rounded" style="background-color: #FFFFFF;">
+                            <div class="d-flex flex-row gap-12">
+                                <img src="./assets/images/svg/avatar.svg" alt="">
+                                <div class="d-flex flex-column text-start">
+                                    <h5 class="text-dark-custom mb-0 small fw-bold">John Smith</h5>
+                                    <p class="text-blue-custom mb-0">www.company.com</p>
+                                </div>
                             </div>
+                            <p class="text-dark-custom text-start small fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
+                            <button class="text-dark-custom fw-bold border-0 bg-transparent p-0">
+                                Read more <span class="ms-2 text-primary-blue">&gt;</span>
+                            </button>
                         </article>
-                        <article class="swiper-slide card h-100 border-0 shadow-sm px-0 mx-2">
-                            <img src="./assets/images/laptop.png" alt="Project mockup" class="img-fluid mb-3 mb-md-2 rounded shadow">
-                            <div class="p-2">
-                                <h5 class="fw-normal fs-28 text-black mb-2">Project Title (Software)</h5>
-                                <p class="small fw-light text-gray-custom mb-2">Software / Integration</p>
-                                <p class="small fw-light text-dark-custom mb-2">
-                                    Backend + automation service with robust integrations, logs, and monitoring.
-                                </p>
-                                <a href="#" class="text-dark fw-bold text-decoration-none d-inline-flex align-items-center">
-                                    View details
-                                    <span class="ms-2">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9 5L16 12L9 19" stroke="#249FDD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    </span>
-                                </a>
+                        <article class="swiper-slide d-flex flex-column gap-12 align-items-start p-3 rounded" style="background-color: #FFFFFF;">
+                            <div class="d-flex flex-row gap-12">
+                                <img src="./assets/images/svg/avatar.svg" alt="">
+                                <div class="d-flex flex-column text-start">
+                                    <h5 class="text-dark-custom mb-0 small fw-bold">John Smith</h5>
+                                    <p class="text-blue-custom mb-0">www.company.com</p>
+                                </div>
                             </div>
+                            <p class="text-dark-custom text-start small fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
+                            <button class="text-dark-custom fw-bold border-0 bg-transparent p-0">
+                                Read more <span class="ms-2 text-primary-blue">&gt;</span>
+                            </button>
                         </article>
-                        <article class="swiper-slide card h-100 border-0 shadow-sm px-0 mx-2">
-                            <img src="./assets/images/laptop.png" alt="Project mockup" class="img-fluid mb-3 mb-md-2 rounded shadow">
-                            <div class="p-2">
-                                <h5 class="fw-normal fs-28 text-black mb-2">Project Title (Software)</h5>
-                                <p class="small fw-light text-gray-custom mb-2">Software / Integration</p>
-                                <p class="small fw-light text-dark-custom mb-2">
-                                    Backend + automation service with robust integrations, logs, and monitoring.
-                                </p>
-                                <a href="#" class="text-dark fw-bold text-decoration-none d-inline-flex align-items-center">
-                                    View details
-                                    <span class="ms-2">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9 5L16 12L9 19" stroke="#249FDD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    </span>
-                                </a>
+                        <article class="swiper-slide d-flex flex-column gap-12 align-items-start p-3 rounded" style="background-color: #FFFFFF;">
+                            <div class="d-flex flex-row gap-12">
+                                <img src="./assets/images/svg/avatar.svg" alt="">
+                                <div class="d-flex flex-column text-start">
+                                    <h5 class="text-dark-custom mb-0 small fw-bold">John Smith</h5>
+                                    <p class="text-blue-custom mb-0">www.company.com</p>
+                                </div>
                             </div>
+                            <p class="text-dark-custom text-start small fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
+                            <button class="text-dark-custom fw-bold border-0 bg-transparent p-0">
+                                Read more <span class="ms-2 text-primary-blue">&gt;</span>
+                            </button>
                         </article>
-                        <article class="swiper-slide card h-100 border-0 shadow-sm px-0 mx-2">
-                            <img src="./assets/images/laptop.png" alt="Project mockup" class="img-fluid mb-3 mb-md-2 rounded shadow">
-                            <div class="p-2">
-                                <h5 class="fw-normal fs-28 text-black mb-2">Project Title (Software)</h5>
-                                <p class="small fw-light text-gray-custom mb-2">Software / Integration</p>
-                                <p class="small fw-light text-dark-custom mb-2">
-                                    Backend + automation service with robust integrations, logs, and monitoring.
-                                </p>
-                                <a href="#" class="text-dark fw-bold text-decoration-none d-inline-flex align-items-center">
-                                    View details
-                                    <span class="ms-2">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9 5L16 12L9 19" stroke="#249FDD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    </span>
-                                </a>
+                        <article class="swiper-slide d-flex flex-column gap-12 align-items-start p-3 rounded" style="background-color: #FFFFFF;">
+                            <div class="d-flex flex-row gap-12">
+                                <img src="./assets/images/svg/avatar.svg" alt="">
+                                <div class="d-flex flex-column text-start">
+                                    <h5 class="text-dark-custom mb-0 small fw-bold">John Smith</h5>
+                                    <p class="text-blue-custom mb-0">www.company.com</p>
+                                </div>
                             </div>
+                            <p class="text-dark-custom text-start small fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
+                            <button class="text-dark-custom fw-bold border-0 bg-transparent p-0">
+                                Read more <span class="ms-2 text-primary-blue">&gt;</span>
+                            </button>
                         </article>
-                        <article class="swiper-slide card h-100 border-0 shadow-sm px-0 mx-2">
-                            <img src="./assets/images/laptop.png" alt="Project mockup" class="img-fluid mb-3 mb-md-2 rounded shadow">
-                            <div class="p-2">
-                                <h5 class="fw-normal fs-28 text-black mb-2">Project Title (Software)</h5>
-                                <p class="small fw-light text-gray-custom mb-2">Software / Integration</p>
-                                <p class="small fw-light text-dark-custom mb-2">
-                                    Backend + automation service with robust integrations, logs, and monitoring.
-                                </p>
-                                <a href="#" class="text-dark fw-bold text-decoration-none d-inline-flex align-items-center">
-                                    View details
-                                    <span class="ms-2">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9 5L16 12L9 19" stroke="#249FDD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    </span>
-                                </a>
+                        <article class="swiper-slide d-flex flex-column gap-12 align-items-start p-3 rounded" style="background-color: #FFFFFF;">
+                            <div class="d-flex flex-row gap-12">
+                                <img src="./assets/images/svg/avatar.svg" alt="">
+                                <div class="d-flex flex-column text-start">
+                                    <h5 class="text-dark-custom mb-0 small fw-bold">John Smith</h5>
+                                    <p class="text-blue-custom mb-0">www.company.com</p>
+                                </div>
                             </div>
+                            <p class="text-dark-custom text-start small fw-light">Nulla accumsan, nisi ac tincidunt interdum, justo metus condimentum neque, vitae elementum elit quam non felis. Ut id dictum est, a convallis enim. Nam vel dui at felis volutpat...</p>
+                            <button class="text-dark-custom fw-bold border-0 bg-transparent p-0">
+                                Read more <span class="ms-2 text-primary-blue">&gt;</span>
+                            </button>
                         </article>
-
                     </div>
                 </div>
             </div>
+            <div class="swiper-pagination indicators-dark mt-5"></div>
         </section>
         <section class="bg-gradient-tech py-5 position-relative overflow-hidden">
             <div class="particles-full position-absolute top-0 start-0 w-100 h-100"></div>
