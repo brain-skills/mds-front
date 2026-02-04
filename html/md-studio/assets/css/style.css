@@ -1413,6 +1413,10 @@ nav[aria-label="Main menu"] {
 
 .active-service{ opacity: 1 !important; text-decoration: underline; text-underline-offset: 6px; }
 
+.swiper-pagination {
+  display: none !important;
+}
+
 @media (min-width:576px){ .pricing-card{ width:70%; } }
 @media (min-width:768px){ .pricing-card{ width:55%; } }
 
@@ -1443,6 +1447,10 @@ nav[aria-label="Main menu"] {
 @media (max-width: 1550px) {
   .slider-arrow, .carousel-control-prev, .carousel-control-next {
     display: none;
+  }
+
+  .swiper-pagination {
+    display: flex !important;
   }
 }
 
@@ -1758,4 +1766,30 @@ nav[aria-label="Main menu"] {
     width: 28px;
     height: 28px;
   }
+}
+
+/* Container styling */
+.indicators.swiper-pagination {
+    position: relative !important;
+    bottom: 0 !important;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.indicators .bar {
+    width: 30px;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.3); /* Dimmed white */
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 2px;
+    opacity: 1 !important; /* Override Swiper default opacity */
+}
+
+/* STYLE FOR THE ACTIVE INDICATOR */
+.indicators .bar.active {
+    background-color: #ffffff !important; /* Pure white for active slide */
+    width: 45px; /* Optional: makes it wider so you can see it's active */
 }

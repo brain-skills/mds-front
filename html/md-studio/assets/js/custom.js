@@ -1,27 +1,40 @@
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.slider-section .swiper').forEach(swiperEl => {
-    const section = swiperEl.closest('.slider-section');
-    const nextEl = section.querySelector('.slider-next');
-    const prevEl = section.querySelector('.slider-prev');
+    document.querySelectorAll('.slider-section').forEach(section => {
+        const swiperEl = section.querySelector('.swiper');
+        const nextEl = section.querySelector('.slider-next');
+        const prevEl = section.querySelector('.slider-prev');
+        const paginationEl = section.querySelector('.swiper-pagination');
 
-    new Swiper(swiperEl, {
-      slidesPerView: 1.1,
-      spaceBetween: 16,
-      speed: 600,
-      loop: true,
+        new Swiper(swiperEl, {
+            slidesPerView: 1.1,
+            spaceBetween: 16,
+            loop: true,
+            speed: 600,
+            
+            // Link the buttons
+            navigation: {
+                nextEl: nextEl,
+                prevEl: prevEl,
+            },
 
-      navigation: {
-        nextEl,
-        prevEl,
-      },
+            // Link the pagination and create the "bar" structure
+            pagination: {
+                el: paginationEl,
+                clickable: true,
+                bulletClass: 'bar', // Uses your bar class
+                bulletActiveClass: 'active', // Uses your active class
+                renderBullet: function (index, className) {
+                    // This generates: <span class="bar active"></span>
+                    return '<span class="' + className + '"></span>';
+                },
+            },
 
-      breakpoints: {
-        576: { slidesPerView: 1.2 },
-        768: { slidesPerView: 2 },
-        1200: { slidesPerView: 4 },
-      }
+            breakpoints: {
+                768: { slidesPerView: 3 },
+                1200: { slidesPerView: 4 },
+            }
+        });
     });
-  });
 });
 
 document.addEventListener("DOMContentLoaded", function () {
