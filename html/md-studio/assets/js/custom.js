@@ -1,3 +1,98 @@
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    // ... your existing variables for pricing ...
+
+    const benefitsGroups = document.querySelectorAll('#benefits-container .benefits-group');
+
+    function showPricingGroup(category) {
+        document.querySelectorAll('#pricingGroups .pricing-group').forEach(group => {
+            group.classList.toggle('d-none', group.dataset.category !== category);
+        });
+    }
+
+    function showBenefitsForService(service) {
+        benefitsGroups.forEach(group => {
+            group.classList.toggle('d-none', group.dataset.service !== service);
+        });
+    }
+
+    function setActiveFilter(value) {
+        document.querySelectorAll('#desktop-filters .pricing-filter-link').forEach(link => {
+            link.classList.toggle('active-service', link.dataset.filter === value);
+        });
+        document.getElementById('mobile-filter').value = value;
+
+        // Show corresponding content
+        showPricingGroup(value);
+        showBenefitsForService(value);
+    }
+
+    // Desktop clicks
+    document.querySelectorAll('#desktop-filters .pricing-filter-link').forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const category = link.dataset.filter;
+            setActiveFilter(category);
+        });
+    });
+
+    // Mobile change
+    document.getElementById('mobile-filter').addEventListener('change', e => {
+        const category = e.target.value;
+        setActiveFilter(category);
+    });
+
+    // Initial state
+    setActiveFilter('web-development');
+
+    // ... your existing monthly/annual toggle code ...
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    const filterLinks   = document.querySelectorAll('#desktop-filters .service-link');
+    const mobileFilter  = document.getElementById('mobile-filter');
+    const cards         = document.querySelectorAll('.project-card');
+
+    function filterProjects(category) {
+        cards.forEach(card => {
+            const cardCategories = card.getAttribute('data-category').split(/\s+/);
+
+            if (category === 'all' || cardCategories.includes(category)) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    }
+
+    filterLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            filterLinks.forEach(l => l.classList.remove('active-service'));
+            this.classList.add('active-service');
+
+            const filterValue = this.getAttribute('data-filter');
+            filterProjects(filterValue);
+        });
+    });
+
+    if (mobileFilter) {
+        mobileFilter.addEventListener('change', function () {
+            const filterValue = this.value;
+            filterProjects(filterValue);
+
+            filterLinks.forEach(link => {
+                link.classList.toggle('active-service', link.getAttribute('data-filter') === filterValue);
+            });
+        });
+    }
+
+    filterProjects('all');
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.slider-section').forEach(section => {
         const swiperEl = section.querySelector('.swiper');

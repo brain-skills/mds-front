@@ -1791,3 +1791,15 @@ nav[aria-label="Main menu"] {
 .indicators-dark .bar.active {
   background-color: #000000;
 }
+.project-card {
+  display: block;
+}
+
+.project-card.hidden {
+  display: none;
+}
+
+.service-link.active-service {
+  color: #249FDD !important;
+  font-weight: 600 !important;
+}
