@@ -1,3 +1,6 @@
+document.addEventListener('DOMContentLoaded', function () {
+  document.documentElement.classList.add('dom-ready');
+});
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -336,6 +339,7 @@ mobileSelect.addEventListener('change', (e) => showGroup(e.target.value));
 const billingToggle = document.getElementById('billingToggle');
 const labelMonthly = document.getElementById('labelMonthly');
 const labelAnnual = document.getElementById('labelAnnual');
+
 
 function formatMoney(n) {
 return '$' + Number(n).toLocaleString('en-US');

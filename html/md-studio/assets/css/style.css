@@ -25,6 +25,13 @@
   --blur-glass: blur(12px);
 }
 
+html {
+  visibility: hidden;
+}
+html.dom-ready {
+  visibility: visible;
+}
+
 @font-face {
   font-family: 'RobotoSerif';
   src: url('../fonts/roboto/RobotoSerif-Thin.ttf') format('truetype');
