@@ -25,12 +25,56 @@
   --blur-glass: blur(12px);
 }
 
+@font-face {
+  font-family: 'RobotoSerif';
+  src: url('../fonts/roboto/RobotoSerif-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'RobotoSerif';
+  src: url('../fonts/roboto/RobotoSerif-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'RobotoSerif';
+  src: url('../fonts/roboto/RobotoSerif-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'RobotoSerif';
+  src: url('../fonts/roboto/RobotoSerif-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'RobotoSerif';
+  src: url('../fonts/roboto/RobotoSerif-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'RobotoSerif';
+  src: url('../fonts/roboto/RobotoSerif-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+
 html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
   width: 100%;
   font-family: 'Roboto', sans-serif;
+  scrollbar-gutter: stable;
 }
 
 /******************** Text  **************************/
