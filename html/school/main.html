@@ -30,11 +30,49 @@
 </head>
 
 <body>
-    <header>
-      TEST
+    <header class="header-system">
+      <!-- Top Blue Utility Bar -->
+      <div class="top-bar">
+        <div class="container utility-content">
+          <div class="left-links">
+            <a href="#">Classes and Courses</a> <a href="#">Staff</a> <a href="#">Announcements</a>
+          </div>
+          <div class="right-links">
+            <input type="text" class="search-input" placeholder="Search...">
+            <a href="#" class="signup-btn">Sign up</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- The Curved White Navigation -->
+      <div class="main-navigation">
+        <!-- This SVG is the "secret sauce" for the curve -->
+        <div class="svg-container" style="height: 150px;">
+          <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+            <path fill="#ffffff" d="M0,0 L1440,0 L1440,20 C1400,20 1380,80 1340,80 L100,80 C60,80 40,20 0,20 Z"></path>
+          </svg>
+        </div>
+
+        <div class="container nav-content">
+          <div class="brand">
+            <div class="logo-placeholder">📘</div>
+          </div>
+          
+          <nav class="menu">
+            <a href="#" class="active"><i>🏠</i> Home</a>
+            <a href="#"><i>🏢</i> About School</a>
+            <a href="#"><i>📝</i> Enrollment</a>
+            <a href="#"><i>📅</i> Schedule</a>
+            <a href="#"><i>📰</i> News</a>
+          </nav>
+        </div>
+      </div>
     </header>
 
     <main>
+      <section class="w-100">
+        <img src="./assets/images/main.png" alt="" class="w-100">
+      </section>
       <section class="py-4 py-xxl-5 container d-flex flex-column gap-4 gap-xxl-5" id="about-school">
         <div>
           <div class="d-flex gap-3 align-items-center mb-3 mb-xxl-4">

@@ -28,6 +28,12 @@
 html {
   visibility: hidden;
 }
+
+html,
+body {
+  overflow-x: visible !important;
+}
+
 html.dom-ready {
   visibility: visible;
 }

@@ -1,6 +1,6 @@
 const lightConfig = {
   particles: {
-    number: { value: 100 },
+    number: { value: 130 },
     color: { value: "#ffffff" },
     shape: { type: "circle" },
     opacity: { value: 0.5 },
