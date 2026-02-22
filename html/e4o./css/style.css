@@ -720,7 +720,7 @@ header.sticky {
 }
 
 .top-area .user-img>img {
-    border-radius: 50%;
+    border-radius: 4px;
     display: block;
     height: 32px;
     width: 32px;
@@ -5008,7 +5008,7 @@ canvas {
     padding: 10px 44px 10px 16px;
     width: 100%;
     color: #fff;
-    border-radius: 20px;
+    border-radius: 4px;
     transition: background .2s,border-color .2s
 }
 
@@ -14950,7 +14950,6 @@ a.shopping-cart>i,a.shopping-cart>svg {
     -ms-background-clip: text;
     -ms-text-fill-color: transparent;
     background-clip: text;
-    text-fill-color: transparent
 }
 
 .social-circle {
@@ -20738,11 +20737,10 @@ body.modal-open {
   display: none;
   align-items: center;
   justify-content: center;
-  /* padding: 16px; */           /* ← usually better without */
 }
 
 .modal.modal-open,
-.modal.active {                     /* support both class names */
+.modal.active {
   display: flex;
 }
 
