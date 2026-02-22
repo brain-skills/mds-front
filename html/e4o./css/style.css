@@ -20730,3 +20730,81 @@ body.modal-open {
   from { opacity: 0; transform: translateY(14px) scale(.98); }
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  /* padding: 16px; */           /* ← usually better without */
+}
+
+.modal.modal-open,
+.modal.active {                     /* support both class names */
+  display: flex;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+}
+
+.modal-content {
+  position: relative;
+  z-index: 2;
+  width: 500px;
+  max-width: 92%;
+  background: #fff;
+  border-radius: 8px;
+  padding: 28px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.28);
+  animation: modalIn 0.22s ease-out;
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 28px;
+  line-height: 1;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.modal-close:hover {
+  background: rgba(0,0,0,0.07);
+}
+
+/* Better responsive layout */
+.modal-group {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 520px) {
+  .modal-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .modal-field-head label {
+    width: auto;
+  }
+  .modal-save {
+    width: 100%;
+  }
+}

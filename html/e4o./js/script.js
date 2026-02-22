@@ -1751,3 +1751,34 @@ document.addEventListener('DOMContentLoaded', function () {
   restorePosition();
   restoreOpenState();
 });
+
+const trigger = document.querySelector('.locale-trigger');
+  const modal   = document.getElementById('localeModal');
+  const overlay = modal.querySelector('.modal-overlay');
+  const saveBtn = modal.querySelector('.modal-save');
+
+  // Open modal
+  trigger.addEventListener('click', (e) => {
+    e.preventDefault();           // prevent link jump
+    modal.classList.add('active'); // show modal
+  });
+
+  // Close modal functions
+  function closeModal() {
+    modal.classList.remove('active');
+  }
+
+  overlay.addEventListener('click', closeModal);
+  saveBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    // Here you can later add real save logic
+    // For now just close
+    closeModal();
+  });
+
+  // Optional: close with Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeModal();
+    }
+  });
